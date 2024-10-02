@@ -1,0 +1,183 @@
+---
+title: "Thesis Part 1: Preliminariy Analysis"
+author: "Eleanor (Ella) Crotty"
+header-includes:
+  \usepackage{fvextra}
+  \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+output:
+  pdf_document:
+    toc: TRUE
+urlcolor: blue
+---
+
+# Goals: 
+
+- Extract all copepod data and move to thesis folder
+- Plot absolute DO vs temperature
+- Plot copepod presence over absolute DO and temperature
+
+```{r Package Imports, message = F, warning = F}
+# Warnings and startup messages suppressed
+library(tidyverse)
+library(patchwork)
+library(scales)
+library(ggrepel)
+library(readxl)
+library(here)
+```
+
+## Import data
+```{r}
+envData <- read_csv(here("PMEL-Data", "EnvironmentalDataset1_copy.csv"))
+allReads <- read_csv(here("PMEL-Data", "FishPlusCOI_Reads_copy.csv"))
+copepodNames <- read_csv(here("PMEL-Data", "OCNMS_Copepods_Krill_copy.csv"))
+eDNAxEnvDataSat <- read_csv(here("PMEL-Data", "eDNAxEnvDataSat_copy.csv"))
+```
+
+
+## Explore copepods (Zack's code)
+
+```{r}
+eDNAxEnvDataSat %>%
+  filter(., Class=="Hexanauplia") %>% # Filter for only copepods. Note: JV is using an outdated classification here, but it's useful to us
+  mutate(., Species = if_else(Species=="Pseudocalanus acuspes", "Pseudocalanus mimus", Species)) -> eDNAxEnvDataSat_copepod # P. mimus was misclassified as P. acuspes, but after doing a BLAST search we realised it was P. mimus
+
+northern_copepods_species = c("Pseudocalanus mimus", "Acartia longiremis",  "Calanus marshallae") # yummy salmon food, cold water
+
+southern_copepods_species = c("Acartia tonsa", "Calanus pacificus", "Calocalanus spp.", "Clausocalanus spp.", "Clausocalanus parapergens", "Clausocalanus pergens", "Corycaeus anglicus", "Ctenocalanus vanus", "Mesocalanus tenuicornis",  "Paracalanus spp.", "Paracalanus sp. C AC-2013") # warm water
+southern_copepods_genera <- c("Calocalanus","Clausocalanus","Paracalanus")
+
+# Do some checks
+eDNAxEnvDataSat_copepod$Species %>%  unique() %>% sort()
+eDNAxEnvDataSat_copepod$Genus %>%  unique() %>% sort() 
+
+eDNAxEnvDataSat_copepod %>%
+  filter(., Species =="Calanus marshallae")
+
+eDNAxEnvDataSat_copepod %>%
+  filter(., str_detect(Genus,"Calocalanus")) #none
+
+eDNAxEnvDataSat_copepod %>%
+  filter(., str_detect(Species,"Paracalanus"))
+
+# Add north/south column
+eDNAxEnvDataSat_copepod <- eDNAxEnvDataSat_copepod %>%
+  mutate(., North_vs_South = case_when(Species %in% northern_copepods_species ~"Northern",
+     Species %in% southern_copepods_species ~"Southern",
+     Genus %in% southern_copepods_genera ~"Southern",
+     TRUE ~"Neither")) 
+
+# Remove copepods that aren't classified as northern or southern
+eDNAxEnvDataSat_copepod_clean <- eDNAxEnvDataSat_copepod %>%
+  filter(., North_vs_South !="Neither")
+
+eDNAxEnvDataSat_copepod_clean$North_vs_South %>% unique() # Check
+
+write_csv(eDNAxEnvDataSat_copepod_clean, here("CopepodDetectionsFiltered.csv"))
+write_csv(eDNAxEnvDataSat_copepod, here("CopepodDetectionsFull.csv"))
+```
+
+
+```{r}
+# Calculating detection rates for copepod species - preliminary analysis based on oxygen saturation
+hypoxic_copepodP <- eDNAxEnvDataSat_copepod_clean %>%
+  filter(SatPct < 20)
+
+oxic_copepodP  <- eDNAxEnvDataSat_copepod_clean %>%
+  filter(SatPct > 20)
+
+# Samps = samples
+# Dtct = detections
+HsumP <- hypoxic_copepodP %>%
+  group_by(North_vs_South) %>%
+  summarize(Dtct_H = sum(Present), Samps_H = n()) %>%
+  mutate(Pct_Dtct_H = round((Dtct_H/Samps_H)*100, digits = 2))
+
+OsumP <- oxic_copepodP %>%
+  group_by(North_vs_South) %>%
+  summarize(Dtct_O = sum(Present), Samps_O = n()) %>%
+  mutate(Pct_Dtct_O = round((Dtct_O/Samps_O)*100, digits = 2))
+
+PercentageComparisonP <- full_join(HsumP, OsumP, by = join_by(North_vs_South)) %>%
+  mutate(TotalDtct = Dtct_H+Dtct_O,
+         Samps = Samps_H + Samps_O,
+         Pct_Dtct_Total = round((TotalDtct/Samps)*100, digits = 2),
+         Delta = Pct_Dtct_O - Pct_Dtct_H, # Delta = Oxic - hypoxic detection percentages
+         AbsDelta = abs(Delta)) # To sort by
+
+PercentageComparisonP
+```
+
+```{r}
+# Calculating detection rates for copepod species - preliminary analysis based on absolute DO
+hypoxic_copepod <- eDNAxEnvDataSat_copepod_clean %>%
+  filter(DO < 2)
+
+oxic_copepod  <- eDNAxEnvDataSat_copepod_clean %>%
+  filter(DO > 2)
+
+# Samps = samples
+# Dtct = detections
+Hsum <- hypoxic_copepod %>%
+  group_by(North_vs_South) %>%
+  summarize(Dtct_H = sum(Present), Samps_H = n()) %>%
+  mutate(Pct_Dtct_H = round((Dtct_H/Samps_H)*100, digits = 2))
+
+Osum <- oxic_copepod %>%
+  group_by(North_vs_South) %>%
+  summarize(Dtct_O = sum(Present), Samps_O = n()) %>%
+  mutate(Pct_Dtct_O = round((Dtct_O/Samps_O)*100, digits = 2))
+
+PercentageComparison <- full_join(Hsum, Osum, by = join_by(North_vs_South)) %>%
+  mutate(TotalDtct = Dtct_H+Dtct_O,
+         Samps = Samps_H + Samps_O,
+         Pct_Dtct_Total = round((TotalDtct/Samps)*100, digits = 2),
+         Delta = Pct_Dtct_O - Pct_Dtct_H, # Delta = Oxic - hypoxic detection percentages
+         AbsDelta = abs(Delta)) # To sort by
+
+PercentageComparison # This is basically identical to PercentageComparisonP, but the thresholds of 2 and 20 hit approximately the same data points. The temperature is relatively constant throughout this dataset, and the density is pretty constant since it's at constant depth, so it isn't particularly weird that they're so highly correlated.
+
+ggplot(envData, aes(x = temperature)) +
+  geom_histogram(color = "black", fill = "gray70") +
+  theme_bw()
+```
+
+## Plot absolute DO vs temperature
+```{r}
+ggplot(envData, aes(x = temperature, y = DO, color = as.factor(year))) + 
+  geom_point(shape = 1, alpha = 0.5) +
+  scale_color_manual(values = c("navy", "blue", "lightblue")) +
+  geom_smooth(method = "lm", se = F, color = "black") +
+  theme_bw()
+
+ggsave(here("Preliminary-Analysis/Plots", "Temp_DO_Scatter_AllYrs.png"))
+
+ggplot(envData %>% filter(year != 2023), aes(x = temperature, y = DO, color = as.factor(year))) + 
+  geom_point(shape = 1, alpha = 0.5) +
+  scale_color_manual(values = c("navy", "blue")) +
+  geom_smooth(method = "lm", se = F, color = "black") +
+  theme_bw()
+
+ggsave(here("Preliminary-Analysis/Plots", "Temp_DO_Scatter.png"))
+```
+
+
+## Plot copepod presence vs. DO
+```{r}
+envData1 <- envData %>% filter(year != 2023)
+```
+
+```{r}
+source(here("PresenceEnvGraphFunction_copy.R"))
+presenceGraphVars()
+
+presenceGraph(eDNAxEnvDataSat_copepod, envCond = "DO", envCondName = "Oxygen", thresholdLvl = 2, hypoxicdots = F, heightpx = 1500, widthpx = 3000, ylab = "Dissolved Oxygen (mg/L)", filepath = here("Preliminary-Analysis/Plots"))
+```
+
+
+## Plot copepod presence vs. temperature
+
+```{r}
+presenceGraph(eDNAxEnvDataSat_copepod, envCond = "temperature", envCondName = "Temperature", threshold = F, hypoxicdots = F, heightpx = 1500, widthpx = 3000, ylab = "Temperature (C)", labelLoc = NA, filepath = here("Preliminary-Analysis/Plots"))
+```
+
