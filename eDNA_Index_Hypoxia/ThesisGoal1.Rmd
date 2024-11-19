@@ -1,0 +1,136 @@
+---
+title: "Thesis Goal 1"
+author: "Eleanor (Ella) Crotty"
+header-includes:
+  \usepackage{fvextra}
+  \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+output:
+  pdf_document:
+    toc: TRUE
+urlcolor: blue
+---
+
+```{r Package Imports, message = F, warning = F}
+# Warnings and startup messages suppressed
+library(tidyverse)
+library(patchwork)
+library(scales)
+library(ggrepel)
+library(readxl)
+library(here)
+```
+
+Goal 1: Compare copepod eDNA index, a measure of relative abundance using eDNA detections, to dissolved oxygen data in order to assess whether hypoxia decreases copepod abundance in OCNMS. 
+
+# Goals
+
+- Plot eDNA index over time and oxygen
+- Make scatterplots of eDNA index vs oxygen
+- Do a GAM of eDNA index vs oxygen
+- Compare eDNA to hypoxic thresholds
+
+# Import data
+```{r}
+envData <- read_csv(here("PMEL-Data", "EnvironmentalDataset1_copy.csv"))
+allReads <- read_csv(here("PMEL-Data", "FishPlusCOI_Reads_copy.csv"))
+copepodNames <- read_csv(here("PMEL-Data", "OCNMS_Copepods_Krill_copy.csv"))
+eDNAxEnvDataSat <- read_csv(here("PMEL-Data", "eDNAxEnvDataSat_copy.csv"))
+copepodFiltered <- read_csv(here("CopepodDetectionsFiltered.csv"))
+copepodFull <- read_csv(here("CopepodDetectionsFull.csv"))
+```
+
+# Calculate eDNA index
+```{r}
+copepods <- unique(copepodFull$Species)
+copepodReads <- allReads %>% 
+  filter(Species %in% copepods) # Just in case
+  
+index1dummy <- allReads %>% # Quick proportions
+  dplyr::group_by(SampleId) %>% 
+  mutate(Tot = sum(nReads),
+      	Row.sums = nReads / Tot) %>% # calculate proportions - 0 reads/0 total = NaN, need to replace with 0 to make max() work
+  relocate(c(Tot, Row.sums), .after = SampleId)
+```
+
+```{r}
+# First, combine PCR replicates and average
+PCR_reps_combine <- function(df) {
+  # print(head(df))
+  
+  # Separate out Sample_Name into three informational columns
+  df_out <- df %>% 
+    separate(Sample_Name, 
+             into=c("E_no", "Cruise1", "PCR_Rep"), 
+             remove=F, 
+             fill = "right") %>% # sep is a regular expression which is annoying, but the default recognizes any non-alphanumeric characters so the default works here
+    mutate(.)
+  
+  # Define which columns to group by
+  id_cols1 <- colnames(df_out) # Pull out column names
+  id_cols1 <- id_cols1[! id_cols1 %in% c("X", "SampleId","Sample_Name", "PCR_Rep", "pctMatch", "JV_Sample_Name", "Technical_Replicate", "nReads", "Barcode.y")] # Remove SampleId and Sample_Name, as well as other things that differ by PCR replicate
+  print(id_cols1)
+  
+  df_out <- df_out %>% 
+    group_by_at(id_cols1) %>% 
+    # dplyr::mutate(SampleId = dplyr::first(SampleId)) %>% # Just ignoring sampleid for now and using E-no as unique
+    summarize(nReads = mean(nReads)) %>% 
+    relocate(nReads, .after = PI)
+    
+  df_out
+}
+
+allReads_PCRcomb <- PCR_reps_combine(allReads) # Spot check E1325 was correct
+```
+
+```{r}
+# Second, combine by species
+
+id_cols <- colnames(allReads_PCRcomb) # Pull out column names
+id_cols <- id_cols[! id_cols %in% c("X", "ESV", "sequence", "nReads")] # Remove ESV + nreads because those are different within species
+
+allReads_species <- allReads_PCRcomb %>% 
+  group_by_at(id_cols) %>% # group_by_at can take a vector
+  summarize(TotalnReads = sum(nReads)) %>% # Removed , avgpctMatch = mean(pctMatch) because I had to remove pctMatch to combine PCR replicates. Sum nReads results in taking the sum of all ESVs within a species
+  relocate(TotalnReads, .after = PI)
+
+write_csv(allReads_species, here("eDNA_Index_Hypoxia", "Data", "CopepodReads_Species.csv")) # Gonna want this later
+
+all_index1 <- allReads_species %>%
+  dplyr::group_by(E_no) %>% # Group by E-number, beacuse sampleID had to be removed in the PCR replicate combination step
+  mutate(Tot = sum(TotalnReads),
+      	Row.sums = TotalnReads / Tot) %>% # calculate proportions - 0 reads/0 total = NaN, need to replace with 0 to make max() work
+  relocate(c(TotalnReads, Tot, Row.sums), .after = E_no) # Move it somewhere I can see the damn thing
+
+all_eDNA_index <- all_index1 %>% 
+  dplyr::group_by(Species) %>%
+  mutate(Row.sums = case_when(Row.sums == "NaN" ~ 0, 
+                                      .default = Row.sums)) %>% # Make 0/0 = 0 and not NaN
+  mutate(Colmax = max(Row.sums), Normalized.reads = Row.sums / Colmax) %>%  #transforms raw number of reads to eDNA index. Creates same divide by 0 error, so:
+  mutate(Normalized.reads = case_when(Normalized.reads == "NaN" ~ 0, 
+                                      .default = Normalized.reads)) %>% # Make 0/0 = 0 and not NaN
+  relocate(c(Colmax, Normalized.reads), .after = Row.sums)  # Move it somewhere I can see the damn thing
+
+# Filter to only copepods
+copepod_eDNA_index <- all_eDNA_index %>% 
+  filter(Species %in% copepods) %>% 
+  rename(eDNA_index = `Normalized.reads`) # to make parsing this easier
+
+write_csv(copepod_eDNA_index, here("eDNA_Index_Hypoxia", "Data", "Copepod_eDNA_index.csv")) # Gonna want this later
+```
+
+
+# Plot eDNA index over time and oxygen
+
+```{r}
+# Explore eDNA index by species
+ggplot(copepod_eDNA_index, aes(x = Date_local, y = eDNA_index, color = Species)) +
+  geom_line(show.legend = F) +
+  theme_bw()
+# Seems legit! 
+```
+
+```{r}
+source(here("eDNA_Index_Hypoxia", "eDNA_EnvGraphFunction.R"))
+
+```
+
