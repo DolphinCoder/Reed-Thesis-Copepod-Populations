@@ -31,7 +31,10 @@ Goal 1: Compare copepod eDNA index, a measure of relative abundance using eDNA d
 
 # Import data
 ```{r}
-envData <- read_csv(here("PMEL-Data", "EnvironmentalDataset1_copy.csv"))
+envData <- read_csv(here("PMEL-Data", "EnvironmentalDataset1_copy.csv")) %>% 
+  filter(year != 2023) %>%  # Ignoring 2023 due to gaps for now
+  mutate(year = as.factor(year)) %>% 
+  relocate(year, .after = date)
 allReads <- read_csv(here("PMEL-Data", "FishPlusCOI_Reads_copy.csv"))
 copepodNames <- read_csv(here("PMEL-Data", "OCNMS_Copepods_Krill_copy.csv"))
 eDNAxEnvDataSat <- read_csv(here("PMEL-Data", "eDNAxEnvDataSat_copy.csv"))
@@ -117,20 +120,70 @@ copepod_eDNA_index <- all_eDNA_index %>%
 
 write_csv(copepod_eDNA_index, here("eDNA_Index_Hypoxia", "Data", "Copepod_eDNA_index.csv")) # Gonna want this later
 ```
+# Combine eDNA index with environmental data
+```{r}
+# envData = EnvironmentalDataset1
+# Based on eDNAxpO2.Rmd from summer project
+# copepod_eDNA_index is still essentially a version of allReads so I can use the same code I did with allReads_Species
 
+EnvRd <- envData %>% 
+  mutate(DateMatch = round_date(date, unit = "10 minutes")) # Round to the nearest 10 minutes
+DetectRd <- copepod_eDNA_index %>% 
+  mutate(DateMatch = round_date(Date_UTC, unit = "10 minutes"), Date_local_hr = round_date(Date_local, unit = "hour")) # Spot check - looks good. 
+
+eDNAindxEnvData <- left_join(DetectRd, EnvRd, by = join_by(DateMatch)) %>% 
+  relocate(date, .after = Date_UTC) %>% 
+  relocate(year, .after = Date_UTC) %>% 
+  filter(year != 2023) %>% 
+  filter()
+
+investigate <- eDNAindxEnvData %>% select(Species, DateMatch, Date_UTC, Date_local_hr, source, temperature, DO, E_no, Rosette_position, Amplicon)
+
+system("say Data Join Complete")
+
+# Export the joined data
+write_csv(eDNAindxEnvData, here("eDNA_Index_Hypoxia", "Data", "Copepod_eDNAindxEnvData.csv"))
+```
+
+```{r}
+# Make a version without the copepods that are only detected in 2023 because those plots are unhelpful
+eDNAindxEnvData_clean <- eDNAindxEnvData %>% 
+  filter(Colmax > 0)
+  
+write_csv(eDNAindxEnvData, here("eDNA_Index_Hypoxia", "Data", "Copepod_eDNAindxEnvData_clean.csv"))
+```
 
 # Plot eDNA index over time and oxygen
 
 ```{r}
 # Explore eDNA index by species
 ggplot(copepod_eDNA_index, aes(x = Date_local, y = eDNA_index, color = Species)) +
+  geom_point(show.legend = F, size = 1) +
+  facet_wrap(facets = vars(year(Date_local)), scales = "free_x") +
+  geom_line(show.legend = F) +
+  theme_bw()
+
+ggplot(eDNAindxEnvData, aes(x = Date_local, y = eDNA_index, color = Species)) +
+  geom_point(show.legend = F, size = 1) +
+  facet_wrap(facets = vars(year(Date_local)), scales = "free_x") +
   geom_line(show.legend = F) +
   theme_bw()
 # Seems legit! 
 ```
 
+
 ```{r}
 source(here("eDNA_Index_Hypoxia", "eDNA_EnvGraphFunction.R"))
 
+
+eDNAGraph(eDNAindxEnvData_clean, 
+          envCond = "DO", 
+          envCondName = "Oxygen", 
+          filepath = here("eDNA_Index_Hypoxia", "Plots", "eDNAxDO"),
+          ylab = "Dissolved Oxygen (mg/L)", 
+          widthpx = 3000, # make it longer
+          threshold = T,
+          thresholdLvl = 2
+          )
 ```
 

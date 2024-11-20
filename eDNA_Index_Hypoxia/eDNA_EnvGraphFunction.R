@@ -41,62 +41,39 @@ SampHighlight3 <- geom_rect(data = sampleHighlight,
                             alpha = 0.2)
 
 presenceGraphVars <- function() { # Function that reminds me of all the parameter names
-  print("df, envCond, filename, filepath, title, ylab, widthpx = 2500, heightpx = 2000, threshold, thresholdLvl = 0, labelLoc = 75")
+  print("df, envCond, filename, filepath, title, ylab, widthpx = 2500, heightpx = 2000, threshold, thresholdLvl = 0")
 }
 
-presenceGraph <- function(df, # Dataframe of species presence/absence + environmental factors
-                          envCond, # Environmental condition VARIABLE name for plotting
+eDNAGraph <- function(df, # Dataframe of species presence/absence + environmental factors
+                          envCond, # Environmental condition VARIABLE name for plotting, as a string
                           envCondName = "EnvCondName", # Environmental condition name for export filename and plot title
                           filepath = here("eDNA_Index_Hypoxia", "Plots", "eDNAxDO"), # Where to save the file for export (a directory)
                           ylab = "Environmental Data", # Y axis label
                           widthpx = 2500, # Width for export (pixels)
                           heightpx = 2000, # Height for export (pixels)
                           threshold = T, # Whether or not to draw a horizontal line with a "threshold" for the environmental factor
-                          thresholdLvl = 0, # If threshold = T, y-intercept of the horizontal line
-                          labelLoc = 75, # Y location of the delta label (picked from EllaInterest)
-                          hypoxicdots = T # Delete the hypoxic dots if you're not using oxygen data (this only works for temperature right now)
+                          thresholdLvl = 0 # If threshold = T, y-intercept of the horizontal line
                           ) {
   print("HEADS UP: Date/time must be called exactly date and be in POSIXct, and envCond must be entered as a string (in quotes)")
   print("If you don't want a threshold line, set threshold = F instead of setting a thresholdLvl")
-  print("If you are using temperature, set hypoxicdots = F")
-  
+  print("Also for some reason you have to press 1 to confirm this function. Don't worry about it.")
+
   dfsplit <- split(df, df$Species) # Divide the input by species
 
   for (i in 1:length(dfsplit)) { # For each species: 
     species <- dfsplit[[i]]$Species[1] # Species name for title and export png name
     print(species) 
-    title <- paste(paste(species, sep = " ", "Presence vs"), sep = " ", envCondName) # Plot title
+    title <- paste(paste(species, sep = " ", "eDNA Index vs"), sep = " ", envCondName) # Plot title, changed for eDNA
     print(title)
     
-    # Currently commented out because it breaks if I don't have the manually entered values handy
-    # spStats <- EllaInterest %>% filter(Species == species) 
-    # The statistics of this species from my spreadsheet - these were entered manually
-    # print(spStats)
-    # Commented out because it prints a dataframe, can be used to check that the function is working
-    # pctLab <- spStats$DetectionRateDelta # Labels the graph with the change in occurance rate in hypoxia 
-
-    # pct_labels <- data.frame(year = c(2021, 2022), label = c("", pctLab)) 
-    # Make the labels - pick out the detection rate delta, make the label for 2021 blank to put it on only one facet
+    # Omitted statistics
+    # Omitted hypoxic dots
     
-    if (hypoxicdots == T) {
-      hypoxiaT = "red"
-      hypoxiaY = "SatPct"
-    } else {
-      hypoxiaT = "transparent" # Delete the hypoxic dots if told to
-      hypoxiaY = "temperature" # make the y temperature so that we don't have invisible dots making the y axis long
-      # Idea for later: make this less janky by forcing ylimits that are like, maximum * 1.1 and minimum * 1.1
-    }
-    
-    plotbase <- ggplot(data = envData1, aes(x = date, y = .data[[envCond]])) +
+    plotbase <- ggplot(data = envData, aes(x = date, y = .data[[envCond]])) + # envData must be changed per .Rmd file if I imported it as something else
       geom_line(color = "gray50", size = 0.2) + # Plot environmental factor
-      #geom_point(data = Hypoxia, # Plot the hypoxic data in red
-      #           aes(x = date, y = .data[[hypoxiaY]]), 
-      #           color = hypoxiaT, # See above for the if(hypoxicdots) bit for explanation
-      #           size = 0.1) +
-      geom_point(data = dfsplit[[i]], aes(x = DateMatch, y = .data[[envCond]], shape = Present, color = Present), 
-                 size = 1, stroke = 2) +
-      scale_color_manual(labels = c("Present", "Absent"), values = c("TRUE" = "dodgerblue3", "FALSE" = "orange2")) +
-      scale_shape_manual(labels = c("Present", "Absent"), values = c(1, 19)) +
+      geom_point(data = dfsplit[[i]], aes(x = DateMatch, y = .data[[envCond]], color = eDNA_index), 
+                 size = 1, stroke = 2) + # This is the big difference here
+      scale_colour_distiller(palette = 4, direction = 1) +
       SampHighlight1 +
       SampHighlight2 +
       SampHighlight3 +
@@ -116,8 +93,7 @@ presenceGraph <- function(df, # Dataframe of species presence/absence + environm
         title = title, 
         x = "Date", 
         y = ylab, 
-        color = "Detection",
-        shape = "Detection"
+        color = "eDNA Index",
         )
     
     if (threshold == T) { # If threshold, include geom_hline
