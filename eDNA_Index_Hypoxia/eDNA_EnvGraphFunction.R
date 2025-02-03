@@ -44,6 +44,7 @@ presenceGraphVars <- function() { # Function that reminds me of all the paramete
   print("df, envCond, filename, filepath, title, ylab, widthpx = 2500, heightpx = 2000, threshold, thresholdLvl = 0")
 }
 
+# Main graphing function
 eDNAGraph <- function(df, # Dataframe of species presence/absence + environmental factors
                           envCond, # Environmental condition VARIABLE name for plotting, as a string
                           envCondName = "EnvCondName", # Environmental condition name for export filename and plot title
@@ -77,6 +78,9 @@ eDNAGraph <- function(df, # Dataframe of species presence/absence + environmenta
       SampHighlight1 +
       SampHighlight2 +
       SampHighlight3 +
+      geom_hline(yintercept = 0.66, linetype = 2, color = "red") + # most copepods die
+      geom_hline(yintercept = 0.9, linetype = 2, color = "orange") + # ~50% of copepods die
+      geom_hline(yintercept = 2.66, linetype = 2, color = "forestgreen") + # many copepods experience sublethal effects (e.g. less egg production)
       theme_bw() +
       theme(text = element_text(size = 15), 
             axis.text.x = element_text(angle = 45, hjust = 1), 

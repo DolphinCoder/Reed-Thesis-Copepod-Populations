@@ -18,6 +18,7 @@ library(scales)
 library(ggrepel)
 library(readxl)
 library(here)
+library(mgcv)
 ```
 
 Goal 1: Compare copepod eDNA index, a measure of relative abundance using eDNA detections, to dissolved oxygen data in order to assess whether hypoxia decreases copepod abundance in OCNMS. 
@@ -268,19 +269,21 @@ eDNAGraph(eDNAindxEnvData_clean,
           filepath = here("eDNA_Index_Hypoxia", "Plots", "eDNAxDO"),
           ylab = "Dissolved Oxygen (mg/L)", 
           widthpx = 3000, # make it longer
-          threshold = T,
+          threshold = F,
           thresholdLvl = 2
           )
 
-eDNAGraph(eDNAindxEnvData_cleanYr, 
+eDNAGraph(eDNAindxEnvData_cleanYr, # ignoring 2023
           envCond = "DO", 
           envCondName = "Oxygen", 
           filepath = here("eDNA_Index_Hypoxia", "Plots", "eDNAxDO_no23"),
           ylab = "Dissolved Oxygen (mg/L)", 
           widthpx = 3000, # make it longer
-          threshold = T,
+          threshold = F,
           thresholdLvl = 2
           )
+
+system("say Graphs complete")
 ```
 
 
@@ -299,5 +302,45 @@ ggplot(eDNAindxEnvData_cleanYr, aes(x = eDNA_index)) +
   geom_histogram(fill = "cornflowerblue") +
   theme_bw() +
   facet_wrap(facets = vars(Hypoxic), ncol = 1)
+```
+
+# GAM of eDNA index vs oxygen
+
+```{r}
+dfsplit <- split(eDNAindxEnvData_cleanYr, eDNAindxEnvData_cleanYr$Species)
+for (i in 1:length(dfsplit)) { # For each species: 
+    species <- dfsplit[[i]]$Species[1] # Species name for title and export png name
+    print(species) 
+    title <- paste(species, sep = " ", "eDNA Index vs Dissolved Oxygen") # Plot title, changed for eDNA
+    print(title)
+    print(ggplot(dfsplit[[i]], aes(x = DO, y = eDNA_index)) +
+      geom_point(color = "orange2", alpha = 0.7) +
+      geom_smooth(method = 'gam', se = F, color = "cornflowerblue") +
+      ggtitle(title) +
+      theme_bw())
+}
+```
+
+```{r}
+for (i in 1:length(dfsplit)) { # For each species: 
+    species <- dfsplit[[i]]$Species[1] # Species name for title and export png name
+    print(species) 
+    title <- paste(species, sep = " ", "eDNA Index vs Dissolved Oxygen") # Plot title, changed for eDNA
+    print(title)
+    
+    ind_DO_GAM <- gam(eDNA_index ~ s(DO), bs = "cr", data = dfsplit[[i]])
+    print(summary(ind_DO_GAM))
+    
+    print("GAM quality")
+    AIC(ind_DO_GAM) # quality metric
+    summary(ind_DO_GAM)$sp.criterion
+}
+# edf = effective degrees of freedom
+# GCV = generalized cross validation, an estimate of the mean square prediction error. comparing between models, lower GCV is better
+```
+
+
+```{r}
+system("say Script complete")
 ```
 
