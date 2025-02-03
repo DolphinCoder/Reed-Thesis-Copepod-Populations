@@ -305,6 +305,8 @@ ggplot(eDNAindxEnvData_cleanYr, aes(x = eDNA_index)) +
   facet_wrap(facets = vars(Hypoxic), ncol = 1)
 ```
 
+\newpage
+
 # GAM of eDNA index vs oxygen
 
 ```{r}
@@ -312,27 +314,18 @@ dfsplit <- split(eDNAindxEnvData_cleanYr, eDNAindxEnvData_cleanYr$Species) # Spl
 
 for (i in 1:length(dfsplit)) { # For each species: 
     species <- dfsplit[[i]]$Species[1] # Species name 
-    print(species) 
     title <- paste(species, sep = " ", "eDNA Index vs Dissolved Oxygen") # Plot title, changed for eDNA
     print(title)
+    
+    # Plot the GAM + save it
     print(ggplot(dfsplit[[i]], aes(x = DO, y = eDNA_index)) + # plot this species
       geom_point(color = "orange2", alpha = 0.7) +
       geom_smooth(method = 'gam', se = F, color = "cornflowerblue") + # visualize GAM
       ggtitle(title) +
       theme_bw())
     ggsave(filename = paste(species, sep = "_", "eDNA_DO_GAM.png"), path = here("eDNA_Index_Hypoxia", "Plots", "GAM_Initial"), width = 2500, height = 2000, units = "px")
-}
-
-# I think I'm still having some issues w.r.t. the 2023 elimination issue
-```
-
-```{r}
-# combine this with previous chunk so the graphs and quality are paired
-for (i in 1:length(dfsplit)) { # For each species: 
-    species <- dfsplit[[i]]$Species[1] # Species name for title and export png name
-    title <- paste(species, sep = " ", "eDNA Index vs Dissolved Oxygen") # Plot title, changed for eDNA
-    print(title)
     
+    # Make the GAM as an object and print some quality metrics
     ind_DO_GAM <- gam(eDNA_index ~ s(DO), bs = "cr", data = dfsplit[[i]])
     print(summary(ind_DO_GAM))
     
@@ -340,11 +333,17 @@ for (i in 1:length(dfsplit)) { # For each species:
     print(paste("AIC: ", sep = "", AIC(ind_DO_GAM))) # quality metric
     print(summary(ind_DO_GAM)$sp.criterion)
     print(gam.check(ind_DO_GAM, k.rep = 1000)) # Bunch of graphs and also text output, which is used to check how the GAM is doing
+    
+      ## how to interpret
+      # edf = effective degrees of freedom
+      # GCV = generalized cross validation, an estimate of the mean square prediction error. comparing between models, lower GCV is better
+      # Lower AIC is also better
+      # Higher R^2 is better
+    
+    # system(paste(paste(paste("say", "Loop"), i), "Complete"))
 }
-# edf = effective degrees of freedom
-# GCV = generalized cross validation, an estimate of the mean square prediction error. comparing between models, lower GCV is better
-# Lower AIC is also better
-# Higher R^2 is better
+
+# I think I'm still having some issues w.r.t. the 2023 elimination issue
 
 system("say G A M complete")
 ```
