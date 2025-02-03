@@ -19,6 +19,7 @@ library(ggrepel)
 library(readxl)
 library(here)
 library(mgcv)
+library(gratia)
 ```
 
 Goal 1: Compare copepod eDNA index, a measure of relative abundance using eDNA detections, to dissolved oxygen data in order to assess whether hypoxia decreases copepod abundance in OCNMS. 
@@ -221,7 +222,7 @@ eDNAindxEnvDataYr <- left_join(DetectRdYr, EnvRd, by = join_by(DateMatch)) %>%
 
 investigateYr <- eDNAindxEnvDataYr %>% select(Species, DateMatch, Date_UTC, Date_local_hr, source, temperature, DO, E_no, Rosette_position, Amplicon)
 
-system("say Data Join Complete")
+system("say Data Join Without 2023 Complete")
 
 # Export the joined data
 write_csv(eDNAindxEnvDataYr, here("eDNA_Index_Hypoxia", "Data", "Copepod_eDNAindxEnvData_no23.csv"))
@@ -287,7 +288,7 @@ system("say Graphs complete")
 ```
 
 
-# Plot eDNA vs hypoxic threshold
+## Scatterplot eDNA vs hypoxic threshold
 ```{r}
 eDNAindxEnvData_cleanYr <- eDNAindxEnvData_cleanYr %>% 
   mutate(Hypoxic = case_when(DO < 2 ~ T, .default = F))
@@ -307,24 +308,28 @@ ggplot(eDNAindxEnvData_cleanYr, aes(x = eDNA_index)) +
 # GAM of eDNA index vs oxygen
 
 ```{r}
-dfsplit <- split(eDNAindxEnvData_cleanYr, eDNAindxEnvData_cleanYr$Species)
+dfsplit <- split(eDNAindxEnvData_cleanYr, eDNAindxEnvData_cleanYr$Species) # Split by species
+
 for (i in 1:length(dfsplit)) { # For each species: 
-    species <- dfsplit[[i]]$Species[1] # Species name for title and export png name
+    species <- dfsplit[[i]]$Species[1] # Species name 
     print(species) 
     title <- paste(species, sep = " ", "eDNA Index vs Dissolved Oxygen") # Plot title, changed for eDNA
     print(title)
-    print(ggplot(dfsplit[[i]], aes(x = DO, y = eDNA_index)) +
+    print(ggplot(dfsplit[[i]], aes(x = DO, y = eDNA_index)) + # plot this species
       geom_point(color = "orange2", alpha = 0.7) +
-      geom_smooth(method = 'gam', se = F, color = "cornflowerblue") +
+      geom_smooth(method = 'gam', se = F, color = "cornflowerblue") + # visualize GAM
       ggtitle(title) +
       theme_bw())
+    ggsave(filename = paste(species, sep = "_", "eDNA_DO_GAM.png"), path = here("eDNA_Index_Hypoxia", "Plots", "GAM_Initial"), width = 2500, height = 2000, units = "px")
 }
+
+# I think I'm still having some issues w.r.t. the 2023 elimination issue
 ```
 
 ```{r}
+# combine this with previous chunk so the graphs and quality are paired
 for (i in 1:length(dfsplit)) { # For each species: 
     species <- dfsplit[[i]]$Species[1] # Species name for title and export png name
-    print(species) 
     title <- paste(species, sep = " ", "eDNA Index vs Dissolved Oxygen") # Plot title, changed for eDNA
     print(title)
     
@@ -332,11 +337,16 @@ for (i in 1:length(dfsplit)) { # For each species:
     print(summary(ind_DO_GAM))
     
     print("GAM quality")
-    AIC(ind_DO_GAM) # quality metric
-    summary(ind_DO_GAM)$sp.criterion
+    print(paste("AIC: ", sep = "", AIC(ind_DO_GAM))) # quality metric
+    print(summary(ind_DO_GAM)$sp.criterion)
+    print(gam.check(ind_DO_GAM, k.rep = 1000)) # Bunch of graphs and also text output, which is used to check how the GAM is doing
 }
 # edf = effective degrees of freedom
 # GCV = generalized cross validation, an estimate of the mean square prediction error. comparing between models, lower GCV is better
+# Lower AIC is also better
+# Higher R^2 is better
+
+system("say G A M complete")
 ```
 
 
