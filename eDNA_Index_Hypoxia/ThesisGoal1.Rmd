@@ -351,12 +351,99 @@ for (i in 1:length(dfsplit)) { # For each species:
       # Lower AIC is also better
       # Higher R^2 is better
     
-    # system(paste(paste(paste("say", "Loop"), i), "Complete"))
+  # graph predicted GAM
+    # gamdat <- c()
+    # vals <- seq(0, 10, 0.1)
+    # pds <- predict(ind_DO_GAM, newdata = vals)
+    # vals2 <- data.frame(vals, mu = pds)
+    # gamdat <- rbind(gamdat, vals2)
 }
 
 # I think I'm still having some issues w.r.t. the 2023 elimination issue
 
 system("say G A M complete")
+```
+
+# Heatmap of DO x Temp x eDNA
+
+```{r}
+for (i in 1:length(dfsplit)) { # For each species: 
+    species <- dfsplit[[i]]$Species[1] # Species name 
+    title <- paste(species, sep = " ", "eDNA Index vs Dissolved Oxygen & Temperature") # Plot title
+    print(title)
+    
+# Plot + save
+    
+    print( # plot this species
+      ggplot(dfsplit[[i]], aes(x = temperature, 
+                                    y = DO, 
+                                    size = eDNA_index, color = eDNA_index)) +
+        scale_color_continuous(type = "viridis") +
+        geom_point(alpha = 0.5) +
+        ggtitle(title) +
+        geom_hline(yintercept = 0.66, linetype = 2, color = "red") + # most copepods die
+        geom_hline(yintercept = 0.9, linetype = 2, color = "orange") + # ~50% of copepods die
+        geom_hline(yintercept = 2.66, linetype = 2, color = "forestgreen") + # many copepods experience sublethal effects (e.g. less egg production)
+        theme_bw()
+    )
+      
+    ggsave(filename = paste(species, sep = "_", "eDNA_DO_Temp_ScatterSize.png"), 
+           path = here("eDNA_Index_Hypoxia", "Plots", "DO_Temp_Scatter"), 
+           width = 2500, height = 2000, units = "px")
+}
+```
+```{r}
+for (i in 1:length(dfsplit)) { # For each species: 
+    species <- dfsplit[[i]]$Species[1] # Species name 
+    title <- paste(species, sep = " ", "eDNA Index vs Dissolved Oxygen & Temperature") # Plot title
+    print(title)
+    
+# Plot + save
+    
+    print( # plot this species
+      ggplot(dfsplit[[i]], aes(x = temperature, 
+                                    y = DO, 
+                                    color = eDNA_index)) +
+        scale_color_continuous(type = "viridis") +
+        geom_point(alpha = 0.7) +
+        ggtitle(title) +
+        geom_hline(yintercept = 0.66, linetype = 2, color = "red") + # most copepods die
+        geom_hline(yintercept = 0.9, linetype = 2, color = "orange") + # ~50% of copepods die
+        geom_hline(yintercept = 2.66, linetype = 2, color = "forestgreen") + # many copepods experience sublethal effects (e.g. less egg production)
+        theme_bw()
+    )
+      
+    ggsave(filename = paste(species, sep = "_", "eDNA_DO_Temp_Scatter.png"), 
+           path = here("eDNA_Index_Hypoxia", "Plots", "DO_Temp_Scatter"), 
+           width = 2500, height = 2000, units = "px")
+}
+```
+
+```{r}
+for (i in 1:length(dfsplit)) { # For each species: 
+    species <- dfsplit[[i]]$Species[1] # Species name 
+    title <- paste(species, sep = " ", "eDNA Index vs Dissolved Oxygen & Temperature") # Plot title
+    print(title)
+    
+# Plot + save
+    
+    print( # plot this species
+      ggplot(dfsplit[[i]], aes(x = temperature, 
+                                    y = DO, 
+                                    color = eDNA_index)) +
+        scale_color_continuous(type = "viridis") +
+        geom_point(alpha = 0.5, shape = 15, size = 3) +
+        ggtitle(title) +
+        geom_hline(yintercept = 0.66, linetype = 2, color = "red") + # most copepods die
+        geom_hline(yintercept = 0.9, linetype = 2, color = "orange") + # ~50% of copepods die
+        geom_hline(yintercept = 2.66, linetype = 2, color = "forestgreen") + # many copepods experience sublethal effects (e.g. less egg production)
+        theme_bw()
+    )
+      
+    ggsave(filename = paste(species, sep = "_", "eDNA_DO_Temp_Heat.png"), 
+           path = here("eDNA_Index_Hypoxia", "Plots", "DO_Temp_Heat"), 
+           width = 2500, height = 2000, units = "px")
+}
 ```
 
 ```{r}
