@@ -32,7 +32,7 @@ library(here)
 envData <- read_csv(here("PMEL-Data", "EnvironmentalDataset1_copy.csv"))
 allReads <- read_csv(here("PMEL-Data", "FishPlusCOI_Reads_copy.csv"))
 copepodNames <- read_csv(here("PMEL-Data", "OCNMS_Copepods_Krill_copy.csv"))
-eDNAxEnvDataSat <- read_csv(here("PMEL-Data", "eDNAxEnvDataSat_copy.csv"))
+eDNAxEnvDataSat <- read_csv(here("PMEL-Data", "eDNAxEnvDataSat_copy.csv")) 
 ```
 
 

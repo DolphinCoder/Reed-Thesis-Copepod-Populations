@@ -72,9 +72,13 @@ eDNAGraph <- function(df, # Dataframe of species presence/absence + environmenta
     
     plotbase <- ggplot(data = envData, aes(x = date, y = .data[[envCond]])) + # envData must be changed per .Rmd file if I imported it as something else
       geom_line(color = "gray50", size = 0.2) + # Plot environmental factor
-      geom_point(data = dfsplit[[i]], aes(x = DateMatch, y = .data[[envCond]], color = eDNA_index), 
-                 size = 1, stroke = 2) + # This is the big difference here
-      scale_colour_distiller(palette = 4, direction = 1) +
+      geom_point(data = dfsplit[[i]], aes(x = DateMatch, y = .data[[envCond]], color = eDNA_index, size = eDNA_index), 
+                 alpha = 0.7) + # This is the big difference here
+      geom_point(data = dfsplit[[i]], aes(x = DateMatch, y = .data[[envCond]], color = eDNA_index, size = eDNA_index), 
+                 stroke = 1, shape = 1) + # Adding outlines
+      scale_colour_gradient(low = "goldenrod2", high = "darkgreen") +
+      scale_size(range = c(1,5)) +
+      geom_point(data = dfsplit[[i]] %>% filter(eDNA_index == 0), aes(x = date, y = .data[[envCond]]), color = "black") +
       SampHighlight1 +
       SampHighlight2 +
       SampHighlight3 +
@@ -82,8 +86,10 @@ eDNAGraph <- function(df, # Dataframe of species presence/absence + environmenta
       geom_hline(yintercept = 0.9, linetype = 2, color = "orange") + # ~50% of copepods die
       geom_hline(yintercept = 2.66, linetype = 2, color = "forestgreen") + # many copepods experience sublethal effects (e.g. less egg production)
       theme_bw() +
-      theme(text = element_text(size = 15), 
-            axis.text.x = element_text(angle = 45, hjust = 1), 
+      theme(text = element_text(size = 25), 
+            plot.title = element_text(size = 17),
+            legend.title = element_text(size = 20),
+            legend.text = element_text(size = 20), 
             strip.text = element_text(size = 12), 
             strip.background = element_rect(fill = "gray95"),
             axis.text.x.top = element_blank(), # Needed to delete the extra axis created by ggbreak

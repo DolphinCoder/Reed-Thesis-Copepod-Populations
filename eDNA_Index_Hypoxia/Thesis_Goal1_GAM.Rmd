@@ -1,0 +1,251 @@
+---
+title: "Thesis Goal 1 Generalized Additive Models"
+author: "Eleanor (Ella) Crotty"
+header-includes:
+  \usepackage{fvextra}
+  \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+output:
+  pdf_document:
+    toc: TRUE
+urlcolor: blue
+---
+
+Goal 1: Compare copepod eDNA index, a measure of relative abundance using eDNA detections, to dissolved oxygen data in order to assess whether hypoxia decreases copepod abundance in OCNMS.
+
+# Goals
+
+-   Plot eDNA index over time and oxygen
+-   Make scatterplots of eDNA index vs oxygen
+-   **Do a GAM of eDNA index vs oxygen**
+-   Compare eDNA to hypoxic thresholds
+
+# Setup
+
+```{r Package Imports, message = F, warning = F}
+# Warnings and startup messages suppressed
+library(tidyverse)
+library(patchwork)
+library(scales)
+library(ggrepel)
+library(readxl)
+library(here)
+library(mgcv)
+library(gratia)
+library(ggpmisc)
+```
+
+```{r}
+eDNAindxEnvData_cleanYr <- read_csv(here("eDNA_Index_Hypoxia", "Data", "Copepod_eDNAindxEnvData_clean_no23.csv")) # from ThesisGoal1.Rmd
+copepodNames <- read_csv(here("PMEL-Data", "OCNMS_Copepods_Krill_copy.csv"))
+copepodFull <- read_csv(here("CopepodDetectionsFull.csv"))
+```
+
+# GAM of eDNA index vs oxygen
+
+```{r}
+dfsplit <- split(eDNAindxEnvData_cleanYr, eDNAindxEnvData_cleanYr$Species) # Split by species
+
+# Because the distribution of eDNA index is restricted to 0-1, Zack suggested using a beta regression flavor of GAM. A linear predictor controls the mean, and it estimates variance
+# copied from documentation example, family = betar(link="logit")
+# Picking a link function: can be  "logit", "probit", "cloglog" and "cauchit". The default is logit, I'm going with that for now.
+# This will convert all the exactly zero values to 0.0000000000001ish, will that be a problem since we have so many 0s? They're theoretically replaced with highly improbable values. The documentation suggests manually resetting the 0s in a way that reflects the sampling setup. 
+
+# Documentation says: 
+# These models are useful for proportions data which can not be modelled as binomial. Note the assumption that data are in (0,1), despite the fact that for some parameter values 0 and 1 are perfectly legitimate observations. The restriction is needed to keep the log likelihood bounded for all parameter values. Any data exactly at 0 or 1 are reset to be just above 0 or just below 1 using the eps argument (in fact any observation <eps is reset to eps and any observation >1-eps is reset to 1-eps). Note the effect of this resetting. If mu phi>1 mu phi>1 then impossible 0s are replaced with highly improbable eps values. If the inequality is reversed then 0s with infinite probability density are replaced with eps values having high finite probability density. The equivalent condition for 1s is (1-mu)phi>1(1-mu)phi>1. Clearly all types of resetting are somewhat unsatisfactory, and care is needed if data contain 0s or 1s (often it makes sense to manually reset the 0s and 1s in a manner that somehow reflects the sampling setup). 
+
+for (i in 1:length(dfsplit)) { # For each species: 
+    species <- dfsplit[[i]]$Species[1] # Species name 
+    title <- paste(species, sep = " ", "eDNA Index vs Dissolved Oxygen") # Plot title, changed for eDNA
+    print(title)
+    
+    # Plot the GAM + save it
+    # I don't think I can make geom_smooth do a beta regression -_-
+    print(ggplot(dfsplit[[i]], aes(x = DO, y = eDNA_index)) + # plot this species
+      geom_point(color = "orange2", alpha = 0.7) +
+      geom_smooth(method = 'gam', se = F, color = "cornflowerblue") + # visualize GAM
+      geom_vline(xintercept = 0.66, linetype = 2, color = "red") + # most copepods die
+      geom_vline(xintercept = 0.9, linetype = 2, color = "orange") + # ~50% of copepods die
+      geom_vline(xintercept = 2.66, linetype = 2, color = "forestgreen") + # many copepods experience sublethal effects (e.g. less egg production)
+      ggtitle(title) +
+      theme_bw())
+    ggsave(filename = paste(species, sep = "_", "eDNA_DO_GAM_Prelim.png"), path = here("eDNA_Index_Hypoxia", "Plots", "GAM_Initial"), width = 2500, height = 2000, units = "px")
+    
+    # Make the GAM as an object and print some quality metrics
+    ind_DO_GAM <- gam(eDNA_index ~ s(DO), bs = "cr", data = dfsplit[[i]], family = betar(link="logit"))
+    print(summary(ind_DO_GAM))
+    
+    print("GAM quality")
+    print(paste("AIC: ", sep = "", AIC(ind_DO_GAM))) # quality metric
+    print(summary(ind_DO_GAM)$sp.criterion)
+    print(gam.check(ind_DO_GAM, k.rep = 1000)) # Bunch of graphs and also text output, which is used to check how the GAM is doing
+    
+      ## how to interpret
+      # edf = effective degrees of freedom
+      # GCV = generalized cross validation, an estimate of the mean square prediction error. comparing between models, lower GCV is better
+      # Lower AIC is also better
+      # Higher R^2 is better
+    
+  # graph predicted GAM
+    gamdat <- c()
+    DO <- seq(0.001, 8, 0.1)
+    vals <- as.data.frame(DO)
+    pds <- predict.gam(ind_DO_GAM, newdata = vals)
+    vals2 <- data.frame(vals, mu = pds)
+    gamdatdf <- rbind(gamdat, vals2)
+    
+    print(ggplot(data = gamdatdf, aes(x = DO, y = mu)) + # plot this species
+            geom_point(color = "cornflowerblue", alpha = 0.7) +
+            xlab("DO") +
+            ylab("eDNA Index (Predicted in Blue)") +
+            geom_point(data = dfsplit[[i]], aes(x = DO, y = eDNA_index),
+                       color = "orange2", alpha = 0.7
+                       ) +
+            geom_vline(xintercept = 0.66, linetype = 2, color = "red") + # most copepods die
+            geom_vline(xintercept = 0.9, linetype = 2, color = "orange") + # ~50% of copepods die
+            geom_vline(xintercept = 2.66, linetype = 2, color = "forestgreen") + # many copepods
+            ggtitle(title) +
+            theme_bw())
+    
+    ggsave(filename = paste(species, sep = "_", "eDNA_DO_GAM.png"), path = here("eDNA_Index_Hypoxia", "Plots", "GAM_Pred"), width = 2500, height = 2000, units = "px")
+}
+
+# I think I'm still having some issues w.r.t. the 2023 elimination issue
+
+system("say G A M complete")
+```
+
+# Binomial Regression
+
+**Binomial Regression Assumptions**
+
+1. Independent observations - *Check!*
+2. No multicollinearity: Continuous independent variables should not be correlated with each other - *NOT MET - shouldn't do a DO x Temp x Presence model*
+3. Binomial dependent variable, with two **mutually exclusive** values - *Check!*
+4. Continuous independent variable - *Check!*
+5. Linearity between the binomial and continuous variables - this is checked with a logit transformation - *See below, this varies by species*
+6. Sufficient obeservations - the source I found recommends > 15 - *Eeeeeeeh, only with a few*
+7. No outliers - *One outlier, which appears to be part of a real heatwave - I have not filtered it out yet*
+
+## Filter out outliers 
+
+```{r, eval = T}
+fullData <- eDNAindxEnvData_cleanYr
+fullData_noOutlier <- eDNAindxEnvData_cleanYr %>% 
+  filter(temperature < 11)
+```
+
+```{r}
+eDNAxEnvData_box <- eDNAindxEnvData_cleanYr %>% 
+  mutate(Present = case_when(TotalnReads == 0 ~ F, .default = T)) %>% 
+  mutate(year = as.factor(year.x))
+
+eDNAxEnvData_box <- eDNAxEnvData_box %>% 
+  filter(!is.na(DO & !is.na(Present) & !is.na(year))) %>% 
+  filter(!(Species %in% c("Calanus pacificus", "Clausocalanus parapergens", "Clausocalanus pergens", "Diacyclops incolotaenia", "Lucicutia flavicornis", "Metridia lucens"))) # For some goddamn reason there's a species or two that REFUSES to box tidwell
+
+joinSpeciesList <- split(eDNAxEnvData_box, eDNAxEnvData_box$Species) # Split by species
+
+library(car) # Has a function for the Box-Tidwell procedure
+?boxTidwell
+
+# Single test
+boxTidwell(Present ~ DO, data = joinSpeciesList[[1]]) # other.x = any factors not to be transformed. i had to make year into a factor to make it accept this, not sure what it's doing.
+# for some reason this works without other.x. go fucking figure.
+
+# Loop to test all for linearity with DO
+#for (i in 1:length(joinSpeciesList)) {
+#  print(paste(names(joinSpeciesList)[i], sep = " ", "Presence vs Oxygen"))
+#  print(boxTidwell(Present ~ DO, data = joinSpeciesList[[i]]))
+#}
+
+# this thing is Not Working for most of them. coming back to it later.
+```
+
+## Calculate regression
+
+```{r}
+oxmodels <- lapply(joinSpeciesList, glm, formula = Present ~ DO, family = "binomial") # Make the model for each species
+lapply(oxmodels, summary) # Print the summary of each model
+```
+
+## Looped Binomial Regression
+
+```{r}
+# Make a function that'll do the binomial regression AND put the results in a dataframe
+
+SpeciesMod <- c()
+InterceptP <- c()
+SlopeP <- c()
+SampleSizes <- c()
+
+#modtest <- glm(Detect50Split[[1]], formula = Present ~ SatPct, family = "binomial")
+#modsum <- summary(modtest)
+#Coefficients: modsum$coeffifients[1 = intercept/2 = slope, 4]
+
+for (i in 1:length(joinSpeciesList)) {
+  SpName <- names(joinSpeciesList)[i]
+  SpeciesMod <- c(SpeciesMod, SpName)
+  
+  df <- joinSpeciesList[[i]]
+  
+  SampleSize <- sum(df$Present)
+  SampleSizes <- c(SampleSizes, SampleSize)
+  
+  # lapply(joinSpeciesList, glm, formula = Present ~ SatPct, family = "binomial")
+  mod <- glm(df, formula = Present ~ DO, family = "binomial")
+  modsum <- summary(mod)
+  
+  Intercept <- round(modsum$coefficients[1,4], digits = 5)
+  Slope <- round(modsum$coefficients[2,4], digits = 5)
+  InterceptP <- c(InterceptP, Intercept)
+  SlopeP <- c(SlopeP, Slope)
+}
+
+BinomialRegressionResults <- data.frame(Species = SpeciesMod, InterceptP, SlopeP, n = SampleSizes)
+
+SignificantSlopes <- BinomialRegressionResults %>% filter(SlopeP < 0.05)
+SignificantIntercepts <- BinomialRegressionResults %>% filter(InterceptP < 0.05)
+
+SigSp <- SignificantSlopes$Species
+SigSpDf <- eDNAindxEnvData_cleanYr %>% 
+  filter(Species %in% SigSp)
+
+system("say Binomial Regression Models Computed")
+```
+
+## Graph binom regresion
+```{r}
+# Add title
+# Add better axis labels
+for (i in 1:length(joinSpeciesList)) {
+  df <- joinSpeciesList[[i]] %>% mutate(PresentBin = case_when(Present == T ~ 1, Present == F ~ 0)) %>%  # Select one species and mutate to 0/1 so that the regression will run
+    filter(temperature < 11) # Filter out the outlier
+  
+  species <- as.character(joinSpeciesList[[i]][1,7]) # Extract species name for title + export filename
+
+  ggplot(df, aes(x = DO, y = PresentBin, color = PresentBin)) +
+    geom_point(size = 4) +
+    scale_color_gradient(high = "dodgerblue3", low = "orange2", guide = "legend", na.value = "black") + # Color to match presence/absence graphs
+    geom_smooth(method = "glm", method.args = list(family = "binomial"), se = F) +
+    # Print the binomial regression
+    stat_poly_eq(use_label(c("R2")), size = 6, label.y = 0.75, label.x = 60) + # Print R^2 and p-value from the model
+    theme_bw() +
+    theme(text = element_text(size = 20)) +
+    labs(title = species, x = "Oxygen Saturation (%)", y = "Species Present?")
+  
+    ggsave(filename = here("eDNA_Index_Hypoxia", "Plots",
+                           "Binomial_Regressions", 
+                           paste(species, sep = ".", "png")), # Save graph
+           width = 2300, 
+           height = 2000, 
+           units = "px")
+}
+
+system("say Binomial Regression Graphs Complete!")
+```
+
+```{r}
+system("say Script complete")
+```
+
+
