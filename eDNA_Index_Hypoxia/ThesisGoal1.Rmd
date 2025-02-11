@@ -229,7 +229,9 @@ write_csv(eDNAindxEnvDataYr, here("eDNA_Index_Hypoxia", "Data", "Copepod_eDNAind
 
 # Make a version without the copepods that are only detected in 2023 because those plots are unhelpful
 eDNAindxEnvData_cleanYr <- eDNAindxEnvDataYr %>% 
-  filter(Colmax > 0)
+  filter(Colmax > 0) %>% 
+  mutate(Present = case_when(TotalnReads == 0 ~ F, .default = T)) %>% 
+  relocate(Present, .before = TotalnReads)
 
 # Make a split version for looping over species
 dfsplit <- split(eDNAindxEnvData_cleanYr, eDNAindxEnvData_cleanYr$Species) # Split by species
@@ -468,7 +470,58 @@ for (i in 1:length(dfsplit)) { # For each species:
 
 ## Density plot
 
-Try making a stat_density_2d(geom - "polygon") ggplot
+Try making a stat_density_2d(geom - "polygon") ggplot. Segment out into grids - bin the DO and temp data 
+
+```{r}
+for (i in 1:length(dfsplit)) { # For each species: 
+    species <- dfsplit[[i]]$Species[1] # Species name 
+    title <- paste(species, sep = " ", "eDNA Index vs Dissolved Oxygen") # Plot title
+    print(title)
+    
+    # If no or only 1 detections, don't do it (1 detection didn't get filtered out, but it won't density)
+    if (sum(dfsplit[[i]]$Present == T) <= 1) {
+      print(paste(species, "not detected"))
+      next
+    } else
+    
+# Plot + save
+    
+    
+    print( # plot this species
+      ggplot(dfsplit[[i]], aes(x = DO, y = temperature)) +
+        geom_point(color = "gray") + # all sampling dates
+        geom_density_2d_filled(data = dfsplit[[i]] %>% 
+                                 filter(Present == T),
+                        aes(x = DO, y = temperature), 
+                        alpha = 0.5) + # colored contours
+        geom_density_2d(data = dfsplit[[i]] %>% filter(Present == T),
+                        aes(x = DO, y = temperature), color = "black") + # contour lines
+        geom_point(data = dfsplit[[i]] %>% filter(Present == T),
+                   aes(x = DO, y = temperature), color = "black") + # Presences
+        theme_bw() +
+        labs(x = "Dissolved Oxygen (mg/L)", 
+             y = "Temperature (C)", 
+             title = title) +
+        geom_vline(xintercept = 0.66, linetype = 2, 
+                   color = "red", linewidth = 1) + # most die
+        geom_vline(xintercept = 0.9, linetype = 2, 
+                   color = "orange", linewidth = 1) + # ~50% die
+        geom_vline(xintercept = 2.66, linetype = 2, 
+                   color = "forestgreen", linewidth = 1) + # sublethal effects
+        theme_bw() +
+        theme(text = element_text(size = 25), 
+              axis.text = element_text(size = 30, color = "black"), 
+              plot.title = element_text(size = 17),
+              legend.title = element_text(size = 20),
+              legend.text = element_text(size = 20))
+    )
+      
+    ggsave(filename = paste(species, sep = "_", "eDNA_DO_Temp_Density.png"), 
+           path = here("eDNA_Index_Hypoxia", "Plots", "eDNA_DO_Temp_Density"), 
+           width = 2500, height = 2000, units = "px")
+}
+```
+
 
 
 ```{r}

@@ -35,23 +35,38 @@ library(ggpmisc)
 ```
 
 ```{r}
-eDNAindxEnvData_cleanYr <- read_csv(here("eDNA_Index_Hypoxia", "Data", "Copepod_eDNAindxEnvData_clean_no23.csv")) # from ThesisGoal1.Rmd
+eDNAindxEnvData_cleanYr <- read_csv(here("eDNA_Index_Hypoxia", "Data", "Copepod_eDNAindxEnvData_clean_no23.csv")) %>% # from ThesisGoal1.Rmd
+  filter(!is.na(DO))
 copepodNames <- read_csv(here("PMEL-Data", "OCNMS_Copepods_Krill_copy.csv"))
 copepodFull <- read_csv(here("CopepodDetectionsFull.csv"))
 ```
 
 # GAM of eDNA index vs oxygen
 
+### GAM documentation
+
+Because the distribution of eDNA index is restricted to 0-1, Zack suggested using a beta regression flavor of GAM. A linear predictor controls the mean, and it estimates variance
+copied from documentation example, family = betar(link="logit")
+Picking a link function: can be  "logit", "probit", "cloglog" and "cauchit". The default is logit, I'm going with that for now.
+This will convert all the exactly zero values to 0.0000000000001ish, will that be a problem since we have so many 0s? They're theoretically replaced with highly improbable values. The documentation suggests manually resetting the 0s in a way that reflects the sampling setup. 
+
+Documentation says: 
+These models are useful for proportions data which can not be modelled as binomial. Note the assumption that data are in (0,1), despite the fact that for some parameter values 0 and 1 are perfectly legitimate observations. The restriction is needed to keep the log likelihood bounded for all parameter values. Any data exactly at 0 or 1 are reset to be just above 0 or just below 1 using the eps argument (in fact any observation <eps is reset to eps and any observation >1-eps is reset to 1-eps). Note the effect of this resetting. If mu phi>1 mu phi>1 then impossible 0s are replaced with highly improbable eps values. If the inequality is reversed then 0s with infinite probability density are replaced with eps values having high finite probability density. The equivalent condition for 1s is (1-mu)phi>1(1-mu)phi>1. Clearly all types of resetting are somewhat unsatisfactory, and care is needed if data contain 0s or 1s (often it makes sense to manually reset the 0s and 1s in a manner that somehow reflects the sampling setup). 
+
+Because the distribution of eDNA index is restricted to 0-1, Zack suggested using a beta regression flavor of GAM. A linear predictor controls the mean, and it estimates variance
+copied from documentation example, family = betar(link="logit")
+Picking a link function: can be  "logit", "probit", "cloglog" and "cauchit". The default is logit, I'm going with that for now.
+This will convert all the exactly zero values to 0.0000000000001ish, will that be a problem since we have so many 0s? They're theoretically replaced with highly improbable values. The documentation suggests manually resetting the 0s in a way that reflects the sampling setup. 
+
+
+
+### GAM code 
+
 ```{r}
 dfsplit <- split(eDNAindxEnvData_cleanYr, eDNAindxEnvData_cleanYr$Species) # Split by species
 
-# Because the distribution of eDNA index is restricted to 0-1, Zack suggested using a beta regression flavor of GAM. A linear predictor controls the mean, and it estimates variance
-# copied from documentation example, family = betar(link="logit")
-# Picking a link function: can be  "logit", "probit", "cloglog" and "cauchit". The default is logit, I'm going with that for now.
-# This will convert all the exactly zero values to 0.0000000000001ish, will that be a problem since we have so many 0s? They're theoretically replaced with highly improbable values. The documentation suggests manually resetting the 0s in a way that reflects the sampling setup. 
-
-# Documentation says: 
-# These models are useful for proportions data which can not be modelled as binomial. Note the assumption that data are in (0,1), despite the fact that for some parameter values 0 and 1 are perfectly legitimate observations. The restriction is needed to keep the log likelihood bounded for all parameter values. Any data exactly at 0 or 1 are reset to be just above 0 or just below 1 using the eps argument (in fact any observation <eps is reset to eps and any observation >1-eps is reset to 1-eps). Note the effect of this resetting. If mu phi>1 mu phi>1 then impossible 0s are replaced with highly improbable eps values. If the inequality is reversed then 0s with infinite probability density are replaced with eps values having high finite probability density. The equivalent condition for 1s is (1-mu)phi>1(1-mu)phi>1. Clearly all types of resetting are somewhat unsatisfactory, and care is needed if data contain 0s or 1s (often it makes sense to manually reset the 0s and 1s in a manner that somehow reflects the sampling setup). 
+SpeciesGAMAIC <- c()
+AICGAM <- c()
 
 for (i in 1:length(dfsplit)) { # For each species: 
     species <- dfsplit[[i]]$Species[1] # Species name 
@@ -60,24 +75,31 @@ for (i in 1:length(dfsplit)) { # For each species:
     
     # Plot the GAM + save it
     # I don't think I can make geom_smooth do a beta regression -_-
-    print(ggplot(dfsplit[[i]], aes(x = DO, y = eDNA_index)) + # plot this species
-      geom_point(color = "orange2", alpha = 0.7) +
-      geom_smooth(method = 'gam', se = F, color = "cornflowerblue") + # visualize GAM
-      geom_vline(xintercept = 0.66, linetype = 2, color = "red") + # most copepods die
-      geom_vline(xintercept = 0.9, linetype = 2, color = "orange") + # ~50% of copepods die
-      geom_vline(xintercept = 2.66, linetype = 2, color = "forestgreen") + # many copepods experience sublethal effects (e.g. less egg production)
-      ggtitle(title) +
-      theme_bw())
-    ggsave(filename = paste(species, sep = "_", "eDNA_DO_GAM_Prelim.png"), path = here("eDNA_Index_Hypoxia", "Plots", "GAM_Initial"), width = 2500, height = 2000, units = "px")
+    #print(ggplot(dfsplit[[i]], aes(x = DO, y = eDNA_index)) + # plot this species
+    #  geom_point(color = "orange2", alpha = 0.7) +
+    #  geom_smooth(method = 'gam', se = F, color = "cornflowerblue") + # visualize GAM
+    #  geom_vline(xintercept = 0.66, linetype = 2, color = "red") + # most copepods die
+    #  geom_vline(xintercept = 0.9, linetype = 2, color = "orange") + # ~50% of copepods die
+    #  geom_vline(xintercept = 2.66, linetype = 2, color = "forestgreen") + # many copepods experience sublethal effects (e.g. less egg production)
+    #  ggtitle(title) +
+    #  theme_bw())
+    #ggsave(filename = paste(species, sep = "_", "eDNA_DO_GAM_Prelim.png"), path = here("eDNA_Index_Hypoxia", "Plots", "GAM_Initial"), width = 2500, height = 2000, units = "px")
     
     # Make the GAM as an object and print some quality metrics
     ind_DO_GAM <- gam(eDNA_index ~ s(DO), bs = "cr", data = dfsplit[[i]], family = betar(link="logit"))
+    # family = betar accounts for the 0-1 range 
     print(summary(ind_DO_GAM))
     
     print("GAM quality")
-    print(paste("AIC: ", sep = "", AIC(ind_DO_GAM))) # quality metric
+    GAM_aic <- AIC(ind_DO_GAM)
+    print(paste("AIC: ", sep = "", GAM_aic)) # quality metric
     print(summary(ind_DO_GAM)$sp.criterion)
     print(gam.check(ind_DO_GAM, k.rep = 1000)) # Bunch of graphs and also text output, which is used to check how the GAM is doing
+    
+    # Add to AIC table
+    
+    SpeciesGAMAIC <- c(SpeciesGAMAIC, species)
+    AICGAM <- c(AICGAM, GAM_aic)
     
       ## how to interpret
       # edf = effective degrees of freedom
@@ -85,33 +107,110 @@ for (i in 1:length(dfsplit)) { # For each species:
       # Lower AIC is also better
       # Higher R^2 is better
     
-  # graph predicted GAM
-    gamdat <- c()
-    DO <- seq(0.001, 8, 0.1)
-    vals <- as.data.frame(DO)
-    pds <- predict.gam(ind_DO_GAM, newdata = vals)
-    vals2 <- data.frame(vals, mu = pds)
-    gamdatdf <- rbind(gamdat, vals2)
+    plot.gam(ind_DO_GAM, xlab = "Dissolved Oxygen (mg/L)", ylab = "eDNA Index")
     
-    print(ggplot(data = gamdatdf, aes(x = DO, y = mu)) + # plot this species
-            geom_point(color = "cornflowerblue", alpha = 0.7) +
-            xlab("DO") +
-            ylab("eDNA Index (Predicted in Blue)") +
-            geom_point(data = dfsplit[[i]], aes(x = DO, y = eDNA_index),
-                       color = "orange2", alpha = 0.7
-                       ) +
-            geom_vline(xintercept = 0.66, linetype = 2, color = "red") + # most copepods die
-            geom_vline(xintercept = 0.9, linetype = 2, color = "orange") + # ~50% of copepods die
-            geom_vline(xintercept = 2.66, linetype = 2, color = "forestgreen") + # many copepods
-            ggtitle(title) +
-            theme_bw())
+  # Graph predicted GAM
+  #  gamdat <- c()
+  #  vals <- data.frame(DO = seq(0.01, max(dfsplit[[i]]$DO), length.out = 80)) # can't start at 0 or the GAM gets mad, end at max DO and make 80 rows so that it vibes with....something. ind_DO_GAM i think.
+    # These are values of DO across the range
+  #  pds <- predict(ind_DO_GAM, newdata = vals) - coef(ind_DO_GAM)[1] # need to subtract the intercept
+    # This predicts eDNA index based on DO
+  #  vals2 <- data.frame(vals, eDNA_index = pds) # This puts together the mock data and the predictions
+  #  gamdatdf <- rbind(gamdat, vals2)
     
-    ggsave(filename = paste(species, sep = "_", "eDNA_DO_GAM.png"), path = here("eDNA_Index_Hypoxia", "Plots", "GAM_Pred"), width = 2500, height = 2000, units = "px")
+  #  print(ggplot(data = gamdatdf, aes(x = DO, y = eDNA_index)) + # plot this species
+  #          geom_point(color = "cornflowerblue", alpha = 0.7) +
+  #          xlab("DO") +
+  #          ylab("eDNA Index (Predicted in Blue)") +
+  #          geom_point(data = dfsplit[[i]], aes(x = DO, y = eDNA_index),
+  #                     color = "orange2", alpha = 0.7
+  #                     ) +
+  #          geom_vline(xintercept = 0.66, linetype = 2, color = "red") + # most copepods die
+  #          geom_vline(xintercept = 0.9, linetype = 2, color = "orange") + # ~50% of copepods die
+  #          geom_vline(xintercept = 2.66, linetype = 2, color = "forestgreen") + # many copepods
+  #          ggtitle(title) +
+  #          theme_bw())
+    
+   # ggsave(filename = paste(species, sep = "_", "eDNA_DO_GAM.png"), path = here("eDNA_Index_Hypoxia", "Plots", "GAM_Pred"), width = 2500, height = 2000, units = "px")
+    
+    
 }
 
 # I think I'm still having some issues w.r.t. the 2023 elimination issue
 
+GAM_AIC <- data.frame(Species = SpeciesGAMAIC, GAM_full_AIC = AICGAM) # Output the nice AIC dataframe
+
 system("say G A M complete")
+```
+
+## Outlier removed
+```{r}
+eDNAindxEnvData_cleanYr_outed <- eDNAindxEnvData_cleanYr %>% 
+  filter(DO < 6)
+dfsplit_o <- split(eDNAindxEnvData_cleanYr_outed, eDNAindxEnvData_cleanYr_outed$Species) # Split by species
+
+SpeciesGAMAIC_f <- c()
+AICGAM_f <- c()
+
+for (i in 1:length(dfsplit_o)) { # For each species: 
+    species <- dfsplit_o[[i]]$Species[1] # Species name 
+    title <- paste(species, sep = " ", "eDNA Index vs Dissolved Oxygen") # Plot title, changed for eDNA
+    print(title)
+    
+    # Make the GAM as an object and print some quality metrics
+    ind_DO_GAM <- gam(eDNA_index ~ s(DO), bs = "cr", data = dfsplit_o[[i]], family = betar(link="logit"))
+    # family = betar accounts for the 0-1 range 
+    print(summary(ind_DO_GAM))
+    
+    GAM_aic <- AIC(ind_DO_GAM)
+    print("GAM quality")
+    print(paste("AIC: ", sep = "", GAM_aic)) # quality metric
+    print(summary(ind_DO_GAM)$sp.criterion)
+    print(gam.check(ind_DO_GAM, k.rep = 1000)) # Bunch of graphs and also text output, which is used to check how the GAM is doing
+    
+    SpeciesGAMAIC_f <- c(SpeciesGAMAIC_f, species)
+    AICGAM_f <- c(AICGAM_f, GAM_aic)
+    
+      ## how to interpret
+      # edf = effective degrees of freedom
+      # GCV = generalized cross validation, an estimate of the mean square prediction error. comparing between models, lower GCV is better
+      # Lower AIC is also better
+      # Higher R^2 is better
+    
+    plot.gam(ind_DO_GAM, xlab = "Dissolved Oxygen (mg/L)", ylab = "eDNA Index")
+    
+  # Graph predicted GAM
+  #  gamdat <- c()
+  #  vals <- data.frame(DO = seq(0.01, max(dfsplit_o[[i]]$DO), length.out = 80)) # can't start at 0 or the GAM gets mad, end at max DO and make 80 rows so that it vibes with....something. ind_DO_GAM i think.
+    # These are values of DO across the range
+  #  pds <- predict(ind_DO_GAM, newdata = vals) - coef(ind_DO_GAM)[1] # need to subtract the intercept
+    # This predicts eDNA index based on DO
+  #  vals2 <- data.frame(vals, eDNA_index = pds) # This puts together the mock data and the predictions
+  #  gamdatdf <- rbind(gamdat, vals2)
+    
+  #  print(ggplot(data = gamdatdf, aes(x = DO, y = eDNA_index)) + # plot this species
+  #          geom_point(color = "cornflowerblue", alpha = 0.7) +
+  #          xlab("DO") +
+  #          ylab("eDNA Index (Predicted in Blue)") +
+  #          geom_point(data = dfsplit_o[[i]], aes(x = DO, y = eDNA_index),
+  #                     color = "orange2", alpha = 0.7
+  #                     ) +
+  #          geom_vline(xintercept = 0.66, linetype = 2, color = "red") + # most copepods die
+  #          geom_vline(xintercept = 0.9, linetype = 2, color = "orange") + # ~50% of copepods die
+  #          geom_vline(xintercept = 2.66, linetype = 2, color = "forestgreen") + # many copepods
+  #          ggtitle(title) +
+  #          theme_bw())
+    
+   # ggsave(filename = paste(species, sep = "_", "eDNA_DO_GAM_O.png"), path = here("eDNA_Index_Hypoxia", "Plots", "GAM_Pred"), width = 2500, height = 2000, units = "px")
+    
+    
+}
+
+GAM_AIC_f <- data.frame(Species = SpeciesGAMAIC_f, GAM_filt_AIC = AICGAM_f) # Output the nice AIC dataframe
+
+# I think I'm still having some issues w.r.t. the 2023 elimination issue
+
+system("say G A M without outlier complete")
 ```
 
 # Binomial Regression
@@ -166,6 +265,22 @@ boxTidwell(Present ~ DO, data = joinSpeciesList[[1]]) # other.x = any factors no
 ```{r}
 oxmodels <- lapply(joinSpeciesList, glm, formula = Present ~ DO, family = "binomial") # Make the model for each species
 lapply(oxmodels, summary) # Print the summary of each model
+
+# AIC printed by oxmodels$`Euphausia pacifica`$aic
+
+SpeciesBNAIC <- c()
+AICBN <- c()
+
+for (i in 1:length(oxmodels)) {
+  species = names(joinSpeciesList)[i]
+  print(species)
+  SpeciesBNAIC <- c(SpeciesBNAIC, species)
+  AIC = oxmodels[[i]]$aic
+  print(AIC)
+  AICBN <- c(AICBN, AIC)
+}
+
+BinomReg_AIC <- data.frame(Species = SpeciesBNAIC, Binom_AIC = AICBN)
 ```
 
 ## Looped Binomial Regression
@@ -244,8 +359,15 @@ for (i in 1:length(joinSpeciesList)) {
 system("say Binomial Regression Graphs Complete!")
 ```
 
+# Compare GAM to AIC
+
 ```{r}
-system("say Script complete")
+AIC_table <- full_join(GAM_AIC, GAM_AIC_f)
+AIC_table <- full_join(AIC_table, BinomReg_AIC)
+AIC_table
 ```
 
 
+```{r}
+system("say Script complete")
+```
