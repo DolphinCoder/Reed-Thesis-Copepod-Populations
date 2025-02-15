@@ -39,7 +39,7 @@ envData <- read_csv(here("PMEL-Data", "EnvironmentalDataset1_copy.csv")) %>%
   filter(year != 2023) %>%  # Ignoring 2023 due to gaps for now
   mutate(year = as.factor(year)) %>% 
   relocate(year, .after = date)
-allReads <- read_csv(here("PMEL-Data", "FishPlusCOI_Reads_copy.csv")) %>% 
+allReads <- read_csv(here("PMEL-Data", "FishPlusCOI_Reads_copy.csv")) %>% # non-cleaned allReads
   mutate(year = year(Date_local)) %>% 
   relocate(year, .after = Date_local) %>% 
   mutate(Species = case_when(Species == "Pseudocalanus acuspes" ~ "Pseudocalanus mimus", .default = Species)) # janky fix for the misidentification
@@ -57,6 +57,19 @@ eDNAxEnvDataSat <- read_csv(here("PMEL-Data", "eDNAxEnvDataSat_copy.csv"))
 copepodFiltered <- read_csv(here("CopepodDetectionsFiltered.csv"))
 copepodFull <- read_csv(here("CopepodDetectionsFull.csv"))
 ```
+
+## Check for samples on the same day
+
+```{r}
+# Dates with 3 or 9 samples taken (see OCNMS_eDNA_Exploration.Rmd in PMEL-Hollings-eDNA-Hypoxia-2024 to see how I got this list)
+duplDates <- as.POSIXct(c("2021-08-25 09:48:00", "2021-10-08 11:15:00", "2022-06-21 13:28:00", "2022-07-19 12:58:00", "2022-08-22 10:59:00", "2022-09-20 11:00:00", "2023-06-15 14:30:00", "2023-07-26 12:54:00"))
+
+allR_check <- allReads %>% 
+  filter(Date_local %in% duplDates) %>% 
+  filter(Species == "Acartia longiremis")
+allR_check
+```
+
 
 # Calculate eDNA index
 
@@ -79,7 +92,7 @@ PCR_reps_combine <- function(df) {
   print(id_cols1)
   
   df_out <- df_out %>% 
-    group_by_at(id_cols1) %>% 
+    group_by_at(id_cols1) %>% # still grouping by E_no, so not fixing the multiple samples on dates
     # dplyr::mutate(SampleId = dplyr::first(SampleId)) %>% # Just ignoring sampleid for now and using E-no as unique
     summarize(nReads = mean(nReads)) %>% 
     relocate(nReads, .after = PI)
@@ -89,6 +102,26 @@ PCR_reps_combine <- function(df) {
 
 allReads_PCRcomb <- PCR_reps_combine(allReads) # Spot check E1325 was correct
 ```
+
+```{r}
+# did PCRcomb fix dates with multiple samples?
+allRP_check <- allReads_PCRcomb %>% 
+  filter(Date_local %in% duplDates) %>% 
+  filter(Species == "Acartia longiremis") %>% 
+  group_by(Date_local) %>% 
+  summarize(n = n())
+allRP_check
+
+allRP_check2 <- allReads_PCRcomb %>% 
+  filter(Species == "Acartia longiremis") %>% 
+  group_by(Date_local) %>% 
+  summarize(n = n())
+allRP_check2
+
+# no b/c samples on the same day had different e-numbers
+```
+
+# current problem
 
 ```{r}
 # Second, combine by species
@@ -101,7 +134,15 @@ allReads_species <- allReads_PCRcomb %>%
   summarize(TotalnReads = sum(nReads)) %>% # Removed , avgpctMatch = mean(pctMatch) because I had to remove pctMatch to combine PCR replicates. Sum nReads results in taking the sum of all ESVs within a species
   relocate(TotalnReads, .after = PI)
 
+# TODO
+# Take the average nReads() for any samples taken on the same date
+# different e-numbers
+# same species and date - should be able to just group by that? but then i don't have e-number to calculate eDNA index with. 
+
+
 write_csv(allReads_species, here("eDNA_Index_Hypoxia", "Data", "CopepodReads_Species.csv")) # Gonna want this later
+
+# Calculate eDNA index
 
 all_index1 <- allReads_species %>%
   dplyr::group_by(E_no) %>% # Group by E-number, beacuse sampleID had to be removed in the PCR replicate combination step

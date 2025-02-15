@@ -73,18 +73,6 @@ for (i in 1:length(dfsplit)) { # For each species:
     title <- paste(species, sep = " ", "eDNA Index vs Dissolved Oxygen") # Plot title, changed for eDNA
     print(title)
     
-    # Plot the GAM + save it
-    # I don't think I can make geom_smooth do a beta regression -_-
-    #print(ggplot(dfsplit[[i]], aes(x = DO, y = eDNA_index)) + # plot this species
-    #  geom_point(color = "orange2", alpha = 0.7) +
-    #  geom_smooth(method = 'gam', se = F, color = "cornflowerblue") + # visualize GAM
-    #  geom_vline(xintercept = 0.66, linetype = 2, color = "red") + # most copepods die
-    #  geom_vline(xintercept = 0.9, linetype = 2, color = "orange") + # ~50% of copepods die
-    #  geom_vline(xintercept = 2.66, linetype = 2, color = "forestgreen") + # many copepods experience sublethal effects (e.g. less egg production)
-    #  ggtitle(title) +
-    #  theme_bw())
-    #ggsave(filename = paste(species, sep = "_", "eDNA_DO_GAM_Prelim.png"), path = here("eDNA_Index_Hypoxia", "Plots", "GAM_Initial"), width = 2500, height = 2000, units = "px")
-    
     # Make the GAM as an object and print some quality metrics
     ind_DO_GAM <- gam(eDNA_index ~ s(DO), bs = "cr", data = dfsplit[[i]], family = betar(link="logit"))
     # family = betar accounts for the 0-1 range 
@@ -107,32 +95,50 @@ for (i in 1:length(dfsplit)) { # For each species:
       # Lower AIC is also better
       # Higher R^2 is better
     
-    plot.gam(ind_DO_GAM, xlab = "Dissolved Oxygen (mg/L)", ylab = "eDNA Index")
+    # mgcv plotting function, shift = intercept does not need to be done, so this is probably better
+    x <- dfsplit[[i]]$DO
+    y <- dfsplit[[i]]$eDNA_index
+    png(filename = paste(here("eDNA_Index_Hypoxia", "Plots", "GAM_Pred"), sep = "/", 
+                         paste(species, sep = "_", "eDNA_DO_GAM.png"))) # open png
+    plot.gam(ind_DO_GAM, xlab = "Dissolved Oxygen (mg/L)", ylab = "eDNA Index (GAM in Blue)", main = title, col = "blue") # plot GAM
+    points(x, y, col = "orange", pch = 16) # plot actual data
+    abline(v = 0.66, lty = "dotted", lwd = 2, col = "red") # most copepods die
+    abline(v = 0.9, lty = "dotted", lwd = 2, col = "orange") # ~50% of copepods die
+    abline(v = 2.66, lty = "dotted", lwd = 2, col = "forestgreen") # many copepods die
+    dev.off() # close png
     
-  # Graph predicted GAM
-  #  gamdat <- c()
-  #  vals <- data.frame(DO = seq(0.01, max(dfsplit[[i]]$DO), length.out = 80)) # can't start at 0 or the GAM gets mad, end at max DO and make 80 rows so that it vibes with....something. ind_DO_GAM i think.
-    # These are values of DO across the range
-  #  pds <- predict(ind_DO_GAM, newdata = vals) - coef(ind_DO_GAM)[1] # need to subtract the intercept
-    # This predicts eDNA index based on DO
-  #  vals2 <- data.frame(vals, eDNA_index = pds) # This puts together the mock data and the predictions
-  #  gamdatdf <- rbind(gamdat, vals2)
     
-  #  print(ggplot(data = gamdatdf, aes(x = DO, y = eDNA_index)) + # plot this species
-  #          geom_point(color = "cornflowerblue", alpha = 0.7) +
-  #          xlab("DO") +
-  #          ylab("eDNA Index (Predicted in Blue)") +
-  #          geom_point(data = dfsplit[[i]], aes(x = DO, y = eDNA_index),
-  #                     color = "orange2", alpha = 0.7
-  #                     ) +
-  #          geom_vline(xintercept = 0.66, linetype = 2, color = "red") + # most copepods die
-  #          geom_vline(xintercept = 0.9, linetype = 2, color = "orange") + # ~50% of copepods die
-  #          geom_vline(xintercept = 2.66, linetype = 2, color = "forestgreen") + # many copepods
-  #          ggtitle(title) +
-  #          theme_bw())
-    
-   # ggsave(filename = paste(species, sep = "_", "eDNA_DO_GAM.png"), path = here("eDNA_Index_Hypoxia", "Plots", "GAM_Pred"), width = 2500, height = 2000, units = "px")
-    
+    # Graph predicted GAM (currently sus!)
+      # Predicted GAM
+      gamdat <- c()
+      
+      vals <- data.frame(DO = seq(0.01, max(dfsplit[[i]]$DO), length.out = 80)) # can't start at 0 or the GAM gets mad, end at max DO and make 80 rows so that it vibes with....something. ind_DO_GAM i think.
+      # These are values of DO across the range
+      
+      c0 <- mean(ind_DO_GAM$smooth.frame[,1] * coef(ind_DO_GAM)[2]) # + ind_DO_GAM$smooth[,1]
+      # supposed to calculate the mean of the smooth and subtract it from pds, but this returns nothing but NaN unfortunately 
+      pds <- predict(ind_DO_GAM, newdata = vals) - coef(ind_DO_GAM)[1]  # need to subtract the intercept according to this stackoverflow
+      # https://stackoverflow.com/questions/40184092/gam-package-extra-shift-spotted-when-sketching-data-on-plot-gam
+        
+      # This predicts eDNA index based on DO
+      vals2 <- data.frame(vals, eDNA_index = pds) # This puts together the mock data and the predictions
+      
+      gamdatdf <- rbind(gamdat, vals2)
+      
+      print(ggplot(data = gamdatdf, aes(x = DO, y = eDNA_index)) + # plot this species
+              geom_point(color = "cornflowerblue", alpha = 0.7) +
+              xlab("DO") +
+              ylab("eDNA Index (Predicted in Blue)") +
+              geom_point(data = dfsplit[[i]], aes(x = DO, y = eDNA_index),
+                         color = "orange2", alpha = 0.7
+                         ) +
+              geom_vline(xintercept = 0.66, linetype = 2, color = "red") + # most copepods die
+              geom_vline(xintercept = 0.9, linetype = 2, color = "orange") + # ~50% of copepods die
+              geom_vline(xintercept = 2.66, linetype = 2, color = "forestgreen") + # many copepods die
+              ggtitle(title) +
+              theme_bw())
+      
+      ggsave(filename = paste(species, sep = "_", "eDNA_DO_GAM_sus.png"), path = here("eDNA_Index_Hypoxia", "Plots", "GAM_Pred"), width = 2500, height = 2000, units = "px")
     
 }
 
@@ -154,7 +160,7 @@ AICGAM_f <- c()
 
 for (i in 1:length(dfsplit_o)) { # For each species: 
     species <- dfsplit_o[[i]]$Species[1] # Species name 
-    title <- paste(species, sep = " ", "eDNA Index vs Dissolved Oxygen") # Plot title, changed for eDNA
+    title <- paste(species, sep = " ", "eDNA Index vs Dissolved Oxygen (Clean)") # Plot title, changed for eDNA
     print(title)
     
     # Make the GAM as an object and print some quality metrics
@@ -177,31 +183,41 @@ for (i in 1:length(dfsplit_o)) { # For each species:
       # Lower AIC is also better
       # Higher R^2 is better
     
-    plot.gam(ind_DO_GAM, xlab = "Dissolved Oxygen (mg/L)", ylab = "eDNA Index")
+    # mgcv plotting function, shift = intercept does not need to be done, so this is probably better
+    x <- dfsplit_o[[i]]$DO
+    y <- dfsplit_o[[i]]$eDNA_index
+    png(filename = paste(here("eDNA_Index_Hypoxia", "Plots", "GAM_Pred"), sep = "/", 
+                         paste(species, sep = "_", "eDNA_DO_GAM_O.png"))) # open png
+    plot.gam(ind_DO_GAM, xlab = "Dissolved Oxygen (mg/L)", ylab = "eDNA Index (GAM in Blue)", main = title, col = "blue") # plot GAM
+    points(x, y, col = "orange", pch = 16) # plot actual data
+    abline(v = 0.66, lty = "dotted", lwd = 2, col = "red") # most copepods die
+    abline(v = 0.9, lty = "dotted", lwd = 2, col = "orange") # ~50% of copepods die
+    abline(v = 2.66, lty = "dotted", lwd = 2, col = "forestgreen") # many copepods die
+    dev.off() # close png
     
   # Graph predicted GAM
-  #  gamdat <- c()
-  #  vals <- data.frame(DO = seq(0.01, max(dfsplit_o[[i]]$DO), length.out = 80)) # can't start at 0 or the GAM gets mad, end at max DO and make 80 rows so that it vibes with....something. ind_DO_GAM i think.
+    gamdat <- c()
+    vals <- data.frame(DO = seq(0.01, max(dfsplit_o[[i]]$DO), length.out = 80)) # can't start at 0 or the GAM gets mad, end at max DO and make 80 rows so that it vibes with....something. ind_DO_GAM i think.
     # These are values of DO across the range
-  #  pds <- predict(ind_DO_GAM, newdata = vals) - coef(ind_DO_GAM)[1] # need to subtract the intercept
+    pds <- predict(ind_DO_GAM, newdata = vals) - coef(ind_DO_GAM)[1] # need to subtract the intercept
     # This predicts eDNA index based on DO
-  #  vals2 <- data.frame(vals, eDNA_index = pds) # This puts together the mock data and the predictions
-  #  gamdatdf <- rbind(gamdat, vals2)
+    vals2 <- data.frame(vals, eDNA_index = pds) # This puts together the mock data and the predictions
+    gamdatdf <- rbind(gamdat, vals2)
     
-  #  print(ggplot(data = gamdatdf, aes(x = DO, y = eDNA_index)) + # plot this species
-  #          geom_point(color = "cornflowerblue", alpha = 0.7) +
-  #          xlab("DO") +
-  #          ylab("eDNA Index (Predicted in Blue)") +
-  #          geom_point(data = dfsplit_o[[i]], aes(x = DO, y = eDNA_index),
-  #                     color = "orange2", alpha = 0.7
-  #                     ) +
-  #          geom_vline(xintercept = 0.66, linetype = 2, color = "red") + # most copepods die
-  #          geom_vline(xintercept = 0.9, linetype = 2, color = "orange") + # ~50% of copepods die
-  #          geom_vline(xintercept = 2.66, linetype = 2, color = "forestgreen") + # many copepods
-  #          ggtitle(title) +
-  #          theme_bw())
+    print(ggplot(data = gamdatdf, aes(x = DO, y = eDNA_index)) + # plot this species
+            geom_point(color = "cornflowerblue", alpha = 0.7) +
+            xlab("DO") +
+            ylab("eDNA Index (Predicted in Blue)") +
+            geom_point(data = dfsplit_o[[i]], aes(x = DO, y = eDNA_index),
+                       color = "orange2", alpha = 0.7
+                       ) +
+            geom_vline(xintercept = 0.66, linetype = 2, color = "red") + # most copepods die
+            geom_vline(xintercept = 0.9, linetype = 2, color = "orange") + # ~50% of copepods die
+            geom_vline(xintercept = 2.66, linetype = 2, color = "forestgreen") + # many copepods die
+            ggtitle(title) +
+            theme_bw())
     
-   # ggsave(filename = paste(species, sep = "_", "eDNA_DO_GAM_O.png"), path = here("eDNA_Index_Hypoxia", "Plots", "GAM_Pred"), width = 2500, height = 2000, units = "px")
+    ggsave(filename = paste(species, sep = "_", "eDNA_DO_GAM_O_sus.png"), path = here("eDNA_Index_Hypoxia", "Plots", "GAM_Pred"), width = 2500, height = 2000, units = "px")
     
     
 }
@@ -344,6 +360,12 @@ for (i in 1:length(joinSpeciesList)) {
     geom_smooth(method = "glm", method.args = list(family = "binomial"), se = F) +
     # Print the binomial regression
     stat_poly_eq(use_label(c("R2")), size = 6, label.y = 0.75, label.x = 60) + # Print R^2 and p-value from the model
+    geom_vline(xintercept = 0.66, linetype = 2, 
+                   color = "red", linewidth = 1) + # most die
+    geom_vline(xintercept = 0.9, linetype = 2, 
+                   color = "orange", linewidth = 1) + # ~50% die
+    geom_vline(xintercept = 2.66, linetype = 2, 
+                   color = "forestgreen", linewidth = 1) + # sublethal effects
     theme_bw() +
     theme(text = element_text(size = 20)) +
     labs(title = species, x = "Oxygen Saturation (%)", y = "Species Present?")
