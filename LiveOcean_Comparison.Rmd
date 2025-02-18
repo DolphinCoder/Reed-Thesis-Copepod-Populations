@@ -1,0 +1,73 @@
+---
+title: "LiveOcean vs. TH042 Comparisons"
+author: "Eleanor (Ella) Crotty"
+header-includes:
+  \usepackage{fvextra}
+  \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+output:
+  pdf_document:
+    toc: TRUE
+urlcolor: blue
+---
+
+```{r Package Imports, message = F, warning = F}
+# Warnings and startup messages suppressed
+library(tidyverse)
+library(patchwork)
+library(scales)
+library(ggrepel)
+library(readxl)
+library(here)
+library(mgcv)
+library(gratia)
+library(ggpmisc)
+```
+
+```{r}
+# Import OME data
+OME <- envData <- read_csv(here("PMEL-Data", "EnvironmentalDataset1_copy.csv")) %>% # full data with 2023
+  filter(!is.na(DO)) %>% 
+  mutate(Date_UTC = date)
+# Import LiveOcean data (turned into dataframe in NetCDF_to_DF.R)
+model_alldepths <- read_csv(here("LiveOceanTH042_2021_2023.csv")) %>% 
+  mutate(DO = Oxygen_mg_L) # so that i can match the variables if i need to
+model <- model_alldepths %>% 
+  filter(s_rho < -0.92 & s_rho > -0.97) 
+
+# s_rho is a depth coordinate system where the bottom is -1 and the surface is 0
+# https://www.mathworks.com/matlabcentral/answers/2056554-from-s-coordinate-at-rho-points-to-depth
+# i do Not wanna do all that math. mooring is close to the bottom so let's use -0.95 rho
+
+OME$source = "Mooring"
+model$source = "Live Ocean Model"
+```
+
+```{r}
+ggplot(data = OME, aes(x = Date_UTC, y = DO)) +
+  geom_line(color = "orange", size = 0.5) +
+  geom_line(color = "blue", size = 0.5, data = model, aes(x = Date_UTC, y = DO)) +
+  theme_bw()
+```
+
+```{r}
+rhos <- unique(model_alldepths$s_rho)
+
+for (i in 1:length(rhos)) {
+  print(i)
+  rho = rhos[i]
+  print(rho)
+  
+  print(ggplot(data = OME, aes(x = Date_UTC, y = DO)) +
+    geom_line(color = "black", size = 0.5) +
+    geom_line(color = "blue", size = 0.5, alpha = 0.1, 
+              data = model_alldepths %>% filter(s_rho == rho), # filter for 1 rho
+    aes(x = Date_UTC, y = DO)) +
+      ggtitle(paste("s_rho = ", rho, sep = "")) +
+    theme_bw()) +
+    theme(text = element_text(size = 20))
+  
+  ggsave(filename = paste(paste("LiveOcean_s_rho", rho, sep = "_"), ".png", sep = ""), 
+         path = here("LiveOcean_Plots"),
+         width = 3000, height = 2500, units = "px")
+}
+```
