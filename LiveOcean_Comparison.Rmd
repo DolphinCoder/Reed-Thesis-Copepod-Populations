@@ -30,22 +30,19 @@ OME <- envData <- read_csv(here("PMEL-Data", "EnvironmentalDataset1_copy.csv")) 
   mutate(Date_UTC = date)
 # Import LiveOcean data (turned into dataframe in NetCDF_to_DF.R)
 model_alldepths <- read_csv(here("LiveOceanTH042_2021_2023.csv")) %>% 
-  mutate(DO = Oxygen_mg_L) # so that i can match the variables if i need to
+  mutate(DateMatch = Date_UTC) # for join later
 model <- model_alldepths %>% 
   filter(s_rho < -0.92 & s_rho > -0.97) 
 
 # s_rho is a depth coordinate system where the bottom is -1 and the surface is 0
 # https://www.mathworks.com/matlabcentral/answers/2056554-from-s-coordinate-at-rho-points-to-depth
 # i do Not wanna do all that math. mooring is close to the bottom so let's use -0.95 rho
-
-OME$source = "Mooring"
-model$source = "Live Ocean Model"
 ```
 
 ```{r}
 ggplot(data = OME, aes(x = Date_UTC, y = DO)) +
   geom_line(color = "orange", size = 0.5) +
-  geom_line(color = "blue", size = 0.5, data = model, aes(x = Date_UTC, y = DO)) +
+  geom_line(color = "blue", size = 0.5, data = model, aes(x = Date_UTC, y = Oxygen_mg_L)) +
   theme_bw()
 ```
 
@@ -59,9 +56,9 @@ for (i in 1:length(rhos)) {
   
   print(ggplot(data = OME, aes(x = Date_UTC, y = DO)) +
     geom_line(color = "black", size = 0.5) +
-    geom_line(color = "blue", size = 0.5, alpha = 0.1, 
+    geom_line(color = "blue", size = 0.5, alpha = 0.2, 
               data = model_alldepths %>% filter(s_rho == rho), # filter for 1 rho
-    aes(x = Date_UTC, y = DO)) +
+    aes(x = Date_UTC, y = Oxygen_mg_L)) +
       ggtitle(paste("s_rho = ", rho, sep = "")) +
     theme_bw()) +
     theme(text = element_text(size = 20))
@@ -71,3 +68,66 @@ for (i in 1:length(rhos)) {
          width = 3000, height = 2500, units = "px")
 }
 ```
+
+```{r}
+# Regressions of model vs mooring
+s_rho_for_lm <- rhos
+r_sq_temp <- c()
+r_sq_ox <- c()
+
+OME_match <- OME %>% 
+  mutate(DateMatch = round_date(date, unit = "10 minutes")) # looks good, we have 10, 20, 30, 40, 50, 00 every hour
+
+for (i in 1:length(rhos)) {
+  rho = rhos[i]
+  print(paste("s_rho = ", rho))
+  
+  temp <- model_alldepths %>% filter(s_rho == rho) # pull the model data for this rho
+  
+  compare <- left_join(OME_match, temp, by = join_by(DateMatch)) 
+  compare2 <- compare %>% 
+    dplyr::select(c(source, year, temperature, DO, DateMatch, s_rho, Temp_C, Oxygen_mg_L)) %>% 
+    dplyr::rename(Temp_Mooring = temperature, DO_Mooring = DO, Temp_Model = Temp_C, DO_Model = Oxygen_mg_L) # for clarity
+  
+  # Compare temp predictions
+  temp_mod <- lm(Temp_Mooring ~ Temp_Model, compare2)
+  #print(summary(temp_mod))
+  rsq <- summary(temp_mod)$r.squared
+  print(paste("Temp R squared: ", rsq))
+  r_sq_temp <- c(r_sq_temp, round(rsq, 3))
+  
+  print(ggplot(compare2, aes(x = Temp_Mooring, y = Temp_Model)) +
+          geom_point() +
+          geom_smooth(method = "lm") +
+          ggtitle(paste("Temperature at ", rho)) +
+          annotate("text", x = 9, y = 12, label = paste("R^2 = ", r_sq_temp), size = 10) +
+          theme_bw())
+  
+  ggsave(filename = paste(paste("Temp_LiveOcean_s_rho", rho, sep = "_"), ".png", sep = ""), 
+         path = here("LiveOcean_Plots"),
+         width = 3000, height = 2500, units = "px")
+  
+  # Compare DO predictions
+  ox_mod <- lm(DO_Mooring ~ DO_Model, compare2)
+  #print(summary(ox_mod))
+  o_rsq <- summary(ox_mod)$r.squared
+  print(paste("DO R squared: ", o_rsq))
+  r_sq_ox <- c(r_sq_ox, round(o_rsq, 3))
+  
+  print(ggplot(compare2, aes(x = DO_Mooring, y = DO_Model)) +
+          geom_point() +
+          geom_smooth(method = "lm") +
+          ggtitle(paste("Oxygen at ", rho)) +
+          annotate("text", x = 7, y = 1, label = paste("R^2 = ", r_sq_ox), size = 10) +
+          theme_bw())
+  
+  ggsave(filename = paste(paste("Oxygen_LiveOcean_s_rho", rho, sep = "_"), ".png", sep = ""), 
+         path = here("LiveOcean_Plots"),
+         width = 3000, height = 2500, units = "px")
+
+}
+
+# Compare the rsq values
+matches <- data.frame(s_rho_for_lm, r_sq_temp, r_sq_ox)
+```
+
