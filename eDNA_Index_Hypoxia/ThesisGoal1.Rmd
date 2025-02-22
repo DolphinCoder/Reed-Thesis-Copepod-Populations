@@ -88,12 +88,12 @@ PCR_reps_combine <- function(df) {
   
   # Define which columns to group by
   id_cols1 <- colnames(df_out) # Pull out column names
-  id_cols1 <- id_cols1[! id_cols1 %in% c("X", "SampleId","Sample_Name", "PCR_Rep", "pctMatch", "JV_Sample_Name", "Technical_Replicate", "nReads", "Barcode.y")] # Remove SampleId and Sample_Name, as well as other things that differ by PCR replicate
+  id_cols1 <- id_cols1[! id_cols1 %in% c("X", "SampleId","Sample_Name", "PCR_Rep", "pctMatch", "JV_Sample_Name", "Technical_Replicate", "nReads", "Barcode.y", "E_no", "Depth_m", "Rosette_position", "Field_Sample_Name", "Field_Notes")] # Remove SampleId and Sample_Name, as well as other things that differ by PCR replicate. Also removed E_no, Depth, and Rosette_position because they differ by multiple samples in one day (exclusive to Niskin samples). These are all the things removed from id_cols.
   print(id_cols1)
   
   df_out <- df_out %>% 
-    group_by_at(id_cols1) %>% # still grouping by E_no, so not fixing the multiple samples on dates
-    # dplyr::mutate(SampleId = dplyr::first(SampleId)) %>% # Just ignoring sampleid for now and using E-no as unique
+    group_by_at(id_cols1) %>% # I am using species and datetime to group, which deletes E-no but I don't think I've been using it. This should be ok.
+    # dplyr::mutate(SampleId = dplyr::first(SampleId)) %>% 
     summarize(nReads = mean(nReads)) %>% 
     relocate(nReads, .after = PI)
     
@@ -118,10 +118,19 @@ allRP_check2 <- allReads_PCRcomb %>%
   summarize(n = n())
 allRP_check2
 
-# no b/c samples on the same day had different e-numbers
-```
+allRP_check3 <- allReads_PCRcomb %>% 
+  filter(Species == "Acartia longiremis") %>% 
+  arrange(Date_local)
 
-# current problem
+# no b/c samples on the same day had different e-numbers
+# now it does bc i ignored e-numbers! all dates should have 245 rows <3
+# depth, e-no, rosette position fixed some but not all
+# still problem: 2021-10-08 11:15:00
+# ok so Field_Sample_Name is not always NA. Cheers.
+# 2022-06-21 13:28:00 is the only one not fixed by that. whaddaya wanna bet there's a field note.
+# Yup. Niskin failed leak test on Rosette position 2.
+# YEEEESSSSS
+```
 
 ```{r}
 # Second, combine by species
@@ -144,14 +153,28 @@ write_csv(allReads_species, here("eDNA_Index_Hypoxia", "Data", "CopepodReads_Spe
 
 # Calculate eDNA index
 
+# First make a unique ID column
+allReads_species <- allReads_species %>% 
+  mutate(Species_abbrev = sub("(\\w+)(\\S)", substring(Species, 1, 1), Species)) %>% # find word + space, replace with first letter
+  relocate(Species_abbrev, .after = Species) %>% 
+  mutate(ID_Ella = paste(Date_UTC, Amplicon, sep = "_")) %>% # just making unique sampleIDs until grouping by it fixes the eDNA index
+  relocate(ID_Ella, .after = Species) %>% 
+  mutate(ID_Ella = gsub(" ", "_", ID_Ella)) %>% 
+  mutate(ID_Ella = gsub("-", "", ID_Ella)) %>%
+  mutate(ID_Ella = gsub(":", "", ID_Ella))
+
+length(unique(allReads_species$ID_Ella)) # should = 68634 because that's the length of the dataset
+```
+
+```{r}
 all_index1 <- allReads_species %>%
-  dplyr::group_by(E_no) %>% # Group by E-number, beacuse sampleID had to be removed in the PCR replicate combination step
+  dplyr::group_by(ID_Ella) %>% # because sampleID & E_no had to be removed in the PCR replicate combination step
   mutate(Tot = sum(TotalnReads),
       	Row.sums = TotalnReads / Tot) %>% # calculate proportions - 0 reads/0 total = NaN, need to replace with 0 to make max() work
-  relocate(c(TotalnReads, Tot, Row.sums), .after = E_no) # Move it somewhere I can see the damn thing
+  relocate(c(TotalnReads, Tot, Row.sums), .after = Species) # Move it somewhere I can see the damn thing
 
 all_eDNA_index <- all_index1 %>% 
-  dplyr::group_by(Species) %>%
+  dplyr::group_by(Family, Genus, Species) %>%
   mutate(Row.sums = case_when(Row.sums == "NaN" ~ 0, 
                                       .default = Row.sums)) %>% # Make 0/0 = 0 and not NaN
   mutate(Colmax = max(Row.sums), Normalized.reads = Row.sums / Colmax) %>%  #transforms raw number of reads to eDNA index. Creates same divide by 0 error, so:
@@ -186,7 +209,7 @@ eDNAindxEnvData <- left_join(DetectRd, EnvRd, by = join_by(DateMatch)) %>%
   filter(year.x != 2023) %>% 
   filter()
 
-investigate <- eDNAindxEnvData %>% select(Species, DateMatch, Date_UTC, Date_local_hr, source, temperature, DO, E_no, Rosette_position, Amplicon)
+investigate <- eDNAindxEnvData %>% select(Species, DateMatch, Date_UTC, Date_local_hr, source, temperature, DO, Amplicon)
 
 system("say Data Join Complete")
 
@@ -225,11 +248,22 @@ allReads_speciesYr <- yrReads_PCRcomb %>%
 
 write_csv(allReads_speciesYr, here("eDNA_Index_Hypoxia", "Data", "CopepodReads_Species_no23.csv")) # Gonna want this later
 
+allReads_speciesYr <- allReads_speciesYr %>% 
+  mutate(Species_abbrev = sub("(\\w+)(\\S)", substring(Species, 1, 1), Species)) %>% # find word + space, replace with first letter
+  relocate(Species_abbrev, .after = Species) %>% 
+  mutate(ID_Ella = paste(Date_UTC, Amplicon, sep = "_")) %>% # just making unique IDs until grouping by it fixes the eDNA index
+  relocate(ID_Ella, .after = Species) %>% 
+  mutate(ID_Ella = gsub(" ", "_", ID_Ella)) %>% 
+  mutate(ID_Ella = gsub("-", "", ID_Ella)) %>%
+  mutate(ID_Ella = gsub(":", "", ID_Ella))
+
+length(unique(allReads_species$ID_Ella)) # should = 68634 because that's the length of the dataset
+
 all_index1Yr <- allReads_speciesYr %>%
-  dplyr::group_by(E_no) %>% # Group by E-number, beacuse sampleID had to be removed in the PCR replicate combination step
+  dplyr::group_by(ID_Ella) %>% # bc sampleID & E_no had to be removed in the PCR replicate combination step
   mutate(Tot = sum(TotalnReads),
       	Row.sums = TotalnReads / Tot) %>% # calculate proportions - 0 reads/0 total = NaN, need to replace with 0 to make max() work
-  relocate(c(TotalnReads, Tot, Row.sums), .after = E_no) # Move it somewhere I can see the damn thing
+  relocate(c(TotalnReads, Tot, Row.sums), .after = Species) # Move it somewhere I can see the damn thing
 
 yr_eDNA_index <- all_index1Yr %>% 
   dplyr::group_by(Species) %>%
@@ -261,7 +295,7 @@ eDNAindxEnvDataYr <- left_join(DetectRdYr, EnvRd, by = join_by(DateMatch)) %>%
   filter(year.x != 2023) %>% 
   filter()
 
-investigateYr <- eDNAindxEnvDataYr %>% select(Species, DateMatch, Date_UTC, Date_local_hr, source, temperature, DO, E_no, Rosette_position, Amplicon)
+investigateYr <- eDNAindxEnvDataYr %>% select(Species, DateMatch, Date_UTC, Date_local_hr, source, temperature, DO, Amplicon)
 
 system("say Data Join Without 2023 Complete")
 
@@ -407,6 +441,59 @@ for (i in 1:length(dfsplit)) { # For each species:
     )
       
     ggsave(filename = paste(species, sep = "_", "eDNA_DO_Temp_ScatterSize.png"), 
+           path = here("eDNA_Index_Hypoxia", "Plots", "DO_Temp_Scatter"), 
+           width = 2500, height = 2000, units = "px")
+}
+```
+
+```{r}
+# Add a gray background layer for all the environmental data
+
+for (i in 1:length(dfsplit)) { # For each species: 
+    species <- dfsplit[[i]]$Species[1] # Species name 
+    title <- paste(species, sep = " ", "eDNA Index vs Dissolved Oxygen & Temperature") # Plot title
+    print(title)
+    
+# Plot + save
+    
+    print( # plot this species
+      ggplot(data = envData, aes(x = temperature, y = DO)) +
+        geom_point(color = "gray") +
+        
+        geom_point(data = dfsplit[[i]], aes(x = temperature, 
+                                    y = DO, 
+                                    size = eDNA_index, color = eDNA_index), 
+                   alpha = 0.5) +
+        scale_color_viridis_c(option = "viridis", direction = -1) + # color
+        scale_size(range = c(2, 7)) +
+        geom_point(data = dfsplit[[i]], aes(x = temperature, 
+                                    y = DO, 
+                                    size = eDNA_index, color = eDNA_index), 
+                   shape = 1) + # add outline
+        geom_point(data = dfsplit[[i]] %>% filter(eDNA_index == 0), 
+                   aes(x = temperature, y = DO),
+                   color = "black", size = 2) + # add more distinctive zeroes
+        
+        labs(x = "Temperature (C)", 
+             y = "Dissolved Oxygen (mg/L)", 
+             color = "eDNA Index", 
+             size = "eDNA Index",
+             title = title) +
+        geom_hline(yintercept = 0.66, linetype = 2, 
+                   color = "red", linewidth = 1) + # most die
+        geom_hline(yintercept = 0.9, linetype = 2, 
+                   color = "orange", linewidth = 1) + # ~50% die
+        geom_hline(yintercept = 2.66, linetype = 2, 
+                   color = "forestgreen", linewidth = 1) + # sublethal effects
+        theme_bw() +
+        theme(text = element_text(size = 25), 
+              axis.text = element_text(size = 30, color = "black"), 
+              plot.title = element_text(size = 17),
+              legend.title = element_text(size = 20),
+              legend.text = element_text(size = 20))
+    )
+      
+    ggsave(filename = paste(species, sep = "_", "eDNA_DO_Temp_ScatterSize_AllBackground.png"), 
            path = here("eDNA_Index_Hypoxia", "Plots", "DO_Temp_Scatter"), 
            width = 2500, height = 2000, units = "px")
 }

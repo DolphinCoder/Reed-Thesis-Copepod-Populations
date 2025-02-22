@@ -100,12 +100,15 @@ for (i in 1:length(dfsplit)) { # For each species:
     y <- dfsplit[[i]]$eDNA_index
     png(filename = paste(here("eDNA_Index_Hypoxia", "Plots", "GAM_Pred"), sep = "/", 
                          paste(species, sep = "_", "eDNA_DO_GAM.png"))) # open png
-    plot.gam(ind_DO_GAM, xlab = "Dissolved Oxygen (mg/L)", ylab = "eDNA Index (GAM in Blue)", main = title, col = "blue") # plot GAM
+    plot <- plot.gam(ind_DO_GAM, xlab = "Dissolved Oxygen (mg/L)", ylab = "eDNA Index (GAM in Blue)", main = title, col = "blue") # plot GAM
     points(x, y, col = "orange", pch = 16) # plot actual data
     abline(v = 0.66, lty = "dotted", lwd = 2, col = "red") # most copepods die
     abline(v = 0.9, lty = "dotted", lwd = 2, col = "orange") # ~50% of copepods die
     abline(v = 2.66, lty = "dotted", lwd = 2, col = "forestgreen") # many copepods die
+    plot
     dev.off() # close png
+    
+    print(plot)
     
     
     # Graph predicted GAM (currently sus!)

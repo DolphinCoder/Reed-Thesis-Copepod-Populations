@@ -10,6 +10,8 @@ output:
 urlcolor: blue
 ---
 
+# Setup
+
 ```{r Package Imports, message = F, warning = F}
 # Warnings and startup messages suppressed
 library(tidyverse)
@@ -39,12 +41,18 @@ model <- model_alldepths %>%
 # i do Not wanna do all that math. mooring is close to the bottom so let's use -0.95 rho
 ```
 
+# Plot one rho
+
 ```{r}
 ggplot(data = OME, aes(x = Date_UTC, y = DO)) +
   geom_line(color = "orange", size = 0.5) +
   geom_line(color = "blue", size = 0.5, data = model, aes(x = Date_UTC, y = Oxygen_mg_L)) +
   theme_bw()
 ```
+
+# Hourly Plots
+
+## All rhos
 
 ```{r}
 rhos <- unique(model_alldepths$s_rho)
@@ -68,6 +76,7 @@ for (i in 1:length(rhos)) {
          width = 3000, height = 2500, units = "px")
 }
 ```
+## Regressions
 
 ```{r}
 # Regressions of model vs mooring
@@ -129,5 +138,201 @@ for (i in 1:length(rhos)) {
 
 # Compare the rsq values
 matches <- data.frame(s_rho_for_lm, r_sq_temp, r_sq_ox)
+```
+
+# Daily Average Plots
+
+## All rhos
+
+```{r}
+rhos <- unique(model_alldepths$s_rho)
+
+OME <- OME %>% 
+  mutate(Day = as.Date(Date_UTC))
+
+model_alldepths <- model_alldepths %>% 
+  mutate(Day = as.Date(Date_UTC))
+
+OME_day <- OME %>% 
+  group_by(Day) %>% 
+  summarize(OME_Day_Temp = mean(temperature), OME_Day_DO = mean(DO))
+
+MOD_day <- model_alldepths %>% 
+  group_by(Day, s_rho) %>% 
+  summarize(MOD_Day_Temp = mean(Temp_C), MOD_Day_DO = mean(Oxygen_mg_L))
+
+for (i in 1:length(rhos)) {
+  print(i)
+  rho = rhos[i]
+  print(rho)
+  
+  print(ggplot(data = OME_day, aes(x = Day, y = OME_Day_DO)) +
+    geom_line(color = "black", size = 0.5) +
+    geom_line(color = "blue", size = 0.5, alpha = 0.2, 
+              data = MOD_day %>% filter(s_rho == rho), # filter for 1 rho
+    aes(x = Day, y = MOD_Day_DO)) +
+      ggtitle(paste("s_rho = ", rho, sep = "")) +
+    theme_bw()) +
+    theme(text = element_text(size = 20))
+  
+  ggsave(filename = paste(paste("LiveOcean_s_rho_DAY", rho, sep = "_"), ".png", sep = ""), 
+         path = here("LiveOcean_Plots"),
+         width = 3000, height = 2500, units = "px")
+}
+```
+## Regressions
+
+```{r}
+# Regressions of model vs mooring
+s_rho_for_lm <- rhos
+r_sq_temp_day <- c()
+r_sq_ox_day <- c()
+
+for (i in 1:length(rhos)) {
+  rho = rhos[i]
+  print(paste("s_rho = ", rho))
+  
+  temp <- MOD_day %>% filter(s_rho == rho) # pull the model data for this rho
+  
+  compare <- left_join(OME_day, temp, by = join_by(Day)) 
+  compare2 <- compare %>% 
+    dplyr::select(c(Day, OME_Day_Temp, OME_Day_DO, s_rho, MOD_Day_Temp, MOD_Day_DO)) 
+  
+  # Compare temp predictions
+  temp_mod <- lm(OME_Day_Temp ~ MOD_Day_Temp, compare2)
+  #print(summary(temp_mod))
+  rsq <- summary(temp_mod)$r.squared
+  print(paste("Temp R squared: ", rsq))
+  r_sq_temp_day <- c(r_sq_temp_day, round(rsq, 3))
+  
+  print(ggplot(compare2, aes(x = OME_Day_Temp, y = MOD_Day_Temp)) +
+          geom_point() +
+          geom_smooth(method = "lm") +
+          ggtitle(paste("Daily Temperature at ", rho)) +
+          annotate("text", x = 9, y = 12, label = paste("R^2 = ", round(rsq, 3)), size = 10) +
+          theme_bw())
+  
+  ggsave(filename = paste(paste("Temp_LiveOcean_s_rho_DAY", rho, sep = "_"), ".png", sep = ""), 
+         path = here("LiveOcean_Plots"),
+         width = 3000, height = 2500, units = "px")
+  
+  # Compare DO predictions
+  ox_mod <- lm(OME_Day_DO ~ MOD_Day_DO, compare2)
+  #print(summary(ox_mod))
+  o_rsq <- summary(ox_mod)$r.squared
+  print(paste("DO R squared: ", o_rsq))
+  r_sq_ox_day <- c(r_sq_ox_day, round(o_rsq, 3))
+  
+  print(ggplot(compare2, aes(x = OME_Day_DO, y = MOD_Day_DO)) +
+          geom_point() +
+          geom_smooth(method = "lm") +
+          ggtitle(paste("Daily Oxygen at ", rho)) +
+          annotate("text", x = 7, y = 1, label = paste("R^2 = ", round(o_rsq, 3)), size = 10) +
+          theme_bw())
+  
+  ggsave(filename = paste(paste("Oxygen_LiveOcean_s_rho_DAY", rho, sep = "_"), ".png", sep = ""), 
+         path = here("LiveOcean_Plots"),
+         width = 3000, height = 2500, units = "px")
+
+}
+
+# Compare the rsq values
+matches_day <- data.frame(s_rho_for_lm, r_sq_temp_day, r_sq_ox_day)
+```
+
+# Hourly Average Plots
+
+## All rhos
+
+```{r}
+rhos <- unique(model_alldepths$s_rho)
+
+OME <- OME %>% 
+  mutate(Date_hr = round_date(date, unit = "1 hour"))
+
+model_alldepths <- model_alldepths
+
+OME_hr <- OME %>% 
+  group_by(Date_hr) %>% 
+  summarize(OME_Hr_Temp = mean(temperature), OME_Hr_DO = mean(DO))
+
+for (i in 1:length(rhos)) {
+  print(i)
+  rho = rhos[i]
+  print(rho)
+  
+  print(ggplot(data = OME_hr, aes(x = Date_hr, y = OME_Hr_DO)) +
+    geom_line(color = "black", size = 0.5) +
+    geom_line(color = "blue", size = 0.5, alpha = 0.2, 
+              data = model_alldepths %>% filter(s_rho == rho), # filter for 1 rho
+    aes(x = Date_UTC, y = Oxygen_mg_L)) +
+      ggtitle(paste("s_rho = ", rho, sep = "")) +
+    theme_bw()) +
+    theme(text = element_text(size = 20))
+  
+  ggsave(filename = paste(paste("LiveOcean_s_rho_HOUR", rho, sep = "_"), ".png", sep = ""), 
+         path = here("LiveOcean_Plots"),
+         width = 3000, height = 2500, units = "px")
+}
+```
+## Regressions
+
+```{r}
+# Regressions of model vs mooring
+s_rho_for_lm <- rhos
+r_sq_temp_hr <- c()
+r_sq_ox_hr <- c()
+
+for (i in 1:length(rhos)) {
+  rho = rhos[i]
+  print(paste("s_rho = ", rho))
+  
+  temp <- model_alldepths %>% filter(s_rho == rho) # pull the model data for this rho
+  
+  compare <- left_join(OME_hr, temp, by = join_by(Date_hr == Date_UTC)) 
+  compare2 <- compare %>% 
+    dplyr::select(c(Day, OME_Hr_Temp, OME_Hr_DO, s_rho, Temp_C, Oxygen_mg_L))  %>% 
+    dplyr::rename(MOD_Temp = Temp_C, MOD_DO = Oxygen_mg_L)
+  
+  # Compare temp predictions
+  temp_mod <- lm(OME_Hr_Temp ~ MOD_Temp, compare2)
+  #print(summary(temp_mod))
+  rsq <- summary(temp_mod)$r.squared
+  print(paste("Temp R squared: ", rsq))
+  r_sq_temp_hr <- c(r_sq_temp_hr, round(rsq, 3))
+  
+  print(ggplot(compare2, aes(x = OME_Hr_Temp, y = MOD_Temp)) +
+          geom_point() +
+          geom_smooth(method = "lm") +
+          ggtitle(paste("Hourly Temperature at ", rho)) +
+          annotate("text", x = 9, y = 12, label = paste("R^2 = ", round(rsq, 3)), size = 10) +
+          theme_bw())
+  
+  ggsave(filename = paste(paste("Temp_LiveOcean_s_rho_HOUR", rho, sep = "_"), ".png", sep = ""), 
+         path = here("LiveOcean_Plots"),
+         width = 3000, height = 2500, units = "px")
+  
+  # Compare DO predictions
+  ox_mod <- lm(OME_Hr_DO ~ MOD_DO, compare2)
+  #print(summary(ox_mod))
+  o_rsq <- summary(ox_mod)$r.squared
+  print(paste("DO R squared: ", o_rsq))
+  r_sq_ox_hr <- c(r_sq_ox_hr, round(o_rsq, 3))
+  
+  print(ggplot(compare2, aes(x = OME_Hr_DO, y = MOD_DO)) +
+          geom_point() +
+          geom_smooth(method = "lm") +
+          ggtitle(paste("Hourly Oxygen at ", rho)) +
+          annotate("text", x = 7, y = 1, label = paste("R^2 = ", round(o_rsq, 3)), size = 10) +
+          theme_bw())
+  
+  ggsave(filename = paste(paste("Oxygen_LiveOcean_s_rho_HOUR", rho, sep = "_"), ".png", sep = ""), 
+         path = here("LiveOcean_Plots"),
+         width = 3000, height = 2500, units = "px")
+
+}
+
+# Compare the rsq values
+matches_hr <- data.frame(s_rho_for_lm, r_sq_temp_hr, r_sq_ox_hr)
 ```
 
