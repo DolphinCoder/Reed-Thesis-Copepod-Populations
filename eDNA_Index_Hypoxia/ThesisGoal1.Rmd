@@ -94,7 +94,7 @@ PCR_reps_combine <- function(df) {
   df_out <- df_out %>% 
     group_by_at(id_cols1) %>% # I am using species and datetime to group, which deletes E-no but I don't think I've been using it. This should be ok.
     # dplyr::mutate(SampleId = dplyr::first(SampleId)) %>% 
-    summarize(nReads = mean(nReads)) %>% 
+    dplyr::summarize(nReads = mean(nReads)) %>% 
     relocate(nReads, .after = PI)
     
   df_out
@@ -109,13 +109,13 @@ allRP_check <- allReads_PCRcomb %>%
   filter(Date_local %in% duplDates) %>% 
   filter(Species == "Acartia longiremis") %>% 
   group_by(Date_local) %>% 
-  summarize(n = n())
+  dplyr::summarize(n = n())
 allRP_check
 
 allRP_check2 <- allReads_PCRcomb %>% 
   filter(Species == "Acartia longiremis") %>% 
   group_by(Date_local) %>% 
-  summarize(n = n())
+  dplyr::summarize(n = n())
 allRP_check2
 
 allRP_check3 <- allReads_PCRcomb %>% 
@@ -140,7 +140,7 @@ id_cols <- id_cols[! id_cols %in% c("X", "ESV", "sequence", "nReads")] # Remove 
 
 allReads_species <- allReads_PCRcomb %>% 
   group_by_at(id_cols) %>% # group_by_at can take a vector
-  summarize(TotalnReads = sum(nReads)) %>% # Removed , avgpctMatch = mean(pctMatch) because I had to remove pctMatch to combine PCR replicates. Sum nReads results in taking the sum of all ESVs within a species
+  dplyr::summarize(TotalnReads = sum(nReads)) %>% # Removed , avgpctMatch = mean(pctMatch) because I had to remove pctMatch to combine PCR replicates. Sum nReads results in taking the sum of all ESVs within a species
   relocate(TotalnReads, .after = PI)
 
 # TODO
@@ -243,7 +243,7 @@ id_cols <- id_cols[! id_cols %in% c("X", "ESV", "sequence", "nReads")] # Remove 
 
 allReads_speciesYr <- yrReads_PCRcomb %>% 
   group_by_at(id_cols) %>% # group_by_at can take a vector
-  summarize(TotalnReads = sum(nReads)) %>% # Removed , avgpctMatch = mean(pctMatch) because I had to remove pctMatch to combine PCR replicates. Sum nReads results in taking the sum of all ESVs within a species
+  dplyr::summarize(TotalnReads = sum(nReads)) %>% # Removed , avgpctMatch = mean(pctMatch) because I had to remove pctMatch to combine PCR replicates. Sum nReads results in taking the sum of all ESVs within a species
   relocate(TotalnReads, .after = PI)
 
 write_csv(allReads_speciesYr, here("eDNA_Index_Hypoxia", "Data", "CopepodReads_Species_no23.csv")) # Gonna want this later
@@ -646,6 +646,75 @@ for (i in 1:length(dfsplit)) { # For each species:
       
     ggsave(filename = paste(species, sep = "_", "eDNA_DO_Temp_Density.png"), 
            path = here("eDNA_Index_Hypoxia", "Plots", "eDNA_DO_Temp_Density"), 
+           width = 2500, height = 2000, units = "px")
+}
+```
+
+## Heatmap
+
+
+### Testing
+
+```{r}
+# Goal: Make a dataset with DO (binned), temp (binned), and presences/samples in that bin
+
+testAL <- dfsplit[[1]]
+
+testAL <- testAL %>% 
+  relocate(DO, .after = Present) %>% 
+  relocate(temperature, .after = DO) %>% 
+  mutate(DO_bin = as.factor(round(DO*4) / 4)) %>% # note: these bins are CENTERED around a 0.5, so the actual range of the 1.0 bin is 0.75-1.25
+  relocate(DO_bin, .after = DO) %>% 
+  mutate(temperature_bin = as.factor(round(temperature*4) / 4)) %>% 
+  relocate(temperature_bin, .after = temperature)
+
+testAL_props <- testAL %>% 
+  group_by(DO_bin, temperature_bin) %>% 
+  dplyr::summarize(Samples = n(), Detections = sum(Present), Detected = Detections/Samples)
+
+# Now plot time
+
+ggplot(testAL_props, aes(x = DO_bin, y = temperature_bin, fill = Detected)) +
+  geom_tile() +
+  theme_bw()
+```
+
+### Exporting
+
+```{r}
+for (i in 1:length(dfsplit)) { # For each species: 
+  
+    species <- dfsplit[[i]]$Species[1] # Species name 
+    title <- paste(species, sep = " ", "eDNA Detection Density") # Plot title
+    print(title)
+    
+# Plot + save
+    
+    df <- dfsplit[[i]]
+
+    df <- df %>% 
+      drop_na(DO, temperature) %>% 
+      relocate(DO, .after = Present) %>% 
+      relocate(temperature, .after = DO) %>% 
+      mutate(DO_bin = as.factor(round(DO*4) / 4)) %>% # note: these bins are CENTERED around a 0.5, so the actual range of the 1.0 bin is 0.75-1.25
+      relocate(DO_bin, .after = DO) %>% 
+      mutate(temperature_bin = as.factor(round(temperature*4) / 4)) %>% 
+      relocate(temperature_bin, .after = temperature) 
+    
+    df_props <- df %>% 
+      group_by(DO_bin, temperature_bin) %>% 
+      dplyr::summarize(Samples = n(), Detections = sum(Present), Detected = Detections/Samples)
+    
+    # Now plot time
+    
+    print(ggplot(df_props, aes(x = DO_bin, y = temperature_bin, fill = Detected)) +
+      geom_tile() +
+      scale_fill_gradient(low = "skyblue", high = "darkblue") +
+      ggtitle(title) +
+      theme_bw())
+      
+    ggsave(filename = paste(species, sep = "_", "eDNA_Env_Density.png"), 
+           path = here("eDNA_Index_Hypoxia", "Plots", "eDNA_Env_Density"), 
            width = 2500, height = 2000, units = "px")
 }
 ```

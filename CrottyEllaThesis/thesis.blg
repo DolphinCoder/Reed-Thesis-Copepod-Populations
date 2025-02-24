@@ -1,21 +1,19 @@
 [0] Config.pm:307> INFO - This is Biber 2.17
 [0] Config.pm:310> INFO - Logfile is 'thesis.blg'
-[68] biber-darwin:340> INFO - === Fri Dec  6, 2024, 18:01:15
-[88] Biber.pm:418> INFO - Reading 'thesis.bcf'
-[216] Biber.pm:969> INFO - Using all citekeys in bib section 0
-[232] Biber.pm:4383> INFO - Processing section 0
-[242] Biber.pm:4574> INFO - Looking for bibtex file 'thesis.bib' for section 0
-[243] bibtex.pm:1713> INFO - LaTeX decoding ...
-[263] bibtex.pm:1518> INFO - Found BibTeX data source 'thesis.bib'
-[403] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[403] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[403] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'level = 4' with 'level = 2'
-[403] Biber.pm:4203> INFO - Sorting list 'cms/global//global/global' of type 'entry' with template 'cms' and locale 'en-US'
-[403] Biber.pm:4209> INFO - No sort tailoring available for locale 'en-US'
-[421] bbl.pm:654> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
-[428] bbl.pm:757> INFO - Output to thesis.bbl
-[428] Biber.pm:130> WARN - legacy month field 'March' in entry 'reedweb:2007' is not an integer - this will probably not sort properly.
-[428] Biber.pm:130> WARN - legacy month field 'July' in entry 'hertzmann:2000' is not an integer - this will probably not sort properly.
-[428] Biber.pm:130> WARN - legacy month field 'August' in entry 'salisbury:1997' is not an integer - this will probably not sort properly.
-[428] Biber.pm:130> WARN - BibTeX subsystem: /var/folders/7r/59rr9jd93fjd9r4lv4qdlgzr0000gn/T/biber_tmp_wyLA/10964c7c28215ff4e717a58daf08cffc_97044.utf8, line 4, warning: 49 characters of junk seen at toplevel
-[428] Biber.pm:132> INFO - WARNINGS: 4
+[42] biber-darwin:340> INFO - === Sat Feb 22, 2025, 23:10:29
+[53] Biber.pm:418> INFO - Reading 'thesis.bcf'
+[147] Biber.pm:972> INFO - Found 61 citekeys in bib section 0
+[156] Biber.pm:4383> INFO - Processing section 0
+[162] Biber.pm:4574> INFO - Looking for bibtex file 'thesis.bib' for section 0
+[174] bibtex.pm:1713> INFO - LaTeX decoding ...
+[316] bibtex.pm:1518> INFO - Found BibTeX data source 'thesis.bib'
+[660] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'level = 4' with 'level = 2'
+[660] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[660] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[660] Biber.pm:4203> INFO - Sorting list 'cms/global//global/global' of type 'entry' with template 'cms' and locale 'en-US'
+[660] Biber.pm:4209> INFO - No sort tailoring available for locale 'en-US'
+[711] bbl.pm:654> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[745] bbl.pm:757> INFO - Output to thesis.bbl
+[745] Biber.pm:130> WARN - ISBN '978-1-009-15796-4 978-1-009-15797-1' in entry 'Portner2019' is invalid - run biber with '--validate_datamodel' for details.
+[745] Biber.pm:130> WARN - legacy year field 'Fri, 02/02/2024 - 17:23' in entry 'Fisheries2024' is not an integer - this will probably not sort properly.
+[745] Biber.pm:132> INFO - WARNINGS: 2
