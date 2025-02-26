@@ -59,9 +59,9 @@ temp_array[temp_array==tfillvalue$value] <- NA
 
 # z_rho has depth information
 # https://www.myroms.org/wiki/Numerical_Solution_Technique
-dunits <- ncatt_get(ncin, temp, "units")
-dep_array <- ncvar_get(ncin, temp)
-dfillvalue <- ncatt_get(ncin, temp, "_FillValue")
+dunits <- ncatt_get(ncin, "z_rho", "units")
+dep_array <- ncvar_get(ncin, "z_rho")
+dfillvalue <- ncatt_get(ncin, "z_rho", "_FillValue")
 dep_array[dep_array==dfillvalue$value] <- NA
 
 # z_w has depth information
@@ -114,13 +114,23 @@ df5 <- data.frame(cbind(df4, Depth))
 
 # Now convert oxygen
 # See lab notebook, but mmol/m^3 x 0.015999 = mg/L oxygen
-final_df <- df5 %>% 
+full_df <- df5 %>% 
   mutate(Oxygen_mg_L = Oxygen_mmol_m3 * 0.015999) # %>% # these seem legit
-  # filter(s_rho > -0.92 & s_rho < -0.97) # saving for later, might as well export
+
+moor_depth_df <- full_df %>% 
+  filter(Depth < -36 & Depth > -39)
+
+final_df <- moor_depth_df %>% 
+  group_by(Date_UTC) %>% 
+  summarize(Temp_C = mean(Temp_C), 
+            Oxygen_mg_L = mean(Oxygen_mg_L), 
+            Depth = mean(Depth), 
+            Oxygen_mmol_m3 = mean(Oxygen_mmol_m3))
 
 # s_rho is a depth coordinate system where the bottom is -1 and the surface is 0
 # https://www.mathworks.com/matlabcentral/answers/2056554-from-s-coordinate-at-rho-points-to-depth
 # i do Not wanna do all that math. mooring is close to the bottom so let's use -0.95 rho
 
 
-write.csv(final_df, here("LiveOceanTH042_2021_2023.csv"))
+write.csv(full_df, here("LiveOceanTH042_2021_2023.csv"))
+write.csv(final_df, here("LiveOcean_TH042_2021_2023_DepthClean.csv"))
