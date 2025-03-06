@@ -1,0 +1,248 @@
+---
+title: "Thesis GAM Troubleshooting"
+author: "Eleanor (Ella) Crotty"
+header-includes:
+  \usepackage{fvextra}
+  \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+output:
+  pdf_document:
+    toc: TRUE
+urlcolor: blue
+---
+
+```{r Package Imports, message = F, warning = F}
+# Warnings and startup messages suppressed
+library(tidyverse)
+library(patchwork)
+library(scales)
+library(ggrepel)
+library(readxl)
+library(here)
+library(mgcv)
+library(gratia)
+library(ggpmisc)
+```
+
+# Goals 
+
+- Focus on one species first
+- Make working beta GAM
+- Make a zero-inflated model
+
+```{r}
+data <- read_csv(here("eDNA_Index_Hypoxia", "Data", "Copepod_eDNAindxEnvData_clean_no23.csv")) %>% # from ThesisGoal1.Rmd
+  filter(!is.na(DO)) %>% 
+  filter(Species == "Acartia longiremis")
+copepodNames <- read_csv(here("PMEL-Data", "OCNMS_Copepods_Krill_copy.csv"))
+copepodFull <- read_csv(here("CopepodDetectionsFull.csv"))
+```
+
+### GAM documentation
+
+Because the distribution of eDNA index is restricted to 0-1, Zack suggested using a beta regression flavor of GAM. A linear predictor controls the mean, and it estimates variance
+copied from documentation example, family = betar(link="logit")
+Picking a link function: can be  "logit", "probit", "cloglog" and "cauchit". The default is logit, I'm going with that for now.
+This will convert all the exactly zero values to 0.0000000000001ish, will that be a problem since we have so many 0s? They're theoretically replaced with highly improbable values. The documentation suggests manually resetting the 0s in a way that reflects the sampling setup. 
+
+Documentation says: 
+These models are useful for proportions data which can not be modelled as binomial. Note the assumption that data are in (0,1), despite the fact that for some parameter values 0 and 1 are perfectly legitimate observations. The restriction is needed to keep the log likelihood bounded for all parameter values. Any data exactly at 0 or 1 are reset to be just above 0 or just below 1 using the eps argument (in fact any observation <eps is reset to eps and any observation >1-eps is reset to 1-eps). Note the effect of this resetting. If mu phi>1 mu phi>1 then impossible 0s are replaced with highly improbable eps values. If the inequality is reversed then 0s with infinite probability density are replaced with eps values having high finite probability density. The equivalent condition for 1s is (1-mu)phi>1(1-mu)phi>1. Clearly all types of resetting are somewhat unsatisfactory, and care is needed if data contain 0s or 1s (often it makes sense to manually reset the 0s and 1s in a manner that somehow reflects the sampling setup). 
+
+# Beta GAM 1
+
+```{r}
+species <- "Acartia longiremis"
+    title <- paste(species, sep = " ", "eDNA Index vs Dissolved Oxygen") # Plot title, changed for eDNA
+    print(title)
+    
+    # Make the GAM as an object and print some quality metrics
+    ind_DO_GAM <- gam(eDNA_index ~ s(DO), bs = "cr", data = data, family = betar(link="logit"))
+    # family = betar accounts for the 0-1 range 
+    # bs = "cr" These have a cubic spline basis defined by a modest sized set of knots spread evenly through the covariate values. They are penalized by the conventional intergrated square second derivative cubic spline penalty. 
+    # Not sure why I did that initially
+    print(summary(ind_DO_GAM))
+    
+    print("GAM quality")
+    GAM_aic <- AIC(ind_DO_GAM)
+    print(paste("AIC: ", sep = "", GAM_aic)) # quality metric
+    print(summary(ind_DO_GAM)$sp.criterion)
+    print(gam.check(ind_DO_GAM, k.rep = 1000)) # Bunch of graphs and also text output, which is used to check how the GAM is doing
+    
+    # Add to AIC table
+    
+    #SpeciesGAMAIC <- c(SpeciesGAMAIC, species)
+    #AICGAM <- c(AICGAM, GAM_aic)
+    
+    # mgcv plotting function, shift = intercept does not need to be done, so this is probably better
+    x <- data$DO
+    y <- data$eDNA_index
+    png(filename = paste(here("eDNA_Index_Hypoxia", "Plots", "GAM_Pred"), sep = "/", 
+                         paste(species, sep = "_", "eDNA_DO_GAM.png"))) # open png
+    plot <- plot.gam(ind_DO_GAM, xlab = "Dissolved Oxygen (mg/L)", ylab = "eDNA Index (GAM in Blue)", main = title, col = "blue") # plot GAM
+    points(x, y, col = "orange", pch = 16) # plot actual data
+    abline(v = 0.66, lty = "dotted", lwd = 2, col = "red") # most copepods die
+    abline(v = 0.9, lty = "dotted", lwd = 2, col = "orange") # ~50% of copepods die
+    abline(v = 2.66, lty = "dotted", lwd = 2, col = "forestgreen") # many copepods die
+    plot
+    dev.off() # close png
+    
+    print(plot)
+    
+    
+    # Graph predicted GAM (currently sus!)
+      # Predicted GAM
+      gamdat <- c()
+      
+      vals <- data.frame(DO = seq(0.01, max(data$DO), length.out = 80)) # can't start at 0 or the GAM gets mad, end at max DO and make 80 rows so that it vibes with....something. ind_DO_GAM i think.
+      # These are values of DO across the range
+      
+      c0 <- mean(ind_DO_GAM$smooth.frame[,1] * coef(ind_DO_GAM)[2]) # + ind_DO_GAM$smooth[,1]
+      # supposed to calculate the mean of the smooth and subtract it from pds, but this returns nothing but NaN unfortunately 
+      pds <- predict(ind_DO_GAM, newdata = vals) - coef(ind_DO_GAM)[1]  # need to subtract the intercept according to this stackoverflow
+      # https://stackoverflow.com/questions/40184092/gam-package-extra-shift-spotted-when-sketching-data-on-plot-gam
+        
+      # This predicts eDNA index based on DO
+      vals2 <- data.frame(vals, eDNA_index = pds) # This puts together the mock data and the predictions
+      
+      gamdatdf <- rbind(gamdat, vals2)
+      
+      #print(ggplot(data = gamdatdf, aes(x = DO, y = eDNA_index)) + # plot this species
+      #        geom_point(color = "cornflowerblue", alpha = 0.7) +
+      #        xlab("DO") +
+      #        ylab("eDNA Index (Predicted in Blue)") +
+      #        geom_point(data = data, aes(x = DO, y = eDNA_index),
+      #                   color = "orange2", alpha = 0.7
+      #                   ) +
+      #        geom_vline(xintercept = 0.66, linetype = 2, color = "red") + # most copepods die
+      #        geom_vline(xintercept = 0.9, linetype = 2, color = "orange") + # ~50% of copepods die
+      #        geom_vline(xintercept = 2.66, linetype = 2, color = "forestgreen") + # many copepods die
+       #       ggtitle(title) +
+       #       theme_bw())
+      
+      #ggsave(filename = paste(species, sep = "_", "eDNA_DO_GAM_test.png"), path = here("eDNA_Index_Hypoxia", "Plots", "GAM_Pred"), width = 2500, height = 2000, units = "px")
+```
+
+# No outlier
+
+```{r}
+species <- "Acartia longiremis"
+    title <- paste(species, sep = " ", "eDNA Index vs Dissolved Oxygen") # Plot title, changed for eDNA
+    print(title)
+    
+    # Make the GAM as an object and print some quality metrics
+    ind_DO_GAM <- gam(eDNA_index ~ s(DO), bs = "cr", data = data %>% filter(temperature < 10), family = betar(link="logit"))
+    # family = betar accounts for the 0-1 range 
+    print(summary(ind_DO_GAM))
+    
+    print("GAM quality")
+    GAM_aic <- AIC(ind_DO_GAM)
+    print(paste("AIC: ", sep = "", GAM_aic)) # quality metric
+    print(summary(ind_DO_GAM)$sp.criterion)
+    print(gam.check(ind_DO_GAM, k.rep = 1000)) # Bunch of graphs and also text output, which is used to check how the GAM is doing
+    
+    # Add to AIC table
+    
+    #SpeciesGAMAIC <- c(SpeciesGAMAIC, species)
+    #AICGAM <- c(AICGAM, GAM_aic)
+    
+    # mgcv plotting function, shift = intercept does not need to be done, so this is probably better
+    x <- (data %>% filter(temperature < 10))$DO
+    y <- (data %>% filter(temperature < 10))$eDNA_index
+    png(filename = paste(here("eDNA_Index_Hypoxia", "Plots", "GAM_Pred_test"), sep = "/", 
+                         paste(species, sep = "_", "eDNA_DO_GAM.png"))) # open png
+    plot <- plot.gam(ind_DO_GAM, xlab = "Dissolved Oxygen (mg/L)", ylab = "eDNA Index (GAM in Blue)", main = title, col = "blue") # plot GAM
+    points(x, y, col = "orange", pch = 16) # plot actual data
+    abline(v = 0.66, lty = "dotted", lwd = 2, col = "red") # most copepods die
+    abline(v = 0.9, lty = "dotted", lwd = 2, col = "orange") # ~50% of copepods die
+    abline(v = 2.66, lty = "dotted", lwd = 2, col = "forestgreen") # many copepods die
+    plot
+    dev.off() # close png
+    
+    print(plot)
+```
+
+# Try negative binomial
+
+Danny thinks this might work better since it can handle non-integer values. See if this improves the AIC and R^2.
+
+```{r}
+    species <- "Acartia longiremis"
+    title <- paste(species, sep = " ", "eDNA Index vs Dissolved Oxygen") # Plot title, changed for eDNA
+    print(title)
+    
+    data_filt <- data %>% filter(temperature < 10)
+    
+    # Make the GAM as an object and print some quality metrics, using negative binomial
+    ind_DO_GAM_nb <- gam(eDNA_index ~ s(DO), bs = "cr", data_filt, family = "nb")
+    # family = nb uses a log link function
+    # bs = "cr" These have a cubic spline basis defined by a modest sized set of knots spread evenly through the covariate values. They are penalized by the conventional intergrated square second derivative cubic spline penalty. 
+    # Not sure why I did that initially
+    print(summary(ind_DO_GAM_nb))
+    
+    print("GAM quality")
+    GAM_aic_nb <- AIC(ind_DO_GAM_nb)
+    print(paste("AIC: ", sep = "", GAM_aic_nb)) # quality metric
+    print(summary(ind_DO_GAM_nb)$sp.criterion)
+    print(gam.check(ind_DO_GAM_nb, k.rep = 1000)) # Bunch of graphs and also text output, which is used to check how the GAM is doing
+    
+    # Add to AIC table
+    
+    #SpeciesGAMAIC <- c(SpeciesGAMAIC, species)
+    #AICGAM <- c(AICGAM, GAM_aic)
+    
+    # mgcv plotting function, shift = intercept does not need to be done, so this is probably better
+    x_nb <- data_filt$DO
+    y_nb <- data_filt$eDNA_index
+    png(filename = paste(here("eDNA_Index_Hypoxia", "Plots", "GAM_Pred_test"), sep = "/", 
+                         paste(species, sep = "_", "eDNA_DO_GAM_nb.png"))) # open png
+    plot <- plot.gam(ind_DO_GAM_nb, xlab = "Dissolved Oxygen (mg/L)", ylab = "eDNA Index (GAM in Blue)", main = title, col = "blue") # plot GAM
+    points(x_nb, y_nb, col = "orange", pch = 16) # plot actual data
+    # log10 because of how negative binomial regression works
+    abline(v = 0.66, lty = "dotted", lwd = 2, col = "red") # most copepods die
+    abline(v = 0.9, lty = "dotted", lwd = 2, col = "orange") # ~50% of copepods die
+    abline(v = 2.66, lty = "dotted", lwd = 2, col = "forestgreen") # many copepods die
+    plot
+    dev.off() # close png
+    
+    print(plot)
+    
+```
+
+
+# Zero-inflated
+
+```{r, eval = F}
+species <- "Acartia longiremis"
+    title <- paste(species, sep = " ", "eDNA Index vs Dissolved Oxygen") # Plot title, changed for eDNA
+    print(title)
+    
+    # Make the GAM as an object and print some quality metrics
+    ind_DO_GAM_zip <- gam(eDNA_index ~ s(DO), bs = "cr", data = data, family = ziP()) # this is designed for count data b/c it's a poisson distribution, so decimals are a no-no
+    # family = betar accounts for the 0-1 range 
+    print(summary(ind_DO_GAM_zip))
+    
+    print("GAM quality")
+    GAM_aic_zip <- AIC(ind_DO_GAM_zip)
+    print(paste("AIC: ", sep = "", GAM_aic_zip)) # quality metric
+    print(summary(ind_DO_GAM_zip)$sp.criterion)
+    print(gam.check(ind_DO_GAM_zip, k.rep = 1000)) # Bunch of graphs and also text output, which is used to check how the GAM is doing
+    
+    # Add to AIC table
+    
+    #SpeciesGAMAIC <- c(SpeciesGAMAIC, species)
+    #AICGAM <- c(AICGAM, GAM_aic)
+    
+    # mgcv plotting function, shift = intercept does not need to be done, so this is probably better
+    x_zip <- data_filt$DO
+    y_zip <- data_filt$eDNA_index
+    png(filename = paste(here("eDNA_Index_Hypoxia", "Plots", "GAM_Pred_test"), sep = "/", 
+                         paste(species, sep = "_", "eDNA_DO_GAM_zip.png"))) # open png
+    plot <- plot.gam(ind_DO_GAM_zip, xlab = "Dissolved Oxygen (mg/L)", ylab = "eDNA Index (GAM in Blue)", main = title, col = "blue") # plot GAM
+    points(x_zip, y_zip, col = "orange", pch = 16) # plot actual data
+    abline(v = 0.66, lty = "dotted", lwd = 2, col = "red") # most copepods die
+    abline(v = 0.9, lty = "dotted", lwd = 2, col = "orange") # ~50% of copepods die
+    abline(v = 2.66, lty = "dotted", lwd = 2, col = "forestgreen") # many copepods die
+    plot
+    dev.off() # close png
+    
+    print(plot)
+```

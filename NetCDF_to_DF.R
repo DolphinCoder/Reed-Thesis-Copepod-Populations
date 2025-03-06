@@ -113,9 +113,13 @@ Depth <- as.vector(dep_array)
 df5 <- data.frame(cbind(df4, Depth))
 
 # Now convert oxygen
-# See lab notebook, but mmol/m^3 x 0.015999 = mg/L oxygen
+# See lab notebook, but mmol/m^3 x 0.03199 = mg/L oxygen
+
+# New plan use function
+source(here("convert_DO.R")) # for oxygen conversions
 full_df <- df5 %>% 
-  mutate(Oxygen_mg_L = Oxygen_mmol_m3 * 0.015999) # %>% # these seem legit
+  mutate(Oxygen_mg_L = Oxygen_mmol_m3 * 0.03199)
+  # mutate(Oxygen_mg_L = convert_DO(Oxygen_mmol_m3, from = "mmol/L", to = "mg/L")) # %>% # these seem legit
 
 moor_depth_df <- full_df %>% 
   filter(Depth < -36 & Depth > -39)

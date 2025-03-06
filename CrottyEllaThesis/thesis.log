@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.3)  22 FEB 2025 23:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.3)  1 MAR 2025 22:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -618,7 +618,7 @@ Non-PDF special ignored!
 
 ]
 
-Package biblatex-chicago Warning: Empty Ibidem citation on input line 110.
+Package biblatex-chicago Warning: Empty Ibidem citation on input line 111.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -627,7 +627,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 ]
 
-Package biblatex-chicago Warning: Empty Ibidem citation on input line 116.
+Package biblatex-chicago Warning: Empty Ibidem citation on input line 117.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -642,10 +642,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [2]
 
-Package biblatex-chicago Warning: Empty Ibidem citation on input line 122.
+Package biblatex-chicago Warning: Empty Ibidem citation on input line 123.
 
 
-Package biblatex-chicago Warning: Empty Ibidem citation on input line 122.
+Package biblatex-chicago Warning: Empty Ibidem citation on input line 123.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -732,7 +732,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <subdivision.pdf, id=112, 220.825pt x 89.33376pt>
 File: subdivision.pdf Graphic file (type pdf)
 <use subdivision.pdf>
-Package pdftex.def Info: subdivision.pdf  used on input line 256.
+Package pdftex.def Info: subdivision.pdf  used on input line 257.
 (pdftex.def)             Requested size: 220.82445pt x 89.33353pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -745,11 +745,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [13 <./subdivision.pdf>]
 File: subdivision.pdf Graphic file (type pdf)
 <use subdivision.pdf>
-Package pdftex.def Info: subdivision.pdf  used on input line 269.
+Package pdftex.def Info: subdivision.pdf  used on input line 270.
 (pdftex.def)             Requested size: 110.41222pt x 44.66676pt.
 File: subdivision.pdf Graphic file (type pdf)
 <use subdivision.pdf>
-Package pdftex.def Info: subdivision.pdf  used on input line 281.
+Package pdftex.def Info: subdivision.pdf  used on input line 282.
 (pdftex.def)             Requested size: 110.41222pt x 44.66676pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -838,10 +838,10 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 14579 strings out of 478268
- 276617 string characters out of 5846348
- 1329285 words of memory out of 5000000
- 32610 multiletter control sequences out of 15000+600000
+ 14586 strings out of 478268
+ 276783 string characters out of 5846348
+ 1329347 words of memory out of 5000000
+ 32617 multiletter control sequences out of 15000+600000
  481581 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  82i,11n,90p,3336b,3947s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -858,7 +858,7 @@ texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/te
 xlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/tex
 live/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texl
 ive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on thesis.pdf (44 pages, 223347 bytes).
+Output written on thesis.pdf (44 pages, 224202 bytes).
 PDF statistics:
  233 PDF objects out of 1000 (max. 8388607)
  155 compressed objects within 2 object streams

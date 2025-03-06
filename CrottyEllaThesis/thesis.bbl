@@ -1030,7 +1030,7 @@
       \field{sortinit}{F}
       \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
       \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
+      \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Biological conditions experienced by juvenile salmon entering the northern California Current.}
@@ -1039,7 +1039,8 @@
       \field{urlday}{23}
       \field{urlmonth}{7}
       \field{urlyear}{2024}
-      \field{year}{Fri, 02/02/2024 - 17:23}
+      \field{year}{2024}
+      \field{dateera}{ce}
       \field{urldateera}{ce}
       \verb{file}
       \verb /Users/ellac/Zotero/storage/NAF8JMEY/Fisheries - 2024 - Local Biological Indicators NOAA Fisheries.pdf;/Users/ellac/Zotero/storage/WWHEIP2T/local-biological-indicators.html
@@ -3239,6 +3240,40 @@
       \verb https://www.sciencedirect.com/science/article/pii/S0022098105003175
       \endverb
       \keyw{Copepods,Hypoxia}
+    \endentry
+    \entry{Roff1992}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=4bda9b5644241b19a9ce9f65ca4b88da}{%
+           family={Roff},
+           familyi={R\bibinitperiod},
+           given={Derek\bibnamedelima A.},
+           giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Chapman \& Hall}%
+      }
+      \strng{namehash}{4bda9b5644241b19a9ce9f65ca4b88da}
+      \strng{fullhash}{4bda9b5644241b19a9ce9f65ca4b88da}
+      \strng{bibnamehash}{4bda9b5644241b19a9ce9f65ca4b88da}
+      \strng{authorbibnamehash}{4bda9b5644241b19a9ce9f65ca4b88da}
+      \strng{authornamehash}{4bda9b5644241b19a9ce9f65ca4b88da}
+      \strng{authorfullhash}{4bda9b5644241b19a9ce9f65ca4b88da}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{isbn}{978-0-412-02381-1 978-0-412-02391-0}
+      \field{pagetotal}{535}
+      \field{shorttitle}{The Evolution of Life Histories}
+      \field{title}{The Evolution of Life Histories: Theory and Analysis}
+      \field{year}{1992}
+      \field{dateera}{ce}
     \endentry
     \entry{Roman1993}{article}{}
       \name{author}{4}{}{%
