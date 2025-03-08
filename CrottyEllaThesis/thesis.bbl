@@ -1104,6 +1104,68 @@
       \endverb
       \keyw{Copepods,Herring}
     \endentry
+    \entry{Gold2024}{software}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=ea96ff76ddeea57632b4a88701028df0}{%
+           family={Gold},
+           familyi={G\bibinitperiod},
+           given={Zachary},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2b53b3bfce837a2bf5e9e1f8dc8b4fdf}{%
+           family={Weinrich},
+           familyi={W\bibinitperiod},
+           given={Han},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d2d4bd24d684ba07bb97231afaa3edd6}{%
+           family={Brown},
+           familyi={B\bibinitperiod},
+           given={Shannon},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Zenodo}%
+      }
+      \strng{namehash}{cca0d68a2a6cde12c8aa66f2f7c307df}
+      \strng{fullhash}{cca0d68a2a6cde12c8aa66f2f7c307df}
+      \strng{bibnamehash}{cca0d68a2a6cde12c8aa66f2f7c307df}
+      \strng{authorbibnamehash}{cca0d68a2a6cde12c8aa66f2f7c307df}
+      \strng{authornamehash}{cca0d68a2a6cde12c8aa66f2f7c307df}
+      \strng{authorfullhash}{cca0d68a2a6cde12c8aa66f2f7c307df}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{This is an official release of the protocol on 2024-05-30.}
+      \field{day}{30}
+      \field{month}{5}
+      \field{shorttitle}{Marinednadude/{{NOAA-PMEL-OME-LF-metazoan-COI-PCR-Protocol-BeBOP}}}
+      \field{title}{Marinednadude/{{NOAA-PMEL-OME-LF-metazoan-COI-PCR-Protocol-BeBOP}}: V1.0}
+      \field{urlday}{6}
+      \field{urlmonth}{3}
+      \field{urlyear}{2025}
+      \field{version}{v1.0}
+      \field{year}{2024}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.5281/zenodo.11398096
+      \endverb
+      \verb{file}
+      \verb /Users/ellac/Zotero/storage/F5996WU8/11398096.html
+      \endverb
+      \verb{urlraw}
+      \verb https://zenodo.org/records/11398096
+      \endverb
+      \verb{url}
+      \verb https://zenodo.org/records/11398096
+      \endverb
+      \keyw{eDNA,OME}
+    \endentry
     \entry{Grodzins2016}{article}{}
       \name{author}{3}{}{%
         {{un=0,uniquepart=base,hash=dccafa264bd21bcf26006708bd75bb7f}{%
@@ -3519,6 +3581,99 @@
       \endverb
       \keyw{Hypoxia}
     \endentry
+    \entry{Spens2017}{article}{}
+      \name{author}{8}{}{%
+        {{un=0,uniquepart=base,hash=38398860b6b29cd054a6b155b5e0f7e2}{%
+           family={Spens},
+           familyi={S\bibinitperiod},
+           given={Johan},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ceab7461cdbfefafda9de1c5261455b4}{%
+           family={Evans},
+           familyi={E\bibinitperiod},
+           given={Alice\bibnamedelima R.},
+           giveni={A\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5196214b4feeb2b633e75bc3ada64f6f}{%
+           family={Halfmaerten},
+           familyi={H\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dfc69039b8b3374cf28aa50b46af4fa0}{%
+           family={Knudsen},
+           familyi={K\bibinitperiod},
+           given={Steen\bibnamedelima W.},
+           giveni={S\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a12d46f15eb542f9bb9f19ca1d3ede9d}{%
+           family={Sengupta},
+           familyi={S\bibinitperiod},
+           given={Mita\bibnamedelima E.},
+           giveni={M\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=268afe5fc462d7e96a0e2eaafb21d3f8}{%
+           family={Mak},
+           familyi={M\bibinitperiod},
+           given={Sarah\bibnamedelimb S.\bibnamedelimi T.},
+           giveni={S\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1a80d1b70ed3ff18f7c1298bbc324da9}{%
+           family={Sigsgaard},
+           familyi={S\bibinitperiod},
+           given={Eva\bibnamedelima E.},
+           giveni={E\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=55b909bfab9ec7a1abff57d0e68c22cd}{%
+           family={Hellström},
+           familyi={H\bibinitperiod},
+           given={Micaela},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{6231349367125b33d55603de0850285f}
+      \strng{fullhash}{f0e0837a51356ea90ca3b8fb12b66157}
+      \strng{bibnamehash}{f0e0837a51356ea90ca3b8fb12b66157}
+      \strng{authorbibnamehash}{f0e0837a51356ea90ca3b8fb12b66157}
+      \strng{authornamehash}{6231349367125b33d55603de0850285f}
+      \strng{authorfullhash}{f0e0837a51356ea90ca3b8fb12b66157}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Aqueous environmental DNA (eDNA) is an emerging efficient non-invasive tool for species inventory studies. To maximize performance of downstream quantitative PCR (qPCR) and next-generation sequencing (NGS) applications, quality and quantity of the starting material is crucial, calling for optimized capture, storage and extraction techniques of eDNA. Previous comparative studies for eDNA capture/storage have tested precipitation and ‘open’ filters. However, practical ‘enclosed’ filters which reduce unnecessary handling have not been included. Here, we fill this gap by comparing a filter capsule (Sterivex-GP polyethersulfone, pore size 0·22 μm, hereafter called SX) with commonly used methods. Our experimental set-up, covering altogether 41 treatments combining capture by precipitation or filtration with different preservation techniques and storage times, sampled one single lake (and a fish-free control pond). We selected documented capture methods that have successfully targeted a wide range of fauna. The eDNA was extracted using an optimized protocol modified from the DNeasy® Blood \& Tissue kit (Qiagen). We measured total eDNA concentrations and Cq-values (cycles used for DNA quantification by qPCR) to target specific mtDNA cytochrome b (cyt b) sequences in two local keystone fish species. SX yielded higher amounts of total eDNA along with lower Cq-values than polycarbonate track-etched filters (PCTE), glass fibre filters (GF) or ethanol precipitation (EP). SX also generated lower Cq-values than cellulose nitrate filters (CN) for one of the target species. DNA integrity of SX samples did not decrease significantly after 2 weeks of storage in contrast to GF and PCTE. Adding preservative before storage improved SX results. In conclusion, we recommend SX filters (originally designed for filtering micro-organisms) as an efficient capture method for sampling macrobial eDNA. Ethanol or Longmire's buffer preservation of SX immediately after filtration is recommended. Preserved SX capsules may be stored at room temperature for at least 2 weeks without significant degradation. Reduced handling and less exposure to outside stress compared with other filters may contribute to better eDNA results. SX capsules are easily transported and enable eDNA sampling in remote and harsh field conditions as samples can be filtered/preserved on site.}
+      \field{issn}{2041-210X}
+      \field{journaltitle}{Methods in Ecology and Evolution}
+      \field{langid}{english}
+      \field{number}{5}
+      \field{shorttitle}{Comparison of Capture and Storage Methods for Aqueous Macrobial {{eDNA}} Using an Optimized Extraction Protocol}
+      \field{title}{Comparison of Capture and Storage Methods for Aqueous Macrobial {{eDNA}} Using an Optimized Extraction Protocol: Advantage of Enclosed Filter}
+      \field{urlday}{7}
+      \field{urlmonth}{3}
+      \field{urlyear}{2025}
+      \field{volume}{8}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{635\bibrangedash 645}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1111/2041-210X.12683
+      \endverb
+      \verb{file}
+      \verb /Users/ellac/Zotero/storage/8DEBPUB8/Spens et al. - 2017 - Comparison of capture and storage methods for aqueous macrobial eDNA using an optimized extraction p.pdf;/Users/ellac/Zotero/storage/CNPTFX77/2041-210X.html
+      \endverb
+      \verb{urlraw}
+      \verb https://onlinelibrary.wiley.com/doi/abs/10.1111/2041-210X.12683
+      \endverb
+      \verb{url}
+      \verb https://onlinelibrary.wiley.com/doi/abs/10.1111/2041-210X.12683
+      \endverb
+      \keyw{eDNA,OME}
+    \endentry
     \entry{Stalder1997}{article}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=7b0220dd48da0d8bd5f907c8f5daaeaa}{%
@@ -3950,6 +4105,62 @@
       \verb https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1365-2486.2010.02343.x
       \endverb
       \keyw{Evan,Hypoxia,Temperature}
+    \endentry
+    \entry{Weinrich2025}{software}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=5ec78ad54acb9ee72b7dceb5a16d7d0c}{%
+           family={Weinrich},
+           familyi={W\bibinitperiod},
+           given={Johannes\bibnamedelima (Han)},
+           giveni={J\bibinitperiod\bibinitdelim (\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ea96ff76ddeea57632b4a88701028df0}{%
+           family={Gold},
+           familyi={G\bibinitperiod},
+           given={Zachary},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Zenodo}%
+      }
+      \strng{namehash}{0a51be8baad06a9587ed889808361ce2}
+      \strng{fullhash}{0a51be8baad06a9587ed889808361ce2}
+      \strng{bibnamehash}{0a51be8baad06a9587ed889808361ce2}
+      \strng{authorbibnamehash}{0a51be8baad06a9587ed889808361ce2}
+      \strng{authornamehash}{0a51be8baad06a9587ed889808361ce2}
+      \strng{authorfullhash}{0a51be8baad06a9587ed889808361ce2}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{This is an official release of the protocol on 2025-02-20. Protocol was reformatted to be consistent with the new BeBOP format including FAIRe terms.}
+      \field{day}{20}
+      \field{month}{2}
+      \field{shorttitle}{Marinednadude/{{NOAA-PMEL-OME}}\_{{Extraction}}\_{{Protocol}}\_{{Sterivex}}\_{{Centrifuge}}}
+      \field{title}{Marinednadude/{{NOAA-PMEL-OME}}\_{{Extraction}}\_{{Protocol}}\_{{Sterivex}}\_{{Centrifuge}}: V1.1}
+      \field{urlday}{6}
+      \field{urlmonth}{3}
+      \field{urlyear}{2025}
+      \field{version}{v1.1}
+      \field{year}{2025}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.5281/zenodo.14902117
+      \endverb
+      \verb{file}
+      \verb /Users/ellac/Zotero/storage/2X2PXSFN/14902117.html
+      \endverb
+      \verb{urlraw}
+      \verb https://zenodo.org/records/14902117
+      \endverb
+      \verb{url}
+      \verb https://zenodo.org/records/14902117
+      \endverb
+      \keyw{eDNA,OME}
     \endentry
     \entry{Wyrtki1962}{article}{}
       \name{author}{1}{}{%

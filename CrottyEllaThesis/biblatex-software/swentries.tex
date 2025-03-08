@@ -1,0 +1,282 @@
+
+There are four entry types, corresponding to different granularities
+in the identification of the (part of) software artifacts that one
+whishes to cite. They are listed below in order of granularity.
+
+\subsection{software}
+Computer software. 
+
+\emph{Required fields:} \texttt{author} / \texttt{editor}, \texttt{title}, \texttt{url}, \texttt{year}
+
+\emph{Optional fields:} \texttt{abstract}, \texttt{date}, \texttt{doi}, \texttt{eprint}, \texttt{eprintclass}, \texttt{eprinttype}, \texttt{file}, \texttt{hal\_id}, \texttt{hal\_version},
+\texttt{institution}, \texttt{license}, \texttt{month}, \texttt{note}, \texttt{organization}, \texttt{publisher},
+\texttt{related}, \texttt{relatedtype}, \texttt{relatedstring}, \texttt{repository}, \texttt{swhid}, \texttt{urldate}, \texttt{version}
+
+\subsection{softwareversion}
+A specific version of a software.  Inherits values of missing
+fields from the entry mentioned in the \texttt{crossref} field.
+
+\emph{Required fields:} \texttt{author} / \texttt{editor}, \texttt{title}, \texttt{url}, \texttt{version}, \texttt{year}
+
+\emph{Optional fields:} \texttt{abstract}, \texttt{crossref}, \texttt{date}, \texttt{doi}, \texttt{eprint}, \texttt{eprintclass}, \texttt{eprinttype}, \texttt{file}, \texttt{hal\_id}, \texttt{hal\_version},
+\texttt{institution}, \texttt{introducedin}, \texttt{license}, \texttt{month}, \texttt{note}, \texttt{organization}, \texttt{publisher},
+\texttt{related}, \texttt{relatedtype}, \texttt{relatedstring}, \texttt{repository}, \texttt{swhid}, \texttt{subtitle}, \texttt{urldate}
+
+\subsection{softwaremodule}
+
+A specific module of a larger software project. Inherits values of missing
+fields from the entry mentioned in the \texttt{crossref} field.
+
+\emph{Required fields:} \texttt{author}, \texttt{subtitle}, \texttt{url}, \texttt{year}
+
+\emph{Optional fields:} \texttt{abstract}, \texttt{crossref}, \texttt{date}, \texttt{doi}, \texttt{eprint}, \texttt{eprintclass}, \texttt{eprinttype}, \texttt{editor}, \texttt{file}, \texttt{hal\_id}, \texttt{hal\_version},
+\texttt{institution}, \texttt{introducedin}, \texttt{license}, \texttt{month}, \texttt{note}, \texttt{organization}, \texttt{publisher},
+\texttt{related}, \texttt{relatedtype}, \texttt{relatedstring}, \texttt{repository}, \texttt{swhid}, \texttt{title}, \texttt{urldate}, \texttt{version}
+
+\subsection{codefragment}
+
+A code fragment (e.g. a specific algorithm in a program or library).
+Inherits values of missing fields from the entry mentioned in the \texttt{crossref} field.
+
+\emph{Required fields:}  \texttt{url}
+
+\emph{Optional fields:} \texttt{author}, \texttt{abstract}, \texttt{crossref}, \texttt{date}, \texttt{doi}, \texttt{eprint}, \texttt{eprintclass}, \texttt{eprinttype}, \texttt{file}, \texttt{hal\_id}, \texttt{hal\_version},
+\texttt{institution}, \texttt{introducedin}, \texttt{license}, \texttt{month}, \texttt{note}, \texttt{organization}, \texttt{publisher},
+\texttt{related}, \texttt{relatedtype}, \texttt{relatedstring}, \texttt{repository}, \texttt{swhid}, \texttt{subtitle}, \texttt{title}, \texttt{urldate}, \texttt{version}, \texttt{year}
+
+The \textbf{softwareversion}, \textbf{softwaremodule} and \textbf{codefragment} entries can inherit
+the missing fields from another entry designated by the \emph{crossref} field, which
+is expected to be higher in the granularity hierarchy: \textbf{softwareversion} may
+inherit from a \textbf{software} entry, \textbf{softwaremodule} may inherit from a
+\textbf{softwareversion} or a \textbf{software} entry, and \textbf{codefragment} may inherit from all
+other entries.
+
+\section{Field description}
+The field description is based on the \href{http://mirrors.ibiblio.org/CTAN/macros/latex/exptl/biblatex/doc/biblatex.pdf}{biblatex documentation}
+\subsection{Data fields}
+\begin{description}
+\item[{abstract}] field (literal). This field is intended for recording 
+abstracts in a bib file, to be printed by a special bibliography 
+style. It is not used by all standard bibliography styles.
+\item[{author}] list (name). The authors of the title.
+\item[{date [biblatex only]}] field (date). The date of creation or release in ISO format.
+\item[{editor}] list (name). The coordinator(s) of large modular software projects.
+\item[{file}] field (verbatim). A link to download a copy of the work.
+\item[{doi}] field (verbatim). The Digital Object Identifier of the work.
+\item[{eprint [biblatex only]}] field (verbatim). An electronic identifier of the work. This field can be used to accommodate electronic identifiers different from the ones that have a dedicate field in this style.
+\item[{eprinttype [biblatex only]}] field (verbatim). The type of eprint identifier, e. g., the name of the archive, repository, service, or system the eprint field refers to. Will be typeset by default as a prefix of the content of the eprint field.
+\item[{eprintclass [biblatex only]}] field (verbatim). Additional information related to the resource indicated by the eprinttype field. This could be a section of an archive, a path indicating a service, a classification of some sort.
+\item[{\texttt{hal\_id} [not in biblatex standard styles]}] field (verbatim). A digital identifier for the 
+software record including its description and metadata on HAL.
+\item[{\texttt{hal\_version} [not in biblatex standard styles]}] field (verbatim). The version of the HAL software record designated by \texttt{hal\_id}.
+\item[{license [not in biblatex standard styles]}] list (literal). The license/s of the title 
+in SPDX format.
+\item[{month}] field (literal). The month of creation or release. 
+In BibLaTeX, this must be an integer, not an ordinal or a string.
+For compatibility with BibTeX, one can also use the three letter
+abbreviations \emph{jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec},
+which must be given without any braces or quotes.
+\item[{note}] field (literal). Release note of the cited version.
+\item[{institution}] list (literal). The institution(s) that took part in the software project.
+\item[{introducedin [not in biblatex standard styles]}] field (literal). If this is a software module or fragment,
+the version of the containing project where it has been first introduced.
+\item[{organization}] list (literal). The organization(s) that took part in the software project.
+\item[{publisher}] list (literal). The name(s) of the publisher(s) of the \emph{qualified} software record.
+\item[{related [biblatex only]}] field (separated values). Citation keys of other entries which have a relationship to this entry.
+\item[{relatedtype [biblatex only]}] field (identifier).
+\item[{relatedstring [biblatex only]}] field (literal).
+\item[{repository [not in biblatex standard styles]}] field (uri). The url of the code repository (e.g on GitHub, GitLab).
+\item[{swhid [not in biblatex standard styles]}] field (verbatim). The identifier of the digital
+object (a.k.a the software artifact itself). The intrinsic identifier
+of the item is an swh-id (swh:cnt for a content, swh:dir for a directory, swh:rev for
+a revision, swh:rel for a release, etc.). See \href{https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html}{the SWH-ID specification}.
+\item[{subtitle}] field (literal). The title of a component of the software artifact.
+\item[{title}] field (literal). The title of the software artifact.
+\item[{url}] field (uri). The url of a reference resource (e.g the project's official webpage).
+\item[{urldate}] field (date). The access date of the address specified in the url field.
+\item[{version}] field (literal). The revision number of a piece of software, a manual, etc.
+\item[{year}] field (literal). The year of creation or release.
+\end{description}
+\subsection{Special fields}
+\begin{description}
+\item[{crossref}] field (entry key). This field holds an entry key for the
+cross-referencing feature. Child entries with a crossref field inherit data
+from the parent entry specified in the crossref field.
+\end{description}
+
+\section{Examples}
+
+Here are a few example of use of the proposed entries.
+
+\subsection{software and softwareversion}
+
+This is an example description of a software release using a single \texttt{@softwareversion} entry.
+
+\begin{verbatim}
+@softwareversion {delebecque:hal-02090402-condensed,
+  title = {Scilab},
+  author = {Delebecque, Fran{\c c}ois and Gomez, Claude and Goursat, Maurice 
+    and Nikoukhah, Ramine and Steer, Serge and Chancelier, Jean-Philippe},
+  url = {https://www.scilab.org/},
+  date = {1994-01},
+  file = {https://hal.inria.fr/hal-02090402/file/scilab-1.1.tar.gz},
+  institution = {Inria},
+  license = {Scilab license},
+  hal_id = {hal-02090402},
+  hal_version = {v1},
+  swhid = {swh:1:dir:1ba0b67b5d0c8f10961d878d91ae9d6e499d746a;
+	   origin=https://hal.archives-ouvertes.fr/hal-02090402},
+  version = {1.1},
+  note = {First Scilab version. It was distributed by anonymous ftp.},
+  repository= {https://github.com/scilab/scilab},
+  abstract = {Software for Numerical Computation freely distributed.}
+}
+\end{verbatim}
+
+The same information can also be represented using a \texttt{@software} / \texttt{@softwareversion}
+pair that factors out the general information in the \texttt{@software} entry, so for
+other versions only the changes need to be added in a new \texttt{@softwareversion} entry:
+
+\begin{verbatim}
+@software {delebecque:hal-02090402,
+  title = {Scilab},
+  author = {Delebecque, Fran{\c c}ois and Gomez, Claude and Goursat, Maurice 
+    and Nikoukhah, Ramine and Steer, Serge and Chancelier, Jean-Philippe},
+  date = {1994},
+  institution = {Inria},
+  license = {Scilab license},
+  hal_id = {hal-02090402},
+  hal_version = {v1},
+  url = {https://www.scilab.org/},
+  abstract = {Software for Numerical Computation freely distributed.},
+  repository= {https://github.com/scilab/scilab},
+}
+
+@softwareversion {delebecque:hal-02090402v1,
+  version = {1.1},
+  date = {1994-01},
+  file = {https://hal.inria.fr/hal-02090402/file/scilab-1.1.tar.gz},
+  swhid = {swh:1:dir:1ba0b67b5d0c8f10961d878d91ae9d6e499d746a;
+	   origin=https://hal.archives-ouvertes.fr/hal-02090402},
+  note = {First Scilab version. It was distributed by anonymous ftp.},
+  crossref = {delebecque:hal-02090402}
+}
+\end{verbatim}
+
+\subsection{softwaremodule}
+
+For highly modular software projects, like CGAL, one may need to 
+reference specifically a particular module, that has distinguished
+authors, and may heve been introduced in the project at a later time.
+
+
+The following example uses \href{https://doc.cgal.org/latest/Manual/how\_to\_cite\_cgal.bib}{the informations in the existing BibTeX entries for CGAL}
+that currently refer to the user manual, to create the corresponding software entries.
+
+\begin{verbatim}
+@software {cgal,
+ title = {The Computational Geometry Algorithms Library},
+ author = {{The CGAL Project}},
+ editor = {{CGAL Editorial Board}},
+ date = {1996},
+ url = {https://cgal.org/}
+}
+
+@softwareversion{cgal:5-0-2,
+ crossref = {cgal},
+ version = {{5.0.2}},
+ url = {https://docs.cgal.org/5.02},
+ date = {2020},
+ swhid = {swh:1:rel:636541bbf6c77863908eae744610a3d91fa58855;
+	  origin=https://github.com/CGAL/cgal/}
+}
+
+@softwaremodule{cgal:lp-gi-20a,
+ crossref = {cgal:5-0-2},
+ author = {Menelaos Karavelas},
+ subtitle = {{2D} Voronoi Diagram Adaptor},
+ license = {GPL},
+ introducedin = {cgal:3-1},
+ url = {https://doc.cgal.org/5.0.2/Manual/packages.html#PkgVoronoiDiagram2},
+}
+\end{verbatim}
+
+Of course, it is always be possible to use only one entry to get an equivalent
+result; here one would use just \texttt{@softwaremodule} with all the needed data
+fields as follows:
+
+\begin{verbatim}
+@softwaremodule{cgal:lp-gi-20a-condensed,
+ title = {The Computational Geometry Algorithms Library},
+ subtitle = {{2D} Voronoi Diagram Adaptor},
+ author = {Menelaos Karavelas},
+ editor = {{CGAL Editorial Board}},
+ license = {GPL},
+ version = {{5.0.2}},
+ introducedin = {cgal:3-1},
+ date = {2020},
+ swhid = {swh:1:rel:636541bbf6c77863908eae744610a3d91fa58855;
+	  origin=https://github.com/CGAL/cgal/},
+ url = {https://doc.cgal.org/5.0.2/Manual/packages.html#PkgVoronoiDiagram2},
+}
+\end{verbatim}
+
+\subsection{codefragment}
+
+Finally, if one wants to have a particular code fragment appear in the bibliography,
+we can do this as follows:
+\begin{verbatim}
+@software {parmap,
+  title = {The Parmap library},
+  author = {Di Cosmo, Roberto and Marco Danelutto},
+  date = {2012},
+  institution = {{Inria} and {University of Paris} and {University of Pisa}},
+  license = {LGPL-2.0},
+  url = {https://rdicosmo.github.io/parmap/},
+  repository= {https://github.com/rdicosmo/parmap},
+}
+
+@softwareversion {parmap-1.1.1,
+  crossref = {parmap},
+  date = {2020},
+  version = {1.1.1},
+  swhid = {swh:1:rel:373e2604d96de4ab1d505190b654c5c4045db773;
+     origin=https://github.com/rdicosmo/parmap;
+     visit=swh:1:snp:2a6c348c53eb77d458f24c9cbcecaf92e3c45615},
+}
+
+@codefragment {simplemapper,
+  subtitle = {Core mapping routine},
+  swhid = {swh:1:cnt:43a6b232768017b03da934ba22d9cc3f2726a6c5;
+     origin=https://github.com/rdicosmo/parmap;
+     visit=swh:1:snp:2a6c348c53eb77d458f24c9cbcecaf92e3c45615;
+     anchor=swh:1:rel:373e2604d96de4ab1d505190b654c5c4045db773;
+     path=/src/parmap.ml;
+     lines=192-228},
+  crossref = {parmap-1.1.1}
+}
+\end{verbatim}
+
+Of course, it is always be possible to use only one entry to get an equivalent
+result; here one would use just \texttt{@codefragment} with all the needed data
+fields as follows:
+
+\begin{verbatim}
+@codefragment {simplemapper-condensed,
+  title = {The Parmap library},
+  author = {Di Cosmo, Roberto and Marco Danelutto},
+  date = {2020},
+  institution = {{Inria} and {University of Paris} and {University of Pisa}},
+  license = {LGPL-2.0},
+  url = {https://rdicosmo.github.io/parmap/},
+  repository= {https://github.com/rdicosmo/parmap},
+  version = {1.1.1},
+  subtitle = {Core mapping routine},
+  swhid = {swh:1:cnt:43a6b232768017b03da934ba22d9cc3f2726a6c5;
+     origin=https://github.com/rdicosmo/parmap;
+     visit=swh:1:snp:2a6c348c53eb77d458f24c9cbcecaf92e3c45615;
+     anchor=swh:1:rel:373e2604d96de4ab1d505190b654c5c4045db773;
+     path=/src/parmap.ml;
+     lines=192-228}
+}
+\end{verbatim}

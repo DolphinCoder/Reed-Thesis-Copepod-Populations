@@ -37,7 +37,7 @@ model <- model_alldepths %>%
   filter(s_rho < -0.92 & s_rho > -0.97) 
 
 model_37m <- read_csv(here("LiveOcean_TH042_2021_2023_DepthClean.csv")) %>% 
-  mutate(DateMatch = Date_UTC)
+  mutate(DateMatch = Date_UTC) # this is the one I'm actually using
 
 OME_match <- OME %>% 
   mutate(DateMatch = round_date(date, unit = "10 minutes")) # looks good, we have 10, 20, 30, 40, 50, 00 every hour
@@ -55,7 +55,7 @@ ggplot(data = OME, aes(x = Date_UTC, y = DO)) +
   labs(title = "TH042 Mooring vs. LiveOcean Model (DO)", caption = "Mooring in orange, model in dark blue. 37m depth.") +
   theme_bw() 
 
-ggsave(here("LiveOcean_Plots", "Send", "Mooring_vs_Model_DO_37.png"))
+ggsave(here("LiveOcean_Plots_37", "Mooring_vs_Model_DO_37.png"))
 
 ggplot(data = OME, aes(x = Date_UTC, y = temperature)) +
   geom_line(color = "orange", size = 0.5) +
@@ -64,7 +64,7 @@ ggplot(data = OME, aes(x = Date_UTC, y = temperature)) +
   labs(title = "TH042 Mooring vs. LiveOcean Model (Temp)", caption = "Mooring in orange, model in dark blue. 37m depth.") +
   theme_bw() 
 
-ggsave(here("LiveOcean_Plots", "Send", "Mooring_vs_Model_Temp_37.png"))
+ggsave(here("LiveOcean_Plots_37", "Mooring_vs_Model_Temp_37.png"))
 ```
 
 ## Regression
@@ -86,6 +86,8 @@ compare2 <- compare %>%
   #print(summary(temp_mod))
   rsq <- summary(temp_mod)$r.squared
   print(paste("Temp R squared: ", rsq))
+  t_RMSE <- sqrt(mean(temp_mod$residuals^2))
+  t_bias <- mean(temp_mod$residuals)
 
   print(ggplot(compare2, aes(x = Temp_Mooring, y = Temp_Model)) +
           geom_point() +
@@ -93,16 +95,19 @@ compare2 <- compare %>%
           ggtitle("Temperature at 37 m") +
           annotate("text", x = 9, y = 12, 
                    label = paste("R^2 = ", round(rsq, 3)), size = 10) +
+          annotate("text", x = 9, y = 11, 
+                   label = paste("RMSE = ", round(t_RMSE, 3)), size = 10) +
           theme_bw())
   
   ggsave("Temp_LiveOcean_37.png", 
-         path = here("LiveOcean_Plots"),
+         path = here("LiveOcean_Plots_37"),
          width = 3000, height = 2500, units = "px")
   
   # Compare DO predictions
   ox_mod <- lm(DO_Mooring ~ DO_Model, compare2)
   #print(summary(ox_mod))
   o_rsq <- summary(ox_mod)$r.squared
+  o_RMSE <- sqrt(mean(ox_mod$residuals^2))
   print(paste("DO R squared: ", o_rsq))
 
   print(ggplot(compare2, aes(x = DO_Mooring, y = DO_Model)) +
@@ -111,11 +116,15 @@ compare2 <- compare %>%
           ggtitle("Oxygen at 37 m") +
           annotate("text", x = 7, y = 1, 
                    label = paste("R^2 = ", round(o_rsq, 3)), size = 10) +
+          annotate("text", x = 7, y = 0.5, 
+                   label = paste("RMSE = ", round(o_RMSE, 3)), size = 10) +
           theme_bw())
   
   ggsave(filename = "Oxygen_LiveOcean_37.png", 
-         path = here("LiveOcean_Plots"),
+         path = here("LiveOcean_Plots_37"),
          width = 3000, height = 2500, units = "px")
+  
+
 ```
 
 # --Exploration--

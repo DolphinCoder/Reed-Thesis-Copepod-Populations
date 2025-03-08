@@ -1,0 +1,26 @@
+\documentclass[10pt]{article}
+\usepackage{a4wide}
+\usepackage{hyperref}
+\usepackage[
+  style=numeric+sw,    % numeric bibliography style with software
+  halid=true,          % toggle typesetting of halid
+  swhid=true,          % toggle typesetting of swhid
+  vcs=true,            % toggle typesetting of repository
+  license=true,        % toggle typesetting of software licenses
+  swlabels=true,       % toggle typesetting of software type labels in the bibliography
+  abbreviate=false,
+  natbib=true,
+  sorting=ydnt,
+  backend=biber,
+  bibencoding=utf8,
+  giveninits=true,
+  url=false,
+  doi=false,
+  defernumbers,
+  maxcitenames=10,
+  defernumbers=true,
+  maxbibnames=100]{biblatex}
+
+\input{sample-content}
+
+\end{document}

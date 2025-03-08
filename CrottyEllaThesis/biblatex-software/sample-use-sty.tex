@@ -1,0 +1,35 @@
+\documentclass[10pt]{article}
+\usepackage{a4wide}
+\usepackage{hyperref}
+\usepackage[
+  style=numeric,
+  datamodel=software, % extend the datamodel with entries for software
+  abbreviate=false,
+  natbib=true,
+  sorting=ydnt,
+  backend=biber,
+  bibencoding=utf8,
+  giveninits=true,
+  url=false,
+  doi=false,
+  defernumbers,
+  maxcitenames=10,
+  defernumbers=true,
+  maxbibnames=100]{biblatex}
+%
+% load the software biblatex style
+%
+\usepackage{software-biblatex}
+%
+% set software specific bibliography options
+%
+\ExecuteBibliographyOptions{
+  halid=true,
+  swhid=true,
+  swlabels=true,
+  vcs=true,
+  license=false}
+
+\input{sample-content}
+
+\end{document}

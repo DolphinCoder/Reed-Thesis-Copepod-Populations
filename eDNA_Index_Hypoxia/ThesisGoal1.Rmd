@@ -56,7 +56,53 @@ eDNAxEnvDataSat <- read_csv(here("PMEL-Data", "eDNAxEnvDataSat_copy.csv"))
 # ThesisPart1.Rmd does the janky P. mimus fix for these
 copepodFiltered <- read_csv(here("CopepodDetectionsFiltered.csv"))
 copepodFull <- read_csv(here("CopepodDetectionsFull.csv"))
+
+# Filter to only copepods for results
+allCopepodReads <- allReads %>% 
+  filter(Species %in% copepods | Genus %in% c("Calocalanus", "Clausocalanus", "Paracalanus") | Class == "Hexanauplia")
 ```
+
+# Results section
+
+```{r}
+unique(allCopepodReads$Field_collection_method)
+unique(allCopepodReads$Amplicon)
+
+COI <- allReads %>% 
+  filter(Amplicon == "UniCOI")
+
+copepSpResults <- allCopepodReads %>% 
+  mutate(Present = case_when(nReads == 0 ~ F, .default = T)) %>% 
+  group_by(year, Family, Genus, Species) %>% 
+  summarize(detections = sum(Present), totReads = sum(nReads), maxReads = max(nReads), meanReads = round(mean(nReads), 2), minReads = min(nReads))
+
+copepResults <- allCopepodReads %>% 
+  mutate(Present = case_when(nReads == 0 ~ F, .default = T)) %>% 
+  group_by(SampleId) %>% 
+  summarize(maxReads = max(nReads), meanReads = round(mean(nReads), 2), minReads = min(nReads), detections = sum(Present))
+
+results <- COI %>% 
+  mutate(Present = case_when(nReads == 0 ~ F, .default = T)) %>% 
+  group_by(SampleId) %>% 
+  summarize(maxReads = max(nReads), meanReads = round(mean(nReads), 2), minReads = min(nReads), detections = sum(Present))
+
+sum(COI$nReads)
+sum(allCopepodReads$nReads)
+
+COI %>% 
+  group_by(year) %>% 
+  summarize(Samples = length(unique(SampleId)))
+
+COI %>% 
+  filter(Technical_Replicate == 3) %>% 
+  group_by(SampleId) %>% 
+  summarize(n = n())
+
+BLAST_check <- allCopepodReads %>% 
+  group_by(Class, Order, Family, Genus, Species, ESV, sequence) %>% 
+  summarize(n = n())
+```
+
 
 # eDNA index
 
@@ -68,7 +114,7 @@ duplDates <- as.POSIXct(c("2021-08-25 09:48:00", "2021-10-08 11:15:00", "2022-06
 
 allR_check <- allReads %>% 
   filter(Date_local %in% duplDates) %>% 
-  filter(Species == "Acartia longiremis")
+  filter(ESV == "ESV_067624")
 allR_check
 ```
 

@@ -1,0 +1,280 @@
+\documentclass{ltxdockit}
+\usepackage{a4wide}
+\usepackage{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{alltt}
+\usepackage{listings}
+\usepackage{shortvrb}
+\MakeShortVerb{\|}
+
+\titlepage{%
+  title={Bib\LaTeX\ style extension for Software},
+  subtitle={Citation and References macros for Bib\LaTeX},
+  url={https://www.ctan.org/tex-archive/macros/latex/contrib/biblatex-contrib/biblatex-software},
+  author={Roberto Di Cosmo},
+  email={roberto@dicosmo.org},
+  revision={1.2-6},
+  date={\today}}
+
+\hypersetup{%
+  pdftitle={Bib\LaTeX\ style extension for Software},
+  pdfsubject={Style for Bib\LaTeX},
+  pdfauthor={Roberto Di Cosmo},
+  pdfkeywords={latex, biblatex, software, style}}
+
+\begin{document}
+
+\printtitlepage
+\tableofcontents
+
+\section{Introduction}\label{sec:intro}
+
+\subsection{About}
+
+Software plays a significant role in modern research, and it must be properly
+acknowledged and referenced in scholarly works. To this end, specific
+bibliographic entries for describing \emph{software}, \emph{software versions},
+\emph{software modules} and \emph{code fragments} have been designed by a
+dedicated task force at Inria in 2020 that brought together researchers from
+Computer Science and Applied Mathematics to discuss best practices for archiving
+and referencing software source code~\cite{2020GtCitation}.\\
+
+This package is a Bib\LaTeX\ \emph{style extension} that adds support for these
+four \emph{software entry types} to any other Bib\LaTeX\ style used in documents
+typeset in \latex. It is made up of the following key components: a references
+section style (\path{software.bbx}), a data model extension
+(\path{software.dbx}) and string localisation files
+(\path{<language>-software.lbx})\footnote{String localisations are provided for
+  some languages: localisations for other languages are welcome, feel free to
+  contribute them on the official repository, see Section \emph{Contributing} below.}.\\
+
+The distribution contains other material, for demonstration purposes, and for
+more advanced use.
+
+\subsection{License}
+
+Permission is granted to copy, distribute and/or modify this software under
+the terms of the \latex Project Public License, version
+1.3c\footnote{\url{http://www.latex-project.org/lppl.txt}}. The current
+maintainer is Roberto Di Cosmo (\textcopyright\ 2020-2024).
+
+\subsection{History}
+
+When I decided to start the Software Heritage initiative in 2015, software in
+general and research software in particular was not yet a first class citizen in
+the scholarly world. The absence of support for properly citing software in a
+bibliography was just one of the many signs of this lack of recognition.
+
+In order to properly reference a software project, and ensure that these
+references are stable enough to pass the test of time, it was necessary to build
+a \emph{universal archive} for software source code, and to equip every software
+artifact with \emph{intrinsic} identifiers.
+
+Now that \href{https://www.softwareheritage.org}{Software Heritage} is providing
+the universal archive~\cite{swhcacm2018}, with Software Heritage \emph{intrinsic
+  identifiers} (SWH-IDs) widely available~\cite{cise-2020-doi}, it is finally
+possible to propose proper bibliographic entries for software, at various levels
+of granularity, down to the line of code.
+
+\subsection{Acknowledgments}
+
+Thanks to the Inria working group members for their precious feedback and
+contribution to the desing of the software bibliography entries: Pierre Alliez,
+Benjamin Guedj, Alain Girault, Morane Gruenpeter, Mohand-Said Hacid, Arnaud
+Legrand, Xavier Leroy, Nicolas Rougier and Manuel Serrano.
+
+\section{Software entries}
+\input{swentries}
+
+\section{Use}\label{ref:use}
+\label{use}
+
+This package can be used as a standalone on the fly extension, or to produce
+full bibliographic styles that extend pre-existing styles.
+
+\subsection{Use as an \emph{on the fly} extension}
+
+The simplest way to use this package is to follow the example given in the
+\path{sample-use-sty.tex} that shows how one can \emph{extend on the fly} any
+existing Bib\LaTeX\ style by just doing the following:
+
+\begin{itemize}
+\item pass the \texttt{datamodel=software} option to the \texttt{biblatex} package as in
+ \begin{ltxcode}
+   \usepackage[datamodel=software]{biblatex}
+ \end{ltxcode}
+ \item load the software biblatex style using
+ \begin{ltxcode}
+   \usepackage{software-biblatex}
+ \end{ltxcode}
+ \item set software specific bibliography options using the macro |\ExecuteBibliographyOptions|;
+   the options with their default values are as in
+ \begin{ltxcode}
+   \ExecuteBibliographyOptions{
+     halid=true,
+     swhid=true,
+     shortswhid=false,
+     swlabels=true,
+     vcs=true,
+     license=true}
+ \end{ltxcode}
+\end{itemize}
+
+This is quite handy to add support for software entries in a single article, as
+it is enough to add \path{software.dbx}, \path{software.bbx},
+\path{<language>-software.lbx} and \path{software-biblatex.sty} to make it work.
+
+\subsection{Generate extended styles}
+
+When a more systematic use is foreseen, as for institution-wide reports, or
+conference and journal proceedings, it is more appropriate to generate a new
+biblatex style that includes support for the software entries right away.
+
+The following simple mechanism is provided for this use case:
+
+\begin{itemize}
+\item add to the \path{stublist} file the names of all the existing styles that must be extended
+\item run \texttt{make biblatex-styles} to produce new style files, with an added \texttt{+sw} suffix,
+   for each of the existing style
+\item install the newly generated files in the standard path where Bib\LaTeX\ files are found
+\end{itemize}
+
+The stock \path{stublist} file contains the names of all the standard Bib\LaTeX\ 
+styles.  If this approach is followed, then one can load directly the extended
+file, and the software specific bibliography options become available when
+loading the Bib\LaTeX\ package directly.  See the \path{sample.tex} file for a
+working example.
+
+\subsection{Installation}\label{sec:install}
+
+This package may become available in standard distributions like \TeX Live as
+|biblatex-software|. To install manually, you can download it from CTAN and
+then, put the relevant files in your texmf tree, usually:\\
+
+\noindent\path{<texmf>/tex/latex/biblatex-software/software-biblatex.sty}\\
+\path{<texmf>/tex/latex/biblatex-software/software.bbx}\\
+\path{<texmf>/tex/latex/biblatex-software/software.dbx}\\
+\path{<texmf>/tex/latex/biblatex-software/<language>-software.lbx}\\
+
+
+\subsection{Package options}\label{sec:options}
+
+The following options are available to control the typesetting of
+software related entries.
+
+\begin{ltxcode}
+  swlabels=true|false
+\end{ltxcode}
+
+\noindent Software is a special research output, distinct from
+publications, hence software entries in a bibliography are
+distinguished by a special label by default.
+This behaviour can be disabled by setting this option to |false|.
+
+\begin{ltxcode}
+  license=true|false
+\end{ltxcode}
+
+\noindent This option controls whether license information for
+the software entry is typeset. The default is |true|.
+
+\begin{ltxcode}
+  halid=true|false
+\end{ltxcode}
+
+\noindent This option controls the inclusion of the identifier on the HAL repository of the
+metadata record for the software described in the entry. The default is |true|.
+
+\begin{ltxcode}
+  swhid=true|false
+\end{ltxcode}
+
+\noindent This option controls the inclusion of the identifier on the Software Heritage archive
+(SWHID) of the source code of the software described in the entry. The default is |true|.
+
+\begin{ltxcode}
+  shortswhid=true|false
+\end{ltxcode}
+
+\noindent This option controls the way the SWHID is displayed. Setting it to true will include
+only the core part of the SWHID in the printed version, and keep the full SWHID, with all contextual
+information, in the hyperlink. The default is |false|.
+
+\begin{ltxcode}
+  vcs=true|false
+\end{ltxcode}
+
+\noindent This option controls the inclusion of the url of the code hosting
+platform where the software described in the enttry is developed. The default is |true|.
+
+\subsection{Adding support for additional software identifiers}
+
+It would not be reasonable to have a dedicated field for each of the many software releated identifiers that exist.
+If you want to create bibliographic records that use identifiers not natively supported by this package, you
+can use the standard Bib\LaTeX\ mechanism that uses the |eprint|, |eprinttype| and |eprintclass| fields.\\
+
+The default formatting of these fields may be what you want, but if it's not the case, you can define
+your own format, as explained in the official Bib\LaTeX\ documentation.\\
+
+As an example, this style already contains a specific formatting definition for the Astrophysics Source Code Library (ASCL) software records,
+via the following declaration in the \verb|software.bbx| file:
+
+\begin{verbatim}
+\DeclareFieldFormat{eprint:ascl}{%
+ \mkbibacro{ASCL}\addcolon\addspace%
+  \ifhyperref
+    {\href{https://ascl.net/#1}{%
+         \(\langle\)ascl\addcolon\nolinkurl{#1}\(\rangle\)%
+       \iffieldundef{eprintclass}
+         {}
+         {\addspace\texttt{\mkbibbrackets{\thefield{eprintclass}}}}}}
+    {\(\langle\)ascl\addcolon\nolinkurl{#1}\(\rangle\)%
+     \iffieldundef{eprintclass}
+       {}
+       {\addspace\texttt{\mkbibbrackets{\thefield{eprintclass}}}}}
+}
+\end{verbatim}
+
+If you want to adapt this very example to an identifier |foo| with resolver prefix |https://myfoo.org/|, just replace in the \LaTeX{} code above |https://ascl.net/| with |https://myfoo.org/|, |ascl| with |foo| and |ASCL| with |FOO|.
+
+\section{Details}
+
+The detailed information for this style is contained in the example document and
+accompanying \path{.bib} files:
+\begin{description}
+\item[\path{software-biblatex.tex}] This document.
+\item[\path{biblio.bib}] An example bibliography showcasing all the software entries.
+\item[\path{sample-use-sty.tex}]\footnote{\path{sample-use-sty.pdf} is also
+  provided and is the typeset version of this \latex source file.} This document
+  exerces most useful feature of this style extension, using the
+  \path{biblio.bib} entries.
+\item[\path{sample.tex}] This document produces the same output as
+  \path{sample-use-sty.tex}, but instead of extending on the fly and existing
+  style, it assumes that an extended bibliographic style \texttt{numeric+sw} has
+  been created starting from the standard \texttt{numeric} style.
+\item[\path{software.bbx}] The |biblatex-software| references style.
+\item[\path{software.dbx}] The |biblatex-software| data model additions.
+\item[\path{*.lbx}] The |biblatex-software| localisation files.
+\item[\path{software-biblatex.sty}] The |software-biblatex| \LaTeX\ package for extending on the fly any preloaded Bib \LaTeX\ style.
+\end{description}
+
+\section{Contributing}
+
+This style extension is currently developed on a git-based repository at
+\url{https://gitlab.inria.fr/gt-sw-citation/bibtex-sw-entry/}.
+Contributions and bug reports are very welcome. In particular, translation
+of the localization strings for other languages are needed.
+
+\section{Revision history}\label{rev}
+
+\begin{changelog}
+
+\input{history}
+
+\end{changelog}
+
+\bibliography{manual}
+\bibliographystyle{abbrv}
+
+\end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.3)  1 MAR 2025 22:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.3)  6 MAR 2025 17:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -496,20 +496,20 @@ Package: blx-case-expl3 2022/02/02 v3.17 expl3 case changing code for biblatex
 (./thesis.aux)
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
 (/usr/local/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count416
@@ -558,19 +558,19 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'thesis.bbl' found.
 (./thesis.bbl)
-Package biblatex Info: Reference section=0 on input line 44.
-Package biblatex Info: Reference segment=0 on input line 44.
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 46
+Package biblatex Info: Reference section=0 on input line 45.
+Package biblatex Info: Reference segment=0 on input line 45.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 47
 .
 (/usr/local/texlive/2022/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 46.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 47.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 46.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 47.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -617,8 +617,16 @@ Non-PDF special ignored!
 ] [15] [16
 
 ]
+<Fig_Mancini_Deoxygenation.png, id=69, 454.69875pt x 200.75pt>
+File: Fig_Mancini_Deoxygenation.png Graphic file (type png)
+<use Fig_Mancini_Deoxygenation.png>
+Package pdftex.def Info: Fig_Mancini_Deoxygenation.png  used on input line 113.
 
-Package biblatex-chicago Warning: Empty Ibidem citation on input line 111.
+(pdftex.def)             Requested size: 454.69763pt x 200.7495pt.
+
+Overfull \hbox (38.70245pt too wide) in paragraph at lines 113--114
+[][] 
+ []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -627,7 +635,27 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 ]
 
-Package biblatex-chicago Warning: Empty Ibidem citation on input line 117.
+Package biblatex-chicago Warning: Empty Ibidem citation on input line 115.
+
+<Fig_OMZ.png, id=75, 373.395pt x 270.00874pt>
+File: Fig_OMZ.png Graphic file (type png)
+<use Fig_OMZ.png>
+Package pdftex.def Info: Fig_OMZ.png  used on input line 117.
+(pdftex.def)             Requested size: 373.39409pt x 270.00807pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[2 <./Fig_Mancini_Deoxygenation.png>]
+
+Package biblatex-chicago Warning: Empty Ibidem citation on input line 123.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -640,22 +668,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[2]
+[3 <./Fig_OMZ.png>]
+<Fig_NOAA_Upwelling.jpg, id=85, 1003.75pt x 363.3575pt>
+File: Fig_NOAA_Upwelling.jpg Graphic file (type jpg)
+<use Fig_NOAA_Upwelling.jpg>
+Package pdftex.def Info: Fig_NOAA_Upwelling.jpg  used on input line 125.
+(pdftex.def)             Requested size: 401.49289pt x 145.34041pt.
 
-Package biblatex-chicago Warning: Empty Ibidem citation on input line 123.
-
-
-Package biblatex-chicago Warning: Empty Ibidem citation on input line 123.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[3]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -666,7 +685,18 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[4]
+[4 <./Fig_NOAA_Upwelling.jpg>]
+<Fig_OCNMS_Map.jpg, id=89, 373.395pt x 481.8pt>
+File: Fig_OCNMS_Map.jpg Graphic file (type jpg)
+<use Fig_OCNMS_Map.jpg>
+Package pdftex.def Info: Fig_OCNMS_Map.jpg  used on input line 129.
+(pdftex.def)             Requested size: 186.69704pt x 240.8994pt.
+
+Package biblatex-chicago Warning: Empty Ibidem citation on input line 133.
+
+
+Package biblatex-chicago Warning: Empty Ibidem citation on input line 133.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -675,7 +705,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[5]
+[5 <./Fig_OCNMS_Map.jpg>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -687,6 +717,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [6]
+<Fig_OCNMS_buoy_map.jpg, id=97, 401.5pt x 516.93124pt>
+File: Fig_OCNMS_buoy_map.jpg Graphic file (type jpg)
+<use Fig_OCNMS_buoy_map.jpg>
+Package pdftex.def Info: Fig_OCNMS_buoy_map.jpg  used on input line 139.
+(pdftex.def)             Requested size: 200.7495pt x 258.46498pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -704,7 +742,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[8]
+[8 <./Fig_OCNMS_buoy_map.jpg>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -713,13 +753,31 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[9
+[9]
 
-] [10
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[10]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[11
+
+] [12
 
 ]
 Chapter 1.
-[11]
+[13]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -728,11 +786,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[12]
-<subdivision.pdf, id=112, 220.825pt x 89.33376pt>
+[14]
+<subdivision.pdf, id=126, 220.825pt x 89.33376pt>
 File: subdivision.pdf Graphic file (type pdf)
 <use subdivision.pdf>
-Package pdftex.def Info: subdivision.pdf  used on input line 257.
+Package pdftex.def Info: subdivision.pdf  used on input line 269.
 (pdftex.def)             Requested size: 220.82445pt x 89.33353pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -742,15 +800,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[13 <./subdivision.pdf>]
-File: subdivision.pdf Graphic file (type pdf)
-<use subdivision.pdf>
-Package pdftex.def Info: subdivision.pdf  used on input line 270.
-(pdftex.def)             Requested size: 110.41222pt x 44.66676pt.
+[15 <./subdivision.pdf>]
 File: subdivision.pdf Graphic file (type pdf)
 <use subdivision.pdf>
 Package pdftex.def Info: subdivision.pdf  used on input line 282.
 (pdftex.def)             Requested size: 110.41222pt x 44.66676pt.
+File: subdivision.pdf Graphic file (type pdf)
+<use subdivision.pdf>
+Package pdftex.def Info: subdivision.pdf  used on input line 294.
+(pdftex.def)             Requested size: 110.41222pt x 44.66676pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -759,35 +817,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[14
+[16
 
 ]
 Appendix A.
-[15
+[17
 
-] [16
+] [18
 
-] [17
+] [19
 
 ]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[18]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[19]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -832,19 +872,46 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[24] (./thesis.aux)
+[24]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[25]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[26]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[27] (./thesis.aux)
 Package logreq Info: Writing requests to 'thesis.run.xml'.
 \openout1 = `thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 14586 strings out of 478268
- 276783 string characters out of 5846348
- 1329347 words of memory out of 5000000
- 32617 multiletter control sequences out of 15000+600000
+ 14663 strings out of 478268
+ 278723 string characters out of 5846348
+ 1329523 words of memory out of 5000000
+ 32692 multiletter control sequences out of 15000+600000
  481581 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 82i,11n,90p,3336b,3947s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 82i,12n,90p,3336b,3947s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 }</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
@@ -858,10 +925,10 @@ texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/te
 xlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/tex
 live/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texl
 ive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on thesis.pdf (44 pages, 224202 bytes).
+Output written on thesis.pdf (47 pages, 999413 bytes).
 PDF statistics:
- 233 PDF objects out of 1000 (max. 8388607)
- 155 compressed objects within 2 object streams
+ 250 PDF objects out of 1000 (max. 8388607)
+ 162 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

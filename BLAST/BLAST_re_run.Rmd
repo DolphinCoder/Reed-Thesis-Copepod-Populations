@@ -1,0 +1,139 @@
+---
+title: "BLAST re-run"
+author: "Eleanor (Ella) Crotty"
+header-includes:
+  \usepackage{fvextra}
+  \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+output:
+  pdf_document:
+    toc: TRUE
+urlcolor: blue
+---
+
+```{r Package Imports, message = F, warning = F}
+# Warnings and startup messages suppressed
+library(tidyverse)
+library(patchwork)
+library(scales)
+library(ggrepel)
+library(readxl)
+library(here)
+```
+
+```{r}
+# Import the data
+allReads <- read_csv(here("PMEL-Data", "FishPlusCOI_Reads_copy.csv")) %>% # non-cleaned allReads
+  mutate(year = year(Date_local)) %>% 
+  relocate(year, .after = Date_local) %>% 
+  mutate(Species = case_when(Species == "Pseudocalanus acuspes" ~ "Pseudocalanus mimus", .default = Species)) # janky fix for the misidentification
+
+copepodNames <- read_csv(here("PMEL-Data", "OCNMS_Copepods_Krill_copy.csv"))
+copepods <- c(unique(copepodNames$Species))
+
+# Filter to only copepods for results
+allCopepodReads <- allReads %>% 
+  filter(Species %in% copepods | Genus %in% c("Calocalanus", "Clausocalanus", "Paracalanus") | Class == "Hexanauplia")
+```
+
+```{r}
+compare1 <- allCopepodReads %>% select(ESV, sequence, Kingdom, Phylum, Class, Order, Family, Genus, Species, pctMatch, Sample_Name, Amplicon, Barcode.x, Barcode.y, Barcode_mod, F_name, primers_fwd, R_name, primers_rev, tax_ID, Marker)
+
+print(unique(compare1$Amplicon))
+```
+
+```{r, eval = F}
+# Run BLAST on one ESV
+# https://support.bioconductor.org/p/86440/
+
+seqs <-
+  ## The sequences to be blasted and their fasta 'deflines' as an character vector.  
+  c('>s1',compare1$sequence[1])
+
+blast.f6 <-
+  ## The fields you want back from blast.  c.f. `blastn -help` for a full list of available fields.
+  c('qseqid', 'sseqid', 'pident', 'qcovs', 'sacc', 'staxid', 'ssciname', 'sblastname', 'stitle') 
+
+#' qseqid = query sequence ID
+#' sseqid = subject sequence ID
+#' pident = percentage of identical matches
+#' qcovs = query coverage per subject
+#' sacc = subject accession
+#' staxid = subject taxonomy id
+#' ssciname = subject scientific name
+#' sblastname = subject blast name
+#' sscinames = unique subject scientific names
+#' stitle = subject title
+
+blast.out <-
+  ## Run the job, converting output to an R data.frame
+  system2('blastn',c('-db',"'nt'"
+                    ,'-outfmt',sprintf('"6 %s"',paste(collapse=' ',blast.f6))
+                    ,'-perc_identity',"'.90'"
+                    #, '-taxids', "'Arthropoda'" # -taxids "Arthropoda" to restrict to arthropods - hoping this go faster.
+                    # -window_masker_taxid 6656 for Arthropoda
+                    #,'-taxids', "'6656'"
+                    # https://www.ncbi.nlm.nih.gov/books/NBK569846/
+                    #,'-task blastn-short' # sometimes empty output is bc amplicons are small
+                    ,'-remote' 
+                     )
+         ,input=seqs
+         ,stdout=TRUE                   # capture the output in a character vector
+          )
+
+blast.out.df <-
+  ## parse blast.out as a table and assign names to it
+  `names<-`(read.table(quote=""
+                      ,sep='\t'
+                      ,textConnection(blast.out)
+                       )
+           ,blast.f6)
+
+# spot check: sseqid matches online BLAST
+```
+
+```{r}
+# Run BLAST on lots of ESVs
+# https://support.bioconductor.org/p/86440/
+
+blast.f6 <-
+  ## The fields you want back from blast.  c.f. `blastn -help` for a full list of available fields.
+  c('qseqid', 'sseqid', 'pident', 'qcovs', 'sacc', 'staxid', 'ssciname', 'sblastname', 'stitle') 
+
+#' qseqid = query sequence ID
+#' sseqid = subject sequence ID
+#' pident = percentage of identical matches
+#' qcovs = query coverage per subject
+#' sacc = subject accession
+#' staxid = subject taxonomy id
+#' ssciname = subject scientific name
+#' sblastname = subject blast name
+#' sscinames = unique subject scientific names
+#' stitle = subject title
+
+for (i in 1:length(compare1$sequence)) {
+  seq <- c('>s1',compare1$sequence[i])
+  ## The sequences to be blasted and their fasta 'deflines' as an character vector.  
+  ESV <- compare1$ESV[i]
+  
+  blast.out2 <-   ## Run the job, converting output to an R data.frame
+  system2('blastn',c('-db',"'nt'"
+                    ,'-outfmt',sprintf('"6 %s"',paste(collapse=' ',blast.f6))
+                    ,'-perc_identity',"'.90'"
+                    ,'-remote' 
+                     )
+         ,input=seq
+         ,stdout=TRUE                   # capture the output in a character vector
+          )
+  
+  BLAST_output <-   ## parse blast.out as a table and assign names to it
+  `names<-`(read.table(quote=""
+                      ,sep='\t'
+                      ,textConnection(blast.out)
+                       )
+           ,blast.f6)
+  
+  assign(ESV, BLAST_output) # assign the output to a df names after the ESV
+}
+```
+
+

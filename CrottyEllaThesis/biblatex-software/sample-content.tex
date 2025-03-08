@@ -1,0 +1,64 @@
+%
+% Make title an hyperlink to the DOI or URL to make the result leaner (suggested by N. Rougier 4/4/2020)
+%
+
+\newcommand{\doiorurl}{%
+  \iffieldundef{doi}
+    {\iffieldundef{url}
+       {}
+       {\strfield{url}}}
+    {http://dx.doi.org/\strfield{doi}}%
+}
+\newcommand{\myhref}[1]{%
+ \ifboolexpr{%
+   test {\ifhyperref}
+   and
+   not test {\iftoggle{bbx:url}}
+   and
+   not test {\iftoggle{bbx:doi}}
+  }
+  {\href{\doiorurl}{#1}}
+  {#1}%
+}
+\DeclareFieldFormat{title}{\myhref{\mkbibemph{#1}}}
+\DeclareFieldFormat
+  [article,inbook,incollection,inproceedings,patent,thesis,unpublished]
+  {title}{\myhref{\mkbibquote{#1\isdot}}}
+
+
+\addbibresource{biblio.bib}
+\addbibresource{manual.bib}
+\author{Inria Software Citation Working Group}
+\date{\today}
+\title{Test document for software entries}
+\begin{document}
+
+\maketitle
+
+This is a test document that showcases the possibilities for rendering the
+various software-releated bibliographic entries with the standard BibLaTeX style
+extended with the \texttt{software} module.
+
+\begin{itemize}
+\item software entry CGAL \cite{cgal} and Scilab \cite{delebecque:hal-02090402}
+\item softwareversion entry CGAL 5.0.2 \cite{cgal:5-0-2}
+\item softwareversion Scilab 1.1.1 : from the chain of crossrefs \cite{delebecque:hal-02090402v1}, and from the condensed bibtem \cite{delebecque:hal-02090402-condensed} (they should be identical)
+\item softwaremodule entry Voronoi: from the chain of crossrefs \cite{cgal:lp-gi-20a}, and the from the condensed bibtem \cite{cgal:lp-gi-20a-condensed} (they should be identical)
+\item software entry Parmap \cite{parmap}
+\item codefragment entry simplemapper: from the chain of crossrefs \cite{simplemapper}, and from the condensed bibitem \cite{simplemapper-condensed} (they should be identical)
+\item software entry from the Astrophysics Source Code Library, using the eprint field \cite{2013ascl.soft05002P}
+\item software entry from the swMATH catalog, using the eprint field \cite{sw01091}
+\item documentation in a software entry \cite{scilabdoc}
+\item software entry \cite{sw-ipol.2020.300} and related article \cite{ipol.2020.300} from the IPOL journal
+\end{itemize}
+
+\ifbacktracker
+\printbibheading[title=References \emph{(with backref enabled)}]
+\else
+\printbibheading[title=References \emph{(default style)}]
+\fi
+\printbibliography[heading=subbibliography,type=software,title={Software Projects}]
+\printbibliography[heading=subbibliography,nottype=software,title={Software versions, modules, excerpts and manuals}]
+
+
+
