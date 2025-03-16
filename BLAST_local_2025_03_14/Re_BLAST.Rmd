@@ -1,0 +1,168 @@
+---
+title: "Re-BLAST"
+author: "Eleanor (Ella) Crotty"
+header-includes:
+  \usepackage{fvextra}
+  \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+output:
+  pdf_document:
+    toc: TRUE
+urlcolor: blue
+---
+
+```{r Package Imports, message = F, warning = F}
+# Warnings and startup messages suppressed
+library(tidyverse)
+library(patchwork)
+library(scales)
+library(ggrepel)
+library(readxl)
+library(here)
+```
+
+```{r}
+# Reference
+copepodNames <- read_csv(here("PMEL-Data", "OCNMS_Copepods_Krill_copy.csv"))
+copepods <- c(unique(copepodNames$Species)) # this accidentally gets two krill. ask me if i give a shit.
+# Import unaltered JV data
+allReads <- read_csv(here("PMEL-Data", "FishPlusCOI_Reads_copy.csv")) %>% # non-cleaned allReads
+  mutate(year = year(Date_local)) %>% 
+  relocate(year, .after = Date_local) %>% 
+  filter(Species %in% copepods | Genus %in% c("Calocalanus", "Clausocalanus", "Paracalanus") | Class == "Hexanauplia") # this will take For Fucking Ever if i run it on all species
+```
+
+```{r}
+# Extract just unique ESVs and their sequences for re-BLAST ing
+ESVs <- unique(allReads$ESV)
+Sequences <- unique(allReads$sequence)
+Re_BLAST_in <- data.frame(ESVs, Sequences)
+```
+
+```{r}
+# Make a bunch of horrid little individual BLAST files <3
+
+for (i in 1:length(ESVs)) {
+  # name
+  name <- ESVs[i]
+  # sequence
+  sequence <- Sequences[i]
+  # make it into a .fsa file
+  defline <- paste(">", name, sep = "")
+  fsa <- data.frame(defline)
+  fsa <- rbind(fsa, sequence)
+  # export with ESV name
+  write.table(fsa, here("BLAST", "Re_BLAST_in", paste(name, "fsa", sep = ".")), quote = F, row.names = F, col.names = F) # all those F files keep it from adding random bullshit
+}
+```
+
+-- run BLAST script that takes the .fsa file and outputs a .csv of results --
+
+-outfmt 
+
+#' qseqid = query sequence ID
+#' sseqid = subject sequence ID
+#' pident = percentage of identical matches
+#' qcovs = query coverage per subject
+#' sacc = subject accession
+#' staxid = subject taxonomy id
+#' ssciname = subject scientific name
+#' sblastname = subject blast name
+#' sscinames = unique subject scientific names
+#' stitle = subject title
+
+https://omicstutorials.com/step-by-step-guide-customizing-blast-output/
+
+https://www.biostars.org/p/76551/
+
+```
+-outfmt "6 ssciname pident"
+-max_target_seqs 5 
+*test1 
+blastn -db nt -query Re_BLAST_in/ESV_270123.fsa  -out Re_BLAST_out/ESV_270123_results.out -max_target_seqs 5 -outfmt "6 ssciname sscinames pident" -remote
+*testloop
+for i in Re_BLAST_in/*.fsa
+  do
+  echo "${i}"
+  base=$(basename $i .fsa)
+  echo "Re_BLAST_out/${base}_results.out"
+  done
+*connorsuggest
+for i in *.fsa
+do 
+longass database query $i &
+sleep 2
+done
+*final
+for i in Re_BLAST_in/*.fsa
+  do
+  base=$(basename $i .fsa)
+  blastn -db nt -query "${i}"  -out "Re_BLAST_out/${base}_results.out" -max_target_seqs 5 -outfmt "6 ssciname sscinames pident" -remote
+  sleep 120
+  done
+  
+  
+# need to re-do a bunch that failed - their output files are 0 B
+ls -lh Re_BLAST_out | grep ' 0B' > Round_2.txt
+awk '{ print $9 }' Round_2.txt > Round_2_names.txt
+
+# Check progress
+ls -lh Re_BLAST_out | grep ' 0B' | wc -l
+
+Round_2_names.txt is 
+ESV_217525_results.out
+...continues with one per line
+
+https://stackoverflow.com/questions/16623835/remove-a-fixed-prefix-suffix-from-a-string-in-bash
+$ prefix="hell"
+$ suffix="ld"
+$ string="hello-world"
+$ foo=${string#"$prefix"}
+$ foo=${foo%"$suffix"}
+$ echo "${foo}"
+o-wor
+
+for line in $(cat Round_2_names.txt); 
+  do
+  string="${line}"
+  suffix="_results.out"
+  base=${string%"$suffix"}
+  echo "${base}"
+  done
+# successfully echoes ESV_267585... one ESV per line
+
+# now to get the in and out
+for line in $(cat Round_2_names.txt); 
+  do
+  string="${line}"
+  suffix="_results.out"
+  base=${string%"$suffix"}
+  echo "${base}"
+  echo Re_BLAST_in/"${base}".fsa % input
+  echo "Re_BLAST_out/${base}_results.out" % output
+  done
+
+Re_BLAST_Round2.sh
+for line in $(cat Round_2_names.txt); 
+  do
+  string="${line}"
+  suffix="_results.out"
+  base=${string%"$suffix"}
+  echo "${base}"
+  blastn -db nt -query "Re_BLAST_in/"${base}".fsa"  -out "Re_BLAST_out/${base}_results.out" -max_target_seqs 5 -outfmt "6 ssciname sscinames pident" -remote
+  sleep 120
+  done
+  
+Re_BLAST_Round2.sh
+
+
+# new plan because i need to do it locally (too many query)
+
+
+```
+
+```{r}
+# Import BLAST results
+read.table(here("BLAST", "Re_BLAST_out", "ESV_270123_results.out"), sep = "\t") # ok great it works big loop time
+# Move anything with <95% top match to the bin
+# Take the first result of each and make a dataframe of ESVs and species
+```

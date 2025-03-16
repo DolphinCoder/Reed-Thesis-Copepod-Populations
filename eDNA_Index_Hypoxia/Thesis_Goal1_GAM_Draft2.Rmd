@@ -1,0 +1,85 @@
+---
+title: "Thesis ZOIB Troubleshooting"
+author: "Eleanor (Ella) Crotty"
+header-includes:
+  \usepackage{fvextra}
+  \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+output:
+  pdf_document:
+    toc: TRUE
+urlcolor: blue
+---
+
+```{r Package Imports, message = F, warning = F}
+# Warnings and startup messages suppressed
+library(tidyverse)
+library(patchwork)
+library(scales)
+library(ggrepel)
+library(readxl)
+library(here)
+library(mgcv)
+library(gratia)
+library(ggpmisc)
+library(zoib)
+library(coda)
+```
+
+# Goals 
+
+- Focus on one species first
+- Make working beta GAM
+- Make a zero-inflated model
+
+```{r}
+data <- read_csv(here("eDNA_Index_Hypoxia", "Data", "Copepod_eDNAindxEnvData_clean_no23.csv")) %>% # from ThesisGoal1.Rmd
+  filter(!is.na(DO)) %>% 
+  filter(Species == "Acartia longiremis") # you can change this to Oithona similis to check another species
+
+dataF <- data %>% filter(temperature < 10) # no outlier
+```
+
+# ZOIB
+
+Bayesian Inference for Beta Regression and Zero-or-One Inflated
+Beta Regression
+
+Convergence of MCMC chains can be checked using functions traceplot(), autocorr.plot() and gelman.diag() available in package coda on the posterior draws from the MCMC algorithms. zoib also contains a function check.psrf() that checks whether the multivariate psrf value can be calculated for multi-dimensional variables, provides box plots and summary statistics on multiple univariate psrf values. Posterior summary of the parameters can be obtained using summary().
+
+When there are multiple responses y, each y should be separated by "|", such as "y1 | y2 | y3" on the left hand side of the formula. On the right side of the formula, it can include up to 5 parts in the following order: xb | xd | x0 | x1 | z, where xb represents the fixed-effects covariates/factors in the link function of the mean of the beta distribution, xd represents the fixed-effects covariates/factors in the link function of the sum of the two shape parameters of the beta distribution, x0 represents the fixed-effect covariates/factors in the link function of Pr(y=0), x1 represents the fixed-effect covariates/factors in the link function of Pr(y=1|y>0), and z represents the random-effect covariates/factors. The current version of the package only accomodates z being the same across all the link functions that have a random component. xb and xd should always be specified, even if xd contains only an intercept. If there is no zero inflation in any of the y’s, then the x0 part can be omitted, and zoib automatically adjusts the order of the rest of the X specifications; similarly for the x1 part and the random effects part z.
+
+x1 and x2 should always be specified, even if x2 contains only an intercept (represented by 1).
+
+For example, if there are 3 response variables y1,y2,y3 and 2 independent variables (xx1, xx2), and none of the y’s has zero inflation, then model y1 | y2 | y3 ∼ xx1 + xx2 | 1 | xx1 | xx2 implies x1 = (1,xx1,xx2), x2= 1 (intercept), x3 = NULL, x4 = (1,xx1), z = (1,xx2).
+
+```{r}
+# should I smooth it? not sure
+# picked logit because it is default
+
+# Josie Meeting
+# MCMC chains start with random numbers, see if they fit the data, and then adjust back and forth until it converges
+
+b <- matrix(data = 1, nrow = 2*length(data$DO), ncol = 2*length(data$DO))
+
+xd = rep(1, length(data$eDNA_index))
+ind_DO_GAM_zoib <- zoib(eDNA_index ~ DO | 1 | DO, # 1 must be used as an intercept if there's only one x variable
+                        # using x variable as x0 because it's zero-inflated
+                        data = data, 
+                        one.inflation = F,
+                        n.burn = 1000, # burning in period of MCMC chains - the first chunk of non-converged guesses, which we will ignore. default 200.
+                        inits = list(b=NULL, # 2*n = 2*length(data$DO)?
+                                     d=NULL, # can't figure out how do do the evil matrix thing
+                                     b0=0.5, # starting value for P(y=0), or probability of non-detection 
+                                     b1=1/80, # starting value for P(y=1)
+                                     sigma=c(0.1), # sigma is a vector containing the standard deviation of each random component
+                                     R=NULL)
+)
+                        
+# The notations b, d, b0, b1 are the same as in the "random" section above, with each specified in a matrix format of dimension (nx+1)*n.response, where nx is number of regression coefficients corresponding to the respective x’s (+1 because of the intercept). sigma is a vector containing the standard deviation of each random component, and R contains the lower triangle of the correlation matrix. For example, in a 3x3 correlation matrix, R is specified as c(1,r21,1,r31,r32,1). Each inner list contains the starting values for one MCMC chain. If initial values are specified only for a subset of the parameters in a model, NULL should be used for the rest of the unspecified parameters (whose initial values will be generated automatically by the function)
+
+# getting invalid parent values - allegedly this is always because somehow the model is running into a value of zero, and this can be fixed by specifying inits better, but also nobody has a straight answer for how to specify inits better
+
+coeff_zoib <- ind_DO_GAM_zoib$coeff
+summary(coeff_zoib)
+```
+

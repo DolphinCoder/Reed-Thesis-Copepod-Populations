@@ -41,12 +41,12 @@ envData <- read_csv(here("PMEL-Data", "EnvironmentalDataset1_copy.csv")) %>%
   relocate(year, .after = date)
 allReads <- read_csv(here("PMEL-Data", "FishPlusCOI_Reads_copy.csv")) %>% # non-cleaned allReads
   mutate(year = year(Date_local)) %>% 
-  relocate(year, .after = Date_local) %>% 
-  mutate(Species = case_when(Species == "Pseudocalanus acuspes" ~ "Pseudocalanus mimus", .default = Species)) # janky fix for the misidentification
+  relocate(year, .after = Date_local) #%>% 
+  #mutate(Species = case_when(Species == "Pseudocalanus acuspes" ~ "Pseudocalanus mimus", .default = Species)) # janky fix for the misidentification
 yrReads <- allReads %>% 
   filter(year != 2023) %>%   # Ignoring 2023 due to gaps for now
-  mutate(year = as.factor(year)) %>% 
-  mutate(Species = case_when(Species == "Pseudocalanus acuspes" ~ "Pseudocalanus mimus", .default = Species)) # janky fix for the misidentification
+  mutate(year = as.factor(year)) #%>% 
+  #mutate(Species = case_when(Species == "Pseudocalanus acuspes" ~ "Pseudocalanus mimus", .default = Species)) # janky fix for the misidentification
 
 # Reference
 copepodNames <- read_csv(here("PMEL-Data", "OCNMS_Copepods_Krill_copy.csv"))
