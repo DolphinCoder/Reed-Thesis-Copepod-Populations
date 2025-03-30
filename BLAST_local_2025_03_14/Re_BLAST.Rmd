@@ -51,7 +51,7 @@ for (i in 1:length(ESVs)) {
   fsa <- data.frame(defline)
   fsa <- rbind(fsa, sequence)
   # export with ESV name
-  write.table(fsa, here("BLAST", "Re_BLAST_in", paste(name, "fsa", sep = ".")), quote = F, row.names = F, col.names = F) # all those F files keep it from adding random bullshit
+  write.table(fsa, here("BLAST_local_2025_03_14", "Re_BLAST_in", paste(name, "fsa", sep = ".")), quote = F, row.names = F, col.names = F) # all those F files keep it from adding random bullshit
 }
 ```
 
@@ -102,11 +102,11 @@ for i in Re_BLAST_in/*.fsa
   
   
 # need to re-do a bunch that failed - their output files are 0 B
-ls -lh Re_BLAST_out | grep ' 0B' > Round_2.txt
+ls -lh Re_BLAST_out | grep ' 0' > Round_2.txt
 awk '{ print $9 }' Round_2.txt > Round_2_names.txt
 
 # Check progress
-ls -lh Re_BLAST_out | grep ' 0B' | wc -l
+ls -lh Re_BLAST_out | grep ' 0' | wc -l
 
 Round_2_names.txt is 
 ESV_217525_results.out
@@ -148,21 +148,202 @@ for line in $(cat Round_2_names.txt);
   suffix="_results.out"
   base=${string%"$suffix"}
   echo "${base}"
-  blastn -db nt -query "Re_BLAST_in/"${base}".fsa"  -out "Re_BLAST_out/${base}_results.out" -max_target_seqs 5 -outfmt "6 ssciname sscinames pident" -remote
+  blastn -db nt -query "Re_BLAST_in/"${base}".fsa"  -out "Re_BLAST_out/${base}_results.out" -max_target_seqs 5 -outfmt "6 ssciname sscinames pident" -remote &
   sleep 120
   done
   
-Re_BLAST_Round2.sh
-
-
 # new plan because i need to do it locally (too many query)
 
+Re_BLAST_Round2.sh on VM
+for line in $(cat Round_2_names.txt); 
+  do
+  string="${line}"
+  suffix="_results.out"
+  base=${string%"$suffix"}
+  echo "${base}"
+  blastn -db nt -query "Re_BLAST_in/"${base}".fsa"  -out "Re_BLAST_out/${base}_results.out" -max_target_seqs 5 -outfmt "6 ssciname sscinames pident" -n_threads 32 &
+  sleep 300
+  outfile="Re_BLAST_out/${base}_results.out"
+  echo head -n 1 "${outfile}"
+  done
+  
+test echo head -n 1 ESV_273780_results.out
+
+nohup bash Re_BLAST_Round2.sh
+
+
+# Check progress
+ls -lh Re_BLAST_out | grep ' 0 Mar' | wc -l
 
 ```
 
 ```{r}
 # Import BLAST results
-read.table(here("BLAST", "Re_BLAST_out", "ESV_270123_results.out"), sep = "\t") # ok great it works big loop time
+# test #1
+tab <- read.table(here("BLAST_local_2025_03_14", "Re_BLAST_out", "ESV_270123_results.out"), sep = "\t") # ok great it works big loop time
 # Move anything with <95% top match to the bin
+top_pct <- tab[1,3]
 # Take the first result of each and make a dataframe of ESVs and species
+if (top_pct < 95) {
+  print("Ew")
+} else {
+  print(tab[1,1])
+}
 ```
+
+```{r}
+# import all
+# ESVs_temp <- c("ESV_263448", "ESV_263493", "ESV_263535", "ESV_263590", "ESV_268882", "ESV_268883", "ESV_272173") # delete this line when re-BLAST finished, and just use ESVs
+ESV_loop <- c()
+Re_BLAST_Species <- c()
+PctMatchLoop <- c()
+badMatch <- c()
+
+# from code below: 
+# ESV_231703 = Pseudocalanus mimus 91.95
+# ESV_220098 = Metridia pacifica 100.000
+# ESV_274183 = Metridia pacifica 99.042
+# ESV_264603 = Acartia longiremis 98.689
+# ESV_263949 = Acartia longiremis 98.355
+# ESV_271858 = Removed for 2nd match being < 95% match
+
+
+for (i in 1:length(ESVs)) {
+  if (ESVs[i] == "ESV_231703") { # Manually assign, didn't get BLASTed by the script
+      species <- "Pseudocalanus mimus"
+      name <- ESVs[i]
+      top_pctl <- 91.95 # <95, so mark for removal
+      badMatch <- c(badMatch, ESVs[i])
+      ESV_loop <- c(ESV_loop, name)
+      PctMatchLoop <- c(PctMatchLoop, "DELETE") # mark for removal in fix
+      Re_BLAST_Species <- c(Re_BLAST_Species, "DELETE")
+    } else { 
+      if (ESVs[i] == "ESV_220098" | ESVs[i] == "ESV_274183"){ # manually assign, 2nd-3rd match
+        name <- ESVs[i]
+        species <- "Metridia pacifica"
+        if (ESVs[i] == "ESV_220098") {
+          top_pctl <- 100.000
+        } else
+        top_pctl <- 99.042
+    } else
+      if (ESVs[i] == "ESV_264603" | ESVs[i] == "ESV_263949"){ # manually assign, 2nd-3rd match
+        name <- ESVs[i]
+        species <- "Acartia longiremis"
+        if (ESVs[i] == "ESV_264603") {
+          top_pctl <- 98.689
+        } else
+        top_pctl <- 98.355
+    } else
+      if (ESVs[i] == "ESV_271858") { # first match env sample, 2nd match < 95%
+        name <- ESVs[i]
+        badMatch <- c(badMatch, ESVs[i])
+        ESV_loop <- c(ESV_loop, name)
+        PctMatchLoop <- c(PctMatchLoop, "DELETE") # mark for removal in fix
+        Re_BLAST_Species <- c(Re_BLAST_Species, "DELETE")
+      } else {
+      # Import all the others and extract top hit and pctmatch
+      # name
+      name <- ESVs[i]
+      #print(name)
+      # import
+      filename <- paste(name, "_results.out", sep = "")
+      tabl <- read.table(here("BLAST", "Re_BLAST_out", filename), sep = "\t")
+      #print(filename)
+      species <- tabl[1,1]
+      top_pctl <- tabl[1,3]
+  }
+  # filter for OK % match
+  if (top_pctl < 95) { # Remove and take note if < 95% match
+    #print(paste("Removing", name))
+    badMatch <- c(badMatch, name)
+    ESV_loop <- c(ESV_loop, name)
+    PctMatchLoop <- c(PctMatchLoop, "DELETE") # mark for removal in fix
+    Re_BLAST_Species <- c(Re_BLAST_Species, "DELETE")
+  } else { # Add to key if > 95% match
+      # Add species ID and pctmatch to key
+      #print(species)
+      ESV_loop <- c(ESV_loop, name)
+      PctMatchLoop <- c(PctMatchLoop, top_pctl)
+      Re_BLAST_Species <- c(Re_BLAST_Species, species)
+  }
+    }
+}
+ 
+re_BLAST_IDs <- data.frame(ESV_loop, Re_BLAST_Species, PctMatchLoop)
+
+write_csv(re_BLAST_IDs, here("eDNA_Index_Hypoxia", "Data", "re_BLAST_dictionary.csv"))
+
+#' spot check on [1] "ESV_263448"
+#' [1] "ESV_263448_results.out"
+#' [1] "Pseudocalanus sp. KLMPC092-09"
+#' all good, checked on BLAST website
+```
+
+```{r}
+allReads_reassigned <- allReads %>% 
+  full_join(re_BLAST_IDs, by = join_by(ESV == ESV_loop)) %>% 
+  relocate(c(Re_BLAST_Species, PctMatchLoop), .after = Species)
+```
+
+```{r}
+problem_children <- allReads_reassigned %>% 
+  filter(Re_BLAST_Species != Species)
+
+# summarize problem children
+problem_children_summary1 <- problem_children %>% 
+  group_by(Species, Re_BLAST_Species) %>% 
+  summarize(n = n(), minPctMatch = min(PctMatchLoop))
+
+problem_children_summary <- allReads_reassigned %>% 
+  filter(Species == "Oithona similis" | Species == "Acartia longiremis" | Species == "Metridia pacifica" | Species == "Pseudocalanus acuspes" | Species == "Pseudocalanus newmani") %>% 
+  group_by(ESV, Species, Re_BLAST_Species) %>% 
+  summarize(n = n(), minPctMatch = min(PctMatchLoop))
+# looks OK - need to reassign some P. newmani, and remove some low-match ones
+
+env_samples <- allReads_reassigned %>% 
+  filter(Re_BLAST_Species %in% c("marine zooplankton environmental sample", "invertebrate environmental sample"))
+
+env_samp_ESVs <- unique(env_samples$ESV)
+```
+
+```{r, eval = F}
+# import env samples
+ESV_env_loop <- c()
+Re_BLAST_Species2 <- c()
+PctMatchLoop2 <- c()
+
+for (i in 1:length(env_samp_ESVs)) {
+  if (env_samp_ESVs[i] == "ESV_231703") { # Manually assign this one that didn't get BLASTed by the script
+    species <- "Pseudocalanus mimus"
+    top_pctl <- 91.95
+  } else { # Import all the others and extract top hit and pctmatch
+    # name
+    name <- env_samp_ESVs[i]
+    #print(name)
+    # import
+    filename <- paste(name, "_results.out", sep = "")
+    tabl <- read.table(here("BLAST", "Re_BLAST_out", filename), sep = "\t")
+    #print(filename)
+    species <- tabl[4,1]
+    top_pctl <- tabl[4,3]
+  }
+  # filter for OK % match
+  if (top_pctl < 95) {
+      print(paste("Removing", name))
+  } else {
+      # Add species ID and pctmatch to key
+      #print(species)
+      ESV_env_loop <- c(ESV_env_loop, name)
+      PctMatchLoop2 <- c(PctMatchLoop2, top_pctl)
+      Re_BLAST_Species2 <- c(Re_BLAST_Species2, species)
+  }
+}
+ 
+re_BLAST_IDs_2 <- data.frame(ESV_env_loop, Re_BLAST_Species2, PctMatchLoop2)
+# ESV_220098 = Metridia pacifica 100.000%
+# ESV_274183 = Metridia pacifica 99.042%
+# ESV_264603 = Acartia longiremis 98.689%
+# ESV_263949 = Acartia longiremis 98.355%
+# ESV_271858 = Removed for 2nd match being < 95% match
+```
+

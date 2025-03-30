@@ -29,19 +29,24 @@ envData_pre <- read_csv(here("PMEL-Data", "EnvironmentalDataset1_copy.csv")) %>%
   rename(Mooring_DO = DO)
 model_37m <- read_csv(here("LiveOcean_TH042_2021_2023_DepthClean.csv")) %>% # Model data (for the 2023 gap)
   mutate(DateMatch_hr = Date_UTC) # to match with eDNA data
-allReads <- read_csv(here("PMEL-Data", "FishPlusCOI_Reads_copy.csv")) %>% # non-cleaned allReads
+
+# Fix misidentifications
+re_BLAST_IDs <- read_csv(here("eDNA_Index_Hypoxia", "Data", "re_BLAST_dictionary.csv"))
+allReads1 <- read_csv(here("PMEL-Data", "FishPlusCOI_Reads_copy.csv")) %>% # non-cleaned allReads
   mutate(year = year(Date_local)) %>% 
   relocate(year, .after = Date_local) %>% 
-  mutate(Species = case_when(Species == "Pseudocalanus acuspes" ~ "Pseudocalanus mimus", .default = Species)) # janky fix for the misidentification
+  full_join(re_BLAST_IDs, by = join_by(ESV == ESV_loop)) %>% 
+  relocate(c(Re_BLAST_Species, PctMatchLoop), .after = Species) # real fix for the misidentification
+
+allReads <- allReads1 %>% 
+  filter(Re_BLAST_Species != "DELETE" | is.na(Re_BLAST_Species)) %>% # filter out <95% matches
+  mutate(Species = case_when(!is.na(Re_BLAST_Species) ~ Re_BLAST_Species, .default = Species)) %>%  # Re-identify ESVs
+  select(-c(Re_BLAST_Species, PctMatchLoop)) # Remove Re_BLAST_Species and PctMatchLoop bc they are no longer needed and might mess w the code
 
 # Reference
 copepodNames <- read_csv(here("PMEL-Data", "OCNMS_Copepods_Krill_copy.csv"))
 copepods <- c(unique(copepodNames$Species))
 eDNAxEnvDataSat <- read_csv(here("PMEL-Data", "eDNAxEnvDataSat_copy.csv"))
-
-# ThesisPart1.Rmd does the janky P. mimus fix for these
-copepodFiltered <- read_csv(here("CopepodDetectionsFiltered.csv"))
-copepodFull <- read_csv(here("CopepodDetectionsFull.csv"))
 
 # Rounding
 EnvRd <- envData_pre %>% 

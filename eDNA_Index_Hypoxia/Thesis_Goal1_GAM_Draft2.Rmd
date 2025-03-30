@@ -58,21 +58,22 @@ For example, if there are 3 response variables y1,y2,y3 and 2 independent variab
 
 # Josie Meeting
 # MCMC chains start with random numbers, see if they fit the data, and then adjust back and forth until it converges
+# Need the fourth thing to be |1, because there's a constant probability of one. With that, don't need one.inflation = F or setting inits.
 
 b <- matrix(data = 1, nrow = 2*length(data$DO), ncol = 2*length(data$DO))
 
 xd = rep(1, length(data$eDNA_index))
-ind_DO_GAM_zoib <- zoib(eDNA_index ~ DO | 1 | DO, # 1 must be used as an intercept if there's only one x variable
+ind_DO_GAM_zoib <- zoib(eDNA_index ~ DO | 1 | DO | 1, # 1 must be used as an intercept if there's only one x variable, and the second 1 means there's a constant probability of a 1, not dependent on DO 
                         # using x variable as x0 because it's zero-inflated
-                        data = data, 
-                        one.inflation = F,
-                        n.burn = 1000, # burning in period of MCMC chains - the first chunk of non-converged guesses, which we will ignore. default 200.
-                        inits = list(b=NULL, # 2*n = 2*length(data$DO)?
-                                     d=NULL, # can't figure out how do do the evil matrix thing
-                                     b0=0.5, # starting value for P(y=0), or probability of non-detection 
-                                     b1=1/80, # starting value for P(y=1)
-                                     sigma=c(0.1), # sigma is a vector containing the standard deviation of each random component
-                                     R=NULL)
+                        data = data#, 
+                        #one.inflation = F,
+                        #n.burn = 1000, # burning in period of MCMC chains - the first chunk of non-converged guesses, which we will ignore. default 200.
+                        #inits = list(b=NULL, # 2*n = 2*length(data$DO)?
+                        #             d=NULL, # can't figure out how do do the evil matrix thing
+                        #             b0=0.5, # starting value for P(y=0), or probability of non-detection 
+                        #             b1=1/80, # starting value for P(y=1)
+                        #             sigma=c(0.1), # sigma is a vector containing the standard deviation of each random component
+                        #             R=NULL)
 )
                         
 # The notations b, d, b0, b1 are the same as in the "random" section above, with each specified in a matrix format of dimension (nx+1)*n.response, where nx is number of regression coefficients corresponding to the respective x’s (+1 because of the intercept). sigma is a vector containing the standard deviation of each random component, and R contains the lower triangle of the correlation matrix. For example, in a 3x3 correlation matrix, R is specified as c(1,r21,1,r31,r32,1). Each inner list contains the starting values for one MCMC chain. If initial values are specified only for a subset of the parameters in a model, NULL should be used for the rest of the unspecified parameters (whose initial values will be generated automatically by the function)
@@ -81,5 +82,74 @@ ind_DO_GAM_zoib <- zoib(eDNA_index ~ DO | 1 | DO, # 1 must be used as an interce
 
 coeff_zoib <- ind_DO_GAM_zoib$coeff
 summary(coeff_zoib)
+
+plot(ind_DO_GAM_zoib$coeff) # shows the MCMC chain converging
+```
+
+[1] "* List of parameter for which the posterior samples are generated         *"
+[1] "* b: regression coeff in the linear predictor for the mean of beta dist'n *"
+[1] "* d: regression coeff in the linear predictor for the sum of the two      *"
+[1] "*    shape parameters in the beta distribution                            *"
+[1] "* b0: regression coeff in the linear predictor for Prob(y=0)              *"
+[1] "* b1: regression coeff in the linear predictor for Prob(y=1)              *"
+
+[1] "Coefficients are presented in the order of b, b0 (if zero.inflation=TRUE),"
+[1] "b1 (if one.inflation=TRUE), and d. If the names of independent variables X"
+[1] "are not shown for the coefficients within each type (b, b0, b1, d), the   "
+[1] "first coeffient is always the intercept, followed the coefficients for the"
+[1] "X's in the order as how they are entered in the model specification.      "
+
+1. Empirical mean and standard deviation for each variable,
+   plus standard error of the mean:
+
+         Mean     SD Naive SE Time-series SE
+b[1]  -1.7695 0.3072 0.004435       0.004531
+b[2]   0.2839 0.1110 0.001603       0.001603
+b0[1] -0.8213 0.9497 0.013708       0.014554
+b0[2] -0.8467 0.5087 0.007343       0.010133
+b1    -4.6457 1.3093 0.018898       0.024215
+d      0.8383 0.1766 0.002549       0.002625
+
+```{r}
+
+```
+
+
+```{r, eval = F}
+# mgcv plotting function, shift = intercept does not need to be done, so this is probably better
+species <- "Acartia longiremis"
+title <- paste(species, sep = " ", "eDNA Index vs Dissolved Oxygen")
+x_zip <- data$DO
+y_zip <- data$eDNA_index
+png(filename = paste(here("eDNA_Index_Hypoxia", "Plots", "ZOIB_Pred_test"), sep = "/", 
+                         paste(species, sep = "_", "eDNA_DO_GAM_ZOIB.png"))) # open png
+    
+xnew1 <- data.frame(DO = c(seq(0, max(x_zip), 0.1)))
+    
+prediction <- pred.zoib(ind_DO_GAM_zoib, xnew = xnew1)
+    
+predlist <- prediction$pred
+pred1 <- data.frame(predlist[[1]]) # this is a matrix with the number of rows = xnew and number of columns = Sample size per chain
+# so i think i want the last column, because that's the end of the chain
+predplot <- pred1[,2300]
+predDO <- xnew1$DO
+    
+#xnew1 <- as.vector(xnew1)
+predplot_df <- data.frame(predDO, predplot)
+    
+ggplot(predplot_df, aes(x = predDO, y = predplot)) +
+    geom_point()
+
+
+    
+#plot <- plot(ind_DO_GAM_zoib$ypred, col = "blue") # plot GAM
+# xlab = "Dissolved Oxygen (mg/L)", ylab = "eDNA Index (GAM in Blue)", main = title, 
+#points(x_zip, y_zip, col = "orange", pch = 16) # plot actual data
+#abline(v = 0.66, lty = "dotted", lwd = 2, col = "red") # most copepods die
+#abline(v = 0.9, lty = "dotted", lwd = 2, col = "orange") # ~50% of copepods die
+#abline(v = 2.66, lty = "dotted", lwd = 2, col = "forestgreen") # many copepods die
+#plot
+#print(plot)
+#dev.off() # close png
 ```
 
