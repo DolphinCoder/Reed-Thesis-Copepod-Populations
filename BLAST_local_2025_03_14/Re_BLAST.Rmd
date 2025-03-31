@@ -36,6 +36,7 @@ allReads <- read_csv(here("PMEL-Data", "FishPlusCOI_Reads_copy.csv")) %>% # non-
 ESVs <- unique(allReads$ESV)
 Sequences <- unique(allReads$sequence)
 Re_BLAST_in <- data.frame(ESVs, Sequences)
+write_csv(Re_BLAST_in, here("eDNA_Index_Hypoxia", "Data", "re_BLAST_Sequences.csv"))
 ```
 
 ```{r}
