@@ -1,0 +1,105 @@
+---
+title: "Zero-Inflated Beta Regressions"
+author: "Eleanor (Ella) Crotty"
+header-includes:
+  \usepackage{fvextra}
+  \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+output:
+  pdf_document:
+    toc: TRUE
+urlcolor: blue
+---
+
+```{r Package Imports, message = F, warning = F}
+# Warnings and startup messages suppressed
+library(tidyverse) # just like so much
+library(patchwork) # put plots next to each other
+library(scales)
+library(ggrepel)
+library(readxl)
+library(here) # locating files
+library(ggpmisc) # useful for annotations and models
+library(modelr) # need for data_grid
+
+# from andrew heiss
+library(brms)             # Bayesian modeling through Stan
+library(tidybayes)        # Manipulate Stan objects in a tidy way
+library(broom)            # Convert model objects to data frames
+library(broom.mixed)      # Convert brms model objects to data frames
+library(betareg)          # Run beta regression models
+library(extraDistr)       # Use extra distributions like dprop()
+library(ggdist)           # Special geoms for posterior distributions
+library(gghalves)         # Special half geoms
+library(ggbeeswarm)       # Special distribution-shaped point jittering
+library(patchwork)        # Combine ggplot objects
+library(marginaleffects)  # Calculate marginal effects for regression models
+library(modelsummary)     # Create side-by-side regression tables
+```
+
+# Import data
+
+```{r}
+eDNAindxEnvData_cleanYr <- read_csv(here("eDNA_Index_Hypoxia", "Data", "Copepod_eDNAindxEnvDataMod_clean.csv")) %>% # from ThesisGoal1_AllYr_Mod.Rmd
+  filter(!is.na(DO))
+
+# Make a split version for looping over species
+dfsplit <- split(eDNAindxEnvData_cleanYr, eDNAindxEnvData_cleanYr$Species) # Split by species
+```
+
+# Big Loop
+
+```{r}
+for (i in 1:length(dfsplit)) { # For each species: 
+    species <- dfsplit[[i]]$Species[1] # Species name 
+    title <- paste(species, sep = " ", "eDNA Index vs Dissolved Oxygen Model") # Plot title
+    print(title)
+    
+    data <- dfsplit[[i]] %>%
+      mutate(eDNA_index = case_when(eDNA_index == 1 ~ 0.999999, .default = eDNA_index))
+    
+    dataF <- data %>% filter(Temp < 10) # no outlier
+    
+    # make the model
+    mod <- brm(
+      bf(eDNA_index ~ DO, # main model
+         phi ~ DO, # precision based on DO
+         zi ~ DO), # zero/not zero process
+      data = data,
+      family = zero_inflated_beta()
+      )
+    
+    # get coefficients
+    tidy(mod, effects = "fixed")
+    
+    # plot conditional means
+    data %>%
+      data_grid(DO = seq_range(DO, n = 50)) %>%
+      add_epred_draws(mod) %>%
+      ggplot(aes(x = DO, y = eDNA_index)) +
+      geom_point(data = data) +
+      stat_lineribbon(aes(y = .epred), alpha = 0.5) + # from tidybayes, shows the summary of draws
+      labs(title = title, caption = "Conditional Means?, All Years Modeled") +
+      theme_bw()
+    
+    ggsave(filename = paste(species, sep = "_", "eDNA_DO_ZOIB_Means_AllYr_Mod.png"), 
+           path = here("eDNA_Index_Hypoxia", "Plots", "ZOIB_Means_AllYr_Mod"), 
+           width = 2500, height = 2000, units = "px")
+    
+    # plot posterior predictions
+    data %>%
+      data_grid(DO = seq_range(DO, n = 50)) %>%
+      add_predicted_draws(mod) %>%
+      ggplot(aes(x = DO, y = eDNA_index)) +
+      geom_point(data = data) +
+      stat_lineribbon(aes(y = .prediction), .width = c(.95, .80, .50), alpha = 1/4) + # from tidybayes, shows the summary of draws
+      labs(title = title, caption = "Posterior Predictions, All Years Modeled") +
+      theme_bw()
+    
+    ggsave(filename = paste(species, sep = "_", "eDNA_DO_ZOIB_Posterior_AllYr_Mod.png"), 
+           path = here("eDNA_Index_Hypoxia", "Plots", "ZOIB_Posterior_Predictions_AllYr_Mod"), 
+           width = 2500, height = 2000, units = "px")
+
+}
+```
+
+

@@ -23,6 +23,20 @@ library(gratia)
 library(ggpmisc)
 library(zoib)
 library(coda)
+
+# from andrew heiss
+library(brms)             # Bayesian modeling through Stan
+library(tidybayes)        # Manipulate Stan objects in a tidy way
+library(broom)            # Convert model objects to data frames
+library(broom.mixed)      # Convert brms model objects to data frames
+library(betareg)          # Run beta regression models
+library(extraDistr)       # Use extra distributions like dprop()
+library(ggdist)           # Special geoms for posterior distributions
+library(gghalves)         # Special half geoms
+library(ggbeeswarm)       # Special distribution-shaped point jittering
+library(patchwork)        # Combine ggplot objects
+library(marginaleffects)  # Calculate marginal effects for regression models
+library(modelsummary)     # Create side-by-side regression tables
 ```
 
 # Goals 
@@ -110,8 +124,30 @@ b0[2] -0.8467 0.5087 0.007343       0.010133
 b1    -4.6457 1.3093 0.018898       0.024215
 d      0.8383 0.1766 0.002549       0.002625
 
-```{r}
+# Meeting 4/4/2025
 
+## From brms models, but might be helpful
+
+https://www.andrewheiss.com/blog/2021/11/08/beta-regression-guide/#zero-inflated-beta-regression-bayesian-style
+
+- running tidy(model) should summarize the terms
+- zi_intercept is the zero-inflating component
+- predicted_draws(newdata = tibble(DO seq)) should give me the predictions I want
+
+https://mjskay.github.io/tidybayes/articles/tidy-brms.html
+
+
+```{r}
+x_zip <- data$DO
+y_zip <- data$eDNA_index
+
+newdata2 <- tibble(DO = c(seq(0, max(x_zip), 0.1)))
+
+broom::tidy(ind_DO_GAM_zoib)
+
+tidy_pred <- ind_DO_GAM_zoib %>% 
+  predicted_draws(newdata = newdata2)
+tidy_pred
 ```
 
 

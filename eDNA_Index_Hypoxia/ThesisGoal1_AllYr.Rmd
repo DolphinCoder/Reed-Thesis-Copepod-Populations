@@ -233,7 +233,7 @@ n_species <- eDNAindxEnvDataMod %>%
 
 ```{r}
 # Make a version without any non-detected copepods and add presence
-eDNAindxEnvDataMod_clean <- eDNAindxEnvDataMod %>% 
+eDNAindxEnvDataMod_clean <- eDNAindxEnvDataMod %>% # yes hudsonica 
   filter(Colmax > 0) %>% 
   mutate(Present = case_when(TotalnReads == 0 ~ F, .default = T)) %>% 
   relocate(Present, .before = TotalnReads)
@@ -306,8 +306,8 @@ for (i in 1:length(dfsplit)) { # For each species:
               legend.text = element_text(size = 20))
     )
       
-    ggsave(filename = paste(species, sep = "_", "eDNA_DO_Temp_ScatterSize_23.png"), 
-           path = here("eDNA_Index_Hypoxia", "Plots", "DO_Temp_Scatter_23"), 
+    ggsave(filename = paste(species, sep = "_", "eDNA_DO_Temp_ScatterSize_AllYr.png"), 
+           path = here("eDNA_Index_Hypoxia", "Plots", "DO_Temp_Scatter_AllYr"), 
            width = 2500, height = 2000, units = "px")
 }
 ```
@@ -359,8 +359,8 @@ for (i in 1:length(dfsplit)) { # For each species:
               legend.text = element_text(size = 20))
     )
       
-    ggsave(filename = paste(species, sep = "_", "eDNA_DO_Temp_ScatterSize_AllBackground_23.png"), 
-           path = here("eDNA_Index_Hypoxia", "Plots", "DO_Temp_Scatter_23"), 
+    ggsave(filename = paste(species, sep = "_", "eDNA_DO_Temp_ScatterSize_AllBackground_AllYr.png"), 
+           path = here("eDNA_Index_Hypoxia", "Plots", "DO_Temp_Scatter_AllYr"), 
            width = 2500, height = 2000, units = "px")
 }
 ```
@@ -398,8 +398,8 @@ for (i in 1:length(dfsplit)) { # For each species:
               legend.text = element_text(size = 20))
     )
       
-    ggsave(filename = paste(species, sep = "_", "eDNA_DO_Scatter_23.png"), 
-           path = here("eDNA_Index_Hypoxia", "Plots", "eDNA_DO_Scatter_23"), 
+    ggsave(filename = paste(species, sep = "_", "eDNA_DO_Scatter_AllYr.png"), 
+           path = here("eDNA_Index_Hypoxia", "Plots", "eDNA_DO_Scatter_AllYr"), 
            width = 2500, height = 2000, units = "px")
 }
 ```
@@ -438,8 +438,36 @@ for (i in 1:length(dfsplit)) { # For each species:
       ggtitle(title) +
       theme_bw())
       
-    ggsave(filename = paste(species, sep = "_", "eDNA_Env_Density_23.png"), 
-           path = here("eDNA_Index_Hypoxia", "Plots", "eDNA_Env_Density_23"), 
+    ggsave(filename = paste(species, sep = "_", "eDNA_Env_Density_AllYr.png"), 
+           path = here("eDNA_Index_Hypoxia", "Plots", "eDNA_Env_Density_AllYr"), 
            width = 2500, height = 2000, units = "px")
+}
+```
+
+# Binomial regressions
+
+```{r}
+for (i in 1:length(dfsplit)) {
+  df <- dfsplit[[i]] %>% mutate(PresentBin = case_when(Present == T ~ 1, Present == F ~ 0)) %>%  # Select one species and mutate to 0/1 so that the regression will run
+    filter(Temp < 11) # Filter out the outlier
+  
+  species <- as.character(dfsplit[[i]][1,7]) # Extract species name for title + export filename
+
+  ggplot(df, aes(x = DO, y = PresentBin, color = PresentBin)) +
+    geom_point(size = 4) +
+    scale_color_gradient(high = "dodgerblue3", low = "orange2", guide = "legend", na.value = "black") + # Color to match presence/absence graphs
+    geom_smooth(method = "glm", method.args = list(family = "binomial"), se = F) +
+    # Print the binomial regression
+    stat_poly_eq(use_label(c("R2", "P")), size = 6, label.y = 0.75, label.x = 60) + # Print R^2 and p-value from the model
+    theme_bw() +
+    theme(text = element_text(size = 20)) +
+    labs(title = species, x = "Dissolved Oxygen (mg/L)", y = "Species Present?")
+  
+    ggsave(filename = here("eDNA_Index_Hypoxia", "Plots",
+                           "Binomial_Regressions_AllYr_Mixed", 
+                           paste(species, sep = "", "_AllYr_Mixed.png")), # Save graph
+           width = 2300, 
+           height = 2000, 
+           units = "px")
 }
 ```
