@@ -1,19 +1,19 @@
 [0] Config.pm:307> INFO - This is Biber 2.17
 [0] Config.pm:310> INFO - Logfile is 'thesis.blg'
-[42] biber-darwin:340> INFO - === Thu Mar  6, 2025, 17:02:42
-[53] Biber.pm:418> INFO - Reading 'thesis.bcf'
-[150] Biber.pm:972> INFO - Found 65 citekeys in bib section 0
-[159] Biber.pm:4383> INFO - Processing section 0
-[166] Biber.pm:4574> INFO - Looking for bibtex file 'thesis.bib' for section 0
-[179] bibtex.pm:1713> INFO - LaTeX decoding ...
-[331] bibtex.pm:1518> INFO - Found BibTeX data source 'thesis.bib'
-[692] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[692] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'level = 4' with 'level = 2'
-[693] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[693] Biber.pm:4203> INFO - Sorting list 'cms/global//global/global' of type 'entry' with template 'cms' and locale 'en-US'
-[693] Biber.pm:4209> INFO - No sort tailoring available for locale 'en-US'
-[748] bbl.pm:654> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
-[788] bbl.pm:757> INFO - Output to thesis.bbl
-[788] Biber.pm:130> WARN - ISBN '978-1-009-15796-4 978-1-009-15797-1' in entry 'Portner2019' is invalid - run biber with '--validate_datamodel' for details.
-[788] Biber.pm:130> WARN - ISBN '978-0-412-02381-1 978-0-412-02391-0' in entry 'Roff1992' is invalid - run biber with '--validate_datamodel' for details.
-[788] Biber.pm:132> INFO - WARNINGS: 2
+[39] biber-darwin:340> INFO - === Wed Apr 16, 2025, 21:48:31
+[49] Biber.pm:418> INFO - Reading 'thesis.bcf'
+[152] Biber.pm:972> INFO - Found 68 citekeys in bib section 0
+[161] Biber.pm:4383> INFO - Processing section 0
+[168] Biber.pm:4574> INFO - Looking for bibtex file 'thesis.bib' for section 0
+[181] bibtex.pm:1713> INFO - LaTeX decoding ...
+[347] bibtex.pm:1518> INFO - Found BibTeX data source 'thesis.bib'
+[706] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[706] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[706] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'level = 4' with 'level = 2'
+[706] Biber.pm:4203> INFO - Sorting list 'cms/global//global/global' of type 'entry' with template 'cms' and locale 'en-US'
+[706] Biber.pm:4209> INFO - No sort tailoring available for locale 'en-US'
+[761] bbl.pm:654> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[800] bbl.pm:757> INFO - Output to thesis.bbl
+[800] Biber.pm:130> WARN - ISBN '978-1-009-15796-4 978-1-009-15797-1' in entry 'Portner2019' is invalid - run biber with '--validate_datamodel' for details.
+[800] Biber.pm:130> WARN - ISBN '978-0-412-02381-1 978-0-412-02391-0' in entry 'Roff1992' is invalid - run biber with '--validate_datamodel' for details.
+[800] Biber.pm:132> INFO - WARNINGS: 2

@@ -13,11 +13,11 @@ urlcolor: blue
 ```{r Package Imports, message = F, warning = F}
 # Warnings and startup messages suppressed
 library(tidyverse)
-library(patchwork)
 library(scales)
-library(ggrepel)
-library(readxl)
+#library(ggrepel)
+#library(readxl)
 library(here)
+library(ggpmisc)
 ```
 
 # Imports
@@ -239,6 +239,18 @@ write_csv(eDNAindxEnvDataMod_clean, here("eDNA_Index_Hypoxia", "Data", "Copepod_
 dfsplit <- split(eDNAindxEnvDataMod_clean, eDNAindxEnvDataMod_clean$Species) # Split by species for later graphing
 ```
 
+
+# Results section pt2
+
+2021-23
+```{r}
+eDNAindxEnvDataMod_clean %>% 
+  group_by(Species) %>% 
+  filter(eDNA_index > 0) %>% 
+  summarize(n = n()) %>% 
+  arrange(desc(n))
+```
+
 # Graphs
 
 ## Explore 
@@ -282,7 +294,7 @@ for (i in 1:length(dfsplit)) { # For each species:
         geom_point(shape = 1) + # add outline
         geom_point(data = dfsplit[[i]] %>% filter(eDNA_index == 0), 
                    aes(x = Temp, y = DO),
-                   color = "black", size = 2) + # add more distinctive zeroes
+                   color = "black", size = 2, shape = 1, stroke = 1.5) + # add more distinctive zeroes
         labs(x = "Temperature (C)", 
              y = "Dissolved Oxygen (mg/L)", 
              color = "eDNA Index", 
@@ -454,7 +466,7 @@ for (i in 1:length(dfsplit)) {
     scale_color_gradient(high = "dodgerblue3", low = "orange2", guide = "legend", na.value = "black") + # Color to match presence/absence graphs
     geom_smooth(method = "glm", method.args = list(family = "binomial"), se = F) +
     # Print the binomial regression
-    stat_poly_eq(use_label(c("R2", "P")), size = 6, label.y = 0.75, label.x = 60) + # Print R^2 and p-value from the model
+    stat_poly_eq(use_label(c("R2", "P", "AIC")), size = 6, label.y = 0.75, label.x = 60) + # Print R^2 and p-value from the model
     theme_bw() +
     theme(text = element_text(size = 20)) +
     labs(title = species, x = "Dissolved Oxygen (mg/L)", y = "Species Present?")

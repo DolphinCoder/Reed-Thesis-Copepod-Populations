@@ -40,7 +40,8 @@ library(modelsummary)     # Create side-by-side regression tables
 
 ```{r}
 eDNAindxEnvData_cleanYr <- read_csv(here("eDNA_Index_Hypoxia", "Data", "Copepod_eDNAindxEnvDataMod_clean.csv")) %>% # from ThesisGoal1_AllYr_Mod.Rmd
-  filter(!is.na(DO))
+  filter(!is.na(DO)) %>% 
+  filter(Temp < 11)
 
 # Make a split version for looping over species
 dfsplit <- split(eDNAindxEnvData_cleanYr, eDNAindxEnvData_cleanYr$Species) # Split by species
@@ -51,6 +52,7 @@ dfsplit <- split(eDNAindxEnvData_cleanYr, eDNAindxEnvData_cleanYr$Species) # Spl
 ```{r}
 for (i in 1:length(dfsplit)) { # For each species: 
     species <- dfsplit[[i]]$Species[1] # Species name 
+    sp_coeff <- paste(species, sep = "_", "coeffs")
     title <- paste(species, sep = " ", "eDNA Index vs Dissolved Oxygen Model") # Plot title
     print(title)
     
@@ -69,7 +71,7 @@ for (i in 1:length(dfsplit)) { # For each species:
       )
     
     # get coefficients
-    tidy(mod, effects = "fixed")
+    assign(sp_coeff, tidy(mod, effects = "fixed"))
     
     # plot conditional means
     data %>%

@@ -4,15 +4,12 @@
 
 # load the `ncdf4` and the `CFtime` packages
 library(ncdf4)
-library(CFtime)
-library(lattice)
-library(RColorBrewer)
 library(here)
 library(tidyverse)
-library(lattice)
-library(raster) # second tutorial https://semba-blog.netlify.app/11/03/2018/converting-netcdf-files-into-data-frame/
-library(data.table) # https://stackoverflow.com/questions/2185252/reshaping-data-frame-from-wide-to-long-format
-library(reshape2)
+#library(lattice)
+#library(raster) # second tutorial https://semba-blog.netlify.app/11/03/2018/converting-netcdf-files-into-data-frame/
+#library(data.table) # https://stackoverflow.com/questions/2185252/reshaping-data-frame-from-wide-to-long-format
+#library(reshape2)
 
 # I'm using this tutorial: https://pjbartlein.github.io/REarthSysSci/netCDF.html#introduction
 # The tutorial uses an array with 12 layers (months) and latitude x longitude 

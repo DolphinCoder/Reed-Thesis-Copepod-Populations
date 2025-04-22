@@ -1,7 +1,7 @@
 \contentsline {chapter}{Introduction}{1}{}%
 \contentsline {section}{\numberline {0.1}Climate Change, Hypoxia, and OCNMS}{1}{}%
-\contentsline {section}{\numberline {0.2}Environmental DNA}{5}{}%
-\contentsline {section}{\numberline {0.3}Copepods}{8}{}%
+\contentsline {section}{\numberline {0.2}Environmental DNA}{4}{}%
+\contentsline {section}{\numberline {0.3}Copepods}{7}{}%
 \contentsline {section}{\numberline {0.4}Study Plan}{11}{}%
 \contentsline {chapter}{Chapter 1: The First}{13}{}%
 \contentsline {section}{\numberline {1.1}\LaTeX Reference}{13}{}%

@@ -40,7 +40,8 @@ library(modelsummary)     # Create side-by-side regression tables
 
 ```{r}
 eDNAindxEnvData_cleanYr <- read_csv(here("eDNA_Index_Hypoxia", "Data", "Copepod_eDNAindxEnvData_Model.csv")) %>% # from ThesisGoal1_AllYr.Rmd
-  filter(!is.na(DO))
+  filter(!is.na(DO)) %>% 
+  filter(Temp < 11)
 
 # Make a split version for looping over species
 dfsplit <- split(eDNAindxEnvData_cleanYr, eDNAindxEnvData_cleanYr$Species) # Split by species

@@ -744,7 +744,7 @@
       \verb{url}
       \verb https://www.annualreviews.org/doi/10.1146/annurev-marine-040323-095231
       \endverb
-      \keyw{Hypoxia,Temperature}
+      \keyw{Figures,Hypoxia,Temperature}
     \endentry
     \entry{Elliott2012}{article}{}
       \name{author}{3}{}{%
@@ -2652,6 +2652,28 @@
       \endverb
       \keyw{Copepods,Taxonomy}
     \endentry
+    \entry{OceanographicMooringsOlympicb}{online}{}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{title}{Oceanographic {{Moorings}} | {{Olympic Coast National Marine Sanctuary}}}
+      \field{urlday}{14}
+      \field{urlmonth}{2}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/ellac/Zotero/storage/HD5HIR7J/oceanographic-moorings.html
+      \endverb
+      \verb{urlraw}
+      \verb https://olympiccoast.noaa.gov/science/oceanographic-moorings/
+      \endverb
+      \verb{url}
+      \verb https://olympiccoast.noaa.gov/science/oceanographic-moorings/
+      \endverb
+      \keyw{Figures,OCNMS}
+    \endentry
     \entry{OceanographyOlympicCoast}{online}{}
       \field{sortinit}{O}
       \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
@@ -2672,7 +2694,29 @@
       \verb{url}
       \verb https://olympiccoast.noaa.gov/explore/environment/oceanography.html
       \endverb
-      \keyw{OCNMS,Upwelling}
+      \keyw{Figures,OCNMS,Upwelling}
+    \endentry
+    \entry{OlympicCoastNationalb}{online}{}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{title}{Olympic {{Coast National Marine Sanctuary}}}
+      \field{urlday}{17}
+      \field{urlmonth}{4}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/ellac/Zotero/storage/GBIJN2GC/olympiccoast.noaa.gov.html
+      \endverb
+      \verb{urlraw}
+      \verb https://olympiccoast.noaa.gov/
+      \endverb
+      \verb{url}
+      \verb https://olympiccoast.noaa.gov/
+      \endverb
+      \keyw{Figures}
     \endentry
     \entry{Peterson2003}{article}{}
       \name{author}{2}{}{%
@@ -3407,18 +3451,18 @@
     \endentry
     \entry{Sasaki2021}{article}{}
       \name{author}{2}{}{%
-        {{un=1,uniquepart=given,hash=f5f93b2b4cd9ae0acf0b5bdd1a3e721c}{%
+        {{un=0,uniquepart=base,hash=f5f93b2b4cd9ae0acf0b5bdd1a3e721c}{%
            family={Sasaki},
            familyi={S\bibinitperiod},
            given={Matthew},
            giveni={M\bibinitperiod},
-           givenun=1}}%
-        {{un=2,uniquepart=given,hash=e1c43ae6e5e8275850fe55d3fc9fc3a2}{%
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e1c43ae6e5e8275850fe55d3fc9fc3a2}{%
            family={Dam},
            familyi={D\bibinitperiod},
            given={Hans\bibnamedelima G},
            giveni={H\bibinitperiod\bibinitdelim G\bibinitperiod},
-           givenun=2}}%
+           givenun=0}}%
       }
       \strng{namehash}{a4e97e732d14b6a4124e90b7230cded4}
       \strng{fullhash}{a4e97e732d14b6a4124e90b7230cded4}
@@ -3464,54 +3508,73 @@
       \keyw{Copepods,Temperature}
     \endentry
     \entry{Sasaki2019}{article}{}
-      \name{author}{2}{}{%
-        {{un=1,uniquepart=given,hash=696d86024f88f33a87518cd47f77a47f}{%
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=f5f93b2b4cd9ae0acf0b5bdd1a3e721c}{%
            family={Sasaki},
            familyi={S\bibinitperiod},
-           given={Matthew\bibnamedelima C.},
-           giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod},
-           givenun=1}}%
-        {{un=2,uniquepart=given,hash=e1c43ae6e5e8275850fe55d3fc9fc3a2}{%
+           given={Matthew},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1cf88aba7c7d507011ace56c142c0f17}{%
+           family={Hedberg},
+           familyi={H\bibinitperiod},
+           given={Sydney},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d7cc8a9d90e07736c6f36b9fd887d47c}{%
+           family={Richardson},
+           familyi={R\bibinitperiod},
+           given={Kailin},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e1c43ae6e5e8275850fe55d3fc9fc3a2}{%
            family={Dam},
            familyi={D\bibinitperiod},
            given={Hans\bibnamedelima G.},
            giveni={H\bibinitperiod\bibinitdelim G\bibinitperiod},
-           givenun=2}}%
+           givenun=0}}%
       }
-      \strng{namehash}{5869c037a1e4f79c8d313b23486679e2}
-      \strng{fullhash}{5869c037a1e4f79c8d313b23486679e2}
-      \strng{bibnamehash}{5869c037a1e4f79c8d313b23486679e2}
-      \strng{authorbibnamehash}{5869c037a1e4f79c8d313b23486679e2}
-      \strng{authornamehash}{5869c037a1e4f79c8d313b23486679e2}
-      \strng{authorfullhash}{5869c037a1e4f79c8d313b23486679e2}
+      \list{publisher}{1}{%
+        {Royal Society}%
+      }
+      \strng{namehash}{4f14668b6641f2fac558bc1554650f88}
+      \strng{fullhash}{1f4a8107547ce8fef24076c7e8e10826}
+      \strng{bibnamehash}{1f4a8107547ce8fef24076c7e8e10826}
+      \strng{authorbibnamehash}{1f4a8107547ce8fef24076c7e8e10826}
+      \strng{authornamehash}{4f14668b6641f2fac558bc1554650f88}
+      \strng{authorfullhash}{1f4a8107547ce8fef24076c7e8e10826}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{Differences in population vulnerability to warming are defined by spatial patterns in thermal adaptation. These patterns may be driven by natural selection over spatial environmental gradients, but can also be shaped by gene flow, especially in marine taxa with high dispersal potential. Understanding and predicting organismal responses to warming requires disentangling the opposing effects of selection and gene flow. We begin by documenting genetic divergence of thermal tolerance and developmental phenotypic plasticity. Ten populations of the widespread copepod Acartia tonsa were collected from sites across a large thermal gradient, ranging from the Florida Keys to Northern New Brunswick, Canada (spanning over 20° latitude). Thermal performance curves (TPCs) from common garden experiments revealed local adaptation at the sampling range extremes, with thermal tolerance increasing at low latitudes and decreasing at high latitudes. The opposite pattern was observed in phenotypic plasticity, which was strongest at high latitudes. No relationship was observed between phenotypic plasticity and environmental variables. Instead, the results are consistent with the hypothesis of a trade-off between thermal tolerance and the strength of phenotypic plasticity. Over a large portion of the sampled range, however, we observed a remarkable lack of differentiation of TPCs. To examine whether this lack of divergence is the result of selection for a generalist performance curve or constraint by gene flow, we analyzed cytochrome oxidase I mtDNA sequences, which revealed four distinct genetic clades, abundant genetic diversity, and widely distributed haplotypes. Strong divergence in thermal performance within genetic clades, however, suggests that the pace of thermal adaptation can be relatively rapid. The combined insight from the laboratory physiological experiments and genetic data indicate that gene flow constrains differentiation of TPCs. This balance between gene flow and selection has implications for patterns of vulnerability to warming. Taking both genetic differentiation and phenotypic plasticity into account, our results suggest that local adaptation does not increase vulnerability to warming, and that low-latitude populations in general may be more vulnerable to predicted temperature change over the next century.}
-      \field{eprinttype}{pmid}
-      \field{issn}{1365-2486}
-      \field{journaltitle}{Global Change Biology}
-      \field{langid}{english}
-      \field{month}{12}
-      \field{number}{12}
-      \field{shortjournal}{Glob Chang Biol}
-      \field{title}{Integrating Patterns of Thermal Tolerance and Phenotypic Plasticity with Population Genetics to Improve Understanding of Vulnerability to Warming in a Widespread Copepod}
-      \field{volume}{25}
+      \field{abstract}{Predicting the response of populations to climate change requires an understanding of how various factors affect thermal performance. Genetic differentiation is well known to affect thermal performance, but the effects of sex and developmental phenotypic plasticity often go uncharacterized. We used common garden experiments to test for effects of local adaptation, developmental phenotypic plasticity and individual sex on thermal performance of the ubiquitous copepod, Acartia tonsa (Calanoida, Crustacea) from two populations strongly differing in thermal regimes (Florida and Connecticut, USA). Females had higher thermal tolerance than males in both populations, while the Florida population had higher thermal tolerance compared with the Connecticut population. An effect of developmental phenotypic plasticity on thermal tolerance was observed only in the Connecticut population. Our results show clearly that thermal performance is affected by complex interactions of the three tested variables. Ignoring sex-specific differences in thermal performance may result in a severe underestimation of population-level impacts of warming because of population decline due to sperm limitation. Furthermore, despite having a higher thermal tolerance, low-latitude populations may be more vulnerable to warming as they lack the ability to respond to increases in temperature through phenotypic plasticity.}
+      \field{day}{20}
+      \field{journaltitle}{Royal Society Open Science}
+      \field{month}{3}
+      \field{number}{3}
+      \field{title}{Complex Interactions between Local Adaptation, Phenotypic Plasticity and Sex Affect Vulnerability to Warming in a Widespread Marine Copepod}
+      \field{urlday}{9}
+      \field{urlmonth}{2}
+      \field{urlyear}{2025}
+      \field{volume}{6}
       \field{year}{2019}
       \field{dateera}{ce}
-      \field{pages}{4147\bibrangedash 4164}
-      \range{pages}{18}
+      \field{urldateera}{ce}
+      \field{pages}{182115}
+      \range{pages}{1}
       \verb{doi}
-      \verb 10.1111/gcb.14811
-      \endverb
-      \verb{eprint}
-      \verb 31449341
+      \verb 10.1098/rsos.182115
       \endverb
       \verb{file}
-      \verb /Users/ellac/Zotero/storage/ZEEKFQGT/Sasaki and Dam - 2019 - Integrating patterns of thermal tolerance and phen.pdf
+      \verb /Users/ellac/Zotero/storage/PDWMMK2X/Sasaki et al. - 2019 - Complex interactions between local adaptation, phe.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://royalsocietypublishing.org/doi/10.1098/rsos.182115
+      \endverb
+      \verb{url}
+      \verb https://royalsocietypublishing.org/doi/10.1098/rsos.182115
       \endverb
       \keyw{Copepods,Temperature}
     \endentry
@@ -3973,6 +4036,41 @@
       \verb https://www.sciencedirect.com/science/article/pii/S0967064521000771
       \endverb
       \keyw{Copepods,Herring}
+    \endentry
+    \entry{Traboni2022}{thesis}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e06ebb72b41fa488020cc612e7b79ebe}{%
+           family={Traboni},
+           familyi={T\bibinitperiod},
+           given={Claudia},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{e06ebb72b41fa488020cc612e7b79ebe}
+      \strng{fullhash}{e06ebb72b41fa488020cc612e7b79ebe}
+      \strng{bibnamehash}{e06ebb72b41fa488020cc612e7b79ebe}
+      \strng{authorbibnamehash}{e06ebb72b41fa488020cc612e7b79ebe}
+      \strng{authornamehash}{e06ebb72b41fa488020cc612e7b79ebe}
+      \strng{authorfullhash}{e06ebb72b41fa488020cc612e7b79ebe}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The classical dichotomy poses strict autotrophic (phytoplankton) and heterotrophic (zooplankton) protists as the only “engines” at the base of marine food webs. This paradigm has been challenged by the existence of unicellular mixoplankton, able to photosynthesize and predate simultaneously. Due to only recently appraisal, our knowledge on the role of mixoplankton in food webs is still very limited. By laboratory and in silico approaches, this Thesis addressed the effect of protistan mixotrophy on copepods, ubiquitous crustacean zooplankton that act as consumers of protists and as prey for larger predators. The ecophysiological response of the calanoid copepod Paracartia grani to several autotrophic, mixotrophic and heterotrophic diets was examined. In most cases no substantial differences in the copepod vital rates emerged on the basis of the nutrition type, as differences were mainly due to species-specific traits of the prey. Nevertheless, when feeding on the dinoflagellate Karlodinium veneficum grown under contrasting trophic modes (auto- vs mixotrophic), copepod egestion rate and gross-growth efficiency varied significantly. This indicates that mixotrophy in certain protists has the potential to influence nutrient transfer, export and recruitment of next copepod generation. As interesting results had emerged from the species K. veneficum, this dinoflagellate was tested as prey for the calanoid copepods P. grani and Centropages typicus with the aim to investigate the effect of inorganic nutrient limitation (N and P) on the food quality of K. veneficum and to ascertain how these abiotic conditions might influence copepod ecophysiological response. Results show that nutrient-limited mixotrophic K. veneficum had more stable stoichiometric ratios in comparison to autotrophs. Both copepod species ingested and reproduced more when fed nutrient-depleted mixotrophic K. veneficum compared to autotrophic counterparts. In the light of this, it can be concluded that this mixoplankter can buffer inorganic nutrient shortage by feeding on a prey, increasing the nutrient transfer to copepods contrarily to autotrophs. Through in-silico experiments, the effect of future environmental changes on the dynamics of a food web was simulated. The model encompassed three plankton functional types (phyto-, mixo- and zooplankton) and three trophic strategies (auto-, mixo- and heterotrophy). Blooms of K. veneficum were simulated under autotrophic and mixotrophic strategies (feeding on cryptophytes) and copepods of the species P. grani were allowed to feed on both protists. The dinoflagellate growth was enhanced when supplied with phagotrophy, promoting more nutritious and abundant food landscape for copepods. Bottom-up restrictions such as low inorganic nutrients and low cryptophytes availability decreased K. veneficum biomass with consequent limitation of zooplankton production. Copepods improved protist food quality via nutrient regeneration, but young and high-biomass populations attenuated the dinoflagellate bloom. The trophic transfer efficiency from prey to predators increased in presence of mixotrophy, especially in oligotrophic condition. By virtue of expected changes in the abiotic and biotic landscape, these simulations pinpoint the need of addressing the mixoplankton-copepod link when describing foodweb dynamics.}
+      \field{day}{11}
+      \field{month}{5}
+      \field{title}{Trophic Interactions between Mixoplankton and Copepods}
+      \field{year}{2022}
+      \field{dateera}{ce}
+      \verb{doi}
+      \verb 10.13140/RG.2.2.24272.99849
+      \endverb
+      \verb{file}
+      \verb /Users/ellac/Zotero/storage/NPG7KXF3/Traboni - 2022 - Trophic interactions between mixoplankton and cope.pdf
+      \endverb
+      \keyw{Copepods}
     \endentry
     \entry{Vakati2023}{article}{}
       \name{author}{5}{}{%
