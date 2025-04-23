@@ -74,7 +74,7 @@ for (i in 1:length(dfsplit)) { # For each species:
     # get coefficients
     assign(sp_coeff, tidy(mod, effects = "fixed"))
     
-    # TODO get AIC
+    # get AIC
     # https://www.statology.org/aic-in-r/
     # AIC = 2K – 2ln(L)
     # K: The number of model parameters. The default value of K is 2, so a model with just one predictor variable will have a K value of 2+1 = 3.

@@ -53,6 +53,7 @@ dfsplit <- split(eDNAindxEnvData_cleanYr, eDNAindxEnvData_cleanYr$Species) # Spl
 for (i in 1:length(dfsplit)) { # For each species: 
     species <- dfsplit[[i]]$Species[1] # Species name 
     sp_coeff <- paste(species, sep = "_", "coeffs")
+    sp_aic <- paste(species, sep = "_", "AIC")
     title <- paste(species, sep = " ", "eDNA Index vs Dissolved Oxygen Model") # Plot title
     print(title)
     
@@ -72,6 +73,19 @@ for (i in 1:length(dfsplit)) { # For each species:
     
     # get coefficients
     assign(sp_coeff, tidy(mod, effects = "fixed"))
+    
+    # get AIC
+    # https://www.statology.org/aic-in-r/
+    # AIC = 2K – 2ln(L)
+    # K: The number of model parameters. The default value of K is 2, so a model with just one predictor variable will have a K value of 2+1 = 3.
+    # K = 6 for this
+    # ln(L): L = the maximum likelihood of the model. Most statistical software can automatically calculate this value for you.
+    # https://rdrr.io/cran/brms/man/log_lik.brmsfit.html
+    logLik <- max(log_lik(mod))
+
+    AIC <- 2*6 - 2*logLik
+    
+    assign(sp_aic, AIC)
     
     # plot conditional means
     data %>%

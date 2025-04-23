@@ -268,7 +268,7 @@ n_species <- eDNAindxEnvDataYr %>%
 
 2021-22
 ```{r}
-copepod_eDNA_indexYr %>% 
+n_no23 <- copepod_eDNA_indexYr %>% 
   group_by(Species) %>% 
   filter(eDNA_index > 0) %>% 
   summarize(n = n()) %>% 

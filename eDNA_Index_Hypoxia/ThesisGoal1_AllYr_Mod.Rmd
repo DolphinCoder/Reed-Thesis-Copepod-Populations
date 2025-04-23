@@ -244,7 +244,7 @@ dfsplit <- split(eDNAindxEnvDataMod_clean, eDNAindxEnvDataMod_clean$Species) # S
 
 2021-23
 ```{r}
-eDNAindxEnvDataMod_clean %>% 
+n_yes23 <- eDNAindxEnvDataMod_clean %>% 
   group_by(Species) %>% 
   filter(eDNA_index > 0) %>% 
   summarize(n = n()) %>% 
