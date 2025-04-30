@@ -60,14 +60,14 @@ for (i in 1:length(dfsplit)) { # For each species:
     data <- dfsplit[[i]] %>%
       mutate(eDNA_index = case_when(eDNA_index == 1 ~ 0.999999, .default = eDNA_index))
     
-    dataF <- data %>% filter(Temp < 10) # no outlier
+    dataF <- data %>% filter(DO < 6) # no outlier
     
     # make the model
     mod <- brm(
       bf(eDNA_index ~ DO, # main model
          phi ~ DO, # precision based on DO
          zi ~ DO), # zero/not zero process
-      data = data,
+      data = dataF,
       family = zero_inflated_beta()
       )
     
@@ -88,31 +88,43 @@ for (i in 1:length(dfsplit)) { # For each species:
     assign(sp_aic, AIC)
     
     # plot conditional means
-    data %>%
+    dataF %>%
       data_grid(DO = seq_range(DO, n = 50)) %>%
       add_epred_draws(mod) %>%
       ggplot(aes(x = DO, y = eDNA_index)) +
-      geom_point(data = data) +
+      geom_point(data = dataF) +
       stat_lineribbon(aes(y = .epred), alpha = 0.5) + # from tidybayes, shows the summary of draws
       labs(title = title, caption = "Conditional Means?, All Years Modeled") +
-      theme_bw()
+      theme_bw() +
+      theme(axis.text = element_text(size = 35, color = "black"),
+        axis.text.x = element_text(size = 25, hjust = 1, color = "black"),
+        axis.title = element_text(size = 25, color = "black"),
+        plot.title = element_text(size = 40),
+        legend.title = element_text(size = 30),
+        legend.text = element_text(size = 35))
     
-    ggsave(filename = paste(species, sep = "_", "eDNA_DO_ZOIB_Means_AllYr_Mod.png"), 
-           path = here("eDNA_Index_Hypoxia", "Plots", "ZOIB_Means_AllYr_Mod"), 
+    ggsave(filename = paste(species, sep = "_", "ZOIB_Means_Mod_noOut.png"), 
+           path = here("eDNA_Index_Hypoxia", "Plots", "ZOIB_Means_AllYr_Mod_noOut_pub"), 
            width = 2500, height = 2000, units = "px")
     
     # plot posterior predictions
-    data %>%
+    dataF %>%
       data_grid(DO = seq_range(DO, n = 50)) %>%
       add_predicted_draws(mod) %>%
       ggplot(aes(x = DO, y = eDNA_index)) +
-      geom_point(data = data) +
+      geom_point(data = dataF) +
       stat_lineribbon(aes(y = .prediction), .width = c(.95, .80, .50), alpha = 1/4) + # from tidybayes, shows the summary of draws
       labs(title = title, caption = "Posterior Predictions, All Years Modeled") +
-      theme_bw()
+      theme_bw() +
+      theme(axis.text = element_text(size = 35, color = "black"),
+        axis.text.x = element_text(size = 25, hjust = 1, color = "black"),
+        axis.title = element_text(size = 25, color = "black"),
+        plot.title = element_text(size = 40),
+        legend.title = element_text(size = 30),
+        legend.text = element_text(size = 35))
     
-    ggsave(filename = paste(species, sep = "_", "eDNA_DO_ZOIB_Posterior_AllYr_Mod.png"), 
-           path = here("eDNA_Index_Hypoxia", "Plots", "ZOIB_Posterior_Predictions_AllYr_Mod"), 
+    ggsave(filename = paste(species, sep = "_", "eDNA_DO_ZOIB_Posterior_AllYr_Mod_noOut.png"), 
+           path = here("eDNA_Index_Hypoxia", "Plots", "ZOIB_Posterior_Predictions_AllYr_Mod_noOut"), 
            width = 2500, height = 2000, units = "px")
 
 }

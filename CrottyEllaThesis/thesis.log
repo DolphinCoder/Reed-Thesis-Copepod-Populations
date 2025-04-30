@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.3)  16 APR 2025 22:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.3)  30 APR 2025 00:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -185,7 +185,29 @@ Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
 \rotFPbot=\skip69
 \rot@float@box=\box57
 \rot@mess@toks=\toks30
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/xcolor/xcolor.sty
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/hanging/hanging.sty
+Package: hanging 2009/09/02 v1.2b hanging paragraphs and punctuation
+\h@ngcommawd=\skip70
+\h@ngfstopwd=\skip71
+\h@ngquotewd=\skip72
+\h@ngdquotewd=\skip73
+\h@ngquerywd=\skip74
+\h@ngexclwd=\skip75
+\h@ngcolonwd=\skip76
+\h@ngscolonwd=\skip77
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/todonotes/todonotes.sty
+Package: todonotes 2021/06/04 v1.1.5 Todonotes source and documentation.
+Package: todonotes 2021/06/04
+(/usr/local/texlive/2022/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2020/11/20 v2.8 package option processing (HA)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/usr/local
+/texlive/2022/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks31
+\XKV@tempa@toks=\toks32
+)
+\XKV@depth=\count282
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+)) (/usr/local/texlive/2022/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2021/10/31 v2.13 LaTeX color extensions (UK)
 (/usr/local/texlive/2022/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
@@ -200,203 +222,503 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1372.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1373.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1374.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1375.
-)
-(/usr/local/texlive/2022/texmf-dist/tex/latex/biblatex-chicago/biblatex-chicago
-.sty
-Package: biblatex-chicago 2021/06/30 v 3.16 biblatex style
-(/usr/local/texlive/2022/texmf-dist/tex/latex/etoolbox/etoolbox.sty
-Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count282
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
-(/usr/local/texlive/2022/texmf-dist/tex/latex/refcount/refcount.sty
-Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
-(/usr/local/texlive/2022/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
-Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
-) (/usr/local/texlive/2022/texmf-dist/tex/generic/infwarerr/infwarerr.sty
-Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (/us
+r/local/texlive/2022/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (/usr/local/te
+xlive/2022/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.te
+x
+\pgfutil@everybye=\toks33
+\pgfutil@tempdima=\dimen164
+\pgfutil@tempdimb=\dimen165
+
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-li
+sts.tex))
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box58
+) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/pgf.revision.tex)
+Package: pgfrcs 2021/05/15 v3.1.9a (3.1.9a)
 ))
-(/usr/local/texlive/2022/texmf-dist/tex/generic/gettitlestring/gettitlestring.s
-ty
-Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
-(/usr/local/texlive/2022/texmf-dist/tex/latex/kvoptions/kvoptions.sty
-Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
-(/usr/local/texlive/2022/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
-Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
-)))
-\c@section@level=\count283
-LaTeX Info: Redefining \ref on input line 356.
-LaTeX Info: Redefining \pageref on input line 356.
-) (/usr/local/texlive/2022/texmf-dist/tex/generic/xstring/xstring.sty (/usr/loc
-al/texlive/2022/texmf-dist/tex/generic/xstring/xstring.tex
-\integerpart=\count284
-\decimalpart=\count285
+Package: pgf 2021/05/15 v3.1.9a (3.1.9a)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (/usr/
+local/texlive/2022/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2021/05/15 v3.1.9a (3.1.9a)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks34
+\pgfkeys@temptoks=\toks35
+
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.c
+ode.tex
+\pgfkeys@tmptoks=\toks36
+))
+\pgf@x=\dimen166
+\pgf@y=\dimen167
+\pgf@xa=\dimen168
+\pgf@ya=\dimen169
+\pgf@xb=\dimen170
+\pgf@yb=\dimen171
+\pgf@xc=\dimen172
+\pgf@yc=\dimen173
+\pgf@xd=\dimen174
+\pgf@yd=\dimen175
+\w@pgf@writea=\write3
+\r@pgf@reada=\read2
+\c@pgf@counta=\count283
+\c@pgf@countb=\count284
+\c@pgf@countc=\count285
+\c@pgf@countd=\count286
+\t@pgf@toka=\toks37
+\t@pgf@tokb=\toks38
+\t@pgf@tokc=\toks39
+\pgf@sys@id@count=\count287
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2021/05/15 v3.1.9a (3.1.9a)
 )
-Package: xstring 2021/07/21 v1.84 String manipulations (CT)
+Driver file for pgf: pgfsys-pdftex.def
+
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.d
+ef
+File: pgfsys-pdftex.def 2021/05/15 v3.1.9a (3.1.9a)
+
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-p
+df.def
+File: pgfsys-common-pdf.def 2021/05/15 v3.1.9a (3.1.9a)
+)))
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.
+code.tex
+File: pgfsyssoftpath.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfsyssoftpath@smallbuffer@items=\count288
+\pgfsyssoftpath@bigbuffer@items=\count289
+)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.
+code.tex
+File: pgfsysprotocol.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+))
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2021/05/15 v3.1.9a (3.1.9a)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (/usr
+/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex (/usr/
+local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen176
+\pgfmath@count=\count290
+\pgfmath@box=\box59
+\pgfmath@toks=\toks40
+\pgfmath@stack@operand=\toks41
+\pgfmath@stack@operation=\toks42
+)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.
+tex
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic
+.code.tex)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigo
+nometric.code.tex)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.rando
+m.code.tex)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.compa
+rison.code.tex)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.
+code.tex)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round
+.code.tex)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.
+code.tex)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integ
+erarithmetics.code.tex))) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/m
+ath/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count291
+)) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.co
+de.tex
+File: pgfcorepoints.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@picminx=\dimen177
+\pgf@picmaxx=\dimen178
+\pgf@picminy=\dimen179
+\pgf@picmaxy=\dimen180
+\pgf@pathminx=\dimen181
+\pgf@pathmaxx=\dimen182
+\pgf@pathminy=\dimen183
+\pgf@pathmaxy=\dimen184
+\pgf@xx=\dimen185
+\pgf@xy=\dimen186
+\pgf@yx=\dimen187
+\pgf@yy=\dimen188
+\pgf@zx=\dimen189
+\pgf@zy=\dimen190
+)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconst
+ruct.code.tex
+File: pgfcorepathconstruct.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@path@lastx=\dimen191
+\pgf@path@lasty=\dimen192
+)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage
+.code.tex
+File: pgfcorepathusage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@shorten@end@additional=\dimen193
+\pgf@shorten@start@additional=\dimen194
+)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.co
+de.tex
+File: pgfcorescopes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfpic=\box60
+\pgf@hbox=\box61
+\pgf@layerbox@main=\box62
+\pgf@picture@serial@count=\count292
+)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicst
+ate.code.tex
+File: pgfcoregraphicstate.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgflinewidth=\dimen195
+)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransform
+ations.code.tex
+File: pgfcoretransformations.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@pt@x=\dimen196
+\pgf@pt@y=\dimen197
+\pgf@pt@temp=\dimen198
+)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.cod
+e.tex
+File: pgfcorequick.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.c
+ode.tex
+File: pgfcoreobjects.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathproce
+ssing.code.tex
+File: pgfcorepathprocessing.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.co
+de.tex
+File: pgfcorearrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfarrowsep=\dimen199
+)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.cod
+e.tex
+File: pgfcoreshade.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@max=\dimen256
+\pgf@sys@shading@range@num=\count293
+\pgf@shadingcount=\count294
+)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.cod
+e.tex
+File: pgfcoreimage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.
+code.tex
+File: pgfcoreexternal.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfexternal@startupbox=\box63
+))
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.co
+de.tex
+File: pgfcorelayers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretranspare
+ncy.code.tex
+File: pgfcoretransparency.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.
+code.tex
+File: pgfcorepatterns.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.
+tex
+File: pgfcorerdf.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)))
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.cod
+e.tex
+File: pgfmoduleshapes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfnodeparttextbox=\box64
+)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.
+tex
+File: pgfmoduleplot.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
+-0-65.sty
+Package: pgfcomp-version-0-65 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@nodesepstart=\dimen257
+\pgf@nodesepend=\dimen258
+)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
+-1-18.sty
+Package: pgfcomp-version-1-18 2021/05/15 v3.1.9a (3.1.9a)
+)) (/usr/local/texlive/2022/texmf-dist/tex/latex/pgf/utilities/pgffor.sty (/usr
+/local/texlive/2022/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (/usr/local/
+texlive/2022/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)) (/usr/loca
+l/texlive/2022/texmf-dist/tex/latex/pgf/math/pgfmath.sty (/usr/local/texlive/20
+22/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)) (/usr/local/texlive/2022/
+texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2021/05/15 v3.1.9a (3.1.9a)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
+\pgffor@iter=\dimen259
+\pgffor@skip=\dimen260
+\pgffor@stack=\toks43
+\pgffor@toks=\toks44
+))
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.cod
+e.tex
+Package: tikz 2021/05/15 v3.1.9a (3.1.9a)
+
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothan
+dlers.code.tex
+File: pgflibraryplothandlers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@plot@mark@count=\count295
+\pgfplotmarksize=\dimen261
+)
+\tikz@lastx=\dimen262
+\tikz@lasty=\dimen263
+\tikz@lastxsaved=\dimen264
+\tikz@lastysaved=\dimen265
+\tikz@lastmovetox=\dimen266
+\tikz@lastmovetoy=\dimen267
+\tikzleveldistance=\dimen268
+\tikzsiblingdistance=\dimen269
+\tikz@figbox=\box65
+\tikz@figbox@bg=\box66
+\tikz@tempbox=\box67
+\tikz@tempbox@bg=\box68
+\tikztreelevel=\count296
+\tikznumberofchildren=\count297
+\tikznumberofcurrentchild=\count298
+\tikz@fig@count=\count299
+
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.cod
+e.tex
+File: pgfmodulematrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfmatrixcurrentrow=\count300
+\pgfmatrixcurrentcolumn=\count301
+\pgf@matrix@numberofcolumns=\count302
+)
+\tikz@expandcount=\count303
+
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)))
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count304
+\calc@Bcount=\count305
+\calc@Adimen=\dimen270
+\calc@Bdimen=\dimen271
+\calc@Askip=\skip78
+\calc@Bskip=\skip79
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count306
+\calc@Cskip=\skip80
+)
+\c@@todonotes@numberoftodonotes=\count307
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2022/03/01 v3.6b Customizing captions (AR)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2022/03/17 v2.3b caption3 kernel (AR)
+\caption@tempdima=\dimen272
+\captionmargin=\dimen273
+\caption@leftmargin=\dimen274
+\caption@rightmargin=\dimen275
+\caption@width=\dimen276
+\caption@indent=\dimen277
+\caption@parindent=\dimen278
+\caption@hangindent=\dimen279
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count308
+\c@continuedfloat=\count309
+Package caption Info: longtable package is loaded.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/caption/ltcaption.sty
+Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
+)
+Package caption Info: rotating package is loaded.
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen280
+\WF@size=\dimen281
+\c@WF@wrappedlines=\count310
+\WF@box=\box69
+\WF@everypar=\toks45
+Package: wrapfig 2003/01/31  v 3.6
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/biblatex/biblatex.sty
 Package: biblatex 2022/02/02 v3.17 programmable bibliographies (PK/MW)
 (/usr/local/texlive/2022/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
 )
-(/usr/local/texlive/2022/texmf-dist/tex/generic/iftex/iftex.sty
+(/usr/local/texlive/2022/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+) (/usr/local/texlive/2022/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2022/02/03 v1.0f TeX engine tests
+) (/usr/local/texlive/2022/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/logreq/logreq.sty
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count311
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
+(/usr/local/texlive/2022/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+)) (/usr/local/texlive/2022/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count286
+\lrq@indent=\count312
 (/usr/local/texlive/2022/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 ))
-\c@tabx@nest=\count287
-\c@listtotal=\count288
-\c@listcount=\count289
-\c@liststart=\count290
-\c@liststop=\count291
-\c@citecount=\count292
-\c@citetotal=\count293
-\c@multicitecount=\count294
-\c@multicitetotal=\count295
-\c@instcount=\count296
-\c@maxnames=\count297
-\c@minnames=\count298
-\c@maxitems=\count299
-\c@minitems=\count300
-\c@citecounter=\count301
-\c@maxcitecounter=\count302
-\c@savedcitecounter=\count303
-\c@uniquelist=\count304
-\c@uniquename=\count305
-\c@refsection=\count306
-\c@refsegment=\count307
-\c@maxextratitle=\count308
-\c@maxextratitleyear=\count309
-\c@maxextraname=\count310
-\c@maxextradate=\count311
-\c@maxextraalpha=\count312
-\c@abbrvpenalty=\count313
-\c@highnamepenalty=\count314
-\c@lownamepenalty=\count315
-\c@maxparens=\count316
-\c@parenlevel=\count317
-\blx@tempcnta=\count318
-\blx@tempcntb=\count319
-\blx@tempcntc=\count320
-\c@blx@maxsection=\count321
-\c@blx@maxsegment@0=\count322
-\blx@notetype=\count323
-\blx@parenlevel@text=\count324
-\blx@parenlevel@foot=\count325
-\c@blx@sectionciteorder@0=\count326
-\blx@entrysetcounter=\count327
-\blx@biblioinstance=\count328
-\labelnumberwidth=\skip70
-\labelalphawidth=\skip71
-\biblabelsep=\skip72
-\bibitemsep=\skip73
-\bibnamesep=\skip74
-\bibinitsep=\skip75
-\bibparsep=\skip76
-\bibhang=\skip77
-\blx@bcfin=\read2
-\blx@bcfout=\write3
+\c@tabx@nest=\count313
+\c@listtotal=\count314
+\c@listcount=\count315
+\c@liststart=\count316
+\c@liststop=\count317
+\c@citecount=\count318
+\c@citetotal=\count319
+\c@multicitecount=\count320
+\c@multicitetotal=\count321
+\c@instcount=\count322
+\c@maxnames=\count323
+\c@minnames=\count324
+\c@maxitems=\count325
+\c@minitems=\count326
+\c@citecounter=\count327
+\c@maxcitecounter=\count328
+\c@savedcitecounter=\count329
+\c@uniquelist=\count330
+\c@uniquename=\count331
+\c@refsection=\count332
+\c@refsegment=\count333
+\c@maxextratitle=\count334
+\c@maxextratitleyear=\count335
+\c@maxextraname=\count336
+\c@maxextradate=\count337
+\c@maxextraalpha=\count338
+\c@abbrvpenalty=\count339
+\c@highnamepenalty=\count340
+\c@lownamepenalty=\count341
+\c@maxparens=\count342
+\c@parenlevel=\count343
+\blx@tempcnta=\count344
+\blx@tempcntb=\count345
+\blx@tempcntc=\count346
+\c@blx@maxsection=\count347
+\c@blx@maxsegment@0=\count348
+\blx@notetype=\count349
+\blx@parenlevel@text=\count350
+\blx@parenlevel@foot=\count351
+\c@blx@sectionciteorder@0=\count352
+\blx@entrysetcounter=\count353
+\blx@biblioinstance=\count354
+\labelnumberwidth=\skip81
+\labelalphawidth=\skip82
+\biblabelsep=\skip83
+\bibitemsep=\skip84
+\bibnamesep=\skip85
+\bibinitsep=\skip86
+\bibparsep=\skip87
+\bibhang=\skip88
+\blx@bcfin=\read3
+\blx@bcfout=\write4
 \blx@langwohyphens=\language87
-\c@mincomprange=\count329
-\c@maxcomprange=\count330
-\c@mincompwidth=\count331
+\c@mincomprange=\count355
+\c@maxcomprange=\count356
+\c@mincompwidth=\count357
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
 (/usr/local/texlive/2022/texmf-dist/tex/latex/biblatex/blx-dm.def
 File: blx-dm.def 2022/02/02 v3.17 biblatex localization (PK/MW)
 )
 Package biblatex Info: Trying to load biblatex style data model...
-Package biblatex Info: ... file 'chicago-authordate.dbx' not found.
+Package biblatex Info: ... file 'authoryear.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count332
-\c@savedafterword=\count333
-\c@annotator=\count334
-\c@savedannotator=\count335
-\c@author=\count336
-\c@savedauthor=\count337
-\c@bookauthor=\count338
-\c@savedbookauthor=\count339
-\c@commentator=\count340
-\c@savedcommentator=\count341
-\c@editor=\count342
-\c@savededitor=\count343
-\c@editora=\count344
-\c@savededitora=\count345
-\c@editorb=\count346
-\c@savededitorb=\count347
-\c@editorc=\count348
-\c@savededitorc=\count349
-\c@foreword=\count350
-\c@savedforeword=\count351
-\c@holder=\count352
-\c@savedholder=\count353
-\c@introduction=\count354
-\c@savedintroduction=\count355
-\c@namea=\count356
-\c@savednamea=\count357
-\c@nameb=\count358
-\c@savednameb=\count359
-\c@namec=\count360
-\c@savednamec=\count361
-\c@translator=\count362
-\c@savedtranslator=\count363
-\c@shortauthor=\count364
-\c@savedshortauthor=\count365
-\c@shorteditor=\count366
-\c@savedshorteditor=\count367
-\c@labelname=\count368
-\c@savedlabelname=\count369
-\c@institution=\count370
-\c@savedinstitution=\count371
-\c@lista=\count372
-\c@savedlista=\count373
-\c@listb=\count374
-\c@savedlistb=\count375
-\c@listc=\count376
-\c@savedlistc=\count377
-\c@listd=\count378
-\c@savedlistd=\count379
-\c@liste=\count380
-\c@savedliste=\count381
-\c@listf=\count382
-\c@savedlistf=\count383
-\c@location=\count384
-\c@savedlocation=\count385
-\c@organization=\count386
-\c@savedorganization=\count387
-\c@origlocation=\count388
-\c@savedoriglocation=\count389
-\c@origpublisher=\count390
-\c@savedorigpublisher=\count391
-\c@publisher=\count392
-\c@savedpublisher=\count393
-\c@language=\count394
-\c@savedlanguage=\count395
-\c@origlanguage=\count396
-\c@savedoriglanguage=\count397
-\c@pageref=\count398
-\c@savedpageref=\count399
-\shorthandwidth=\skip78
-\shortjournalwidth=\skip79
-\shortserieswidth=\skip80
-\shorttitlewidth=\skip81
-\shortauthorwidth=\skip82
-\shorteditorwidth=\skip83
-\locallabelnumberwidth=\skip84
-\locallabelalphawidth=\skip85
-\localshorthandwidth=\skip86
-\localshortjournalwidth=\skip87
-\localshortserieswidth=\skip88
-\localshorttitlewidth=\skip89
-\localshortauthorwidth=\skip90
-\localshorteditorwidth=\skip91
+\c@afterword=\count358
+\c@savedafterword=\count359
+\c@annotator=\count360
+\c@savedannotator=\count361
+\c@author=\count362
+\c@savedauthor=\count363
+\c@bookauthor=\count364
+\c@savedbookauthor=\count365
+\c@commentator=\count366
+\c@savedcommentator=\count367
+\c@editor=\count368
+\c@savededitor=\count369
+\c@editora=\count370
+\c@savededitora=\count371
+\c@editorb=\count372
+\c@savededitorb=\count373
+\c@editorc=\count374
+\c@savededitorc=\count375
+\c@foreword=\count376
+\c@savedforeword=\count377
+\c@holder=\count378
+\c@savedholder=\count379
+\c@introduction=\count380
+\c@savedintroduction=\count381
+\c@namea=\count382
+\c@savednamea=\count383
+\c@nameb=\count384
+\c@savednameb=\count385
+\c@namec=\count386
+\c@savednamec=\count387
+\c@translator=\count388
+\c@savedtranslator=\count389
+\c@shortauthor=\count390
+\c@savedshortauthor=\count391
+\c@shorteditor=\count392
+\c@savedshorteditor=\count393
+\c@labelname=\count394
+\c@savedlabelname=\count395
+\c@institution=\count396
+\c@savedinstitution=\count397
+\c@lista=\count398
+\c@savedlista=\count399
+\c@listb=\count400
+\c@savedlistb=\count401
+\c@listc=\count402
+\c@savedlistc=\count403
+\c@listd=\count404
+\c@savedlistd=\count405
+\c@liste=\count406
+\c@savedliste=\count407
+\c@listf=\count408
+\c@savedlistf=\count409
+\c@location=\count410
+\c@savedlocation=\count411
+\c@organization=\count412
+\c@savedorganization=\count413
+\c@origlocation=\count414
+\c@savedoriglocation=\count415
+\c@origpublisher=\count416
+\c@savedorigpublisher=\count417
+\c@publisher=\count418
+\c@savedpublisher=\count419
+\c@language=\count420
+\c@savedlanguage=\count421
+\c@origlanguage=\count422
+\c@savedoriglanguage=\count423
+\c@pageref=\count424
+\c@savedpageref=\count425
+\shorthandwidth=\skip89
+\shortjournalwidth=\skip90
+\shortserieswidth=\skip91
+\shorttitlewidth=\skip92
+\shortauthorwidth=\skip93
+\shorteditorwidth=\skip94
+\locallabelnumberwidth=\skip95
+\locallabelalphawidth=\skip96
+\localshorthandwidth=\skip97
+\localshortjournalwidth=\skip98
+\localshortserieswidth=\skip99
+\localshorttitlewidth=\skip100
+\localshortauthorwidth=\skip101
+\localshorteditorwidth=\skip102
 Package biblatex Info: Trying to load compatibility code...
 Package biblatex Info: ... file 'blx-compat.def' found.
 (/usr/local/texlive/2022/texmf-dist/tex/latex/biblatex/blx-compat.def
@@ -406,67 +728,43 @@ Package biblatex Info: Trying to load generic definitions...
 Package biblatex Info: ... file 'biblatex.def' found.
 (/usr/local/texlive/2022/texmf-dist/tex/latex/biblatex/biblatex.def
 File: biblatex.def 2022/02/02 v3.17 biblatex compatibility (PK/MW)
-\c@textcitecount=\count400
-\c@textcitetotal=\count401
-\c@textcitemaxnames=\count402
-\c@biburlbigbreakpenalty=\count403
-\c@biburlbreakpenalty=\count404
-\c@biburlnumpenalty=\count405
-\c@biburlucpenalty=\count406
-\c@biburllcpenalty=\count407
+\c@textcitecount=\count426
+\c@textcitetotal=\count427
+\c@textcitemaxnames=\count428
+\c@biburlbigbreakpenalty=\count429
+\c@biburlbreakpenalty=\count430
+\c@biburlnumpenalty=\count431
+\c@biburlucpenalty=\count432
+\c@biburllcpenalty=\count433
 \biburlbigskip=\muskip18
 \biburlnumskip=\muskip19
 \biburlucskip=\muskip20
 \biburllcskip=\muskip21
-\c@smartand=\count408
+\c@smartand=\count434
 )
-Package biblatex Info: Trying to load natbib compatibility...
-Package biblatex Info: ... file 'blx-natbib.def' found.
-(/usr/local/texlive/2022/texmf-dist/tex/latex/biblatex/blx-natbib.def
-File: blx-natbib.def 2022/02/02 v3.17 biblatex compatibility (PK/MW)
-Package biblatex Info: Delimiter 'nameyeardelim' in context '' already defined,
- overwriting.
-)
-Package biblatex Info: Trying to load bibliography style 'chicago-authordate'..
-.
-Package biblatex Info: ... file 'chicago-authordate.bbx' found.
-
-(/usr/local/texlive/2022/texmf-dist/tex/latex/biblatex-chicago/chicago-authorda
-te.bbx
-File: chicago-authordate.bbx 2021/06/30 v 3.16 biblatex bibliography style
-\lositemsep=\skip92
-\cms@tempcnta=\count409
-\cms@tempcntb=\count410
-\c@bbx:relatedcount=\count411
-\c@bbx:relatedtotal=\count412
-)
-Package biblatex Info: Trying to load citation style 'chicago-authordate'...
-Package biblatex Info: ... file 'chicago-authordate.cbx' found.
-
-(/usr/local/texlive/2022/texmf-dist/tex/latex/biblatex-chicago/chicago-authorda
-te.cbx
-File: chicago-authordate.cbx 2021/03/27 v 3.16 biblatex citation style
-Package biblatex Info: Trying to load citation style 'chicago-dates-common'...
-Package biblatex Info: ... file 'chicago-dates-common.cbx' found.
-
-(/usr/local/texlive/2022/texmf-dist/tex/latex/biblatex-chicago/chicago-dates-co
-mmon.cbx
-File: chicago-dates-common.cbx 2021/03/27 v 3.16 biblatex citation style
+Package biblatex Info: Trying to load bibliography style 'authoryear'...
+Package biblatex Info: ... file 'authoryear.bbx' found.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/biblatex/bbx/authoryear.bbx
+File: authoryear.bbx 2022/02/02 v3.17 biblatex bibliography style (PK/MW)
+Package biblatex Info: Trying to load bibliography style 'standard'...
+Package biblatex Info: ... file 'standard.bbx' found.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
+File: standard.bbx 2022/02/02 v3.17 biblatex bibliography style (PK/MW)
+\c@bbx:relatedcount=\count435
+\c@bbx:relatedtotal=\count436
+))
+Package biblatex Info: Trying to load citation style 'authoryear'...
+Package biblatex Info: ... file 'authoryear.cbx' found.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/biblatex/cbx/authoryear.cbx
+File: authoryear.cbx 2022/02/02 v3.17 biblatex citation style (PK/MW)
 Package biblatex Info: Redefining '\cite'.
 Package biblatex Info: Redefining '\parencite'.
 Package biblatex Info: Redefining '\footcite'.
 Package biblatex Info: Redefining '\footcitetext'.
-Package biblatex Info: Redefining '\footfullcite'.
-Package biblatex Info: Redefining '\fullcite'.
+Package biblatex Info: Redefining '\smartcite'.
 Package biblatex Info: Redefining '\textcite'.
 Package biblatex Info: Redefining '\textcites'.
-Package biblatex Info: Redefining '\cites'.
-Package biblatex Info: Redefining '\parencites'.
-Package biblatex Info: Redefining '\footcites'.
-Package biblatex Info: Redefining '\footcitetexts'.
-Package biblatex Info: Delimiter 'dateeradelim' in context '' already defined, 
-overwriting.
-))
+)
 Package biblatex Info: Trying to load configuration file...
 Package biblatex Info: ... file 'biblatex.cfg' found.
 (/usr/local/texlive/2022/texmf-dist/tex/latex/biblatex/biblatex.cfg
@@ -478,8 +776,8 @@ Package biblatex Info: Document encoding is UTF8 ....
 Package: expl3 2022-02-24 L3 programming layer (loader) 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count413
-\l__pdf_internal_box=\box58
+\l__color_backend_stack_int=\count437
+\l__pdf_internal_box=\box70
 ))
 Package biblatex Info: ... and expl3
 (biblatex)             2022-02-24 L3 programming layer (loader) 
@@ -490,39 +788,51 @@ Package biblatex Info: ... and expl3
 Package: xparse 2022-01-12 L3 Experimental document command parser
 )
 Package: blx-case-expl3 2022/02/02 v3.17 expl3 case changing code for biblatex
-)))
-\@quotelevel=\count414
-\@quotereset=\count415
+))
+\@quotelevel=\count438
+\@quotereset=\count439
 (./thesis.aux)
+Runaway argument?
+{Marcu 
+! File ended while scanning use of \abx@aux@segm.
+<inserted text> 
+                \par 
+l.60 \begin{document}
+                     
+I suspect you have forgotten a `}', causing me
+to read past where you wanted me to stop.
+I'll try to recover; but if the error is serious,
+you'd better type `E' or `X' now and fix your file.
+
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
 (/usr/local/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count416
-\scratchdimen=\dimen164
-\scratchbox=\box59
-\nofMPsegments=\count417
-\nofMParguments=\count418
-\everyMPshowfont=\toks31
-\MPscratchCnt=\count419
-\MPscratchDim=\dimen165
-\MPnumerator=\count420
-\makeMPintoPDFobject=\count421
-\everyMPtoPDFconversion=\toks32
+\scratchcounter=\count440
+\scratchdimen=\dimen282
+\scratchbox=\box71
+\nofMPsegments=\count441
+\nofMParguments=\count442
+\everyMPshowfont=\toks46
+\MPscratchCnt=\count443
+\MPscratchDim=\dimen283
+\MPnumerator=\count444
+\makeMPintoPDFobject=\count445
+\everyMPtoPDFconversion=\toks47
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -531,46 +841,35 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package biblatex Info: Trying to load language 'english' -> 'cms-american'...
-Package biblatex Info: ... file 'cms-american.lbx' found.
-
-(/usr/local/texlive/2022/texmf-dist/tex/latex/biblatex-chicago/cms-american.lbx
-File: cms-american.lbx 2021/06/30 v 3.16 biblatex localization
-Package biblatex Info: Trying to load language 'american'...
-Package biblatex Info: ... file 'american.lbx' found.
-(/usr/local/texlive/2022/texmf-dist/tex/latex/biblatex/lbx/american.lbx
-File: american.lbx 2022/02/02 v3.17 biblatex localization (PK/MW)
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: wrapfig package is loaded.
+Package caption Info: End \AtBeginDocument code.
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
 (/usr/local/texlive/2022/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 File: english.lbx 2022/02/02 v3.17 biblatex localization (PK/MW)
-))
-Package biblatex Info: Trying to load language 'english'...
-Package biblatex Info: ... file 'english.lbx' found.
-(/usr/local/texlive/2022/texmf-dist/tex/latex/biblatex/lbx/english.lbx
-File: english.lbx 2022/02/02 v3.17 biblatex localization (PK/MW)
-))
+)
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
-\openout3 = `thesis.bcf'.
+\openout4 = `thesis.bcf'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'thesis.bbl' found.
-(./thesis.bbl)
-Package biblatex Info: Reference section=0 on input line 45.
-Package biblatex Info: Reference segment=0 on input line 45.
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 47
+Package biblatex Info: ... file 'thesis.bbl' not found.
+No file thesis.bbl.
+Package biblatex Info: Reference section=0 on input line 60.
+Package biblatex Info: Reference segment=0 on input line 60.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 62
 .
 (/usr/local/texlive/2022/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 47.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 62.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 47.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 62.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -585,40 +884,129 @@ Non-PDF special ignored!
 
 ] [3] [4
 
-] [1
+]
+Underfull \hbox (badness 10000) in paragraph at lines 67--78
+
+ []
+
+[1
 
 
 ] [2
 
 ] [3] [4
 
-] [5] [6
-
 ] (./thesis.toc)
-\tf@toc=\write4
-\openout4 = `thesis.toc'.
+\tf@toc=\write5
+\openout5 = `thesis.toc'.
+
+[5] [6
+
+] (./thesis.lot)
+\tf@lot=\write6
+\openout6 = `thesis.lot'.
 
 [7] [8
 
-] (./thesis.lot)
-\tf@lot=\write5
-\openout5 = `thesis.lot'.
+] (./thesis.lof)
+\tf@lof=\write7
+\openout7 = `thesis.lof'.
 
 [9] [10
 
-] (./thesis.lof)
-\tf@lof=\write6
-\openout6 = `thesis.lof'.
+]
+
+LaTeX Warning: Citation 'NOAAFisheries2024' on page 11 undefined on input line 
+114.
 
 [11] [12
 
-] [13] [14
-
-] [15] [16
-
 ]
 
-Package biblatex-chicago Warning: Empty Ibidem citation on input line 112.
+LaTeX Warning: Citation 'Portner2022' on page 1 undefined on input line 138.
+
+
+LaTeX Warning: Citation 'Ito2017' on page 1 undefined on input line 138.
+
+
+LaTeX Warning: Citation 'Bindoff2013' on page 1 undefined on input line 138.
+
+
+LaTeX Warning: Citation 'Portner2019' on page 1 undefined on input line 138.
+
+
+LaTeX Warning: Citation 'Helm2011' on page 1 undefined on input line 138.
+
+
+LaTeX Warning: Citation 'Ito2017' on page 1 undefined on input line 138.
+
+
+LaTeX Warning: Citation 'Schmidtko2017' on page 1 undefined on input line 138.
+
+
+LaTeX Warning: Citation 'Bindoff2013' on page 1 undefined on input line 138.
+
+
+LaTeX Warning: Citation 'Bindoff2013' on page 1 undefined on input line 138.
+
+
+LaTeX Warning: Citation 'Ito2017' on page 1 undefined on input line 138.
+
+
+LaTeX Warning: Citation 'Barth2024' on page 1 undefined on input line 140.
+
+
+LaTeX Warning: Citation 'Mancini2024' on page 1 undefined on input line 140.
+
+
+LaTeX Warning: Citation 'Portner2019' on page 1 undefined on input line 140.
+
+
+LaTeX Warning: Citation 'Li2020a' on page 1 undefined on input line 140.
+
+
+Overfull \hbox (23.09523pt too wide) in paragraph at lines 140--141
+\OT1/cmr/m/n/12 ocean-deep ocean oxy-gen flux due to in-creas-ing strat-i-fi-ca
+-tion ([]; [];
+ []
+
+
+LaTeX Warning: Citation 'Ito2010' on page 1 undefined on input line 142.
+
+
+LaTeX Warning: Citation 'Redfield1948' on page 1 undefined on input line 142.
+
+
+LaTeX Warning: Citation 'Li2020' on page 1 undefined on input line 142.
+
+
+LaTeX Warning: Citation 'Li2020' on page 1 undefined on input line 142.
+
+
+LaTeX Warning: Citation 'Karstensen2008' on page 1 undefined on input line 144.
+
+
+
+LaTeX Warning: Citation 'Deutsch2024' on page 1 undefined on input line 144.
+
+
+LaTeX Warning: Citation 'Ito2010' on page 1 undefined on input line 144.
+
+
+LaTeX Warning: Citation 'Karstensen2008' on page 1 undefined on input line 144.
+
+
+
+LaTeX Warning: Citation 'Deutsch2024' on page 1 undefined on input line 144.
+
+
+LaTeX Warning: Citation 'Barth2024' on page 1 undefined on input line 144.
+
+
+LaTeX Warning: Citation 'Pierce2012' on page 1 undefined on input line 144.
+
+
+LaTeX Warning: Citation 'Wyrtki1962' on page 1 undefined on input line 144.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -626,11 +1014,39 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [1
 
 ]
-<Fig_OMZ.png, id=73, 3011.25pt x 2634.84375pt>
-File: Fig_OMZ.png Graphic file (type png)
-<use Fig_OMZ.png>
-Package pdftex.def Info: Fig_OMZ.png  used on input line 116.
-(pdftex.def)             Requested size: 301.14264pt x 263.49982pt.
+<./Figures//Fig_OMZ.png, id=62, 3011.25pt x 2634.84375pt>
+File: ./Figures//Fig_OMZ.png Graphic file (type png)
+<use ./Figures//Fig_OMZ.png>
+Package pdftex.def Info: ./Figures//Fig_OMZ.png  used on input line 149.
+(pdftex.def)             Requested size: 208.13574pt x 182.08585pt.
+
+LaTeX Warning: Citation 'Deutsch2024' on page 2 undefined on input line 150.
+
+
+LaTeX Warning: Citation 'Deutsch2024' on page 2 undefined on input line 150.
+
+
+LaTeX Warning: Citation 'Pihl1991' on page 2 undefined on input line 156.
+
+
+LaTeX Warning: Citation 'Miller2002' on page 2 undefined on input line 156.
+
+
+LaTeX Warning: Citation 'Steckbauer2020' on page 2 undefined on input line 158.
+
+
+
+LaTeX Warning: Citation 'Keister2020' on page 2 undefined on input line 158.
+
+
+LaTeX Warning: Citation 'Borges2022' on page 2 undefined on input line 158.
+
+
+LaTeX Warning: Citation 'Boyd2018' on page 2 undefined on input line 158.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -639,16 +1055,93 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[2 <./Fig_OMZ.png (PNG copy)>]
+[2 <./Figures//Fig_OMZ.png (PNG copy)>]
 
-Package biblatex-chicago Warning: Empty Ibidem citation on input line 126.
+LaTeX Warning: Citation 'OceanographyOlympicCoast' on page 3 undefined on input
+ line 160.
 
-<Fig_NOAA_Upwelling.jpg, id=79, 1003.75pt x 363.3575pt>
-File: Fig_NOAA_Upwelling.jpg Graphic file (type jpg)
-<use Fig_NOAA_Upwelling.jpg>
-Package pdftex.def Info: Fig_NOAA_Upwelling.jpg  used on input line 130.
+
+LaTeX Warning: Citation 'Hickey2003' on page 3 undefined on input line 160.
+
+
+LaTeX Warning: Citation 'Pierce2012' on page 3 undefined on input line 160.
+
+<./Figures//Fig_NOAA_Upwelling.jpg, id=69, 1003.75pt x 363.3575pt>
+File: ./Figures//Fig_NOAA_Upwelling.jpg Graphic file (type jpg)
+<use ./Figures//Fig_NOAA_Upwelling.jpg>
+Package pdftex.def Info: ./Figures//Fig_NOAA_Upwelling.jpg  used on input line 
+164.
 (pdftex.def)             Requested size: 401.49289pt x 145.34041pt.
 
+LaTeX Warning: Citation 'OceanographyOlympicCoast' on page 3 undefined on input
+ line 165.
+
+
+LaTeX Warning: Citation 'OceanographyOlympicCoast' on page 3 undefined on input
+ line 165.
+
+
+LaTeX Warning: Citation 'Barth2024' on page 3 undefined on input line 170.
+
+
+LaTeX Warning: Citation 'Bograd2023' on page 3 undefined on input line 170.
+
+
+LaTeX Warning: Citation 'Parks2009' on page 3 undefined on input line 170.
+
+
+LaTeX Warning: Citation 'Grantham2004' on page 3 undefined on input line 170.
+
+
+LaTeX Warning: Citation 'Barth2024' on page 3 undefined on input line 170.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[3 <./Figures//Fig_NOAA_Upwelling.jpg>]
+
+LaTeX Warning: Citation 'Barth2024' on page 4 undefined on input line 172.
+
+<./Figures//Fig_OCNMS_Map.jpg, id=74, 373.395pt x 481.8pt>
+File: ./Figures//Fig_OCNMS_Map.jpg Graphic file (type jpg)
+<use ./Figures//Fig_OCNMS_Map.jpg>
+Package pdftex.def Info: ./Figures//Fig_OCNMS_Map.jpg  used on input line 176.
+(pdftex.def)             Requested size: 208.13574pt x 268.56372pt.
+
+LaTeX Warning: Citation 'OlympicCoastNationalb' on page 4 undefined on input li
+ne 177.
+
+
+LaTeX Warning: Citation 'OlympicCoastNationalb' on page 4 undefined on input li
+ne 177.
+
+
+Underfull \hbox (badness 1365) in paragraph at lines 177--177
+[]\OT1/cmr/m/n/12 Figure 3: |\OT1/cmr/m/n/10 The coast of Wash-ing-ton State
+ []
+
+
+Underfull \hbox (badness 3482) in paragraph at lines 177--177
+\OT1/cmr/m/n/10 Sanc-tu-ary (OC-NMS) in red. Im-age from
+ []
+
+
+LaTeX Warning: Citation 'FishOlympicCoast' on page 4 undefined on input line 18
+2.
+
+
+LaTeX Warning: Citation '15CFRPart1995' on page 4 undefined on input line 182.
+
+
+LaTeX Warning: Citation 'IntergovernmentalPolicyCouncil' on page 4 undefined on
+ input line 182.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -659,17 +1152,33 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[3]
-<Fig_OCNMS_Map.jpg, id=83, 373.395pt x 481.8pt>
-File: Fig_OCNMS_Map.jpg Graphic file (type jpg)
-<use Fig_OCNMS_Map.jpg>
-Package pdftex.def Info: Fig_OCNMS_Map.jpg  used on input line 140.
-(pdftex.def)             Requested size: 186.69704pt x 240.8994pt.
+[4 <./Figures//Fig_OCNMS_Map.jpg>]
 
-Package biblatex-chicago Warning: Empty Ibidem citation on input line 148.
+LaTeX Warning: Citation 'Taberlet2018' on page 5 undefined on input line 186.
 
 
-Package biblatex-chicago Warning: Empty Ibidem citation on input line 148.
+LaTeX Warning: Citation 'Power2023' on page 5 undefined on input line 186.
+
+
+LaTeX Warning: Citation 'Miya2022' on page 5 undefined on input line 186.
+
+
+LaTeX Warning: Citation 'Port2016' on page 5 undefined on input line 188.
+
+
+LaTeX Warning: Citation 'Yamamoto2017' on page 5 undefined on input line 188.
+
+
+LaTeX Warning: Citation 'Cristescu2018' on page 5 undefined on input line 188.
+
+
+LaTeX Warning: Citation 'Miya2022' on page 5 undefined on input line 188.
+
+
+LaTeX Warning: Citation 'Miya2022' on page 5 undefined on input line 188.
+
+
+LaTeX Warning: Citation 'Kelly2019' on page 5 undefined on input line 188.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -679,7 +1188,220 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[4 <./Fig_NOAA_Upwelling.jpg>]
+[5]
+
+LaTeX Warning: Citation 'Spens2017' on page 6 undefined on input line 190.
+
+
+LaTeX Warning: Citation 'Weinrich2025' on page 6 undefined on input line 190.
+
+
+LaTeX Warning: Citation 'Gold2024' on page 6 undefined on input line 190.
+
+
+LaTeX Warning: Citation 'Spens2017' on page 6 undefined on input line 190.
+
+<./Figures//Fig_OCNMS_buoy_map.jpg, id=81, 401.5pt x 516.93124pt>
+File: ./Figures//Fig_OCNMS_buoy_map.jpg Graphic file (type jpg)
+<use ./Figures//Fig_OCNMS_buoy_map.jpg>
+Package pdftex.def Info: ./Figures//Fig_OCNMS_buoy_map.jpg  used on input line 
+196.
+(pdftex.def)             Requested size: 208.13574pt x 267.97758pt.
+
+LaTeX Warning: Citation 'OceanographicMooringsOlympicb' on page 6 undefined on 
+input line 197.
+
+
+LaTeX Warning: Citation 'OceanographicMooringsOlympicb' on page 6 undefined on 
+input line 197.
+
+
+Underfull \hbox (badness 2671) in paragraph at lines 197--197
+[]\OT1/cmr/m/n/12 Figure 4: |\OT1/cmr/m/n/10 Map of the Wash-ing-ton state
+ []
+
+
+Underfull \hbox (badness 4291) in paragraph at lines 197--197
+\OT1/cmr/m/n/10 coast-line and Olympic Coast Na-tional Ma-
+ []
+
+
+Underfull \hbox (badness 1675) in paragraph at lines 197--197
+\OT1/cmr/m/n/10 ton state oceano-graphic buoys. This study
+ []
+
+
+Underfull \hbox (badness 2495) in paragraph at lines 197--197
+\OT1/cmr/m/n/10 was con-ducted at the buoy la-beled TH042.
+ []
+
+
+Package wrapfig Warning: Stationary wrapfigure forced to float on input line 20
+3.
+
+
+LaTeX Warning: Citation 'Oakley2013' on page 6 undefined on input line 205.
+
+
+LaTeX Warning: Citation 'Lozano-Fernandez2019' on page 6 undefined on input lin
+e 205.
+
+
+LaTeX Warning: Citation 'Vakati2023' on page 6 undefined on input line 205.
+
+
+LaTeX Warning: Citation 'Berger2004' on page 6 undefined on input line 205.
+
+
+LaTeX Warning: Citation 'Brodeur1990' on page 6 undefined on input line 205.
+
+
+LaTeX Warning: Reference `CopepodGroups' on page 6 undefined on input line 205.
+
+
+
+LaTeX Warning: Citation 'NOAAFisheries2024' on page 6 undefined on input line 2
+05.
+
+
+LaTeX Warning: Citation 'Peterson2003' on page 6 undefined on input line 205.
+
+
+LaTeX Warning: Citation 'Peterson1977' on page 6 undefined on input line 205.
+
+
+LaTeX Warning: Citation 'NOAAFisheries2024' on page 6 undefined on input line 2
+05.
+
+
+LaTeX Warning: Citation 'Star1981' on page 6 undefined on input line 205.
+
+
+LaTeX Warning: Citation 'Falk-Petersen2007' on page 6 undefined on input line 2
+05.
+
+
+LaTeX Warning: Citation 'Peterson1977' on page 6 undefined on input line 205.
+
+
+LaTeX Warning: Citation 'Peterson2003' on page 6 undefined on input line 205.
+
+
+LaTeX Warning: Citation 'NOAAFisheries2024' on page 6 undefined on input line 2
+05.
+
+
+LaTeX Warning: Citation 'Peterson2003' on page 6 undefined on input line 205.
+
+
+LaTeX Warning: Citation 'Brodeur1990' on page 6 undefined on input line 205.
+
+
+LaTeX Warning: Citation 'Friedenberg2012' on page 6 undefined on input line 205
+.
+
+
+Underfull \hbox (badness 2635) in paragraph at lines 205--206
+\OT1/cmr/m/n/12 Cope-pods are an im-por-tant com-po-
+ []
+
+
+Underfull \hbox (badness 1852) in paragraph at lines 205--206
+\OT1/cmr/m/n/12 nent of ma-rine and fresh-wa-ter food
+ []
+
+
+Underfull \hbox (badness 1406) in paragraph at lines 205--206
+\OT1/cmr/m/n/12 rine cope-pods found in OC-NMS. In
+ []
+
+
+Underfull \hbox (badness 6284) in paragraph at lines 205--206
+\OT1/cmr/m/n/12 most com-monly found in OC-NMS
+ []
+
+
+Underfull \hbox (badness 2608) in paragraph at lines 205--206
+\OT1/cmr/m/n/12 their sea-sonal pat-tern of oc-cur-rence
+ []
+
+
+Overfull \hbox (7.96721pt too wide) in paragraph at lines 205--206
+[]\OT1/cmr/m/n/12 ; [])). North-
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[6 <./Figures//Fig_OCNMS_buoy_map.jpg>]
+
+LaTeX Warning: Citation 'He2021' on page 7 undefined on input line 207.
+
+
+LaTeX Warning: Citation 'Marcus2004' on page 7 undefined on input line 207.
+
+
+LaTeX Warning: Citation 'Stalder1997' on page 7 undefined on input line 207.
+
+
+LaTeX Warning: Citation 'Grodzins2016' on page 7 undefined on input line 207.
+
+
+LaTeX Warning: Citation 'Invidia2004' on page 7 undefined on input line 207.
+
+
+LaTeX Warning: Citation 'Grodzins2016' on page 7 undefined on input line 207.
+
+
+LaTeX Warning: Citation 'Keister2020' on page 7 undefined on input line 207.
+
+
+LaTeX Warning: Citation 'Roman1993' on page 7 undefined on input line 207.
+
+
+LaTeX Warning: Citation 'Keister2020' on page 7 undefined on input line 207.
+
+
+LaTeX Warning: Citation 'Roman1993' on page 7 undefined on input line 207.
+
+
+LaTeX Warning: Citation 'He2021' on page 7 undefined on input line 207.
+
+
+LaTeX Warning: Citation 'Elliott2012' on page 7 undefined on input line 207.
+
+
+LaTeX Warning: Citation 'Keister2013' on page 7 undefined on input line 207.
+
+
+LaTeX Warning: Citation 'Stalder1997' on page 7 undefined on input line 207.
+
+
+LaTeX Warning: Citation 'Grodzins2016' on page 7 undefined on input line 207.
+
+
+Overfull \hbox (11.07968pt too wide) in paragraph at lines 207--208
+\OT1/cmr/m/n/12 mg/L kill nearly all cope-pods ([]; []; []; []).
+ []
+
+<./Figures//Fig_Life_cycle.png, id=85, 595.22375pt x 415.5525pt>
+File: ./Figures//Fig_Life_cycle.png Graphic file (type png)
+<use ./Figures//Fig_Life_cycle.png>
+Package pdftex.def Info: ./Figures//Fig_Life_cycle.png  used on input line 211.
+
+(pdftex.def)             Requested size: 251.50038pt x 175.58344pt.
+
+LaTeX Warning: Citation 'Traboni2022' on page 7 undefined on input line 212.
+
+
+LaTeX Warning: Citation 'Traboni2022' on page 7 undefined on input line 212.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -690,8 +1412,129 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[5 <./Fig_OCNMS_Map.jpg>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[7]
+
+LaTeX Warning: Citation 'Marcus2004' on page 8 undefined on input line 217.
+
+
+LaTeX Warning: Citation 'Richmond2006' on page 8 undefined on input line 217.
+
+
+LaTeX Warning: Citation 'Roman1993' on page 8 undefined on input line 217.
+
+
+LaTeX Warning: Citation 'Marcus2004' on page 8 undefined on input line 217.
+
+
+LaTeX Warning: Citation 'Elliott2013' on page 8 undefined on input line 217.
+
+
+LaTeX Warning: Citation 'Lutz1992' on page 8 undefined on input line 217.
+
+
+LaTeX Warning: Citation 'Stalder1997' on page 8 undefined on input line 217.
+
+
+LaTeX Warning: Citation 'Roff1992' on page 8 undefined on input line 217.
+
+
+LaTeX Warning: Citation 'He2021' on page 8 undefined on input line 217.
+
+
+LaTeX Warning: Citation 'Elliott2013' on page 8 undefined on input line 217.
+
+
+Underfull \hbox (badness 5893) in paragraph at lines 217--218
+[][]\OT1/cmr/m/n/12 Even at non-lethal lev-els
+ []
+
+
+Underfull \hbox (badness 7685) in paragraph at lines 217--218
+\OT1/cmr/m/n/12 from 2.0-3.0 mg/L of dis-
+ []
+
+
+Underfull \hbox (badness 1953) in paragraph at lines 217--218
+\OT1/cmr/m/n/12 solved oxy-gen, mod-er-ate hy-
+ []
+
+
+Underfull \hbox (badness 3849) in paragraph at lines 217--218
+\OT1/cmr/m/n/12 con-sump-tion. Egg pro-duc-
+ []
+
+
+Overfull \hbox (6.77443pt too wide) in paragraph at lines 217--218
+[]\OT1/cmr/m/n/12 ; []).
+ []
+
+
+Underfull \hbox (badness 1226) in paragraph at lines 217--218
+\OT1/cmr/m/n/12 This may be be-cause en-ergy
+ []
+
+
+Underfull \hbox (badness 2065) in paragraph at lines 217--218
+\OT1/cmr/m/n/12 pro-duc-tion or di-ges-tion, and
+ []
+
+
+Overfull \hbox (33.15729pt too wide) in paragraph at lines 217--218
+\OT1/cmr/m/n/12 intensive ([]; [];
+ []
+
+
+Overfull \hbox (31.79982pt too wide) in paragraph at lines 217--218
+[]\OT1/cmr/m/n/12 ; []; []).
+ []
+
+
+LaTeX Warning: Citation 'Vaquer-Sunyer2011' on page 8 undefined on input line 2
+19.
+
+
+LaTeX Warning: Citation 'Sasaki2021' on page 8 undefined on input line 219.
+
+
+LaTeX Warning: Citation 'Sasaki2021' on page 8 undefined on input line 219.
+
+
+LaTeX Warning: Citation 'Hahn2024' on page 8 undefined on input line 219.
+
+
+LaTeX Warning: Citation 'Hahn2024' on page 8 undefined on input line 219.
+
+
+LaTeX Warning: Citation 'Sasaki2019' on page 8 undefined on input line 219.
+
+
+LaTeX Warning: Citation 'Sunar2021' on page 8 undefined on input line 219.
+
+
+LaTeX Warning: Citation 'Jiang2009' on page 8 undefined on input line 219.
+
+
+LaTeX Warning: Citation 'Hahn2024' on page 8 undefined on input line 219.
+
+
+LaTeX Warning: Citation 'NOAAFisheries2024' on page 8 undefined on input line 2
+24.
+
+
+LaTeX Warning: Citation 'Peterson2003' on page 8 undefined on input line 224.
+
+
+LaTeX Warning: Citation 'Peterson1977' on page 8 undefined on input line 224.
+
+
+LaTeX Warning: Citation 'NOAAFisheries2024' on page 8 undefined on input line 2
+24.
+
+
+LaTeX Warning: Citation 'Peterson2003' on page 8 undefined on input line 224.
+
+
+LaTeX Warning: Citation 'Peterson1977' on page 8 undefined on input line 224.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -701,37 +1544,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[6]
-<Fig_OCNMS_buoy_map.jpg, id=94, 401.5pt x 516.93124pt>
-File: Fig_OCNMS_buoy_map.jpg Graphic file (type jpg)
-<use Fig_OCNMS_buoy_map.jpg>
-Package pdftex.def Info: Fig_OCNMS_buoy_map.jpg  used on input line 156.
-(pdftex.def)             Requested size: 200.7495pt x 258.46498pt.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[7 <./Fig_OCNMS_buoy_map.jpg>]
-<Fig_Life_cycle.png, id=98, 595.22375pt x 415.5525pt>
-File: Fig_Life_cycle.png Graphic file (type png)
-<use Fig_Life_cycle.png>
-Package pdftex.def Info: Fig_Life_cycle.png  used on input line 169.
-(pdftex.def)             Requested size: 297.61115pt x 207.77574pt.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[8 <./Fig_Life_cycle.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
+[8 <./Figures//Fig_Life_cycle.png>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -742,14 +1555,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [9]
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
+LaTeX Warning: Citation 'NOAAFisheries2024' on page 10 undefined on input line 
+263.
 
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[10]
+LaTeX Warning: Citation 'Crotty2024' on page 10 undefined on input line 265.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -758,13 +1569,146 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[11
-
-] [12
+[10
 
 ]
 Chapter 1.
-[13]
+<./Figures//Fig_MethodsFlowchart.png, id=103, 578.16pt x 463.88306pt>
+File: ./Figures//Fig_MethodsFlowchart.png Graphic file (type png)
+<use ./Figures//Fig_MethodsFlowchart.png>
+Package pdftex.def Info: ./Figures//Fig_MethodsFlowchart.png  used on input lin
+e 274.
+(pdftex.def)             Requested size: 404.70924pt x 324.71591pt.
+
+LaTeX Warning: Reference `MethodseDNA' on page 11 undefined on input line 275.
+
+
+LaTeX Warning: Reference `MethodseDNA' on page 11 undefined on input line 275.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: Citation 'WoRMSWorldRegister' on page 11 undefined on input line
+ 280.
+
+
+LaTeX Warning: Citation 'Lozano-Fernandez2019' on page 11 undefined on input li
+ne 280.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[11
+
+]
+
+LaTeX Warning: Citation 'LiveOceanHomepage' on page 12 undefined on input line 
+282.
+
+
+LaTeX Warning: Citation 'Pierce2025' on page 12 undefined on input line 282.
+
+
+LaTeX Warning: Reference `ModelComparison' on page 12 undefined on input line 2
+82.
+
+
+LaTeX Warning: Reference `ModelComparison' on page 12 undefined on input line 2
+82.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[12 <./Figures//Fig_MethodsFlowchart.png>]
+<./Figures//Mooring_vs_Model_DO_37.png, id=112, 486.8589pt x 300.8841pt>
+File: ./Figures//Mooring_vs_Model_DO_37.png Graphic file (type png)
+<use ./Figures//Mooring_vs_Model_DO_37.png>
+Package pdftex.def Info: ./Figures//Mooring_vs_Model_DO_37.png  used on input l
+ine 286.
+(pdftex.def)             Requested size: 251.50038pt x 155.4322pt.
+<./Figures//Mooring_vs_Model_Temp_37.png, id=113, 486.8589pt x 300.8841pt>
+File: ./Figures//Mooring_vs_Model_Temp_37.png Graphic file (type png)
+<use ./Figures//Mooring_vs_Model_Temp_37.png>
+Package pdftex.def Info: ./Figures//Mooring_vs_Model_Temp_37.png  used on input
+ line 287.
+(pdftex.def)             Requested size: 251.50038pt x 155.4322pt.
+<./Figures//Timeseries_example.png, id=114, 715.2321pt x 445.4241pt>
+File: ./Figures//Timeseries_example.png Graphic file (type png)
+<use ./Figures//Timeseries_example.png>
+Package pdftex.def Info: ./Figures//Timeseries_example.png  used on input line 
+295.
+(pdftex.def)             Requested size: 429.14258pt x 267.25652pt.
+<./Figures//Timeseries_example_Mod.png, id=115, 715.7139pt x 446.8695pt>
+File: ./Figures//Timeseries_example_Mod.png Graphic file (type png)
+<use ./Figures//Timeseries_example_Mod.png>
+Package pdftex.def Info: ./Figures//Timeseries_example_Mod.png  used on input l
+ine 296.
+(pdftex.def)             Requested size: 429.43166pt x 268.12376pt.
+
+LaTeX Warning: Float too large for page by 45.61694pt on input line 300.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Package wrapfig Warning: Stationary wrapfigure forced to float on input line 30
+2.
+
+
+Underfull \hbox (badness 7168) in paragraph at lines 303--304
+[]\OT1/cmr/m/n/12 In or-der to de-ter-mine the
+ []
+
+
+Underfull \hbox (badness 1237) in paragraph at lines 303--304
+\OT1/cmr/m/n/12 abun-dance and en-vi-ron-men-tal
+ []
+
+
+Underfull \hbox (badness 1033) in paragraph at lines 303--304
+\OT1/cmr/m/n/12 2021, Oc-to-ber 2021, Septem-
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[13 <./Figures//Mooring_vs_Model_DO_37.png> <./Figures//Mooring_vs_Model_Temp_3
+7.png>]
+
+LaTeX Warning: Citation 'WoRMSWorldRegister' on page 14 undefined on input line
+ 305.
+
+<./Figures//Scatter_ex.png, id=119, 600.0819pt x 453.3738pt>
+File: ./Figures//Scatter_ex.png Graphic file (type png)
+<use ./Figures//Scatter_ex.png>
+Package pdftex.def Info: ./Figures//Scatter_ex.png  used on input line 312.
+(pdftex.def)             Requested size: 210.0318pt x 158.6832pt.
+<./Figures//Scatter_ex_Mod.png, id=120, 596.7093pt x 454.3374pt>
+File: ./Figures//Scatter_ex_Mod.png Graphic file (type png)
+<use ./Figures//Scatter_ex_Mod.png>
+Package pdftex.def Info: ./Figures//Scatter_ex_Mod.png  used on input line 313.
+
+(pdftex.def)             Requested size: 208.85138pt x 159.02046pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: Citation 'Burkner2024' on page 14 undefined on input line 319.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -774,11 +1718,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [14]
-<subdivision.pdf, id=126, 220.825pt x 89.33376pt>
-File: subdivision.pdf Graphic file (type pdf)
-<use subdivision.pdf>
-Package pdftex.def Info: subdivision.pdf  used on input line 300.
-(pdftex.def)             Requested size: 220.82445pt x 89.33353pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -787,33 +1726,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[15 <./subdivision.pdf>]
-File: subdivision.pdf Graphic file (type pdf)
-<use subdivision.pdf>
-Package pdftex.def Info: subdivision.pdf  used on input line 313.
-(pdftex.def)             Requested size: 110.41222pt x 44.66676pt.
-File: subdivision.pdf Graphic file (type pdf)
-<use subdivision.pdf>
-Package pdftex.def Info: subdivision.pdf  used on input line 325.
-(pdftex.def)             Requested size: 110.41222pt x 44.66676pt.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[16
-
-]
-Appendix A.
-[17
-
-] [18
-
-] [19
-
+[15 <./Figures//Timeseries_example.png> <./Figures//Timeseries_example_Mod.png>
 ]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -823,100 +1736,115 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[20]
+[16 <./Figures//Scatter_ex.png> <./Figures//Scatter_ex_Mod.png>]
+Chapter 2.
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
+LaTeX Warning: Reference `chap:app1' on page 17 undefined on input line 353.
 
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[21]
+LaTeX Warning: Reference `chap:app1' on page 17 undefined on input line 357.
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
 
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+LaTeX Warning: Reference `chap:app1' on page 17 undefined on input line 357.
 
-[22]
+! Misplaced \noalign.
+\toprule ->\noalign 
+                    {\ifnum 0=`}\fi \@aboverulesep =\abovetopsep \global \@b...
+l.361 				\toprule
+                  
+I expect to see \noalign only after the \cr of
+an alignment. Proceed, and I'll ignore this case.
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
+! Missing } inserted.
+<inserted text> 
+                }
+l.362 				S
+           pecies & Group & \multicolumn{2}{|c|}{Detections} & \multicolumn{...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
 
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+! Missing } inserted.
+<inserted text> 
+                }
+l.362 				S
+           pecies & Group & \multicolumn{2}{|c|}{Detections} & \multicolumn{...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
 
-[23]
+! Missing } inserted.
+<inserted text> 
+                }
+l.362 				S
+           pecies & Group & \multicolumn{2}{|c|}{Detections} & \multicolumn{...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.362 				S
+           pecies & Group & \multicolumn{2}{|c|}{Detections} & \multicolumn{...
+I'm guessing that you meant to end an alignment here.
 
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+! Missing { inserted.
+<inserted text> 
+                {
+l.362 				S
+           pecies & Group & \multicolumn{2}{|c|}{Detections} & \multicolumn{...
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
 
-[24]
+! Undefined control sequence.
+\@BTrule ...\doublerulesep \fi \fi \fi \@BTswitch 
+                                                  
+l.362 				S
+           pecies & Group & \multicolumn{2}{|c|}{Detections} & \multicolumn{...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
+! Misplaced alignment tab character &.
+l.362 				Species &
+                    Group & \multicolumn{2}{|c|}{Detections} & \multicolumn{...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+! Misplaced alignment tab character &.
+l.362 				Species & Group &
+                            \multicolumn{2}{|c|}{Detections} & \multicolumn{...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
-[25]
+! Misplaced \omit.
+\multispan ->\omit 
+                   \@multispan 
+l.362 ... Group & \multicolumn{2}{|c|}{Detections}
+                                                   & \multicolumn{2}{|c}{Reg...
+I expect to see \omit only after tab marks or the \cr of
+an alignment. Proceed, and I'll ignore this case.
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[26]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[27] (./thesis.aux)
-Package logreq Info: Writing requests to 'thesis.run.xml'.
-\openout1 = `thesis.run.xml'.
-
- ) 
-Here is how much of TeX's memory you used:
- 14683 strings out of 478268
- 279228 string characters out of 5846348
- 1329948 words of memory out of 5000000
- 32711 multiletter control sequences out of 15000+600000
- 481927 words of font info for 80 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 82i,11n,90p,3467b,3947s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
-}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
-</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
-/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></u
-sr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr
-/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/lo
-cal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local
-/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/local/
-texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/te
-xlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/tex
-live/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texl
-ive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texli
-ve/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on thesis.pdf (47 pages, 1447065 bytes).
-PDF statistics:
- 254 PDF objects out of 1000 (max. 8388607)
- 165 compressed objects within 2 object streams
- 0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+! Misplaced \span.
+\sp@n ->\span 
+              \omit \advance \@multicnt \m@ne 
+l.362 ... Group & \multicolumn{2}{|c|}{Detections}
+                                                   & \multicolumn{2

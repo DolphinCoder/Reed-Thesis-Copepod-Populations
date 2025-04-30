@@ -77,6 +77,11 @@ unique(allCopepodReads$Amplicon)
 COI <- allReads %>% 
   filter(Amplicon == "UniCOI")
 
+print("species detected")
+length(unique(COI$Species))
+print("copepod species detected")
+length(unique(allCopepodReads$Species))
+
 copepSpResults <- allCopepodReads %>% 
   mutate(Present = case_when(nReads == 0 ~ F, .default = T)) %>% 
   group_by(year, Family, Genus, Species) %>% 
@@ -104,12 +109,34 @@ COI %>%
   summarize(Samples = length(unique(SampleId)))
 
 COI %>% 
-  filter(Technical_Replicate == 3) %>% 
+  filter(Technical_Replicate == 3) %>% # finding how many need combining
   group_by(SampleId) %>% 
   summarize(n = n())
 
+allCopepodReads %>% 
+  group_by(Species) %>% 
+  filter(nReads > 0) %>% 
+  summarize(n = n()) %>% 
+  arrange(n)
+
 BLAST_check <- allCopepodReads %>% 
   group_by(Class, Order, Family, Genus, Species, ESV, sequence) %>% 
+  summarize(n = n())
+
+samples <- allCopepodReads %>% 
+  group_by(year(Date_UTC), as.Date(Date_UTC)) %>% 
+  summarize(n = n()) 
+
+samples %>% 
+  group_by(year(`as.Date(Date_UTC)`)) %>% 
+  summarize(n = n())
+
+samplesc <- COI %>% 
+  group_by(year(Date_UTC), Date_UTC) %>% 
+  summarize(n = n()) 
+
+samplesc %>% 
+  group_by(year(Date_UTC)) %>% 
   summarize(n = n())
 ```
 
@@ -261,22 +288,124 @@ eDNAindxEnvDataYr %>%
 n_species <- eDNAindxEnvDataYr %>% 
   group_by(Family, Genus, Species) %>% 
   summarize(Reads = sum(TotalnReads)) %>% 
-  filter(Reads > 0) # 17
+  filter(Reads > 0) # 16
 ```
 
 # Results section pt2
 
 2021-22
 ```{r}
-n_no23 <- copepod_eDNA_indexYr %>% 
-  group_by(Species) %>% 
+classification <- read_csv(here("eDNA_Index_Hypoxia", "Classifications.csv")) # import northern/southern, number of detections, and size bin
+
+results <- full_join(eDNAindxEnvDataYr, classification, by = join_by(Species)) %>% 
+  mutate(Present = case_when(eDNA_index > 0 ~ T, .default = F)) # add descriptive columns by species
+
+n_no23 <- results %>% 
+  group_by(Species, Season, Size_bin) %>% 
   filter(eDNA_index > 0) %>% 
   summarize(n = n()) %>% 
-  arrange(desc(n))
+  arrange(desc(n)) # this is kinda circular at this point because i got n from here, put it in the spreadsheet, and then imported the spreadsheet above
 
-max(eDNAindxEnvData_cleanYr$temperature)
+max(results$temperature)
+
+samples2 <- eDNAindxEnvDataYr %>% 
+  group_by(year(Date_UTC), Date_UTC) %>% 
+  summarize(n = n()) 
+
+samples2 %>% 
+  group_by(year(Date_UTC)) %>% 
+  summarize(n = n())
 ```
 
+# Proportions
+
+```{r}
+red <- results %>% 
+  group_by(Species, Season, Size_bin, n) %>% 
+  filter(DO < 0.66 & Present == T) %>% 
+  summarize(red = n()) # count detections below 0.66 mg/L DO
+
+orange <- results %>% 
+  group_by(Species, Season, Size_bin, n) %>% 
+  filter(DO < 0.9 & Present == T) %>% 
+  summarize(orange = n()) # count detections below 0.9 mg/L DO
+
+denominator <- results %>% 
+  group_by(Species, Season, Size_bin, n) %>% 
+  summarize(rows = n()) # make it so that species with 0 detections in red or orange still show up
+
+props1 <- full_join(denominator, orange, by = join_by(Species, Season, Size_bin, n))
+props2 <- full_join(props1, red, by = join_by(Species, Season, Size_bin, n)) # join everything together
+
+props <- props2 %>% 
+  mutate(`DO_0.66` = red/n, `DO_0.9` = orange/n) %>% # calculate proportion of detections below threshold
+  mutate(red = case_when(is.na(red) ~ 0, .default = red), # put zeroes where species weren't detected below thresholds
+         orange = case_when(is.na(orange) ~ 0, .default = orange),
+         `DO_0.66` = case_when(is.na(`DO_0.66`) ~ 0, .default = `DO_0.66`),
+         `DO_0.9` = case_when(is.na(`DO_0.9`) ~ 0, .default = `DO_0.9`)
+         )
+
+compare_thresholds <- props %>% 
+  filter(n >= 5) # n is from 2021-23
+
+thresh_plt <- compare_thresholds %>% 
+  pivot_longer(cols = c(`DO_0.66`, `DO_0.9`), names_to = "Threshold", values_to = "Proportion")
+
+
+Seas_ord <- c("Acartia longiremis", "Centropages abdominalis", "Pseudocalanus acuspes", "Pseudocalanus mimus", "Pseudocalanus newmani", "Oithona similis", "Calanus pacificus", "Paracalanus sp. C AC-2013")
+
+ggplot(thresh_plt,
+       aes(x = Species, fill = Threshold, y = Proportion)) +
+  geom_col(position = "dodge") + 
+  scale_fill_manual(values = c("red", "orange")) +
+  scale_x_discrete(limits = Seas_ord) + # order by seasonal occurance
+  geom_text(aes(label = n, color = Threshold), vjust = -0.5, show.legend = F) +
+  scale_color_manual(values = c("transparent", "black")) + # make duplicates disappear
+  geom_text(aes(label = Season, color = Threshold), vjust = -2, show.legend = F) +
+  scale_color_manual(values = c("transparent", "black")) + # make duplicates disappear
+  ylim(0, 0.3) +
+  ggtitle("Proportion of Detections Below Hypoxic Thresholds") +
+  theme_bw() +
+  theme(axis.text = element_text(size = 25, color = "black"),
+        axis.text.x = element_text(size = 15, angle = 45, hjust = 1, color = "black"),
+        axis.title = element_text(size = 25, color = "black"),
+        plot.title = element_text(size = 17),
+        legend.title = element_text(size = 25),
+        legend.text = element_text(size = 25)
+        )
+      
+ggsave(filename = "Props_Below_Threshold_Season_no23.png", 
+       path = here("eDNA_Index_Hypoxia", "Plots"), 
+       width = 2500, height = 2000, units = "px")
+
+# Bar plot ordered by size
+  
+Size_ord <- c("Acartia longiremis", "Oithona similis", "Paracalanus sp. C AC-2013", "Pseudocalanus newmani", "Centropages abdominalis", "Pseudocalanus acuspes", "Pseudocalanus mimus", "Calanus pacificus")
+
+ggplot(thresh_plt,
+       aes(x = Species, fill = Threshold, y = Proportion)) +
+  geom_col(position = "dodge") + 
+  scale_fill_manual(values = c("red", "orange")) +
+  scale_x_discrete(limits = Size_ord) + # order by seasonal occurance
+  geom_text(aes(label = n, color = Threshold), vjust = -0.5, show.legend = F) +
+  scale_color_manual(values = c("transparent", "black")) + # make duplicates disappear
+  geom_text(aes(label = Size_bin, color = Threshold), vjust = -2, show.legend = F) +
+  scale_color_manual(values = c("transparent", "black")) +
+  ylim(0, 0.3) +
+  ggtitle("Proportion of Detections Below Hypoxic Thresholds") +
+  theme_bw() +
+  theme(axis.text = element_text(size = 25, color = "black"),
+        axis.text.x = element_text(size = 15, angle = 45, hjust = 1, color = "black"),
+        axis.title = element_text(size = 25, color = "black"),
+        plot.title = element_text(size = 17),
+        legend.title = element_text(size = 25),
+        legend.text = element_text(size = 25)
+        )
+      
+ggsave(filename = "Props_Below_Threshold_Size_no23.png", 
+       path = here("eDNA_Index_Hypoxia", "Plots"), 
+       width = 2500, height = 2000, units = "px")
+```
 
 # Plots
 
@@ -353,24 +482,26 @@ for (i in 1:length(dfsplit)) { # For each species:
     species <- dfsplit[[i]]$Species[1] # Species name 
     title <- paste(species, sep = " ", "eDNA Index vs Dissolved Oxygen & Temperature") # Plot title
     print(title)
+    data <- dfsplit[[i]] %>% filter(temperature < 11)
     
 # Plot + save
     
     print( # plot this species
-      ggplot(dfsplit[[i]], aes(x = temperature, 
+      ggplot(data, aes(x = temperature, 
                                     y = DO, 
-                                    size = eDNA_index, color = eDNA_index)) +
+                                    #size = eDNA_index, 
+                                    color = eDNA_index)) +
         scale_color_viridis_c(option = "viridis", direction = -1) + # color
-        scale_size(range = c(2, 7)) +
-        geom_point(alpha = 0.5) +
-        geom_point(shape = 1) + # add outline
-        geom_point(data = dfsplit[[i]] %>% filter(eDNA_index == 0), 
+        #scale_size(range = c(2, 7)) +
+        geom_point(alpha = 0.8, size = 4) +
+        geom_point(shape = 1, size = 4) + # add outline
+        geom_point(data = data %>% filter(eDNA_index != 0), 
                    aes(x = temperature, y = DO),
-                   color = "black", size = 2, shape = 1, stroke = 1.5) + # add more distinctive zeroes
+                   color = "black", size = 4, shape = 1, stroke = 1) + # add more distinctive zeroes
         labs(x = "Temperature (C)", 
              y = "Dissolved Oxygen (mg/L)", 
              color = "eDNA Index", 
-             size = "eDNA Index",
+             #size = "eDNA Index",
              title = title) +
         geom_hline(yintercept = 0.66, linetype = 2, 
                    color = "red", linewidth = 1) + # most die
@@ -386,8 +517,8 @@ for (i in 1:length(dfsplit)) { # For each species:
               legend.text = element_text(size = 20))
     )
       
-    ggsave(filename = paste(species, sep = "_", "eDNA_DO_Temp_ScatterSize.png"), 
-           path = here("eDNA_Index_Hypoxia", "Plots", "DO_Temp_Scatter"), 
+    ggsave(filename = paste(species, sep = "_", "Scatter_noOut.png"), 
+           path = here("eDNA_Index_Hypoxia", "Plots", "DO_Temp_Scatter_noOut"), 
            width = 2500, height = 2000, units = "px")
 }
 ```
@@ -408,17 +539,19 @@ for (i in 1:length(dfsplit)) { # For each species:
         
         geom_point(data = dfsplit[[i]], aes(x = temperature, 
                                     y = DO, 
-                                    size = eDNA_index, color = eDNA_index), 
-                   alpha = 0.5) +
+                                    #size = eDNA_index, 
+                                    color = eDNA_index), 
+                   alpha = 0.8, size = 4) +
         scale_color_viridis_c(option = "viridis", direction = -1) + # color
-        scale_size(range = c(2, 7)) +
+        #scale_size(range = c(2, 7)) +
         geom_point(data = dfsplit[[i]], aes(x = temperature, 
                                     y = DO, 
-                                    size = eDNA_index, color = eDNA_index), 
+                                    #size = eDNA_index, 
+                                    color = eDNA_index), 
                    shape = 1) + # add outline
         geom_point(data = dfsplit[[i]] %>% filter(eDNA_index == 0), 
                    aes(x = temperature, y = DO),
-                   color = "black", size = 2) + # add more distinctive zeroes
+                   color = "black", size = 4) + # add more distinctive zeroes
         
         labs(x = "Temperature (C)", 
              y = "Dissolved Oxygen (mg/L)", 
@@ -611,16 +744,16 @@ testAL <- testAL %>%
   relocate(temperature, .after = DO) %>% 
   mutate(DO_bin = as.factor(round(DO*4) / 4)) %>% # note: these bins are CENTERED around a 0.5, so the actual range of the 1.0 bin is 0.75-1.25
   relocate(DO_bin, .after = DO) %>% 
-  mutate(temperature_bin = as.factor(round(temperature*4) / 4)) %>% 
-  relocate(temperature_bin, .after = temperature)
+  mutate(Temperature_bin = as.factor(round(temperature*4) / 4)) %>% 
+  relocate(Temperature_bin, .after = temperature)
 
 testAL_props <- testAL %>% 
-  group_by(DO_bin, temperature_bin) %>% 
+  group_by(DO_bin, Temperature_bin) %>% 
   dplyr::summarize(Samples = n(), Detections = sum(Present), Detected = Detections/Samples)
 
 # Now plot time
 
-ggplot(testAL_props, aes(x = DO_bin, y = temperature_bin, fill = Detected)) +
+ggplot(testAL_props, aes(x = DO_bin, y = Temperature_bin, fill = Detected)) +
   geom_tile() +
   theme_bw()
 ```
@@ -644,20 +777,25 @@ for (i in 1:length(dfsplit)) { # For each species:
       relocate(temperature, .after = DO) %>% 
       mutate(DO_bin = as.factor(round(DO*4) / 4)) %>% # note: these bins are CENTERED around a 0.5, so the actual range of the 1.0 bin is 0.75-1.25
       relocate(DO_bin, .after = DO) %>% 
-      mutate(temperature_bin = as.factor(round(temperature*4) / 4)) %>% 
-      relocate(temperature_bin, .after = temperature) 
+      mutate(Temperature_bin = as.factor(round(temperature*4) / 4)) %>% 
+      relocate(Temperature_bin, .after = temperature) 
     
     df_props <- df %>% 
-      group_by(DO_bin, temperature_bin) %>% 
+      group_by(DO_bin, Temperature_bin) %>% 
       dplyr::summarize(Samples = n(), Detections = sum(Present), Detected = Detections/Samples)
     
     # Now plot time
     
-    print(ggplot(df_props, aes(x = DO_bin, y = temperature_bin, fill = Detected)) +
+    print(ggplot(df_props, aes(x = DO_bin, y = Temperature_bin, fill = Detected)) +
       geom_tile() +
       scale_fill_gradient(low = "skyblue", high = "darkblue") +
       ggtitle(title) +
-      theme_bw())
+      theme_bw() + theme(text = element_text(size = 25), 
+              axis.text = element_text(size = 20, color = "black"), 
+              axis.text.x = element_text(angle = 90), 
+              plot.title = element_text(size = 17),
+              legend.title = element_text(size = 20),
+              legend.text = element_text(size = 20)))
       
     ggsave(filename = paste(species, sep = "_", "eDNA_Env_Density.png"), 
            path = here("eDNA_Index_Hypoxia", "Plots", "eDNA_Env_Density"), 
@@ -679,7 +817,7 @@ for (i in 1:length(dfsplit)) {
     scale_color_gradient(high = "dodgerblue3", low = "orange2", guide = "legend", na.value = "black") + # Color to match presence/absence graphs
     geom_smooth(method = "glm", method.args = list(family = "binomial"), se = F) +
     # Print the binomial regression
-    stat_poly_eq(use_label(c("R2", "P", "AIC")), size = 6, label.y = 0.75, label.x = 60) + # Print R^2 and p-value from the model
+    # stat_poly_eq(use_label(c("R2", "P", "AIC")), size = 6, label.y = 0.75, label.x = 60) + # Print R^2 and p-value from the model
     theme_bw() +
     theme(text = element_text(size = 20)) +
     labs(title = species, x = "Dissolved Oxygen (mg/L)", y = "Species Present?")

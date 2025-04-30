@@ -39,7 +39,6 @@ SampHighlight3 <- geom_rect(data = sampleHighlight,
                             fill = "gray50",
                             stroke = 2,
                             alpha = 0.2)
-
 presenceGraphVars <- function() { # Function that reminds me of all the parameter names
   print("df, envCond, filename, filepath, title, ylab, widthpx = 2500, heightpx = 2000, threshold, thresholdLvl = 0")
 }
@@ -72,9 +71,15 @@ eDNAGraph <- function(df, # Dataframe of species presence/absence + environmenta
     
     plotbase <- ggplot(data = envData, aes(x = date, y = .data[[envCond]])) + # envData must be changed per .Rmd file if I imported it as something else
       geom_line(color = "gray50", size = 0.2) + # Plot environmental factor
-      geom_point(data = dfsplit[[i]], aes(x = DateMatch, y = .data[[envCond]], color = eDNA_index, size = eDNA_index), 
+      geom_point(data = dfsplit[[i]], aes(x = DateMatch, y = .data[[envCond]], 
+                                          #color = eDNA_index, 
+                                          #size = eDNA_index
+                                          ), 
                  alpha = 0.7) + # This is the big difference here
-      geom_point(data = dfsplit[[i]], aes(x = DateMatch, y = .data[[envCond]], color = eDNA_index, size = eDNA_index), 
+      geom_point(data = dfsplit[[i]], aes(x = DateMatch, y = .data[[envCond]], 
+                                          #color = eDNA_index, 
+                                          #size = eDNA_index
+                                          ), 
                  stroke = 1, shape = 1) + # Adding outlines
       scale_colour_gradient(low = "goldenrod2", high = "darkgreen") +
       scale_size(range = c(1,5)) +
@@ -155,9 +160,15 @@ eDNAGraph_23 <- function(df, # Dataframe of species presence/absence + environme
     
     plotbase <- ggplot(data = envData, aes(x = date, y = .data[[envCond]])) + # envData must be changed per .Rmd file if I imported it as something else
       geom_line(color = "gray50", size = 0.2) + # Plot environmental factor
-      geom_point(data = dfsplit[[i]], aes(x = DateMatch, y = .data[[envCond]], color = eDNA_index, size = eDNA_index), 
+      geom_point(data = dfsplit[[i]], aes(x = DateMatch, y = .data[[envCond]], 
+                                          #color = eDNA_index, 
+                                          #size = eDNA_index
+                                          ), 
                  alpha = 0.7) + # This is the big difference here
-      geom_point(data = dfsplit[[i]], aes(x = DateMatch, y = .data[[envCond]], color = eDNA_index, size = eDNA_index), 
+      geom_point(data = dfsplit[[i]], aes(x = DateMatch, y = .data[[envCond]], 
+                                          #color = eDNA_index, 
+                                          #size = eDNA_index
+                                          ), 
                  stroke = 1, shape = 1) + # Adding outlines
       scale_colour_gradient(low = "goldenrod2", high = "darkgreen") +
       scale_size(range = c(1,5)) +
