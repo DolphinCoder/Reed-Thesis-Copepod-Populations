@@ -543,6 +543,12 @@ INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 OUTPUT thesis.bcf
+INPUT thesis.bbl
+INPUT ./thesis.bbl
+INPUT thesis.bbl
+INPUT ./thesis.bbl
+INPUT ./thesis.bbl
+INPUT thesis.bbl
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
@@ -591,6 +597,7 @@ OUTPUT thesis.lot
 INPUT ./thesis.lof
 INPUT thesis.lof
 INPUT thesis.lof
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
 OUTPUT thesis.lof
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
@@ -599,6 +606,3 @@ INPUT ./Figures//Fig_OMZ.png
 INPUT ./Figures//Fig_OMZ.png
 INPUT ./Figures//Fig_OMZ.png
 INPUT ./Figures//Fig_OMZ.png
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
