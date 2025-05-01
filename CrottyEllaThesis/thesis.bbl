@@ -2720,6 +2720,47 @@
       \verb https://www.climate.gov/news-features/blogs/enso/what-el-ni%C3%B1o%E2%80%93southern-oscillation-enso-nutshell
       \endverb
     \endentry
+    \entry{Landry1989}{book}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=7269ac646a6dc7c2c286d09ea5ad53d9}{%
+           family={Landry},
+           familyi={L\bibinitperiod},
+           given={Michael\bibnamedelima Raymond},
+           giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=460cccdcbf6785140657650b64e431f1}{%
+           family={Hickey},
+           familyi={H\bibinitperiod},
+           given={Barbara\bibnamedelima M.},
+           giveni={B\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Amsterdam Oxford New York [etc.]}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{9c3dd7a7507ec88c190877f126726c7f}
+      \strng{fullhash}{9c3dd7a7507ec88c190877f126726c7f}
+      \strng{bibnamehash}{9c3dd7a7507ec88c190877f126726c7f}
+      \strng{authorbibnamehash}{9c3dd7a7507ec88c190877f126726c7f}
+      \strng{authornamehash}{9c3dd7a7507ec88c190877f126726c7f}
+      \strng{authorfullhash}{9c3dd7a7507ec88c190877f126726c7f}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0-444-87308-8}
+      \field{langid}{english}
+      \field{number}{47}
+      \field{series}{Elsevier Oceanography Series}
+      \field{title}{Coastal Oceanography of {{Washington}} and {{Oregon}}}
+      \field{year}{1989}
+      \field{dateera}{ce}
+    \endentry
     \entry{Li2020}{article}{}
       \name{author}{6}{}{%
         {{un=1,uniquepart=given,hash=867a7fb68fd3d3590d054c6e7be2bafb}{%
@@ -3628,6 +3669,43 @@
       \endverb
       \keyw{Hypoxia,OCNMS}
     \endentry
+    \entry{Peterson1977}{article}{}
+      \name{author}{2}{}{%
+        {{un=2,uniquepart=given,hash=78344309c11fbf500572b533d85ac5c1}{%
+           family={Peterson},
+           familyi={P\bibinitperiod},
+           given={William\bibnamedelima T},
+           giveni={W\bibinitperiod\bibinitdelim T\bibinitperiod},
+           givenun=2}}%
+        {{un=1,uniquepart=given,hash=07dd64394cb2733881e3faa5e42fc190}{%
+           family={Miller},
+           familyi={M\bibinitperiod},
+           given={Charles\bibnamedelima B},
+           giveni={C\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=1}}%
+      }
+      \strng{namehash}{dd47cc9cbdc23a89c902e52fcc2fcb9d}
+      \strng{fullhash}{dd47cc9cbdc23a89c902e52fcc2fcb9d}
+      \strng{bibnamehash}{dd47cc9cbdc23a89c902e52fcc2fcb9d}
+      \strng{authorbibnamehash}{dd47cc9cbdc23a89c902e52fcc2fcb9d}
+      \strng{authornamehash}{dd47cc9cbdc23a89c902e52fcc2fcb9d}
+      \strng{authorfullhash}{dd47cc9cbdc23a89c902e52fcc2fcb9d}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Species composition of zooplankton collected during 3 yr of sampling close to the coast at Newport, Oreg., varied with season. In all seasons the most abundant plankters were copepods. Dominant species in summer were Pseudocalanus sp., Acartia clausii, A.longiremis, Calanus marshallae, and Oithona similis. These are primarily coastal forms with northern affinities, and they were present all year. Dominant species in winter were Paracalanus parous and Ctenocalanus vanus, forms of southern affinities. They tended to disappear completely in summer. These geographic affinities are in correspondence with the source regions for surface waters that are implied by the direction of flow in the different seasons. Abundances are about one order of magnitude higher in summer than in winter. Copepod diversity is greater in winter than summer: the winter checklist contains 51 species, while the summer list contains only 38 species.}
+      \field{langid}{english}
+      \field{title}{Seasonal {{Cycle}} of {{Zooplankton Abundance}} and {{Species Composition Along}} the {{Central Oregon Coast}}}
+      \field{year}{1977}
+      \field{dateera}{ce}
+      \verb{file}
+      \verb /Users/ellac/Zotero/storage/MV53ZADN/Peterson and Miller' - SEASONAL CYCLE OF ZOOPLANKTON ABUNDANCE AND SPECIE.pdf
+      \endverb
+      \keyw{Copepods}
+    \endentry
     \entry{Peterson2003}{article}{}
       \name{author}{2}{}{%
         {{un=2,uniquepart=given,hash=78344309c11fbf500572b533d85ac5c1}{%
@@ -3684,43 +3762,6 @@
       \endverb
       \verb{url}
       \verb https://linkinghub.elsevier.com/retrieve/pii/S0967064503001309
-      \endverb
-      \keyw{Copepods}
-    \endentry
-    \entry{Peterson1977}{article}{}
-      \name{author}{2}{}{%
-        {{un=2,uniquepart=given,hash=72f07d1b013363947e89f4ae0ed94da7}{%
-           family={Peterson},
-           familyi={P\bibinitperiod},
-           given={Wiluam\bibnamedelima T},
-           giveni={W\bibinitperiod\bibinitdelim T\bibinitperiod},
-           givenun=2}}%
-        {{un=1,uniquepart=given,hash=07dd64394cb2733881e3faa5e42fc190}{%
-           family={Miller},
-           familyi={M\bibinitperiod},
-           given={Charles\bibnamedelima B},
-           giveni={C\bibinitperiod\bibinitdelim B\bibinitperiod},
-           givenun=1}}%
-      }
-      \strng{namehash}{19bc97e3df613096c95e7fa1be535a69}
-      \strng{fullhash}{19bc97e3df613096c95e7fa1be535a69}
-      \strng{bibnamehash}{19bc97e3df613096c95e7fa1be535a69}
-      \strng{authorbibnamehash}{19bc97e3df613096c95e7fa1be535a69}
-      \strng{authornamehash}{19bc97e3df613096c95e7fa1be535a69}
-      \strng{authorfullhash}{19bc97e3df613096c95e7fa1be535a69}
-      \field{sortinit}{P}
-      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{Species composition of zooplankton collected during 3 yr of sampling close to the coast at Newport, Oreg., varied with season. In all seasons the most abundant plankters were copepods. Dominant species in summer were Pseudocalanus sp., Acartia clausii, A.longiremis, Calanus marshallae, and Oithona similis. These are primarily coastal forms with northern affinities, and they were present all year. Dominant species in winter were Paracalanus parous and Ctenocalanus vanus, forms of southern affinities. They tended to disappear completely in summer. These geographic affinities are in correspondence with the source regions for surface waters that are implied by the direction of flow in the different seasons. Abundances are about one order of magnitude higher in summer than in winter. Copepod diversity is greater in winter than summer: the winter checklist contains 51 species, while the summer list contains only 38 species.}
-      \field{langid}{english}
-      \field{title}{Seasonal {{Cycle}} of {{Zooplankton Abundance}} and {{Species Composition Along}} the {{Central Oregon Coast}}}
-      \field{year}{1977}
-      \field{dateera}{ce}
-      \verb{file}
-      \verb /Users/ellac/Zotero/storage/MV53ZADN/Peterson and Miller' - SEASONAL CYCLE OF ZOOPLANKTON ABUNDANCE AND SPECIE.pdf
       \endverb
       \keyw{Copepods}
     \endentry

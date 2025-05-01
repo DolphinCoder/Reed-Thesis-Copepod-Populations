@@ -64,16 +64,16 @@
 
     \chapter*{Acknowledgements}
 	I want to thank everyone who made this thesis possible! \\
-	Thank you to all of my friends, Reed alumni, staff, and professors who have supported me throughout my time at Reed. \\
-	To everyone in the Fey lab, for encouraging me during lab meeting and giving feedback on my presentations and figures: Kiana, Koko, Maud, Joseph, Danny, Avery, Miranda, and Harrison. \\
-	To my housemates who sat with me in the thesis pit and commisserated as the end grew near: Patrick, Bailey, Sofia, and Mica. \\
-	To my parents, who support me every step of the way. \\
+	Thank you to everyone at Reed: friends, alumni, staff, and professors, who have supported me throughout my time here. \\
+	To everyone in the Fey lab, for encouraging me during lab meetings and giving feedback on my presentations and figures: Kiana, Koko, Maud, Joseph, Danny, Avery, Miranda, and Harrison. \\
+	To my housemates, for sitting with me in the thesis pit and commisserating as the end grew near: Patrick, Bailey, Sofia, and Mica. \\
+	To my parents, for supporting me every step of the way. \\
 	To Jeremy Coate, for letting me use his class's virtual machine to re-run all these gene sequences to check their identifications \\
 	To Josie Griffin, for helping me out when my statistical models weren't running \\
-	To everyone at PMEL for helping me out with the physical oceanography aspects of the thesis, I couldn't have done it without you: Evan for helping me with dissolved oxygen calculations, Jilian and Samantha for providing the LiveOcean data and helping me understand it, and Simone for writing feedback over the summer and in this thesis. \\
-	To the OCNMS crew, who brought me out on fieldwork and gave feedback on my summer researc: Kathy Hough, Jenny Waddell. \\
-	To everyone in the PMEL OME lab who showed me the ropes and guided my summer research: Zachary Gold, Shannon Brown, Han Weinrich, Sean McAllister, Sam Setta \\
-	To all the NOAA Hollings scholars in Seattle in summer 2024, both at PMEL and the Northwest Fisheries Science Center - it was great working with you and exploring Seattle together! \\
+	To everyone in the PMEL OME lab who showed me the ropes and guided my summer research: Zachary Gold, Shannon Brown, Han Weinrich, Sean McAllister, and Sam Setta. \\
+	To the OCNMS crew, who took me out into OCNMS for their mooring work: Haley Wilson, Andrew Micks, Kathy Hough, Jenny Waddell, and Hatcher Cox. \\
+	To everyone at PMEL for helping me with the physical oceanography aspects of the thesis, I couldn't have done it without you: Evan for helping me with dissolved oxygen calculations, Jilian and Samantha for providing the LiveOcean model output and helping me understand it, and Simone for writing feedback over the summer and in this thesis. \\
+	To all the NOAA Hollings scholars in Seattle during summer 2024, both at PMEL and the Northwest Fisheries Science Center - it was great working with you and exploring Seattle together! \\
 
 % The preface is optional
 % To remove it, comment it out or delete it.
@@ -156,9 +156,9 @@ As a result of these interactions, hypoxic events in which the oxygen concentrat
 
 Studies of the effects of hypoxia on marine organisms use a variety of lab and fieldwork methods. Laboratory experiments on hypoxia's effects typically involve subjecting organisms to different levels of dissolved oxygen over a certain period of time, then measuring factors such as survival, growth rate, metabolism, and reproductive rate in order to determine whether the hypoxia has a negative effect \autocite{Steckbauer2020}. Field studies typically entail measuring dissolved oxygen levels and organismal prevalence and abundance, using methods such as satellite tagging and trawl surveys that vary by scale and organism type (for example, \autocite{Keister2020}). Field experiments have more ecological relevance, but present difficulties in untangling the effects of other environmental factors \autocite{Borges2022, Boyd2018}. Therefore, linking experiments and field observations enables us to better demonstrate the connection between the lethal and sublethal effects of hypoxia shown in lab settings and real-world effects on organisms and changes in species distributions.
 
-\section{OCMNMS}
+\section{OCNMS}
 
-This study will focus on hypoxia in Olympic Coast National Marine Sanctuary (OCNMS), off the coast of Washington state, U.S.A.. The Olympic Coast is the California Current Eastern boundary current upwelling zone (see Figure \ref{Upwelling}), meaning that when summer winds push the surface water offshore, nutrient-rich and oxygen-poor water flows upwards from the subsurface Pacific Ocean towards the coast \autocite{OfficeofNationalMarineSanctuaries2022, Hickey2003}. After this oxygen-poor water is advected onto the shallower waters of the continental shelf, respiration of decaying organic matter further reduces the water's oxygen content, leading to hypoxia \autocite{Pierce2012}. 
+This study will focus on hypoxia in Olympic Coast National Marine Sanctuary (OCNMS), off the coast of Washington state, U.S.A.. The Olympic Coast is the California Current Eastern boundary current upwelling zone (see Figure \ref{Upwelling}), meaning that when summer winds push the surface water offshore, nutrient-rich and oxygen-poor water flows upwards from the subsurface Pacific Ocean towards the coast \autocite{OfficeofNationalMarineSanctuaries2022, Hickey2003}. After this oxygen-poor water is advected onto the shallower waters of the continental shelf, respiration of decaying organic matter further reduces the water's oxygen content, leading to hypoxia in the bottom of the water column \autocite{Pierce2012, Landry1989}. 
 
 \begin{figure}[!h]
 	\begin{center}
@@ -286,7 +286,7 @@ In this study, I will assess the effects of hypoxia on copepod abundance and com
 		\begin{center}
 			a. \includegraphics[width=0.58\textwidth]{Mooring_vs_Model_DO_37} \\
 			b. \includegraphics[width=0.58\textwidth]{Mooring_vs_Model_Temp_37}
-			\caption[Mooring vs. Model]{Time series of (a) dissolved oxygen (mg/L) and (b) temperature (Celsius) over the study period. TH042 mooring data is displayed in orange, while LiveOcean model data is displayed in blue.} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
+			\caption[Mooring vs. Model Time Series]{Time series of (a) dissolved oxygen (mg/L) and (b) temperature (Celsius) over the study period. TH042 mooring data is displayed in orange, while LiveOcean model data is displayed in blue.} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
 			\label{ModelComparison}
 		\end{center}
 	\end{wrapfigure} 
@@ -301,7 +301,7 @@ In this study, I will assess the effects of hypoxia on copepod abundance and com
 	\end{figure} 
 	
 	\section{Data Visualization}
-	In order to determine the relationships between copepod abundance and environmental factors, eDNA index was compared to temperature and dissolved oxygen. Due to the mooring issue in 2023, I performed all analyses on the 2021-22 data, then on a combination of the 2021-22 mooring data and the 2023 model data, then on the 2021-23 modeling data. Preliminary analysis was done using time series plots, where dissolved oxygen was plotted as a time series and each sample was plotted as a dot on top of the associated dissolved oxygen measurement, with color and size corresponding to eDNA index. This allowed for visual identification of hypoxic events in July 2021, October 2021, September 2022, and October 2023, as well as a heatwave in September 2021. Analysis of abundance relative to both dissolved oxygen and temperature was first conducted using scatter plots of dissolved oxygen and temperature at each sampling time, with color again corresponding to eDNA index. To compensate for the different sampling frequencies in different environmental conditions, I then made density plots of the detection frequency within bins of environmental conditions, each spanning 0.5 mg/L of dissolved oxygen and 0.5 degrees Celsius. Each square of the plot represents a varying number of eDNA samples, and the darker squares have a higher proportion of species detections relative to non-detections. 
+	In order to determine the relationships between copepod abundance and environmental factors, eDNA index was compared to temperature and dissolved oxygen. Due to the mooring issue in 2023, I performed all analyses on the 2021-22 data, then on a combination of the 2021-22 mooring data and the 2023 model data, then on the 2021-23 modeling data. Preliminary analysis was done using time series plots, where dissolved oxygen was plotted as a time series and each sample was plotted as a dot on top of the associated dissolved oxygen measurement, with color and size corresponding to eDNA index. This allowed for visual identification of hypoxic events in July 2021, October 2021, September 2022, and October 2023, as well as a heatwave in September 2021. Analysis of abundance relative to both dissolved oxygen and temperature was first conducted using scatterplots of dissolved oxygen and temperature at each sampling time, with color again corresponding to eDNA index. To compensate for the different sampling frequencies in different environmental conditions, I then made density plots of the detection frequency within bins of environmental conditions, each spanning 0.5 mg/L of dissolved oxygen and 0.5 degrees Celsius. Each square of the plot represents a varying number of eDNA samples, and the darker squares have a higher proportion of species detections relative to non-detections. 
 	
 	I divided copepods into size bins based on the size ranges listed in the Marine Planktonic Copepods database \autocite{WoRMSWorldRegister}. Copepods smaller than 1.5 mm were classified as small, 1.5-2.5 mm copepods were classified as medium, 2.5-4 mm copepods were classified as large, and copepods exceeding 4 mm were classified as huge.
 	
@@ -312,7 +312,7 @@ In this study, I will assess the effects of hypoxia on copepod abundance and com
 		\begin{center}
 			\includegraphics[scale=0.35]{Scatter_ex}
 			\includegraphics[scale=0.35]{Scatter_ex_Mod}
-			\caption[Mooring vs. model]{Distribution of samples versus the distribution of temperature and dissolved oxygen during the entire sampling period, of May-October 2021-23. LiveOcean model output from winter months is not shown, since the eDNA sampler and TH042 mooring were not deployed during winter months. Gray dots indicate any environmental data sampling time, from the TH042 mooring (left) or from the LiveOcean model (right). Black dots indicate environmental conditions at which eDNA samples were taken. Note the high outliers, which are during a short heatwave in September 2021 and will not be shown in future scatterplots or considered in statistical analyses due to their small sample size. These plots only utilize TH042 mooring data from 2021 to 2022, because the LiveOcean model data does not contain any dissolved oxygen values below 1.0 mg/L.} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
+			\caption[Mooring vs. Model Scatterplot]{Distribution of samples versus the distribution of temperature and dissolved oxygen during the entire sampling period, of May-October 2021-23. LiveOcean model output from winter months is not shown, since the eDNA sampler and TH042 mooring were not deployed during winter months. Gray dots indicate any environmental data sampling time, from the TH042 mooring (left) or from the LiveOcean model (right). Black dots indicate environmental conditions at which eDNA samples were taken. Note the high outliers, which are during a short heatwave in September 2021 and will not be shown in future scatterplots or considered in statistical analyses due to their small sample size. These plots only utilize TH042 mooring data from 2021 to 2022, because the LiveOcean model data does not contain any dissolved oxygen values below 1.0 mg/L.} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
 		\end{center}
 		\label{EnvironmentalConditions}
 	\end{figure} 
@@ -386,7 +386,7 @@ In this study, I will assess the effects of hypoxia on copepod abundance and com
 		\begin{center}
 			a. \includegraphics[scale=0.3]{Pnewmani_binom_sig_neg}
 			b. \includegraphics[scale=0.3]{Pnewmani_Density} \\
-			\caption[\textit{P. newmani} binomial regressions]{\footnotesize{(a) \textit{P. newmani} binomial regression comparing species presence to dissolved oxygen. \textit{P. newmani} was detected significantly less frequently at higher dissolved oxygen levels. (b) Density plot of \textit{P. newmani} detections. Each pixel represents a range of dissolved oxygen and temperature values, and the shade of each pixel represents the proportion of eDNA samples in that environmental range in which \textit{P. newmani} was detected. Dissolved oxygen data comes from the TH042 mooring in 2021-22.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
+			\caption[\textit{P. newmani} binomial regression and density plot]{\footnotesize{(a) \textit{P. newmani} binomial regression comparing species presence to dissolved oxygen. \textit{P. newmani} was detected significantly less frequently at higher dissolved oxygen levels. (b) Density plot of \textit{P. newmani} detections. Each pixel represents a range of dissolved oxygen and temperature values, and the shade of each pixel represents the proportion of eDNA samples in that environmental range in which \textit{P. newmani} was detected. Dissolved oxygen data comes from the TH042 mooring in 2021-22.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
 			\label{PnewmaniBinomDensity}
 		\end{center}
 	\end{figure} 
@@ -395,7 +395,7 @@ In this study, I will assess the effects of hypoxia on copepod abundance and com
 		\begin{center}
 			a. \includegraphics[scale=0.5]{Bar_Season} \\
 			b. \includegraphics[scale=0.5]{Bar_Size}
-			\caption[Proportion of Detections Below Thresholds 1]{\footnotesize{A comparison of different copepod groups and their rates of occurence below certain hypoxic thresholds. Red bars indicate the proportion of detections of that species that were in conditions below 0.66 mg/L of oxygen, and orange bars indicate the proportion of detections of that species that were in conditions below 0.9 mg/L of oxygen. Numbers above bars indicate total number of detections. In plot (a) copepods are also labeled by seasonal groupings. In plot (b), copepods are also labeled by approximate size. Species with a maximum size of less than 1.5 mm are Small, maximum size 1.5-2.5 mm is Medium, maximum size 2.5-4 mm is Large, and maximum size ${>}$4 mm is Huge \autocite{WoRMSWorldRegister}}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
+			\caption[Proportion of Detections Below Hypoxic Thresholds]{\footnotesize{A comparison of different copepod groups and their rates of occurence below certain hypoxic thresholds. Red bars indicate the proportion of detections of that species that were in conditions below 0.66 mg/L of oxygen, and orange bars indicate the proportion of detections of that species that were in conditions below 0.9 mg/L of oxygen. Numbers above bars indicate total number of detections. In plot (a) copepods are also labeled by seasonal groupings. In plot (b), copepods are also labeled by approximate size. Species with a maximum size of less than 1.5 mm are Small, maximum size 1.5-2.5 mm is Medium, maximum size 2.5-4 mm is Large, and maximum size ${>}$4 mm is Huge \autocite{WoRMSWorldRegister}}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
 			\label{BarSeason}
 		\end{center}
 	\end{figure}    
@@ -414,7 +414,7 @@ In this study, I will assess the effects of hypoxia on copepod abundance and com
 		\begin{center}
 			a. \includegraphics[scale=0.3]{Paracalanus_Scatter_AllYr_mod_noOut} 
 			b. \includegraphics[scale=0.3]{Paracalanus_Density_AllYr_mod} 
-			\caption[\textit{Paracalanus} sp. C AC-2013 scatterplot]{\footnotesize{(a) Scatter plot of dissolved oxygen (mg/L) and temperature (Celsius) for each environmental DNA sampling time, with \textit{Paracalanus} sp. C AC-2013 scatterplot detections circled in black. Color of dots represents eDNA index, a normalized measure of abundance that can compare abundance within a species. Yellow, uncircled dots represent sampling dates when \textit{Paracalanus} sp. C AC-2013 scatterplot was not detected. (b) Density plot of \textit{Paracalanus} sp. C AC-2013 detections. Each pixel represents a range of dissolved oxygen and temperature values, and the shade of each pixel represents the proportion of eDNA samples in that environmental range in which \textit{Paracalanus} sp. C AC-2013 was detected. These plots use LiveOcean model data from 2021-23.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
+			\caption[\textit{Paracalanus} sp. C AC-2013 scatterplot and density plot]{\footnotesize{(a) Scatterplot of dissolved oxygen (mg/L) and temperature (Celsius) for each environmental DNA sampling time, with \textit{Paracalanus} sp. C AC-2013 scatterplot detections circled in black. Color of dots represents eDNA index, a normalized measure of abundance that can compare abundance within a species. Yellow, uncircled dots represent sampling dates when \textit{Paracalanus} sp. C AC-2013 scatterplot was not detected. (b) Density plot of \textit{Paracalanus} sp. C AC-2013 detections. Each pixel represents a range of dissolved oxygen and temperature values, and the shade of each pixel represents the proportion of eDNA samples in that environmental range in which \textit{Paracalanus} sp. C AC-2013 was detected. These plots use LiveOcean model data from 2021-23.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
 			\label{ParacalanusScatter}
 		\end{center}
 	\end{figure} 
@@ -439,7 +439,9 @@ In this study, I will assess the effects of hypoxia on copepod abundance and com
    
    \section{Data Availability Statement}
    
-   All code used in this thesis can be found at 
+   All code used in this thesis can be found at https://github.com/DolphinCoder/Reed-Thesis-Copepod-Populations.
+   
+   The results of the overall automated eDNA sampler study in OCNMS are actively being organized into a peer-reviewed manuscript, and all data will be made available upon publication. Reach out to Zachary Gold (zachary.gold@noaa.gov) for more information or to request raw data.
      
      \section{R Packages Used}
 	\begin{hangparas}{0.25in}{1}
@@ -478,7 +480,7 @@ In this study, I will assess the effects of hypoxia on copepod abundance and com
 			\includegraphics[scale=0.25]{Paracalanus_ZOIB_Means_noOut}
 			\includegraphics[scale=0.25]{Pmimus_ZOIB_Means_noOut}
 			\includegraphics[scale=0.25]{Pnewmani_ZOIB_Means_noOut}
-			\caption[Zero-inflated beta regression model means]{\footnotesize{Zero-inflated beta regression model means, with bands showing 0.5, 0.8, and 0.95 confidence levels, using data from 2021-22 from the TH042 mooring.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
+			\caption[Zero-inflated beta regression means]{\footnotesize{Zero-inflated beta regression model means, with bands showing 0.5, 0.8, and 0.95 confidence levels, using data from 2021-22 from the TH042 mooring.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
 			\label{ZOIB}
 		\end{center}
 	\end{figure}
@@ -491,7 +493,7 @@ In this study, I will assess the effects of hypoxia on copepod abundance and com
 			\includegraphics[scale=0.25]{Paracalanus_ZOIB_Means_Mod_noOut}
 			\includegraphics[scale=0.25]{Pmimus_ZOIB_Means_Mod_noOut}
 			\includegraphics[scale=0.25]{Pnewmani_ZOIB_Means_Mod_noOut}
-			\caption[Zero-inflated beta regression model means, modeled data]{\footnotesize{Zero-inflated beta regression model means, with bands showing 0.5, 0.8, and 0.95 confidence levels, using data from 2021-23 from the LiveOcean model.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
+			\caption[Zero-inflated beta regression means (modeled data)]{\footnotesize{Zero-inflated beta regression model means, with bands showing 0.5, 0.8, and 0.95 confidence levels, using data from 2021-23 from the LiveOcean model.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
 			\label{ModZOIB}
 		\end{center}
 	\end{figure}
@@ -503,7 +505,7 @@ In this study, I will assess the effects of hypoxia on copepod abundance and com
 		\begin{center}
 			a. \includegraphics[scale=0.3]{Osimilis_Scatter_noOut}
 			b. \includegraphics[scale=0.3]{Osimilis_Scatter_AllYr_mod_noOut}
-			\caption[\textit{O. similis} scatterplot]{\footnotesize{Scatter plot of dissolved oxygen (mg/L) and temperature (Celsius) for each environmental DNA sampling time, with \textit{O. similis} detections circled in black. Color of dots represents eDNA index, a normalized measure of abundance that can compare abundance within a species. Yellow, uncircled dots represent sampling dates when \textit{O. similis} was not detected. Plot (a) uses TH042 mooring data from 2021-22, (b) uses LiveOcean model data from 2021-23.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
+			\caption[\textit{O. similis} scatterplot]{\footnotesize{Scatterplot of dissolved oxygen (mg/L) and temperature (Celsius) for each environmental DNA sampling time, with \textit{O. similis} detections circled in black. Color of dots represents eDNA index, a normalized measure of abundance that can compare abundance within a species. Yellow, uncircled dots represent sampling dates when \textit{O. similis} was not detected. Plot (a) uses TH042 mooring data from 2021-22, (b) uses LiveOcean model data from 2021-23.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
 			\label{OsimilisScatter}
 		\end{center}
 	\end{figure} 
@@ -513,7 +515,7 @@ In this study, I will assess the effects of hypoxia on copepod abundance and com
 		\begin{center}
 			a. \includegraphics[scale=0.3]{Alongiremis_Scatter_noOut}
 			b. \includegraphics[scale=0.3]{Alongiremis_Scatter_AllYr_mod_noOut}
-			\caption[\textit{A. longiremis} scatterplot]{\footnotesize{Scatter plot of dissolved oxygen (mg/L) and temperature (Celsius) for each environmental DNA sampling time, with \textit{A. longiremis} detections circled in black. Color of dots represents eDNA index, a normalized measure of abundance that can compare abundance within a species. Yellow, uncircled dots represent sampling dates when \textit{A. longiremis} was not detected. Plot (a) uses TH042 mooring data from 2021-22, (b) uses LiveOcean model data from 2021-23.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
+			\caption[\textit{A. longiremis} scatterplot]{\footnotesize{Scatterplot of dissolved oxygen (mg/L) and temperature (Celsius) for each environmental DNA sampling time, with \textit{A. longiremis} detections circled in black. Color of dots represents eDNA index, a normalized measure of abundance that can compare abundance within a species. Yellow, uncircled dots represent sampling dates when \textit{A. longiremis} was not detected. Plot (a) uses TH042 mooring data from 2021-22, (b) uses LiveOcean model data from 2021-23.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
 			\label{AlongiremisScatter}
 		\end{center}
 	\end{figure} 
@@ -522,7 +524,7 @@ In this study, I will assess the effects of hypoxia on copepod abundance and com
 		\begin{center}
 			a. \includegraphics[scale=0.3]{Pmimus_Scatter_noOut}
 			b. \includegraphics[scale=0.3]{Pmimus_Scatter_AllYr_mod_noOut}
-			\caption[\textit{P. mimus} scatterplot]{\footnotesize{Scatter plot of dissolved oxygen (mg/L) and temperature (Celsius) for each environmental DNA sampling time, with \textit{P. mimus} detections circled in black. Color of dots represents eDNA index, a normalized measure of abundance that can compare abundance within a species. Yellow, uncircled dots represent sampling dates when \textit{P. mimus} was not detected. Plot (a) uses TH042 mooring data from 2021-22, (b) uses LiveOcean model data from 2021-23.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
+			\caption[\textit{P. mimus} scatterplot]{\footnotesize{Scatterplot of dissolved oxygen (mg/L) and temperature (Celsius) for each environmental DNA sampling time, with \textit{P. mimus} detections circled in black. Color of dots represents eDNA index, a normalized measure of abundance that can compare abundance within a species. Yellow, uncircled dots represent sampling dates when \textit{P. mimus} was not detected. Plot (a) uses TH042 mooring data from 2021-22, (b) uses LiveOcean model data from 2021-23.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
 			\label{PmimusScatter}
 			\end{center}
 	\end{figure} 
@@ -531,7 +533,7 @@ In this study, I will assess the effects of hypoxia on copepod abundance and com
 		\begin{center}
 			%\includegraphics[scale=0.35]{Pnewmani_Scatter_noOut}
 			\includegraphics[scale=0.3]{Pnewmani_Scatter_AllYr_mod_noOut}
-			\caption[\textit{P. newmani} scatterplot]{\footnotesize{Scatter plot of dissolved oxygen (mg/L) and temperature (Celsius) for each environmental DNA sampling time, with \textit{P. newmani} detections circled in black. Color of dots represents eDNA index, a normalized measure of abundance that can compare abundance within a species. Yellow, uncircled dots represent sampling dates when \textit{P. newmani} was not detected. Plot (a) uses TH042 mooring data from 2021-22, (b) uses LiveOcean model data from 2021-23.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
+			\caption[\textit{P. newmani} scatterplot]{\footnotesize{Scatterplot of dissolved oxygen (mg/L) and temperature (Celsius) for each environmental DNA sampling time, with \textit{P. newmani} detections circled in black. Color of dots represents eDNA index, a normalized measure of abundance that can compare abundance within a species. Yellow, uncircled dots represent sampling dates when \textit{P. newmani} was not detected. Plot (a) uses TH042 mooring data from 2021-22, (b) uses LiveOcean model data from 2021-23.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
 			\label{PnewmaniScatter}
 		\end{center}
 	\end{figure} 
@@ -540,7 +542,7 @@ In this study, I will assess the effects of hypoxia on copepod abundance and com
 		\begin{center}
 			a. \includegraphics[scale=0.3]{Cabdominalis_Scatter_noOut}
 			b. \includegraphics[scale=0.3]{Cabdominalis_Scatter_AllYr_mod_noOut}
-			\caption[\textit{C. abdominalis} scatterplot]{\footnotesize{Scatter plot of dissolved oxygen (mg/L) and temperature (Celsius) for each environmental DNA sampling time, with \textit{C. abdominalis} detections circled in black. Color of dots represents eDNA index, a normalized measure of abundance that can compare abundance within a species. Yellow, uncircled dots represent sampling dates when \textit{C. abdominalis} was not detected. Plot (a) uses TH042 mooring data from 2021-22, (b) uses LiveOcean model data from 2021-23.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
+			\caption[\textit{C. abdominalis} scatterplot]{\footnotesize{Scatterplot of dissolved oxygen (mg/L) and temperature (Celsius) for each environmental DNA sampling time, with \textit{C. abdominalis} detections circled in black. Color of dots represents eDNA index, a normalized measure of abundance that can compare abundance within a species. Yellow, uncircled dots represent sampling dates when \textit{C. abdominalis} was not detected. Plot (a) uses TH042 mooring data from 2021-22, (b) uses LiveOcean model data from 2021-23.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
 			\label{CabdominalisScatter}
 		\end{center}
 	\end{figure} 
@@ -549,7 +551,7 @@ In this study, I will assess the effects of hypoxia on copepod abundance and com
 		\begin{center}
 			a. \includegraphics[scale=0.3]{Pacuspes_Scatter_noOut}
 			b. \includegraphics[scale=0.3]{Pacuspes_Scatter_AllYr_mod_noOut}
-			\caption[\textit{P. acuspes} scatterplot]{\footnotesize{Scatter plot of dissolved oxygen (mg/L) and temperature (Celsius) for each environmental DNA sampling time, with \textit{P. acuspes} detections circled in black. Color of dots represents eDNA index, a normalized measure of abundance that can compare abundance within a species. Yellow, uncircled dots represent sampling dates when \textit{P. acuspes} was not detected. Plot (a) uses TH042 mooring data from 2021-22, (b) uses LiveOcean model data from 2021-23.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
+			\caption[\textit{P. acuspes} scatterplot]{\footnotesize{Scatterplot of dissolved oxygen (mg/L) and temperature (Celsius) for each environmental DNA sampling time, with \textit{P. acuspes} detections circled in black. Color of dots represents eDNA index, a normalized measure of abundance that can compare abundance within a species. Yellow, uncircled dots represent sampling dates when \textit{P. acuspes} was not detected. Plot (a) uses TH042 mooring data from 2021-22, (b) uses LiveOcean model data from 2021-23.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
 				\label{PacuspesScatter}
 		\end{center}
 	\end{figure} 
@@ -560,7 +562,7 @@ In this study, I will assess the effects of hypoxia on copepod abundance and com
 		\begin{center}
 			a. \includegraphics[scale=0.3]{Cpacificus_Scatter_noOut}
 			b. \includegraphics[scale=0.3]{Cpacificus_Scatter_AllYr_mod_noOut}
-			\caption[\textit{C. pacificus} scatterplot]{\footnotesize{Scatter plot of dissolved oxygen (mg/L) and temperature (Celsius) for each environmental DNA sampling time, with \textit{C. pacificus} detections circled in black. Color of dots represents eDNA index, a normalized measure of abundance that can compare abundance within a species. Yellow, uncircled dots represent sampling dates when \textit{C. pacificus} was not detected. Plot (a) uses TH042 mooring data from 2021-22, (b) uses LiveOcean model data from 2021-23.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
+			\caption[\textit{C. pacificus} scatterplot]{\footnotesize{Scatterplot of dissolved oxygen (mg/L) and temperature (Celsius) for each environmental DNA sampling time, with \textit{C. pacificus} detections circled in black. Color of dots represents eDNA index, a normalized measure of abundance that can compare abundance within a species. Yellow, uncircled dots represent sampling dates when \textit{C. pacificus} was not detected. Plot (a) uses TH042 mooring data from 2021-22, (b) uses LiveOcean model data from 2021-23.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
 			\label{CpacificusScatter}
 		\end{center}
 	\end{figure} 
@@ -568,7 +570,7 @@ In this study, I will assess the effects of hypoxia on copepod abundance and com
 		\begin{figure}[!h]
 		\begin{center}
 			\includegraphics[scale=0.3]{Paracalanus_Scatter_noOut} \\
-			\caption[\textit{Paracalanus} sp. C AC-2013 scatterplot]{\footnotesize{Scatter plot of dissolved oxygen (mg/L) and temperature (Celsius) for each environmental DNA sampling time, with \textit{Paracalanus} sp. C AC-2013 scatterplot detections circled in black. Color of dots represents eDNA index, a normalized measure of abundance that can compare abundance within a species. Yellow, uncircled dots represent sampling dates when \textit{Paracalanus} sp. C AC-2013 scatterplot was not detected. This plot uses TH042 mooring data from 2021-22.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
+			\caption[\textit{Paracalanus} sp. C AC-2013 scatterplot]{\footnotesize{Scatterplot of dissolved oxygen (mg/L) and temperature (Celsius) for each environmental DNA sampling time, with \textit{Paracalanus} sp. C AC-2013 scatterplot detections circled in black. Color of dots represents eDNA index, a normalized measure of abundance that can compare abundance within a species. Yellow, uncircled dots represent sampling dates when \textit{Paracalanus} sp. C AC-2013 scatterplot was not detected. This plot uses TH042 mooring data from 2021-22.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
 			\label{ParacalanusScatterApp}
 		\end{center}
 	\end{figure} 
