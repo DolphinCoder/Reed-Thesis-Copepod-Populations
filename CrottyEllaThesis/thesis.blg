@@ -1,0 +1,18 @@
+[0] Config.pm:307> INFO - This is Biber 2.17
+[0] Config.pm:310> INFO - Logfile is 'thesis.blg'
+[67] biber-darwin:340> INFO - === Wed Apr 30, 2025, 18:54:49
+[82] Biber.pm:418> INFO - Reading 'thesis.bcf'
+[235] Biber.pm:972> INFO - Found 92 citekeys in bib section 0
+[265] Biber.pm:4383> INFO - Processing section 0
+[274] Biber.pm:4574> INFO - Looking for bibtex file 'thesis.bib' for section 0
+[314] bibtex.pm:1713> INFO - LaTeX decoding ...
+[957] bibtex.pm:1518> INFO - Found BibTeX data source 'thesis.bib'
+[3313] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[3314] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[3314] Biber.pm:4203> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[3314] Biber.pm:4209> INFO - No sort tailoring available for locale 'en-US'
+[3546] bbl.pm:654> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[3885] bbl.pm:757> INFO - Output to thesis.bbl
+[3885] Biber.pm:130> WARN - ISBN '978-1-009-15796-4 978-1-009-15797-1' in entry 'Portner2022' is invalid - run biber with '--validate_datamodel' for details.
+[3885] Biber.pm:130> WARN - ISBN '978-0-412-02381-1 978-0-412-02391-0' in entry 'Roff1992' is invalid - run biber with '--validate_datamodel' for details.
+[3886] Biber.pm:132> INFO - WARNINGS: 2

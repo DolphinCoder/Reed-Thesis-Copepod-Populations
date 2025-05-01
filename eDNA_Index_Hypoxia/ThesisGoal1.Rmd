@@ -811,6 +811,12 @@ for (i in 1:length(dfsplit)) {
     filter(temperature < 11) # Filter out the outlier
   
   species <- as.character(dfsplit[[i]][1,7]) # Extract species name for title + export filename
+  coeffname <- paste(species, sep = "_", "BN_Coeffs")
+  dfname <- paste(species, sep = "_", "BN_DF")
+  
+  mod <- glm(data = df, formula = PresentBin ~ DO, family = "binomial")
+  assign(coeffname, summary(mod)$coefficients)
+  assign(dfname, summary(mod)$df)
 
   ggplot(df, aes(x = DO, y = PresentBin, color = PresentBin)) +
     geom_point(size = 4) +
@@ -821,7 +827,7 @@ for (i in 1:length(dfsplit)) {
     theme_bw() +
     theme(text = element_text(size = 20)) +
     labs(title = species, x = "Dissolved Oxygen (mg/L)", y = "Species Present?")
-  
+  i
     ggsave(filename = here("eDNA_Index_Hypoxia", "Plots",
                            "Binomial_Regressions", 
                            paste(species, sep = "", ".png")), # Save graph

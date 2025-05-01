@@ -10,7 +10,6 @@
 \usepackage[hyphens]{url}
 \usepackage{rotating}
 \usepackage{hanging} % for custom bibliography in r package appendix
-\usepackage{todonotes}
 \usepackage{caption}
 \usepackage{wrapfig}
 
@@ -27,7 +26,7 @@
 % biblatex-chicago style, for Chicago A. Also make some changes at the end where the 
 %bibliography is included. 
 \usepackage[autocite=inline, style = authoryear]{biblatex}
-\addbibresource{thesis.bib} % if broken, go in command line and $bibtex thesis
+\addbibresource{thesis.bib} % if broken, go in command line and $biber thesis
 \DeclareBibliographyAlias{software}{online}
 
 \DeclareBibliographyCategory{nobibliography}
@@ -71,8 +70,8 @@
 	To my parents, who support me every step of the way. \\
 	To Jeremy Coate, for letting me use his class's virtual machine to re-run all these gene sequences to check their identifications \\
 	To Josie Griffin, for helping me out when my statistical models weren't running \\
-	To Evan Howard, Jilian Xiong, and Samantha Siedlecki for helping me out with the physical oceanography aspects of this thesis, I couldn't have done it without you. \\
-	To the OCNMS crew, who brought me out on fieldwork and gave feedback on my summer researc: Kathy Hough, Jenny Waddell, and Simone Alin. \\
+	To everyone at PMEL for helping me out with the physical oceanography aspects of the thesis, I couldn't have done it without you: Evan for helping me with dissolved oxygen calculations, Jilian and Samantha for providing the LiveOcean data and helping me understand it, and Simone for writing feedback over the summer and in this thesis. \\
+	To the OCNMS crew, who brought me out on fieldwork and gave feedback on my summer researc: Kathy Hough, Jenny Waddell. \\
 	To everyone in the PMEL OME lab who showed me the ropes and guided my summer research: Zachary Gold, Shannon Brown, Han Weinrich, Sean McAllister, Sam Setta \\
 	To all the NOAA Hollings scholars in Seattle in summer 2024, both at PMEL and the Northwest Fisheries Science Center - it was great working with you and exploring Seattle together! \\
 
@@ -133,15 +132,15 @@ Hypoxic events are increasing in severity and duration in Olympic Coast National
 % \doublespacing
 	
 
-\section{Climate Change, Hypoxia, and OCNMS}
+\section{Climate Change, Hypoxia, and Upwelling}
 
-Due to human greenhouse gas emissions, the Earth's oceans are warming and losing oxygen \autocite{Portner2022, Ito2017}. Over 90\% of the excess heat trapped by greenhouse gases has been absorbed by the ocean, causing a significant increase in temperature in most regions in the ocean \autocite{Bindoff2013}. According to the United Nations Intergovernmental Panel on Climate Change, the global sea surface temperature has risen 0.65 ºC above pre-industrial levels as of 2022 \autocite{Portner2019}. This warming has reduced the solubility of dissolved oxygen in water, which accounts for 15-50\% of the climate change driven oxygen decrease in the global ocean \autocite{Helm2011, Ito2017, Schmidtko2017}. The loss of 0.5-3.3\% of the open ocean's oxygen down to 1000 m depth is very likely, and it is very likely that oxygen minimum zones (water masses with very low oxygen) are expanding \autocite{Bindoff2013}. This decline has been particularly pronounced in the North Pacific, where this study is located \autocite{Bindoff2013, Ito2017}.
+Due to human greenhouse gas emissions, the Earth's oceans are warming and losing oxygen \autocite{Portner2022, Ito2017}. Over 90\% of the excess heat trapped by greenhouse gases has been absorbed by the ocean, causing a significant increase in temperature in most regions in the ocean \autocite{Bindoff2013}. According to the United Nations Intergovernmental Panel on Climate Change, the global sea surface temperature has risen 0.65 ºC above pre-industrial levels as of 2022 \autocite{Portner2022}. This warming has reduced the solubility of dissolved oxygen in water, which accounts for 15-50\% of the climate change driven oxygen decrease in the global ocean \autocite{Helm2011, Ito2017, Schmidtko2017}. The loss of 0.5-3.3\% of the open ocean's oxygen down to 1000 m depth is very likely, and it is very likely that oxygen minimum zones (water masses with very low oxygen) are expanding \autocite{Bindoff2013}. This decline has been particularly pronounced in the North Pacific, where this study is located \autocite{Bindoff2013, Ito2017}.
 
-A significant decrease in coastal oxygen is caused by decreased sea-air and surface ocean-deep ocean oxygen flux due to increasing stratification \autocite{Barth2024, Mancini2024, Portner2019}. Ocean stratification refers to the way that layers of ocean water with different densities form, restricting heat, carbon, and oxygen exchange between layers of different depths. This density difference is primarily caused by differences in temperature and salinity between water masses. As the ocean's surface water warms, it becomes less dense, increasing the magnitude of the density difference between surface and deep waters and increasing stratification. This increased stratification decreases the flow of nutrients and oxygen to the deeper layers of the ocean. Stratification has increased by 5.3\% globally between 1960 and 2018 \autocite{Li2020a}. 
+A significant decrease in coastal oxygen is caused by decreased sea-air and surface ocean-deep ocean oxygen flux due to increasing stratification \autocite{Mancini2024, Portner2022}. Ocean stratification refers to the way that layers of ocean water with different densities form, restricting heat, carbon, and oxygen exchange between layers of different depths. This density difference is primarily caused by differences in temperature and salinity between water masses. As the ocean's surface water warms, it becomes less dense, increasing the the density difference between surface and deep waters and increasing stratification. This increased stratification decreases the flow of nutrients and oxygen to the deeper layers of the ocean. Stratification has increased by 5.3\% globally between 1960 and 2018 \autocite{Li2020a}. 
 
 The surface ocean has a relatively high dissolved oxygen concentration, because the atmosphere and the surface ocean rapidly exchange oxygen in order to equilibrate the partial pressure of oxygen in both systems \autocite{Ito2010}. According to a famous 1948 study, 40\% of air-sea exchange at a study site in the Gulf of Maine was due to organisms producing and consuming oxygen, while the remaining 60\% of the exchange was due to the solubility of oxygen in water \autocite{Redfield1948}. Because the upper ocean receives sunlight, phytoplankton live there and photosynthesize, producing oxygen that primarily remains in the ocean \autocite{Li2020}. However, the rate at which oxygen leaves the ocean is increasing as the ocean's temperature increases, leading to lower gas solubility \autocite{Li2020}. 
 
-The most oxygen-poor layer of the ocean is the Oxygen Minimum Zone (OMZ), between a few hundred and 1000 meters below the surface. Above the OMZ, oxygen concentration in seawater decreases with distance from the surface, as sunlight and photosynthesis decrease. Below the OMZ, the concentration of dissolved oxygen increases slightly because oxygen is more soluble in colder, higher-pressure water, and because of ocean circulation from polar regions. Surface seawater near the poles is extremely oxygen-rich due to its low temperature, and that oxygen-rich water sinks due to its high density and moves slowly over the seafloor over the course of centuries, where its oxygen is consumed via respiration and cannot be replenished by photosynthesis or atmospheric exchange \autocite{Karstensen2008, Deutsch2024, Ito2010}. The OMZ in the middle of the Pacific Ocean water column ranges from less than 0.02 mg/L to 0.72 mg/L, compared to the 1.0-1.9 mg/L of shallower waters along the Oregon and Washington coasts in the summertime \autocite{Karstensen2008, Deutsch2024, Barth2024, Pierce2012, Wyrtki1962} (see Figure \ref{OMZ}).
+The most oxygen-poor layer of the ocean is the Oxygen Minimum Zone (OMZ), between a few hundred and 1000 meters below the surface. Above the OMZ, oxygen concentration in seawater decreases with distance from the surface, as sunlight and photosynthesis decrease. Below the OMZ, the concentration of dissolved oxygen increases slightly because oxygen is more soluble in colder, higher-pressure water, and because of ocean circulation from polar regions. Surface seawater near the poles is extremely oxygen-rich due to its low temperature, and that oxygen-rich water sinks due to its high density and moves slowly over the seafloor over the course of centuries, where its oxygen is consumed via respiration and cannot be replenished by photosynthesis or atmospheric exchange \autocite{Karstensen2008, Deutsch2024, Ito2010}. The OMZ in the middle of the Pacific Ocean water column ranges from less than 0.02 mg/L to 0.72 mg/L, compared to the 1.0-1.9 mg/L of shallower waters between 50 and 200m deep along the Oregon and Washington coasts in the summertime \autocite{Karstensen2008, Deutsch2024, Barth2024, Pierce2012, Wyrtki1962} (see Figure \ref{OMZ}).
 
 \begin{wrapfigure}{l}{0.5\textwidth}
 	\begin{center}
@@ -157,7 +156,9 @@ As a result of these interactions, hypoxic events in which the oxygen concentrat
 
 Studies of the effects of hypoxia on marine organisms use a variety of lab and fieldwork methods. Laboratory experiments on hypoxia's effects typically involve subjecting organisms to different levels of dissolved oxygen over a certain period of time, then measuring factors such as survival, growth rate, metabolism, and reproductive rate in order to determine whether the hypoxia has a negative effect \autocite{Steckbauer2020}. Field studies typically entail measuring dissolved oxygen levels and organismal prevalence and abundance, using methods such as satellite tagging and trawl surveys that vary by scale and organism type (for example, \autocite{Keister2020}). Field experiments have more ecological relevance, but present difficulties in untangling the effects of other environmental factors \autocite{Borges2022, Boyd2018}. Therefore, linking experiments and field observations enables us to better demonstrate the connection between the lethal and sublethal effects of hypoxia shown in lab settings and real-world effects on organisms and changes in species distributions.
 
-This study will focus on hypoxia in Olympic Coast National Marine Sanctuary (OCNMS), off the coast of Washington state, U.S.A.. The Olympic Coast is the California Current Eastern boundary current upwelling zone (see Figure \ref{Upwelling}), meaning that when summer winds push the surface water offshore, nutrient-rich and oxygen-poor water flows upwards from the deep Pacific Ocean towards the coast \autocite{OceanographyOlympicCoast, Hickey2003}. After this oxygen-poor water is advected onto the shallower waters of the continental shelf, respiration of decaying organic matter further reduces the water's oxygen content, leading to hypoxia \autocite{Pierce2012}. 
+\section{OCMNMS}
+
+This study will focus on hypoxia in Olympic Coast National Marine Sanctuary (OCNMS), off the coast of Washington state, U.S.A.. The Olympic Coast is the California Current Eastern boundary current upwelling zone (see Figure \ref{Upwelling}), meaning that when summer winds push the surface water offshore, nutrient-rich and oxygen-poor water flows upwards from the subsurface Pacific Ocean towards the coast \autocite{OfficeofNationalMarineSanctuaries2022, Hickey2003}. After this oxygen-poor water is advected onto the shallower waters of the continental shelf, respiration of decaying organic matter further reduces the water's oxygen content, leading to hypoxia \autocite{Pierce2012}. 
 
 \begin{figure}[!h]
 	\begin{center}
@@ -167,7 +168,7 @@ This study will focus on hypoxia in Olympic Coast National Marine Sanctuary (OCN
 	\end{center}
 \end{figure} 
 
-Hypoxic events in OCNMS often occur in the summer, are driven by upwelling, not nutrient runoff, and are increasing in severity \autocite{Barth2024}. Hypoxic events have occurred annually in the US Pacific Northwest since 2002, and their increasing size and severity has been linked to climate change \autocite{Bograd2023, Parks2009}. These events have led to fish and crabs dying in large numbers, as well as moving to shallower waters temporarily \autocite{Grantham2004}. According to Barth et al. 2024, the hypoxic fraction of near-bottom water inshore of the 200-m isobath increased from 2\% to 24\% between their two comparison periods, 1950-1980 and 2009-2018. During the first year of this study, 2021, this hypoxic fraction increased to 56\% due to extreme upwelling conditions \autocite{Barth2024}. 
+Hypoxic events in OCNMS often occur in the summer, are driven by upwelling, not nutrient runoff, and are increasing in severity \autocite{Barth2024}. Hypoxic events have been observed annually in the US Pacific Northwest since 2002, and their increasing size and severity has been linked to climate change \autocite{Bograd2023, Parks2009}. These events have led to fish and crabs dying in large numbers, as well as moving to shallower waters temporarily \autocite{Grantham2004}. According to Barth et al. 2024, the hypoxic fraction of near-bottom water inshore of the 200-m isobath increased from 2\% to 24\% between their two comparison periods, 1950-1980 and 2009-2018. During the first year of this study, 2021, this hypoxic fraction increased to 56\% due to extreme upwelling conditions \autocite{Barth2024}. 
 
 Nutrients from upwelling sustain a rich ecosystem with high primary productivity, but as oceans warm and the deep water gets progressively more hypoxic, the seasonal hypoxic events in OCNMS are increasing in their severity and duration, which will eventually harm organisms more than the nutrients help them. Additionally, as climate change warms the land and ocean at different rates, the summer winds that cause upwelling are getting stronger, resulting in upwelling events that push more deep water up towards the coast \autocite{Barth2024}. 
 
@@ -179,25 +180,7 @@ Nutrients from upwelling sustain a rich ecosystem with high primary productivity
 	\end{center}
 \end{wrapfigure} 
 
-OCNMS is located off the Olympic Peninsula of Washington state, and extends 25 to 45 miles into the ocean. It regularly experiences rough seas, wave heights up to 49 feet, and intense winter storms. The sanctuary contains a wide variety of habitats, including rocky shores, kelp forests, sandy seafloor, and deep ocean canyons. The sanctuary is home to many marine mammals, fish, invertebrates, and seaweeds, and is a major feeding area for migrating seabirds. The sanctuary covers habitat for rockfish, salmon, halibut, Dungeness crab and other ecologically, commercially, and culturally important species of the Olympic Coast \autocite{FishOlympicCoast}.  Within the sanctuary, many activities that could damage the ocean environment are prohibited, such as moving or injuring historical resources, certain waste discharge from boats, military bombing activities, seabed drilling, and oil, gas, and mineral development. Activities that could harm wildlife, such as taking or disturbing marine mammals and birds, are also prohibited \autocite{15CFRPart1995}. The Olympic Coast National Marine Sanctuary Advisory Council provides advice on the sanctuary's management. The council is comprised of representatives of governments including Native American tribes, federal, state, and local. Local industries and interests are also represented, including the maritime industry, fishing, education, tourism, conservation organizations, and the community. The sanctuary lies within the Usual and Accustomed treaty fishing, hunting, and gathering areas of the Hoh Tribe, Makah Tribe, Quileute Tribe, and the Quinault Indian Nation, or the Coastal Treaty Tribes. Fisheries and other marine resources off the Olympic Coast are co-managed by the state of Washington, the United States (specifically the National Oceanographic and Atmospheric Administration's Office of National Marine Sanctuaries), and the Coastal Treaty Tribes, who formed the Olympic Coast Intergovernmental Policy Council (IPC) in 2007 to provide a forum for resource managers \autocite{IntergovernmentalPolicyCouncil}.
-	
-\section{Environmental DNA}\label{IntroeDNA}
-
-Environmental DNA (eDNA) is the genetic material present in the environment, including extracellular DNA, fragments of cells and tissues, and entire small organisms \autocite{Taberlet2018}. In marine environments, eDNA can be filtered out of the water and sequenced to detect many species at the place and time where the water sample was collected. eDNA is a powerful tool for detecting multiple species at once with relatively little sampling effort. Although eDNA is a sensitive tool, it is important to note it cannot detect demographic information such as size, sex, and age. The general process of eDNA sampling begins by physically filtering seawater, then extracting and amplifying the resulting DNA and chromosome fragments using polymerase chain reaction (PCR) \autocite{Power2023}. eDNA metabarcoding is conducted using a set of  primers designed to target a conserved region of DNA that flanks a hyper variable region of DNA across a broad set of species, thus enabling taxonomic classification of the resulting barcodes. The sequence fragments are compared to a reference database of genes sequenced from known species, allowing the species present in the water column at the time of sampling to be taxonomically identified \autocite{Miya2022}.
-
-eDNA can detect species with relatively high spatial resolution, from as little as 60 meters in a kelp forest \autocite{Port2016} to 800 meters in deep-water habitats in Maizuru Bay, Japan \autocite{Yamamoto2017}, because eDNA levels drop below the detection limit soon after being released via diffusion and decay. However, our understanding of how far eDNA can migrate in the environment is still relatively limited, and eDNA dispersal and decay can be affected by a number of environmental factors \autocite{Cristescu2018}. Because of the high sensitivity of eDNA methods, contamination must be diligently avoided. Because metabarcoding requires reference sequences, any species whose barcoding region in question has not been sequenced cannot be detected by a study \autocite{Miya2022}. This is not an issue with heavily-studied species like salmon, but can present an issue in other areas. eDNA metabarcoding results provide read abundances, or numbers of DNA fragments, but these are affected by PCR replication efficiency, so they are difficult to compare between different species and methods \autocite{Miya2022}. While it is difficult to get quantitative results from eDNA, it is possible to calculate a metric of relative abundance within species known as eDNA index. Kelly et al. used simulations and found that this index accurately captures trends in the biomass of detected organisms. eDNA index is calculated in two steps. First, the read counts of each species within a sample are converted to a proportion of reads within the sample. Then, within each species, those proportions are normalized to range from zero to 1. After this, each species has one sample where it has an eDNA index of one, and that is the sample where that species was most abundant. This method cannot be used to compare different species, only to determine trends within each species, and it will be used in this study \autocite{Kelly2019}.
-
-Since 2021, the National Oceanic and Atmospheric Administration's Pacific Marine Environmental Laboratory (NOAA PMEL) Ocean Molecular Ecology (OME) lab has been collecting eDNA samples in OCNMS using a modified McLane phytoplankton and particulate sampler (PPS).  The PPS was deployed for four, month-long intervals between May 2021 and August 2023, at the Teawhit Head 42 meter depth mooring (see Figure \ref{OCNMSbuoys}). This sampler collected, filtered, and preserved 1 L water samples every 36 hours. Samples were taken using 0.4 micron filters taken off the sampler, preserved in 95\% ethanol, frozen, and taken to the lab. Additionally, some samples were taken using Niskin bottles during PPS deployment and recovery. These samples were filtered using Sterivex filters and a peristaltic pump. In total, 84 samples were collected in 2021, 122 in 2022, and 60 in 2023. 24 of these samples had three PCR technical replicates each. eDNA was extracted from the samples according to the DNeasy Blood and Tissue Kit protocols with adaptations from Spens et al. 2017 \autocite{Spens2017}. The full protocol is available on the Ocean Molecular Ecology Zenodo \autocite{Weinrich2025}. This study focuses on copepods, and only uses data from the CO1 (mitochondrially encoded cytochrome c oxidase I, a common barcoding gene for studies on eukaryotes) primer. Amplified regions were sequenced using the  Leray F / mICOlinF forward primer and Folmer R / HCO2198 reverse primer, according to OME protocols \autocite{Gold2024, Spens2017}. The CO1 sequences were then matched to available reference genomes, resulting in species detection data that includes the number of reads (DNA strands) of each species detected.
-
-My summer 2024 research included combining the results of these eDNA detections with oceanographic measurements collected every ten minutes by the Teahwhit Head oceanographic mooring in 42 meter deep water (TH042), where the PPS sampler was deployed. I first matched the species detections to their associated metadata, including the sample date and time, using their unique sample IDs. I then matched each of those detections to the oceanographic mooring measurements that were closest to their sample date and time.  
-
-\begin{wrapfigure}{r}{0.5\textwidth}
-\begin{center}
-		\includegraphics[width=0.48\textwidth]{Fig_OCNMS_buoy_map}
-		\caption[Map of oceanographic moorings in OCNMS]{\footnotesize{Map of the Washington state coastline and Olympic Coast National Marine Sanctuary, featuring locations of Washington state oceanographic buoys. This study was conducted at the buoy labeled TH042. \fullcite{OceanographicMooringsOlympicb}}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
-		\label{OCNMSbuoys}
-	\end{center}
-\end{wrapfigure} 
+OCNMS is located off the Olympic Peninsula of Washington state, and extends 25 to 45 miles into the ocean. It regularly experiences rough seas, wave heights up to 49 feet, and intense winter storms. The sanctuary contains a wide variety of habitats, including rocky shores, kelp forests, sandy seafloor, and deep ocean canyons. The sanctuary is home to many marine mammals, fish, invertebrates, and seaweeds, and is a major feeding area for migrating seabirds. The sanctuary covers habitat for rockfish, salmon, halibut, Dungeness crab and other ecologically, commercially, and culturally important species of the Olympic Coast \autocite{OfficeofNationalMarineSanctuaries2022}.  Within the sanctuary, many activities that could damage the ocean environment are prohibited, such as moving or injuring historical resources, certain waste discharge from boats, military bombing activities, seabed drilling, and oil, gas, and mineral development. Activities that could harm wildlife, such as taking or disturbing marine mammals and birds, are also prohibited \autocite{15CFRPart1995}. The Olympic Coast National Marine Sanctuary Advisory Council provides advice on the sanctuary's management. The council is comprised of representatives of governments including Native American tribes, federal, state, and local. Local industries and interests are also represented, including the maritime industry, fishing, education, tourism, conservation organizations, and the community. The sanctuary lies within the Usual and Accustomed treaty fishing, hunting, and gathering areas of the Hoh Tribe, Makah Tribe, Quileute Tribe, and the Quinault Indian Nation, known collectively as the Coastal Treaty Tribes. Fisheries and other marine resources off the Olympic Coast are co-managed by the state of Washington, the United States (specifically the National Oceanographic and Atmospheric Administration's Office of National Marine Sanctuaries), and the Coastal Treaty Tribes, who formed the Olympic Coast Intergovernmental Policy Council (IPC) in 2007 to provide a forum for resource managers \autocite{IntergovernmentalPolicyCouncil}.
 
 
 \section{Copepods}
@@ -258,6 +241,24 @@ The physiological problems that copepods face in hypoxic conditions are exacerba
 
 \clearpage 
 
+\section{Environmental DNA}\label{IntroeDNA}
+
+Environmental DNA (eDNA) is the genetic material present in the environment, including extracellular DNA, fragments of cells and tissues, and entire small organisms \autocite{Taberlet2018}. In marine environments, eDNA can be filtered out of the water and sequenced to detect many species present the place and time where the water sample was collected. eDNA is a powerful tool for detecting multiple species at once with relatively little sampling effort. Although eDNA is a sensitive tool, it is important to note it cannot detect demographic information such as size, sex, and age. The general process of eDNA sampling begins by physically filtering seawater, then extracting and amplifying the resulting DNA and chromosome fragments using polymerase chain reaction (PCR) \autocite{Power2023}. eDNA metabarcoding is conducted using a set of  primers designed to target a conserved region of DNA that flanks a hyper variable region of DNA across a broad set of species, thus enabling taxonomic classification of the resulting barcodes. The sequence fragments are compared to a reference database of genes sequenced from known species, allowing the species present in the water column at the time of sampling to be taxonomically identified \autocite{Miya2022}.
+
+eDNA can detect species with relatively high spatial resolution, from as little as 60 meters in a kelp forest \autocite{Port2016} to 800 meters in deep-water habitats in Maizuru Bay, Japan \autocite{Yamamoto2017}, because eDNA levels drop below the detection limit soon after being released via diffusion and decay. However, our understanding of how far eDNA can migrate in the environment is still relatively limited, and eDNA dispersal and decay can be affected by a number of environmental factors \autocite{Cristescu2018}. Because of the high sensitivity of eDNA methods, contamination must be diligently avoided. Because metabarcoding requires reference sequences, any species whose barcoding region in question has not been sequenced cannot be detected by a study \autocite{Miya2022}. This is not an issue with heavily-studied species like salmon, but can present an issue in other areas. eDNA metabarcoding results provide read abundances, or numbers of DNA fragments, but these are affected by PCR replication efficiency, so they are difficult to compare between different species and methods \autocite{Miya2022}. While it is difficult to get quantitative results from eDNA, it is possible to calculate a metric of relative abundance within species known as eDNA index. Kelly et al. 2019 used simulations and found that this index accurately captures trends in the biomass of detected organisms. eDNA index is calculated in two steps. First, the read counts of each species within a sample are converted to a proportion of reads within the sample. Then, within each species, those proportions are normalized to range from zero to 1. After this, each species has one sample where it has an eDNA index of one, and that is the sample where that species was most abundant. This method cannot be used to compare different species, only to determine trends within each species, and it will be used in this study \autocite{Kelly2019}.
+
+Since 2021, the National Oceanic and Atmospheric Administration's Pacific Marine Environmental Laboratory (NOAA PMEL) Ocean Molecular Ecology (OME) lab has been collecting eDNA samples in OCNMS using a modified McLane phytoplankton and particulate sampler (PPS).  The PPS was deployed for four, month-long intervals between May 2021 and August 2023, at the Teawhit Head 42 meter depth mooring (see Figure \ref{OCNMSbuoys}). This sampler collected, filtered, and preserved 1 L water samples every 36 hours. Samples were taken using 0.4 micron filters taken off the sampler, preserved in 95\% ethanol, frozen, and taken to the lab. Additionally, some samples were taken using Niskin bottles during PPS deployment and recovery. These samples were filtered using Sterivex filters and a peristaltic pump. In total, 84 samples were collected in 2021, 122 in 2022, and 60 in 2023. 24 of these samples had three PCR technical replicates each. eDNA was extracted from the samples according to the DNeasy Blood and Tissue Kit protocols with adaptations from Spens et al. 2017 \autocite{Spens2017}. The full protocol is available on the Ocean Molecular Ecology Zenodo \autocite{Weinrich2025}. This study focuses on copepods, and only uses data from the CO1 (mitochondrially encoded cytochrome c oxidase I, a common barcoding gene for studies on eukaryotes) primer. Amplified regions were sequenced using the  Leray F / mICOlinF forward primer and Folmer R / HCO2198 reverse primer, according to OME protocols \autocite{Gold2024, Spens2017}. The CO1 sequences were then matched to available reference genomes, resulting in species detection data that includes the number of reads (DNA strands) of each species detected.
+
+My summer 2024 research included combining the results of these eDNA detections with oceanographic measurements collected every ten minutes by the Teahwhit Head oceanographic mooring in 42 meter deep water (TH042), where the PPS sampler was deployed. I first matched the species detections to their associated metadata, including the sample date and time, using their unique sample IDs. I then matched each of those detections to the oceanographic mooring measurements that were closest to their sample date and time.  
+
+\begin{wrapfigure}{r}{0.5\textwidth}
+	\begin{center}
+		\includegraphics[width=0.48\textwidth]{Fig_OCNMS_buoy_map}
+		\caption[Map of oceanographic moorings in OCNMS]{\footnotesize{Map of the Washington state coastline and Olympic Coast National Marine Sanctuary, featuring locations of Washington state oceanographic buoys. This study was conducted at the buoy labeled TH042. \fullcite{OceanographicMooringsOlympicb}}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
+		\label{OCNMSbuoys}
+	\end{center}
+\end{wrapfigure} 
+
 \section{Study Plan}
 
 After calculating binomial regressions comparing oxygen saturation to species presence and absence, I found that a northern copepod, Pseudocalanus mimus, became less common during hypoxic events, and a southern copepod, Paracalanus sp. C AC-2013, became more common during hypoxic events. Because copepods are so important to the OCNMS food web, and because of the potentially interesting pattern of northern and southern copepods having different levels of hypoxia tolerance, further research into how these species respond to changes in dissolved oxygen and temperature is warranted \autocite{NOAAFisheries2024}. The combined eDNA and oceanographic data contains detections of 20 species of copepods, with 12 of those detected more than once in 2021-2022 and 13 detected more than once in 2021-2023.
@@ -279,7 +280,7 @@ In this study, I will assess the effects of hypoxia on copepod abundance and com
 	
 	I calculated eDNA index by grouping by sample, then calculating the proportion of reads of each species in each sample. I then normalized each species' proportions on a scale of 0 to 1, such that the sample with the most reads of that species had a value of 1, and any sample where that species was not detected had a value of 0. It is important to note that eDNA index cannot be used to make comparisons between species, but can be used to make comparisons between different time points in the same species. After calculating eDNA index, the data was filtered to only include copepods by selecting any observations in the genera \textit{Calocalanus}, \textit{Clausocalanus}, or \textit{Paracalanus}, as well as any observations in the class Hexanauplia, which contains Thecostraca and Copepoda (Oakley et al. 2013). While the class Hexanauplia is no longer recognized \autocite{WoRMSWorldRegister, Lozano-Fernandez2019}, and Thecostraca and Copepoda are now recognized as classes, it was used when the eDNA for this study was processed, so I used it for data processing as well. This study will not discuss species in Thecostraca.
 	
-	I combined the eDNA index data with its corresponding oceanographic data, using code from the previous study to attach each sample ID to its corresponding date and time, then joining it with the closest mooring observation. The TH042 mooring broke in 2023, but eDNA sampling continued. Therefore, I acquired data from the location of the TH042 mooring from the LiveOcean model by the UW Coastal Modeling Group, and used the R package ncdf4 to make the model compatible with the existing data \autocite{LiveOceanHomepage, Pierce2025}. I matched the LiveOcean model's hourly dissolved oxygen and temperature data to the eDNA sample data by date and time, and also compared the results of the LiveOcean model's 2021-22 data to the TH042 mooring's 2021-22 data. The model data matched the mooring data closely enough to be useable (See Figure \ref{ModelComparison}). When mooring and model data from the same hour was compared via linear model, the dissolved oxygen data had an R$^2$ value of 0.39 and a root mean square error (RMSE) of 0.98, and the temperature data had an R$^2$ of 0.82 and a RMSE of 0.41. The 2021-22 mooring-only data is still used for many of the statistical analyses in this thesis, as the mooring data captures short and extreme hypoxic events more accurately (See Figure \ref{ModelComparison}, orange spikes downwards are hypoxic events captured by the mooring but not the model). When modeling data is used in this thesis, it is used for all years 2021-23, in an effort to ensure that the different years are comprable and increase the number of useable eDNA sample dates. 
+	I combined the eDNA index data with its corresponding oceanographic data, using code from the previous study to attach each sample ID to its corresponding date and time, then joining it with the closest mooring observation. The TH042 mooring broke in 2023, but eDNA sampling continued. Therefore, I acquired data from the location of the TH042 mooring from the LiveOcean model by the UW Coastal Modeling Group \autocite{Siedlecki2015a, Fatland2016, LiveOceanHomepage}. I matched the LiveOcean model's hourly dissolved oxygen and temperature data to the eDNA sample data by date and time, and also compared the results of the LiveOcean model's 2021-22 data to the TH042 mooring's 2021-22 data. The model data matched the mooring data closely enough to be useable (See Figure \ref{ModelComparison}). When mooring and model data from the same hour was compared via linear model, the dissolved oxygen data had an R$^2$ value of 0.39 and a root mean square error (RMSE) of 0.98, and the temperature data had an R$^2$ of 0.82 and a RMSE of 0.41. The 2021-22 mooring-only data is still used for many of the statistical analyses in this thesis, as the mooring data captures short and extreme hypoxic events more accurately (See Figure \ref{ModelComparison}, orange spikes downwards are hypoxic events captured by the mooring but not the model). When modeling data is used in this thesis, it is used for all years 2021-23, in an effort to ensure that the different years are comprable and increase the number of useable eDNA sample dates. 
 	
 	\begin{wrapfigure}{r}{0.6\textwidth}
 		\begin{center}
@@ -316,8 +317,10 @@ In this study, I will assess the effects of hypoxia on copepod abundance and com
 		\label{EnvironmentalConditions}
 	\end{figure} 
 	
-	I then attempted to generate zero-inflated beta regression models using the zoib R package, but due to difficulties in visualizing the model output I switched to the brms package, a more general modeling package that uses Stan \autocite{Burkner2024}. I chose a zero-inflated beta regression because eDNA index ranges from zero to one, necessitating a beta regression, and the data is zero-inflated because each species was absent from many samples. Using modelr, tidybayse, broom, and broom.mixed, I used the output of these models to generate and plot mean predicted data. I then compared these models to previously calculated binomial regression models, which related the presence and absence of eDNA to dissolved oxygen. Based on the Akaike information criterion (AIC), the binomial regression models performed better (lower AIC) for \textit{A. longiremis, C. pacificus, O. similis, Paracalanus sp. C AC-2013, P. mimus,} and \textit{P. newmani}. Based on AIC again, the zero-inflated beta regression models performed better for \textit{C. parapergens, Lucicutia flavicornis, Metridia lucens, M. pacifica,} and \textit{P. acuspes}. The zero-inflated beta regression for \textit{C. pacificus} performed better with the mooring data, but the binomial regression model for \textit{C. pacificus} performed better with the modeled data. In species with 5 or fewer detections, the binomial regression models performed better, but in species with more than 5 detections, the zero-inflated beta regression models performed better.
+	I then attempted to generate zero-inflated beta regression models using the zoib R package, but due to difficulties in visualizing the model output I switched to the brms package, a more general modeling package that uses Stan \autocite{Burkner2024}. I chose a zero-inflated beta regression because eDNA index ranges from zero to one, necessitating a beta regression, and the data is zero-inflated because each species was absent from many samples. Using modelr, tidybayse, broom, and broom.mixed, I used the output of these models to generate and plot mean predicted data. I then compared these models to previously calculated binomial regression models, which related the presence and absence of eDNA to dissolved oxygen. Based on the Akaike information criterion (AIC), the binomial regression models performed better (lower AIC) for \textit{A. longiremis, C. pacificus, O. similis, Paracalanus sp. C AC-2013, P. mimus,} and \textit{P. newmani}. Based on AIC again, the zero-inflated beta regression models performed better for \textit{C. parapergens, Lucicutia flavicornis, Metridia lucens, M. pacifica,} and \textit{P. acuspes}. The zero-inflated beta regression for \textit{C. pacificus} performed better with the mooring data, but the binomial regression model for \textit{C. pacificus} performed better with the modeled data. In species with 5 or fewer detections, the binomial regression models performed better, but in species with more than 5 detections, the zero-inflated beta regression models performed better. I considered there to be a significant response for a species to hypoxia using binomial regression based on alpha = 0.05, and I considered zero-inflated beta regressions to be significant if their 95\% confidence interval showed an upward trend and did not include zero for every DO value (see Appendix \ref{chap:appZOIB} for visualized model confidence intervals). I did not perform significance tests directly comparing size categories or northern and southern copepods in aggregate, because the number of species with more than 5 detections was too low to confidently perform those tests. 
 
+	% missing here is a discussion of how you infer statistical significance once obtaining the right model. For both beta and binomial regression, you need to say how you are doing this, and what alpha value you are using. if you are using CIs that don't overlap the same place across the range of DO values, that's fine too
+	% i'd end with a sentence that says that you dont significance test the N vs S or size range categories b/c you have low sample size after removing rare taxa
 
 	\chapter{Results}
 	
@@ -350,42 +353,40 @@ In this study, I will assess the effects of hypoxia on copepod abundance and com
 	
 	\section{Dissolved Oxygen and Species Abundance}  
 	
-	Most of the northern copepods had higher eDNA index at higher dissolved oxygen levels, with a positive correlation between eDNA index and DO according to zero-inflated beta regressions (See Appendix \ref{chap:app1}). All northern copepods except \textit{P. newmani} were more abundant at higher dissolved oxygen levels according to zero-inflated beta regressions based on the TH042 mooring data from 2021-22. \todo{cite zoib more? ask sam}
+	Most of the northern copepods had higher eDNA index at higher dissolved oxygen levels, with a positive correlation between eDNA index and DO according to zero-inflated beta regressions (See Appendix \ref{chap:appZOIB}). All northern copepods except \textit{P. newmani} were more abundant at higher dissolved oxygen levels according to zero-inflated beta regressions based on the TH042 mooring data from 2021-22.
 	
 	\begin{table}[!h] 
-		
-		\caption[Zero-inflated beta regression results]{Trends of zero-inflated beta regressions relating dissolved oxygen concentration to eDNA index for different species of copepods. Regressions were computed using the TH042 mooring data from 2021-22, and again using LiveOcean model data from 2021-23, so both are shown. See Appendix \ref{chap:app1} for plotted regression results. Cold-water copepods are northern copepods, warm-water copepods are southern.}  
-		
-		\begin{center} 
-			\begin{tabular}{l | l | l l | l l} [!h]
+			\begin{tabular}{l | l | l l | l l}
 				\toprule
 				Species & Group & \multicolumn{2}{|c|}{Detections} & \multicolumn{2}{|c}{Regression Results} \tabularnewline
 				\midrule
 				Species &  Group & 2021-22 & 2021-23 & 2021-22 & 2021-23  \\ 
 				\midrule 
-				\textit{Acartia longiremis}	& Cold-water & 61 & 86 & Positive & Neutral  \\
-				\textit{Pseudocalanus mimus} & Cold-water & 28  & 46 & Positive & Negative  \\
-				\textit{Pseudocalanus newmani}	& Cold-water & 20  & 25 & Neutral & Neutral \\
+				\textit{Acartia longiremis}	& Cold-water & 61 & 86 & Positive* & Neutral  \\
+				\textit{Pseudocalanus mimus} & Cold-water & 28  & 46 & Positive* & Negative*  \\
+				\textit{Pseudocalanus newmani}	& Cold-water & 20  & 25 & Neutral & Neutral* \\
 				\textit{Centropages abdominales} & Cold-water & 6 & 7 & Positive & Neutral   \\
 				\textit{Pseudocalanus acuspes}  & Cold-water & 3  & 5 & Positive & Neutral  \\
-				\textit{Oithona similis} & Year-round & 11  & 11 & Negative & Neutral \\
-				\textit{Paracalanus} sp. C. AC-2013 & Warm-water & 33  & 33 & Neutral & Positive  \\
+				\textit{Oithona similis} & Year-round & 11  & 11 & Negative* & Neutral \\
+				\textit{Paracalanus} sp. C. AC-2013 & Warm-water & 33  & 33 & Neutral & Positive*  \\
 				\textit{Calanus pacificus}	& Warm-water & 5  & 5 & Negative & Negative  \\
 				\bottomrule 
 			\end{tabular}
 			\label{ZOIBtab}
-		\end{center}
+			\caption[Zero-inflated beta regression results]{Trends of zero-inflated beta regressions relating dissolved oxygen concentration to eDNA index for different species of copepods. Regressions were computed using the TH042 mooring data from 2021-22, and again using LiveOcean model data from 2021-23, so both are shown. I considered trends to be significant (marked with "*" in this table) if their 95\textbackslash{}\% confidence interval showed an upward trend and did not include zero for every DO value. See Appendix \ref{chap:appZOIB} for plotted regression results. Cold-water copepods are northern copepods, warm-water copepods are southern.}  
 	\end{table}
 	
 	\section{Dissolved Oxygen and Species Prevalence} 
 	
-	The data suggests that northern copepods have a comparatively lower tolerance to hypoxia. Southern copepods and \textit{O. similis}, which is present year-round, were detected proportionally more at dissolved oxygen levels below 0.9 mg/L (see Figure \ref{BarSeason}a). The northern copepod \textit{P. newmani} had fewer detections at high dissolved oxygen levels according to a binomial regression comparing LiveOcean modeled DO to species presence, but the effect was not significant (p = 0.3, see Figure \ref{PnewmaniBinomDensity}).  \todo{add df}(p ${<}$ 0.001, df = ). \textit{P. newmani} also had a relatively consistent eDNA index across DO levels according to a zero-inflated beta regression. 
+	The data suggests that northern copepods have a comparatively lower tolerance to hypoxia. Southern copepods and \textit{O. similis}, which is present year-round, were detected proportionally more at dissolved oxygen levels below 0.9 mg/L (see Figure \ref{BarSeason}a). 
+	The northern copepod \textit{P. newmani} had fewer detections at high dissolved oxygen levels according to a binomial regression comparing LiveOcean modeled DO to species presence, but the effect was not significant (-0.30, df = 2, 89, 2, p = 0.36). \textit{P. newmani} did have significantly fewer detections at high dissolved oxygen levels when the binomial regresion was calculated using the TH042 mooring data for all three years (-0.64, df = 2, 63, 2, p = 0.03), see Figure \ref{PnewmaniBinomDensity}). 
+	\textit{P. newmani} also had a relatively consistent eDNA index across DO levels according to a zero-inflated beta regression. 
 	
 	\begin{figure}[!h]
 		\begin{center}
 			a. \includegraphics[scale=0.3]{Pnewmani_binom_sig_neg}
-			b. \includegraphics[scale=0.3]{Pnewmani_Density}
-			\caption[\textit{P. newmani} binomial regressions]{\footnotesize{(a) \textit{P. newmani} binomial regression comparing species presence to dissolved oxygen. P = 0.025, significant at alpha = 0.05. \textit{P. newmani} was detected significantly less frequently at higher dissolved oxygen levels. (b) Density plot of \textit{P. newmani} detections. Each pixel represents a range of dissolved oxygen and temperature values, and the shade of each pixel represents the proportion of eDNA samples in that environmental range in which \textit{P. newmani} was detected. Dissolved oxygen data comes from the TH042 mooring in 2021-22.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
+			b. \includegraphics[scale=0.3]{Pnewmani_Density} \\
+			\caption[\textit{P. newmani} binomial regressions]{\footnotesize{(a) \textit{P. newmani} binomial regression comparing species presence to dissolved oxygen. \textit{P. newmani} was detected significantly less frequently at higher dissolved oxygen levels. (b) Density plot of \textit{P. newmani} detections. Each pixel represents a range of dissolved oxygen and temperature values, and the shade of each pixel represents the proportion of eDNA samples in that environmental range in which \textit{P. newmani} was detected. Dissolved oxygen data comes from the TH042 mooring in 2021-22.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
 			\label{PnewmaniBinomDensity}
 		\end{center}
 	\end{figure} 
@@ -434,8 +435,13 @@ In this study, I will assess the effects of hypoxia on copepod abundance and com
 	In the future, the automated eDNA sampler in OCNMS will hopefully collect data during a positive ENSO year and acquire more data, improving the generalizability of any studies conducted using this data. While eDNA is not a perfect metric of abundance, it is still useful for broad studies such as this one when it is the only data available. Copepod populations do not exist in isolation, and future studies should also consider the taxonomic effects of hypoxia. For example, if fish that eat copepods are more sensitive to hypoxia than the copepods themselves, decreased predation due to fish kills may lead to increased copepod populations at certain dissolved oxygen levels. If copepods are more sensitive to hypoxia than fish, decreased prey availability may impact fish at levels of hypoxia that would otherwise be tolerable. Crustaceans and fish are both known to be highly sensitive to hypoxia compared to other taxonomic groups, so future studies into copepod hypoxia tolerance and copepod predator hypoxia tolerance will be important and should take individual species tolerances into account.
    
    	\appendix
-   \chapter{R Packages Used}\label{chap:appR}
+   \chapter{Software and Data Availability}\label{chap:appR}
+   
+   \section{Data Availability Statement}
+   
+   All code used in this thesis can be found at 
      
+     \section{R Packages Used}
 	\begin{hangparas}{0.25in}{1}
 	   \fullcite{Aphalo2024} \\
 	   
@@ -462,7 +468,7 @@ In this study, I will assess the effects of hypoxia on copepod abundance and com
    \end{hangparas}
 
 %If you feel it necessary to include an appendix, it goes here.
-    \chapter{Zero-Inflated Beta Regression Plots}\label{chap:app1}
+    \chapter{Zero-Inflated Beta Regression Plots}\label{chap:appZOIB}
 
 	\begin{figure}[h]
 		\begin{center}
@@ -473,8 +479,8 @@ In this study, I will assess the effects of hypoxia on copepod abundance and com
 			\includegraphics[scale=0.25]{Pmimus_ZOIB_Means_noOut}
 			\includegraphics[scale=0.25]{Pnewmani_ZOIB_Means_noOut}
 			\caption[Zero-inflated beta regression model means]{\footnotesize{Zero-inflated beta regression model means, with bands showing 0.5, 0.8, and 0.95 confidence levels, using data from 2021-22 from the TH042 mooring.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
+			\label{ZOIB}
 		\end{center}
-		\label{ZOIB}
 	\end{figure}
 	
 	\begin{figure}[h]
@@ -486,11 +492,11 @@ In this study, I will assess the effects of hypoxia on copepod abundance and com
 			\includegraphics[scale=0.25]{Pmimus_ZOIB_Means_Mod_noOut}
 			\includegraphics[scale=0.25]{Pnewmani_ZOIB_Means_Mod_noOut}
 			\caption[Zero-inflated beta regression model means, modeled data]{\footnotesize{Zero-inflated beta regression model means, with bands showing 0.5, 0.8, and 0.95 confidence levels, using data from 2021-23 from the LiveOcean model.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
+			\label{ModZOIB}
 		\end{center}
-		\label{ModZOIB}
 	\end{figure}
 	
-	\chapter{Additional Plots of Dissolved Oxygen vs. Temperature vs. eDNA Index}\label{chap:app2}
+	\chapter{Additional Plots of Dissolved Oxygen vs. Temperature vs. eDNA Index}\label{chap:appPlots}
 	%Other
 	
 	\begin{figure}[!h]
@@ -498,8 +504,8 @@ In this study, I will assess the effects of hypoxia on copepod abundance and com
 			a. \includegraphics[scale=0.3]{Osimilis_Scatter_noOut}
 			b. \includegraphics[scale=0.3]{Osimilis_Scatter_AllYr_mod_noOut}
 			\caption[\textit{O. similis} scatterplot]{\footnotesize{Scatter plot of dissolved oxygen (mg/L) and temperature (Celsius) for each environmental DNA sampling time, with \textit{O. similis} detections circled in black. Color of dots represents eDNA index, a normalized measure of abundance that can compare abundance within a species. Yellow, uncircled dots represent sampling dates when \textit{O. similis} was not detected. Plot (a) uses TH042 mooring data from 2021-22, (b) uses LiveOcean model data from 2021-23.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
+			\label{OsimilisScatter}
 		\end{center}
-		\label{OsimilisScatter}
 	\end{figure} 
 	
 	%Northern
@@ -508,8 +514,8 @@ In this study, I will assess the effects of hypoxia on copepod abundance and com
 			a. \includegraphics[scale=0.3]{Alongiremis_Scatter_noOut}
 			b. \includegraphics[scale=0.3]{Alongiremis_Scatter_AllYr_mod_noOut}
 			\caption[\textit{A. longiremis} scatterplot]{\footnotesize{Scatter plot of dissolved oxygen (mg/L) and temperature (Celsius) for each environmental DNA sampling time, with \textit{A. longiremis} detections circled in black. Color of dots represents eDNA index, a normalized measure of abundance that can compare abundance within a species. Yellow, uncircled dots represent sampling dates when \textit{A. longiremis} was not detected. Plot (a) uses TH042 mooring data from 2021-22, (b) uses LiveOcean model data from 2021-23.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
+			\label{AlongiremisScatter}
 		\end{center}
-		\label{AlongiremisScatter}
 	\end{figure} 
 	
 	\begin{figure}[!h]
@@ -517,8 +523,8 @@ In this study, I will assess the effects of hypoxia on copepod abundance and com
 			a. \includegraphics[scale=0.3]{Pmimus_Scatter_noOut}
 			b. \includegraphics[scale=0.3]{Pmimus_Scatter_AllYr_mod_noOut}
 			\caption[\textit{P. mimus} scatterplot]{\footnotesize{Scatter plot of dissolved oxygen (mg/L) and temperature (Celsius) for each environmental DNA sampling time, with \textit{P. mimus} detections circled in black. Color of dots represents eDNA index, a normalized measure of abundance that can compare abundance within a species. Yellow, uncircled dots represent sampling dates when \textit{P. mimus} was not detected. Plot (a) uses TH042 mooring data from 2021-22, (b) uses LiveOcean model data from 2021-23.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
-		\end{center}
-		\label{PmimusScatter}
+			\label{PmimusScatter}
+			\end{center}
 	\end{figure} 
 	
 	\begin{figure}[!h]
@@ -526,8 +532,8 @@ In this study, I will assess the effects of hypoxia on copepod abundance and com
 			%\includegraphics[scale=0.35]{Pnewmani_Scatter_noOut}
 			\includegraphics[scale=0.3]{Pnewmani_Scatter_AllYr_mod_noOut}
 			\caption[\textit{P. newmani} scatterplot]{\footnotesize{Scatter plot of dissolved oxygen (mg/L) and temperature (Celsius) for each environmental DNA sampling time, with \textit{P. newmani} detections circled in black. Color of dots represents eDNA index, a normalized measure of abundance that can compare abundance within a species. Yellow, uncircled dots represent sampling dates when \textit{P. newmani} was not detected. Plot (a) uses TH042 mooring data from 2021-22, (b) uses LiveOcean model data from 2021-23.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
+			\label{PnewmaniScatter}
 		\end{center}
-		\label{PnewmaniScatter}
 	\end{figure} 
 	
 	\begin{figure}[!h]
@@ -535,8 +541,8 @@ In this study, I will assess the effects of hypoxia on copepod abundance and com
 			a. \includegraphics[scale=0.3]{Cabdominalis_Scatter_noOut}
 			b. \includegraphics[scale=0.3]{Cabdominalis_Scatter_AllYr_mod_noOut}
 			\caption[\textit{C. abdominalis} scatterplot]{\footnotesize{Scatter plot of dissolved oxygen (mg/L) and temperature (Celsius) for each environmental DNA sampling time, with \textit{C. abdominalis} detections circled in black. Color of dots represents eDNA index, a normalized measure of abundance that can compare abundance within a species. Yellow, uncircled dots represent sampling dates when \textit{C. abdominalis} was not detected. Plot (a) uses TH042 mooring data from 2021-22, (b) uses LiveOcean model data from 2021-23.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
+			\label{CabdominalisScatter}
 		\end{center}
-		\label{CabdominalisScatter}
 	\end{figure} 
 	
 	\begin{figure}[!h]
@@ -544,8 +550,8 @@ In this study, I will assess the effects of hypoxia on copepod abundance and com
 			a. \includegraphics[scale=0.3]{Pacuspes_Scatter_noOut}
 			b. \includegraphics[scale=0.3]{Pacuspes_Scatter_AllYr_mod_noOut}
 			\caption[\textit{P. acuspes} scatterplot]{\footnotesize{Scatter plot of dissolved oxygen (mg/L) and temperature (Celsius) for each environmental DNA sampling time, with \textit{P. acuspes} detections circled in black. Color of dots represents eDNA index, a normalized measure of abundance that can compare abundance within a species. Yellow, uncircled dots represent sampling dates when \textit{P. acuspes} was not detected. Plot (a) uses TH042 mooring data from 2021-22, (b) uses LiveOcean model data from 2021-23.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
+				\label{PacuspesScatter}
 		\end{center}
-		\label{PacuspesScatter}
 	\end{figure} 
 	
 	%Southern
@@ -555,24 +561,24 @@ In this study, I will assess the effects of hypoxia on copepod abundance and com
 			a. \includegraphics[scale=0.3]{Cpacificus_Scatter_noOut}
 			b. \includegraphics[scale=0.3]{Cpacificus_Scatter_AllYr_mod_noOut}
 			\caption[\textit{C. pacificus} scatterplot]{\footnotesize{Scatter plot of dissolved oxygen (mg/L) and temperature (Celsius) for each environmental DNA sampling time, with \textit{C. pacificus} detections circled in black. Color of dots represents eDNA index, a normalized measure of abundance that can compare abundance within a species. Yellow, uncircled dots represent sampling dates when \textit{C. pacificus} was not detected. Plot (a) uses TH042 mooring data from 2021-22, (b) uses LiveOcean model data from 2021-23.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
+			\label{CpacificusScatter}
 		\end{center}
-		\label{CpacificusScatter}
 	\end{figure} 
 	
 		\begin{figure}[!h]
 		\begin{center}
 			\includegraphics[scale=0.3]{Paracalanus_Scatter_noOut} \\
 			\caption[\textit{Paracalanus} sp. C AC-2013 scatterplot]{\footnotesize{Scatter plot of dissolved oxygen (mg/L) and temperature (Celsius) for each environmental DNA sampling time, with \textit{Paracalanus} sp. C AC-2013 scatterplot detections circled in black. Color of dots represents eDNA index, a normalized measure of abundance that can compare abundance within a species. Yellow, uncircled dots represent sampling dates when \textit{Paracalanus} sp. C AC-2013 scatterplot was not detected. This plot uses TH042 mooring data from 2021-22.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
+			\label{ParacalanusScatterApp}
 		\end{center}
-		\label{ParacalanusScatterApp}
 	\end{figure} 
 	
-		\begin{figure}[!h]
+	\begin{figure}[!h]
 		\begin{center}
 			\includegraphics[scale=0.3]{Paracalanus_Density}
 			\caption[\textit{Paracalanus} density plot (Mooring data)]{\footnotesize{Density plot of \textit{Paracalanus} sp. C AC-2013 detections. Each pixel represents a range of dissolved oxygen and temperature values, and the shade of each pixel represents the proportion of eDNA samples in that environmental range in which \textit{Paracalanus} sp. C AC-2013 was detected. This plot uses TH042 mooring data from 2021-22.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
+			\label{ParacalanusDensityMod}
 		\end{center}
-		\label{ParacalanusDensityMod}
 	\end{figure}
 
   \backmatter % backmatter makes the index and bibliography appear properly in the t.o.c...

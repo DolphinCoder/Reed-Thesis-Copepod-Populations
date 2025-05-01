@@ -714,6 +714,12 @@ for (i in 1:length(dfsplit)) {
     filter(DO < 6) # Filter out the outliers
   
   species <- as.character(dfsplit[[i]][1,7]) # Extract species name for title + export filename
+  coeffname <- paste(species, sep = "_", "BN_Mod_Coeffs")
+  dfname <- paste(species, sep = "_", "BN_Mod_DF")
+  
+  mod <- glm(data = df, formula = PresentBin ~ DO, family = "binomial")
+  assign(coeffname, summary(mod)$coefficients)
+  assign(dfname, summary(mod)$df)
 
   ggplot(df, aes(x = DO, y = PresentBin, color = PresentBin)) +
     geom_point(size = 4) +
