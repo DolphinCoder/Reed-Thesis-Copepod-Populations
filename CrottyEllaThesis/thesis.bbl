@@ -1081,6 +1081,49 @@
       \verb https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php
       \endverb
     \endentry
+    \entry{Cristescu2018}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=6a839b7a692ca885046545cca503307c}{%
+           family={Cristescu},
+           familyi={C\bibinitperiod},
+           given={M.E.},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d1478b382ac4f65e276a2ff0d452a0d7}{%
+           family={Hebert},
+           familyi={H\bibinitperiod},
+           given={P.D.N.},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{efeacca8d40fe30ae9d64c7102a81e8f}
+      \strng{fullhash}{efeacca8d40fe30ae9d64c7102a81e8f}
+      \strng{bibnamehash}{efeacca8d40fe30ae9d64c7102a81e8f}
+      \strng{authorbibnamehash}{efeacca8d40fe30ae9d64c7102a81e8f}
+      \strng{authornamehash}{efeacca8d40fe30ae9d64c7102a81e8f}
+      \strng{authorfullhash}{efeacca8d40fe30ae9d64c7102a81e8f}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The study of environmental DNA (eDNA) has the potential to revolutionize biodiversity science and conservation action by enabling the census of species on a global scale in near real time. To achieve this promise, technical challenges must be resolved. In this review, we explore the main uses of eDNA as well as the complexities introduced by its misuse. Current eDNA methods require refinement and improved calibration and validation along the entire workflow to lessen false positives/negatives. Moreover, there is great need for a better understanding of the "natural history" of eDNA-its origins, state, lifetime, and transportation- A nd for more detailed insights concerning the physical and ecological limitations of eDNA use. Although eDNA analysis can provide powerful information, particularly in freshwater and marine environments, its impact is likely to be less significant in terrestrial settings. The broad adoption of eDNA tools in conservation will largely depend on addressing current uncertainties in data interpretation. © 2018 by Annual Reviews. All rights reserved.}
+      \field{journaltitle}{Annual Review of Ecology, Evolution, and Systematics}
+      \field{title}{Uses and Misuses of Environmental {{DNA}} in Biodiversity Science and Conservation}
+      \field{volume}{49}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \field{pages}{209\bibrangedash 230}
+      \range{pages}{22}
+      \verb{doi}
+      \verb 10.1146/annurev-ecolsys-110617-062306
+      \endverb
+      \verb{file}
+      \verb /Users/ellac/Zotero/storage/BVSUB782/Cristescu and Hebert - 2018 - Uses and misuses of environmental DNA in biodivers.pdf;/Users/ellac/Zotero/storage/HTRFT9W9/display.html
+      \endverb
+      \keyw{eDNA}
+    \endentry
     \entry{Crotty2024}{unpublished}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=9fcbc959d8762fa877d1d743e191421a}{%
@@ -3738,6 +3781,94 @@
       \endverb
       \keyw{Hypoxia}
     \endentry
+    \entry{Port2016}{article}{}
+      \name{author}{8}{}{%
+        {{un=0,uniquepart=base,hash=2ea3cedd5bf7097670b90c767fe892be}{%
+           family={Port},
+           familyi={P\bibinitperiod},
+           given={Jesse\bibnamedelima A.},
+           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a9a711d911dc7e231b893e4a2f228003}{%
+           family={O'Donnell},
+           familyi={O\bibinitperiod},
+           given={James\bibnamedelima L.},
+           giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cffb0ccef353ade1be1ecbacd54bc5e1}{%
+           family={Romero-Maraccini},
+           familyi={R\bibinithyphendelim M\bibinitperiod},
+           given={Ofelia\bibnamedelima C.},
+           giveni={O\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b4760a5b02455f29e9dc9be9283a8465}{%
+           family={Leary},
+           familyi={L\bibinitperiod},
+           given={Paul\bibnamedelima R.},
+           giveni={P\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=619d877f97d96a92c97f7078c058c254}{%
+           family={Litvin},
+           familyi={L\bibinitperiod},
+           given={Steven\bibnamedelima Y.},
+           giveni={S\bibinitperiod\bibinitdelim Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ab47f4d1c9c64c114eaafbf905f14475}{%
+           family={Nickols},
+           familyi={N\bibinitperiod},
+           given={Kerry\bibnamedelima J.},
+           giveni={K\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5bdd5a3d3c9e42e0ef4a3ecb0249f4be}{%
+           family={Yamahara},
+           familyi={Y\bibinitperiod},
+           given={Kevan\bibnamedelima M.},
+           giveni={K\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b836b2f1402726025f28866916bc9569}{%
+           family={Kelly},
+           familyi={K\bibinitperiod},
+           given={Ryan\bibnamedelima P.},
+           giveni={R\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{c13becd99d742e301eb12354ed78f07f}
+      \strng{fullhash}{f43deabc145426f21c0b98fbe33bd4ad}
+      \strng{bibnamehash}{c13becd99d742e301eb12354ed78f07f}
+      \strng{authorbibnamehash}{c13becd99d742e301eb12354ed78f07f}
+      \strng{authornamehash}{c13becd99d742e301eb12354ed78f07f}
+      \strng{authorfullhash}{f43deabc145426f21c0b98fbe33bd4ad}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Preserving biodiversity is a global challenge requiring data on species' distribution and abundance over large geographic and temporal scales. However, traditional methods to survey mobile species' distribution and abundance in marine environments are often inefficient, environmentally destructive, or resource-intensive. Metabarcoding of environmental DNA (eDNA) offers a new means to assess biodiversity and on much larger scales, but adoption of this approach for surveying whole animal communities in large, dynamic aquatic systems has been slowed by significant unknowns surrounding error rates of detection and relevant spatial resolution of eDNA surveys. Here, we report the results of a 2.5~km eDNA transect surveying the vertebrate fauna present along a gradation of diverse marine habitats associated with a kelp forest ecosystem. Using PCR primers that target the mitochondrial 12S rRNA gene of marine fishes and mammals, we generated eDNA sequence data and compared it to simultaneous visual dive surveys. We find spatial concordance between individual species' eDNA and visual survey trends, and that eDNA is able to distinguish vertebrate community assemblages from habitats separated by as little as \textasciitilde 60~m. eDNA reliably detected vertebrates with low false-negative error rates (1/12 taxa) when compared to the surveys, and revealed cryptic species known to occupy the habitats but overlooked by visual methods. This study also presents an explicit accounting of false negatives and positives in metabarcoding data, which illustrate the influence of gene marker selection, replication, contamination, biases impacting eDNA count data and ecology of target species on eDNA detection rates in an open ecosystem.}
+      \field{eprinttype}{pmid}
+      \field{issn}{1365-294X}
+      \field{journaltitle}{Molecular Ecology}
+      \field{langid}{english}
+      \field{month}{1}
+      \field{number}{2}
+      \field{shortjournal}{Mol Ecol}
+      \field{title}{Assessing Vertebrate Biodiversity in a Kelp Forest Ecosystem Using Environmental {{DNA}}}
+      \field{volume}{25}
+      \field{year}{2016}
+      \field{dateera}{ce}
+      \field{pages}{527\bibrangedash 541}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1111/mec.13481
+      \endverb
+      \verb{eprint}
+      \verb 26586544
+      \endverb
+      \verb{file}
+      \verb /Users/ellac/Zotero/storage/PHN8EURA/Port et al. - 2016 - Assessing vertebrate biodiversity in a kelp forest.pdf
+      \endverb
+      \keyw{eDNA}
+    \endentry
     \entry{Portner2010}{article}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=0ef223d3f0f1d8e256d8abeb0c52ff95}{%
@@ -6205,6 +6336,104 @@
       \verb{url}
       \verb https://linkinghub.elsevier.com/retrieve/pii/0011747162902437
       \endverb
+    \endentry
+    \entry{Yamamoto2017}{article}{}
+      \name{author}{8}{}{%
+        {{un=0,uniquepart=base,hash=d7d9838643b13c051cbb86f25ed28e1f}{%
+           family={Yamamoto},
+           familyi={Y\bibinitperiod},
+           given={Satoshi},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=869ce71707b286b84b2f5a2fa801b1fb}{%
+           family={Masuda},
+           familyi={M\bibinitperiod},
+           given={Reiji},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d005dbbd08528e697333b98ceafdc4e9}{%
+           family={Sato},
+           familyi={S\bibinitperiod},
+           given={Yukuto},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=39d5a02b07c511096489555c57cddf4f}{%
+           family={Sado},
+           familyi={S\bibinitperiod},
+           given={Tetsuya},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=216936c8306636dcfbc998d84a437127}{%
+           family={Araki},
+           familyi={A\bibinitperiod},
+           given={Hitoshi},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=439a8f1e7991c8baed4d15819c0dc542}{%
+           family={Kondoh},
+           familyi={K\bibinitperiod},
+           given={Michio},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6d74f990cbd19b3c38f05f562d9d1c0a}{%
+           family={Minamoto},
+           familyi={M\bibinitperiod},
+           given={Toshifumi},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8f99bd74ecac4650405cb76787e054fb}{%
+           family={Miya},
+           familyi={M\bibinitperiod},
+           given={Masaki},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Publishing Group}%
+      }
+      \strng{namehash}{23a38902716f4e8a203a8e380fe433cb}
+      \strng{fullhash}{f39322f0046c6f2ffeee4a3ba8cb80b4}
+      \strng{bibnamehash}{23a38902716f4e8a203a8e380fe433cb}
+      \strng{authorbibnamehash}{23a38902716f4e8a203a8e380fe433cb}
+      \strng{authornamehash}{23a38902716f4e8a203a8e380fe433cb}
+      \strng{authorfullhash}{f39322f0046c6f2ffeee4a3ba8cb80b4}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Environmental DNA (eDNA) metabarcoding has emerged as a potentially powerful tool to assess aquatic community structures. However, the method has hitherto lacked field tests that evaluate its effectiveness and practical properties as a biodiversity monitoring tool. Here, we evaluated the ability of eDNA metabarcoding to reveal fish community structures in species-rich coastal waters. High-performance fish-universal primers and systematic spatial water sampling at 47 stations covering \textasciitilde 11\,km2 revealed the fish community structure at a species resolution. The eDNA metabarcoding based on a 6-h collection of water samples detected 128 fish species, of which 62.5\% (40 species) were also observed by underwater visual censuses conducted over a 14-year period. This method also detected other local fishes (≥23 species) that were not observed by the visual censuses. These eDNA metabarcoding features will enhance marine ecosystem-related research, and the method will potentially become a standard tool for surveying fish communities.}
+      \field{day}{12}
+      \field{issn}{2045-2322}
+      \field{journaltitle}{Scientific Reports}
+      \field{langid}{english}
+      \field{month}{1}
+      \field{number}{1}
+      \field{shortjournal}{Sci Rep}
+      \field{title}{Environmental {{DNA}} Metabarcoding Reveals Local Fish Communities in a Species-Rich Coastal Sea}
+      \field{urlday}{14}
+      \field{urlmonth}{2}
+      \field{urlyear}{2025}
+      \field{volume}{7}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{40368}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1038/srep40368
+      \endverb
+      \verb{file}
+      \verb /Users/ellac/Zotero/storage/DNJD5HGB/Yamamoto et al. - 2017 - Environmental DNA metabarcoding reveals local fish.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.nature.com/articles/srep40368
+      \endverb
+      \verb{url}
+      \verb https://www.nature.com/articles/srep40368
+      \endverb
+      \keyw{eDNA}
     \endentry
   \enddatalist
 \endrefsection

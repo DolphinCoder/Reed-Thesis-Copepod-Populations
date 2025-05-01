@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.3)  1 MAY 2025 00:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.3)  1 MAY 2025 01:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -238,7 +238,9 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1372.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1373.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1374.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1375.
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/biblatex/biblatex.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/dvipsnam.def
+File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
+)) (/usr/local/texlive/2022/texmf-dist/tex/latex/biblatex/biblatex.sty
 Package: biblatex 2022/02/02 v3.17 programmable bibliographies (PK/MW)
 (/usr/local/texlive/2022/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
@@ -488,20 +490,20 @@ Package: blx-case-expl3 2022/02/02 v3.17 expl3 case changing code for biblatex
 (./thesis.aux)
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
 (/usr/local/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count414
@@ -539,8 +541,1007 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'thesis.bbl' found.
 (./thesis.bbl)
-Package biblatex Info: Reference section=0 on input line 59.
-Package biblatex Info: Reference segment=0 on input line 59.
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 61
+Package biblatex Info: Reference section=0 on input line 60.
+Package biblatex Info: Reference segment=0 on input line 60.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 62
 .
-(/usr/local/texlive/2022/texmf-dis
+(/usr/local/texlive/2022/texmf-dist/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+LaTeX Font Info:    Trying to load font information for U+msa on input line 62.
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 62.
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
+Non-PDF special ignored!
+<special> !% Reed College LaTeX Thesis Class 2001/12/04 SN
+Non-PDF special ignored!
+<special> rawpostscript % Reed College LaTeX Thesis Class 2001/12/04 SN
+
+
+{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2
+
+] [3] [4
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 67--78
+
+ []
+
+[1
+
+
+] [2
+
+] [3] [4
+
+] (./thesis.toc)
+\tf@toc=\write4
+\openout4 = `thesis.toc'.
+
+[5] [6
+
+] (./thesis.lot)
+\tf@lot=\write5
+\openout5 = `thesis.lot'.
+
+[7] [8
+
+] (./thesis.lof)
+\tf@lof=\write6
+\openout6 = `thesis.lof'.
+
+[9] [10
+
+] [11] [12
+
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[1
+
+]
+<./Figures//Fig_OMZ.png, id=60, 3011.25pt x 2634.84375pt>
+File: ./Figures//Fig_OMZ.png Graphic file (type png)
+<use ./Figures//Fig_OMZ.png>
+Package pdftex.def Info: ./Figures//Fig_OMZ.png  used on input line 147.
+(pdftex.def)             Requested size: 208.13574pt x 182.08585pt.
+
+Underfull \hbox (badness 1270) in paragraph at lines 154--155
+\OT1/cmr/m/n/12 rine or-gan-isms are in-creas-ing in fre-
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[2 <./Figures//Fig_OMZ.png (PNG copy)>]
+<./Figures//Fig_NOAA_Upwelling.jpg, id=66, 1003.75pt x 363.3575pt>
+File: ./Figures//Fig_NOAA_Upwelling.jpg Graphic file (type jpg)
+<use ./Figures//Fig_NOAA_Upwelling.jpg>
+Package pdftex.def Info: ./Figures//Fig_NOAA_Upwelling.jpg  used on input line 
+166.
+(pdftex.def)             Requested size: 401.49289pt x 145.34041pt.
+<./Figures//Fig_OCNMS_Map.jpg, id=67, 373.395pt x 481.8pt>
+File: ./Figures//Fig_OCNMS_Map.jpg Graphic file (type jpg)
+<use ./Figures//Fig_OCNMS_Map.jpg>
+Package pdftex.def Info: ./Figures//Fig_OCNMS_Map.jpg  used on input line 178.
+(pdftex.def)             Requested size: 208.13574pt x 268.56372pt.
+
+Underfull \vbox (badness 3977) has occurred while \output is active []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[3 <./Figures//Fig_NOAA_Upwelling.jpg>]
+Underfull \hbox (badness 1924) in paragraph at lines 184--185
+[]\OT1/cmr/m/n/12 OCNMS is lo-cated off the Olympic
+ []
+
+
+Underfull \hbox (badness 1048) in paragraph at lines 184--185
+\OT1/cmr/m/n/12 ter storms. The sanc-tu-ary con-tains
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[4 <./Figures//Fig_OCNMS_Map.jpg>]
+
+Package caption Warning: \label without proper reference on input line 222.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `CopepodGroups' on page 5 undefined on input line 193.
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[5]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[6]
+<./Figures//Fig_Life_cycle.png, id=84, 595.22375pt x 415.5525pt>
+File: ./Figures//Fig_Life_cycle.png Graphic file (type png)
+<use ./Figures//Fig_Life_cycle.png>
+Package pdftex.def Info: ./Figures//Fig_Life_cycle.png  used on input line 233.
+
+(pdftex.def)             Requested size: 251.50038pt x 175.58344pt.
+
+Underfull \hbox (badness 1558) in paragraph at lines 239--240
+\OT1/cmr/m/n/12 cope-pod egg pro-duc-tion, egg
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[7 <./Figures//Fig_Life_cycle.png>]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[8]
+Underfull \vbox (badness 2556) has occurred while \output is active []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[9
+
+]
+<./Figures//Fig_OCNMS_buoy_map.jpg, id=97, 401.5pt x 516.93124pt>
+File: ./Figures//Fig_OCNMS_buoy_map.jpg Graphic file (type jpg)
+<use ./Figures//Fig_OCNMS_buoy_map.jpg>
+Package pdftex.def Info: ./Figures//Fig_OCNMS_buoy_map.jpg  used on input line 
+269.
+(pdftex.def)             Requested size: 208.13574pt x 267.97758pt.
+
+Package wrapfig Warning: Stationary wrapfigure forced to float on input line 27
+5.
+
+
+Underfull \hbox (badness 1210) in paragraph at lines 277--278
+\OT1/cmr/m/n/12 tain pe-riod of time, then mea-sur-ing
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[10 <./Figures//Fig_OCNMS_buoy_map.jpg>]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[11] [12
+
+]
+Chapter 1.
+<./Figures//Fig_MethodsFlowchart.png, id=107, 578.16pt x 463.88306pt>
+File: ./Figures//Fig_MethodsFlowchart.png Graphic file (type png)
+<use ./Figures//Fig_MethodsFlowchart.png>
+Package pdftex.def Info: ./Figures//Fig_MethodsFlowchart.png  used on input lin
+e 291.
+(pdftex.def)             Requested size: 404.70924pt x 324.71591pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[13]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[14 <./Figures//Fig_MethodsFlowchart.png>]
+<./Figures//Mooring_vs_Model_DO_37.png, id=116, 486.8589pt x 300.8841pt>
+File: ./Figures//Mooring_vs_Model_DO_37.png Graphic file (type png)
+<use ./Figures//Mooring_vs_Model_DO_37.png>
+Package pdftex.def Info: ./Figures//Mooring_vs_Model_DO_37.png  used on input l
+ine 303.
+(pdftex.def)             Requested size: 251.50038pt x 155.4322pt.
+<./Figures//Mooring_vs_Model_Temp_37.png, id=117, 486.8589pt x 300.8841pt>
+File: ./Figures//Mooring_vs_Model_Temp_37.png Graphic file (type png)
+<use ./Figures//Mooring_vs_Model_Temp_37.png>
+Package pdftex.def Info: ./Figures//Mooring_vs_Model_Temp_37.png  used on input
+ line 304.
+(pdftex.def)             Requested size: 251.50038pt x 155.4322pt.
+<./Figures//Timeseries_example.png, id=118, 715.2321pt x 445.4241pt>
+File: ./Figures//Timeseries_example.png Graphic file (type png)
+<use ./Figures//Timeseries_example.png>
+Package pdftex.def Info: ./Figures//Timeseries_example.png  used on input line 
+312.
+(pdftex.def)             Requested size: 429.14258pt x 267.25652pt.
+<./Figures//Timeseries_example_Mod.png, id=119, 715.7139pt x 446.8695pt>
+File: ./Figures//Timeseries_example_Mod.png Graphic file (type png)
+<use ./Figures//Timeseries_example_Mod.png>
+Package pdftex.def Info: ./Figures//Timeseries_example_Mod.png  used on input l
+ine 313.
+(pdftex.def)             Requested size: 429.43166pt x 268.12376pt.
+
+LaTeX Warning: Float too large for page by 31.11694pt on input line 317.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Package wrapfig Warning: Stationary wrapfigure forced to float on input line 31
+9.
+
+
+Package caption Warning: \label without proper reference on input line 316.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `Timeseries' on page 15 undefined on input line 320.
+
+
+Underfull \hbox (badness 7168) in paragraph at lines 320--321
+[]\OT1/cmr/m/n/12 In or-der to de-ter-mine the
+ []
+
+
+Underfull \hbox (badness 1237) in paragraph at lines 320--321
+\OT1/cmr/m/n/12 abun-dance and en-vi-ron-men-tal
+ []
+
+
+Underfull \hbox (badness 1448) in paragraph at lines 320--321
+\OT1/cmr/m/n/12 dex to tem-per-a-ture and dis-
+ []
+
+
+Underfull \hbox (badness 3439) in paragraph at lines 320--321
+\OT1/cmr/m/n/12 com-pen-sate for the dif-fer-ent
+ []
+
+
+Underfull \hbox (badness 2384) in paragraph at lines 320--321
+\OT1/cmr/m/n/12 ent en-vi-ron-men-tal con-di-tions,
+ []
+
+
+Underfull \hbox (badness 2486) in paragraph at lines 320--321
+\OT1/cmr/m/n/12 bins of en-vi-ron-men-tal con-di-
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[15 <./Figures//Mooring_vs_Model_DO_37.png> <./Figures//Mooring_vs_Model_Temp_3
+7.png>]
+<./Figures//Scatter_ex.png, id=124, 600.0819pt x 453.3738pt>
+File: ./Figures//Scatter_ex.png Graphic file (type png)
+<use ./Figures//Scatter_ex.png>
+Package pdftex.def Info: ./Figures//Scatter_ex.png  used on input line 329.
+(pdftex.def)             Requested size: 210.0318pt x 158.6832pt.
+<./Figures//Scatter_ex_Mod.png, id=125, 596.7093pt x 454.3374pt>
+File: ./Figures//Scatter_ex_Mod.png Graphic file (type png)
+<use ./Figures//Scatter_ex_Mod.png>
+Package pdftex.def Info: ./Figures//Scatter_ex_Mod.png  used on input line 330.
+
+(pdftex.def)             Requested size: 208.85138pt x 159.02046pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[16]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[17]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[18 <./Figures//Timeseries_example.png> <./Figures//Timeseries_example_Mod.png>
+]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[19 <./Figures//Scatter_ex.png> <./Figures//Scatter_ex_Mod.png>] [20
+
+]
+Chapter 2.
+
+Package caption Warning: \label without proper reference on input line 391.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `ZOIBtab' on page 21 undefined on input line 372.
+
+
+Overfull \hbox (27.94395pt too wide) in paragraph at lines 375--392
+[][]
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[21]
+<./Figures//Pnewmani_binom_sig_neg.png, id=146, 554.07pt x 481.8pt>
+File: ./Figures//Pnewmani_binom_sig_neg.png Graphic file (type png)
+<use ./Figures//Pnewmani_binom_sig_neg.png>
+Package pdftex.def Info: ./Figures//Pnewmani_binom_sig_neg.png  used on input l
+ine 401.
+(pdftex.def)             Requested size: 166.22227pt x 144.5411pt.
+<./Figures//Pnewmani_Density.png, id=147, 602.25pt x 481.8pt>
+File: ./Figures//Pnewmani_Density.png Graphic file (type png)
+<use ./Figures//Pnewmani_Density.png>
+Package pdftex.def Info: ./Figures//Pnewmani_Density.png  used on input line 40
+2.
+(pdftex.def)             Requested size: 180.67639pt x 144.5411pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<./Figures//Bar_Season.png, id=148, 602.25pt x 481.8pt>
+File: ./Figures//Bar_Season.png Graphic file (type png)
+<use ./Figures//Bar_Season.png>
+Package pdftex.def Info: ./Figures//Bar_Season.png  used on input line 410.
+(pdftex.def)             Requested size: 301.12425pt x 240.8994pt.
+<./Figures//Bar_Size.png, id=149, 602.25pt x 481.8pt>
+File: ./Figures//Bar_Size.png Graphic file (type png)
+<use ./Figures//Bar_Size.png>
+Package pdftex.def Info: ./Figures//Bar_Size.png  used on input line 411.
+(pdftex.def)             Requested size: 301.12425pt x 240.8994pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (21.04655pt too wide) in paragraph at lines 419--436
+[][]
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[22]
+<./Figures//Paracalanus_Scatter_AllYr_mod_noOut.png, id=153, 602.25pt x 481.8pt
+>
+File: ./Figures//Paracalanus_Scatter_AllYr_mod_noOut.png Graphic file (type png
+)
+<use ./Figures//Paracalanus_Scatter_AllYr_mod_noOut.png>
+Package pdftex.def Info: ./Figures//Paracalanus_Scatter_AllYr_mod_noOut.png  us
+ed on input line 451.
+(pdftex.def)             Requested size: 180.67639pt x 144.5411pt.
+<./Figures//Paracalanus_Density_AllYr_mod.png, id=154, 602.25pt x 481.8pt>
+File: ./Figures//Paracalanus_Density_AllYr_mod.png Graphic file (type png)
+<use ./Figures//Paracalanus_Density_AllYr_mod.png>
+Package pdftex.def Info: ./Figures//Paracalanus_Density_AllYr_mod.png  used on 
+input line 452.
+(pdftex.def)             Requested size: 180.67639pt x 144.5411pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[23 <./Figures//Pnewmani_binom_sig_neg.png> <./Figures//Pnewmani_Density.png>]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[24 <./Figures//Bar_Season.png> <./Figures//Bar_Size.png>]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[25 <./Figures//Paracalanus_Scatter_AllYr_mod_noOut.png> <./Figures//Paracalanu
+s_Density_AllYr_mod.png>] [26
+
+]
+Chapter 3.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[27]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[28]
+Appendix A.
+
+Underfull \hbox (badness 10000) in paragraph at lines 486--487
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 488--489
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 490--491
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 492--493
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 494--495
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 496--497
+
+ []
+
+[29
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 498--499
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 500--501
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 502--503
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 504--505
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 506--507
+
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[30]
+Appendix B.
+<./Figures//Alongiremis_ZOIB_Means_noOut.png, id=184, 602.25pt x 481.8pt>
+File: ./Figures//Alongiremis_ZOIB_Means_noOut.png Graphic file (type png)
+<use ./Figures//Alongiremis_ZOIB_Means_noOut.png>
+Package pdftex.def Info: ./Figures//Alongiremis_ZOIB_Means_noOut.png  used on i
+nput line 515.
+(pdftex.def)             Requested size: 150.56212pt x 120.44969pt.
+<./Figures//Cabdominalis_ZOIB_Means_noOut.png, id=185, 602.25pt x 481.8pt>
+File: ./Figures//Cabdominalis_ZOIB_Means_noOut.png Graphic file (type png)
+<use ./Figures//Cabdominalis_ZOIB_Means_noOut.png>
+Package pdftex.def Info: ./Figures//Cabdominalis_ZOIB_Means_noOut.png  used on 
+input line 516.
+(pdftex.def)             Requested size: 150.56212pt x 120.44969pt.
+<./Figures//Osimilis_ZOIB_Means_noOut.png, id=186, 602.25pt x 481.8pt>
+File: ./Figures//Osimilis_ZOIB_Means_noOut.png Graphic file (type png)
+<use ./Figures//Osimilis_ZOIB_Means_noOut.png>
+Package pdftex.def Info: ./Figures//Osimilis_ZOIB_Means_noOut.png  used on inpu
+t line 517.
+(pdftex.def)             Requested size: 150.56212pt x 120.44969pt.
+<./Figures//Paracalanus_ZOIB_Means_noOut.png, id=187, 602.25pt x 481.8pt>
+File: ./Figures//Paracalanus_ZOIB_Means_noOut.png Graphic file (type png)
+<use ./Figures//Paracalanus_ZOIB_Means_noOut.png>
+Package pdftex.def Info: ./Figures//Paracalanus_ZOIB_Means_noOut.png  used on i
+nput line 518.
+(pdftex.def)             Requested size: 150.56212pt x 120.44969pt.
+<./Figures//Pmimus_ZOIB_Means_noOut.png, id=188, 602.25pt x 481.8pt>
+File: ./Figures//Pmimus_ZOIB_Means_noOut.png Graphic file (type png)
+<use ./Figures//Pmimus_ZOIB_Means_noOut.png>
+Package pdftex.def Info: ./Figures//Pmimus_ZOIB_Means_noOut.png  used on input 
+line 519.
+(pdftex.def)             Requested size: 150.56212pt x 120.44969pt.
+<./Figures//Pnewmani_ZOIB_Means_noOut.png, id=189, 602.25pt x 481.8pt>
+File: ./Figures//Pnewmani_ZOIB_Means_noOut.png Graphic file (type png)
+<use ./Figures//Pnewmani_ZOIB_Means_noOut.png>
+Package pdftex.def Info: ./Figures//Pnewmani_ZOIB_Means_noOut.png  used on inpu
+t line 520.
+(pdftex.def)             Requested size: 150.56212pt x 120.44969pt.
+<./Figures//Alongiremis_ZOIB_Means_Mod_noOut.png, id=190, 602.25pt x 481.8pt>
+File: ./Figures//Alongiremis_ZOIB_Means_Mod_noOut.png Graphic file (type png)
+<use ./Figures//Alongiremis_ZOIB_Means_Mod_noOut.png>
+Package pdftex.def Info: ./Figures//Alongiremis_ZOIB_Means_Mod_noOut.png  used 
+on input line 528.
+(pdftex.def)             Requested size: 150.56212pt x 120.44969pt.
+<./Figures//Cabdominalis_ZOIB_Means_Mod_noOut.png, id=191, 602.25pt x 481.8pt>
+File: ./Figures//Cabdominalis_ZOIB_Means_Mod_noOut.png Graphic file (type png)
+<use ./Figures//Cabdominalis_ZOIB_Means_Mod_noOut.png>
+Package pdftex.def Info: ./Figures//Cabdominalis_ZOIB_Means_Mod_noOut.png  used
+ on input line 529.
+(pdftex.def)             Requested size: 150.56212pt x 120.44969pt.
+<./Figures//Osimilis_ZOIB_Means_Mod_noOut.png, id=192, 602.25pt x 481.8pt>
+File: ./Figures//Osimilis_ZOIB_Means_Mod_noOut.png Graphic file (type png)
+<use ./Figures//Osimilis_ZOIB_Means_Mod_noOut.png>
+Package pdftex.def Info: ./Figures//Osimilis_ZOIB_Means_Mod_noOut.png  used on 
+input line 530.
+(pdftex.def)             Requested size: 150.56212pt x 120.44969pt.
+<./Figures//Paracalanus_ZOIB_Means_Mod_noOut.png, id=193, 602.25pt x 481.8pt>
+File: ./Figures//Paracalanus_ZOIB_Means_Mod_noOut.png Graphic file (type png)
+<use ./Figures//Paracalanus_ZOIB_Means_Mod_noOut.png>
+Package pdftex.def Info: ./Figures//Paracalanus_ZOIB_Means_Mod_noOut.png  used 
+on input line 531.
+(pdftex.def)             Requested size: 150.56212pt x 120.44969pt.
+<./Figures//Pmimus_ZOIB_Means_Mod_noOut.png, id=194, 602.25pt x 481.8pt>
+File: ./Figures//Pmimus_ZOIB_Means_Mod_noOut.png Graphic file (type png)
+<use ./Figures//Pmimus_ZOIB_Means_Mod_noOut.png>
+Package pdftex.def Info: ./Figures//Pmimus_ZOIB_Means_Mod_noOut.png  used on in
+put line 532.
+(pdftex.def)             Requested size: 150.56212pt x 120.44969pt.
+<./Figures//Pnewmani_ZOIB_Means_Mod_noOut.png, id=195, 602.25pt x 481.8pt>
+File: ./Figures//Pnewmani_ZOIB_Means_Mod_noOut.png Graphic file (type png)
+<use ./Figures//Pnewmani_ZOIB_Means_Mod_noOut.png>
+Package pdftex.def Info: ./Figures//Pnewmani_ZOIB_Means_Mod_noOut.png  used on 
+input line 533.
+(pdftex.def)             Requested size: 150.56212pt x 120.44969pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[31
+
+ <./Figures//Alongiremis_ZOIB_Means_noOut.png> <./Figures//Cabdominalis_ZOIB_Me
+ans_noOut.png> <./Figures//Osimilis_ZOIB_Means_noOut.png> <./Figures//Paracalan
+us_ZOIB_Means_noOut.png> <./Figures//Pmimus_ZOIB_Means_noOut.png> <./Figures//P
+newmani_ZOIB_Means_noOut.png>]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[32 <./Figures//Alongiremis_ZOIB_Means_Mod_noOut.png> <./Figures//Cabdominalis_
+ZOIB_Means_Mod_noOut.png> <./Figures//Osimilis_ZOIB_Means_Mod_noOut.png> <./Fig
+ures//Paracalanus_ZOIB_Means_Mod_noOut.png> <./Figures//Pmimus_ZOIB_Means_Mod_n
+oOut.png> <./Figures//Pnewmani_ZOIB_Means_Mod_noOut.png>]
+Appendix C.
+<./Figures//Osimilis_Scatter_noOut.png, id=202, 602.25pt x 481.8pt>
+File: ./Figures//Osimilis_Scatter_noOut.png Graphic file (type png)
+<use ./Figures//Osimilis_Scatter_noOut.png>
+Package pdftex.def Info: ./Figures//Osimilis_Scatter_noOut.png  used on input l
+ine 544.
+(pdftex.def)             Requested size: 180.67639pt x 144.5411pt.
+<./Figures//Osimilis_Scatter_AllYr_mod_noOut.png, id=203, 602.25pt x 481.8pt>
+File: ./Figures//Osimilis_Scatter_AllYr_mod_noOut.png Graphic file (type png)
+<use ./Figures//Osimilis_Scatter_AllYr_mod_noOut.png>
+Package pdftex.def Info: ./Figures//Osimilis_Scatter_AllYr_mod_noOut.png  used 
+on input line 545.
+(pdftex.def)             Requested size: 180.67639pt x 144.5411pt.
+<./Figures//Alongiremis_Scatter_noOut.png, id=204, 602.25pt x 481.8pt>
+File: ./Figures//Alongiremis_Scatter_noOut.png Graphic file (type png)
+<use ./Figures//Alongiremis_Scatter_noOut.png>
+Package pdftex.def Info: ./Figures//Alongiremis_Scatter_noOut.png  used on inpu
+t line 554.
+(pdftex.def)             Requested size: 180.67639pt x 144.5411pt.
+<./Figures//Alongiremis_Scatter_AllYr_mod_noOut.png, id=205, 602.25pt x 481.8pt
+>
+File: ./Figures//Alongiremis_Scatter_AllYr_mod_noOut.png Graphic file (type png
+)
+<use ./Figures//Alongiremis_Scatter_AllYr_mod_noOut.png>
+Package pdftex.def Info: ./Figures//Alongiremis_Scatter_AllYr_mod_noOut.png  us
+ed on input line 555.
+(pdftex.def)             Requested size: 180.67639pt x 144.5411pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<./Figures//Pmimus_Scatter_noOut.png, id=206, 602.25pt x 481.8pt>
+File: ./Figures//Pmimus_Scatter_noOut.png Graphic file (type png)
+<use ./Figures//Pmimus_Scatter_noOut.png>
+Package pdftex.def Info: ./Figures//Pmimus_Scatter_noOut.png  used on input lin
+e 563.
+(pdftex.def)             Requested size: 180.67639pt x 144.5411pt.
+<./Figures//Pmimus_Scatter_AllYr_mod_noOut.png, id=207, 602.25pt x 481.8pt>
+File: ./Figures//Pmimus_Scatter_AllYr_mod_noOut.png Graphic file (type png)
+<use ./Figures//Pmimus_Scatter_AllYr_mod_noOut.png>
+Package pdftex.def Info: ./Figures//Pmimus_Scatter_AllYr_mod_noOut.png  used on
+ input line 564.
+(pdftex.def)             Requested size: 180.67639pt x 144.5411pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<./Figures//Pnewmani_Scatter_AllYr_mod_noOut.png, id=208, 602.25pt x 481.8pt>
+File: ./Figures//Pnewmani_Scatter_AllYr_mod_noOut.png Graphic file (type png)
+<use ./Figures//Pnewmani_Scatter_AllYr_mod_noOut.png>
+Package pdftex.def Info: ./Figures//Pnewmani_Scatter_AllYr_mod_noOut.png  used 
+on input line 573.
+(pdftex.def)             Requested size: 180.67639pt x 144.5411pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<./Figures//Cabdominalis_Scatter_noOut.png, id=209, 602.25pt x 481.8pt>
+File: ./Figures//Cabdominalis_Scatter_noOut.png Graphic file (type png)
+<use ./Figures//Cabdominalis_Scatter_noOut.png>
+Package pdftex.def Info: ./Figures//Cabdominalis_Scatter_noOut.png  used on inp
+ut line 581.
+(pdftex.def)             Requested size: 180.67639pt x 144.5411pt.
+<./Figures//Cabdominalis_Scatter_AllYr_mod_noOut.png, id=210, 602.25pt x 481.8p
+t>
+File: ./Figures//Cabdominalis_Scatter_AllYr_mod_noOut.png Graphic file (type pn
+g)
+<use ./Figures//Cabdominalis_Scatter_AllYr_mod_noOut.png>
+Package pdftex.def Info: ./Figures//Cabdominalis_Scatter_AllYr_mod_noOut.png  u
+sed on input line 582.
+(pdftex.def)             Requested size: 180.67639pt x 144.5411pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<./Figures//Pacuspes_Scatter_noOut.png, id=211, 602.25pt x 481.8pt>
+File: ./Figures//Pacuspes_Scatter_noOut.png Graphic file (type png)
+<use ./Figures//Pacuspes_Scatter_noOut.png>
+Package pdftex.def Info: ./Figures//Pacuspes_Scatter_noOut.png  used on input l
+ine 590.
+(pdftex.def)             Requested size: 180.67639pt x 144.5411pt.
+<./Figures//Pacuspes_Scatter_AllYr_mod_noOut.png, id=212, 602.25pt x 481.8pt>
+File: ./Figures//Pacuspes_Scatter_AllYr_mod_noOut.png Graphic file (type png)
+<use ./Figures//Pacuspes_Scatter_AllYr_mod_noOut.png>
+Package pdftex.def Info: ./Figures//Pacuspes_Scatter_AllYr_mod_noOut.png  used 
+on input line 591.
+(pdftex.def)             Requested size: 180.67639pt x 144.5411pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<./Figures//Cpacificus_Scatter_noOut.png, id=213, 602.25pt x 481.8pt>
+File: ./Figures//Cpacificus_Scatter_noOut.png Graphic file (type png)
+<use ./Figures//Cpacificus_Scatter_noOut.png>
+Package pdftex.def Info: ./Figures//Cpacificus_Scatter_noOut.png  used on input
+ line 601.
+(pdftex.def)             Requested size: 180.67639pt x 144.5411pt.
+<./Figures//Cpacificus_Scatter_AllYr_mod_noOut.png, id=214, 602.25pt x 481.8pt>
+
+File: ./Figures//Cpacificus_Scatter_AllYr_mod_noOut.png Graphic file (type png)
+
+<use ./Figures//Cpacificus_Scatter_AllYr_mod_noOut.png>
+Package pdftex.def Info: ./Figures//Cpacificus_Scatter_AllYr_mod_noOut.png  use
+d on input line 602.
+(pdftex.def)             Requested size: 180.67639pt x 144.5411pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<./Figures//Paracalanus_Scatter_noOut.png, id=215, 602.25pt x 481.8pt>
+File: ./Figures//Paracalanus_Scatter_noOut.png Graphic file (type png)
+<use ./Figures//Paracalanus_Scatter_noOut.png>
+Package pdftex.def Info: ./Figures//Paracalanus_Scatter_noOut.png  used on inpu
+t line 610.
+(pdftex.def)             Requested size: 180.67639pt x 144.5411pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<./Figures//Paracalanus_Density.png, id=216, 602.25pt x 481.8pt>
+File: ./Figures//Paracalanus_Density.png Graphic file (type png)
+<use ./Figures//Paracalanus_Density.png>
+Package pdftex.def Info: ./Figures//Paracalanus_Density.png  used on input line
+ 618.
+(pdftex.def)             Requested size: 180.67639pt x 144.5411pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[33
+
+ <./Figures//Osimilis_Scatter_noOut.png> <./Figures//Osimilis_Scatter_AllYr_mod
+_noOut.png>]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 27.18335pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.18335pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-15.18335pt}.
+
+[34 <./Figures//Alongiremis_Scatter_noOut.png> <./Figures//Alongiremis_Scatter_
+AllYr_mod_noOut.png> <./Figures//Pmimus_Scatter_noOut.png> <./Figures//Pmimus_S
+catter_AllYr_mod_noOut.png>]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[35 <./Figures//Pnewmani_Scatter_AllYr_mod_noOut.png> <./Figures//Cabdominalis_
+Scatter_noOut.png> <./Figures//Cabdominalis_Scatter_AllYr_mod_noOut.png>]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 27.18335pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.18335pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-15.18335pt}.
+
+[36 <./Figures//Pacuspes_Scatter_noOut.png> <./Figures//Pacuspes_Scatter_AllYr_
+mod_noOut.png> <./Figures//Cpacificus_Scatter_noOut.png> <./Figures//Cpacificus
+_Scatter_AllYr_mod_noOut.png>]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[37 <./Figures//Paracalanus_Scatter_noOut.png> <./Figures//Paracalanus_Density.
+png>] [38
+
+] [39
+
+]
+Overfull \hbox (28.93445pt too wide) in paragraph at lines 636--636
+[][]\OT1/cmr/m/n/12 Gold, Zachary, Han Wein-rich, and Shan-non Brown (May 30, 2
+024). \OT1/cmr/m/it/12 Marinednadude/NOAA-
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[40]
+Overfull \hbox (17.79362pt too wide) in paragraph at lines 636--636
+\OT1/cmr/m/n/12 38.23. \OT1/cmr/m/sc/12 issn\OT1/cmr/m/n/12 : 1944-8007. \OT1/c
+mr/m/sc/12 doi\OT1/cmr/m/n/12 : $\OT1/cmtt/m/n/12 10 . 1029 / 2011GL049513$\OT1
+/cmr/m/n/12 . \OT1/cmr/m/sc/12 url\OT1/cmr/m/n/12 : $\OT1/cmtt/m/n/12 https : /
+ / onlinelibrary .
+ []
+
+
+Overfull \hbox (9.07787pt too wide) in paragraph at lines 636--636
+[][]\OT1/cmr/m/it/12 Intergovernmental Pol-icy Coun-cil | Olympic Coast Na-tion
+al Ma-rine Sanc-tu-ary \OT1/cmr/m/n/12 (2025).
+ []
+
+
+Overfull \hbox (12.00804pt too wide) in paragraph at lines 636--636
+\OT1/cmr/m/sc/12 url\OT1/cmr/m/n/12 : $\OT1/cmtt/m/n/12 https : / / olympiccoas
+t . noaa . gov / management / intergovernmentalpolicy .
+ []
+
+
+Overfull \hbox (10.93378pt too wide) in paragraph at lines 636--636
+\OT1/cmr/m/it/12 Re-search Let-ters \OT1/cmr/m/n/12 44.9, pp. 4214{4223. \OT1/c
+mr/m/sc/12 issn\OT1/cmr/m/n/12 : 1944-8007. \OT1/cmr/m/sc/12 doi\OT1/cmr/m/n/12
+ : $\OT1/cmtt/m/n/12 10 . 1002 / 2017GL073613$\OT1/cmr/m/n/12 .
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[41]
+Overfull \hbox (1.6462pt too wide) in paragraph at lines 636--636
+[][]\OT1/cmr/m/n/12 L'Heureux, Michelle (May 5, 2014). \OT1/cmr/m/it/12 What Is
+ the El Ni~no{Southern Os-cil-la-tion (ENSO)
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[42]
+Overfull \hbox (10.08003pt too wide) in paragraph at lines 636--636
+\OT1/cmtt/m/n/12 searchText = ocean + hypoxia & searchUri = %2Faction % 2FdoBas
+icSearch % 3FQuery %
+ []
+
+
+Overfull \hbox (4.40503pt too wide) in paragraph at lines 636--636
+\OT1/cmtt/m/n/12 2Fcontrol & refreqid = fastly -[] default % 3Afe4bd87fbb5a4d45
+8696e62c77054c6f$
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[43]
+Overfull \hbox (25.21765pt too wide) in paragraph at lines 636--636
+\OT1/cmr/m/n/12 0022-0981. \OT1/cmr/m/sc/12 doi\OT1/cmr/m/n/12 : $\OT1/cmtt/m/n
+/12 10 . 1016 / j . jembe . 2005 . 07 . 004$\OT1/cmr/m/n/12 . \OT1/cmr/m/sc/12 
+url\OT1/cmr/m/n/12 : $\OT1/cmtt/m/n/12 https : / / www . sciencedirect .
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[44]
+Overfull \hbox (9.9835pt too wide) in paragraph at lines 636--636
+\OT1/cmr/m/n/12 Global Oceanic Oxy-gen Con-tent dur-ing the Past Five Decades''
+. In: \OT1/cmr/m/it/12 Na-ture \OT1/cmr/m/n/12 542.7641,
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[45]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[46] (./thesis.aux)
+
+LaTeX Warning: There were undefined references.
+
+Package logreq Info: Writing requests to 'thesis.run.xml'.
+\openout1 = `thesis.run.xml'.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 14391 strings out of 478268
+ 278520 string characters out of 5846348
+ 1011775 words of memory out of 5000000
+ 32429 multiletter control sequences out of 15000+600000
+ 480684 words of font info for 75 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 60i,11n,80p,3467b,2350s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
+}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
+</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
+/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></u
+sr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr
+/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/lo
+cal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/loc
+al/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/loca
+l/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local
+/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/
+texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/t
+exlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on thesis.pdf (62 pages, 10637857 bytes).
+PDF statistics:
+ 317 PDF objects out of 1000 (max. 8388607)
+ 177 compressed objects within 2 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 226 words of extra memory for PDF output out of 10000 (max. 10000000)
+

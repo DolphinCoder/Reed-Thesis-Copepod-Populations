@@ -12,6 +12,7 @@
 \usepackage{hanging} % for custom bibliography in r package appendix
 \usepackage{caption}
 \usepackage{wrapfig}
+\usepackage[dvipsnames]{xcolor} % i cannot abide that neon green broski
 
 % The position parameter has eight possible values:
 % r 	R 	right side of the text
@@ -197,27 +198,24 @@ The copepod species most commonly found in OCNMS are classified as Northern (col
 			\toprule
 			Species &  Group \\ 
 			\midrule 
-			\textit{Acartia clausii} 				& 	Cold-water 	 \\ 
-			\textit{Acartia longiremis}	& Cold-water  \\
-			\textit{Calanus marshallae}	& Cold-water  \\
-			\textit{Centropages abdominales}	& Cold-water  \\
-			\textit{Microcalanus pusillus}	& Cold-water  \\
-			\textit{Pseudocalanus mimus} & Cold-water  \\
-			\textit{Pseudocalanus acuspes} & Cold-water  \\
-			\textit{Pseudocalanus spp.}	& Cold-water  \\
+			\textcolor{RoyalBlue}{\textit{Acartia clausii}} & 	\textcolor{RoyalBlue}{Cold-water} 	 \\ 
+			\textcolor{RoyalBlue}{\textit{Acartia longiremis}}	& \textcolor{RoyalBlue}{Cold-water}  \\
+			\textcolor{RoyalBlue}{\textit{Calanus marshallae}}	& \textcolor{RoyalBlue}{Cold-water}  \\
+			\textcolor{RoyalBlue}{\textit{Centropages abdominales}}	& \textcolor{RoyalBlue}{Cold-water}  \\
+			\textcolor{RoyalBlue}{\textit{Microcalanus pusillus}}	& \textcolor{RoyalBlue}{Cold-water}  \\
+			\textcolor{RoyalBlue}{\textit{Pseudocalanus mimus}} & \textcolor{RoyalBlue}{Cold-water}  \\
+			\textcolor{RoyalBlue}{\textit{Pseudocalanus acuspes}} & \textcolor{RoyalBlue}{Cold-water}  \\
+			\textcolor{RoyalBlue}{\textit{Pseudocalanus spp.}} & \textcolor{RoyalBlue}{Cold-water}  \\
 			\textit{Oithona similis}	& Year-round  \\
-			\textit{Acartia tonsa}	& Warm-water  \\
-			\textit{Calanus pacificus}	& Warm-water  \\
-			\textit{Calocalanus spp.}	& Warm-water  \\
-			\textit{Calocalanus styliremis}	& Warm-water  \\
-			\textit{Clausocalanus spp.}	& Warm-water  \\
-			\textit{Clausocalanus parapergens} & Warm-water  \\
-			\textit{Corycaeus anglicus}	& Warm-water  \\
-			\textit{Ctenocalanus vanus}	& Warm-water  \\
-			\textit{Mesocalanus tenuicornis}	& Warm-water  \\
-			\textit{Metridia pacifica}	& Warm-water  \\
-			\textit{Paracalanus spp.}	& Warm-water  \\
-			\textit{Paracalanus parvus}	& Warm-water  \\
+			\textcolor{RedOrange}{\textit{Acartia tonsa}}	& \textcolor{RedOrange}{Warm-water}  \\
+			\textcolor{RedOrange}{\textit{Calanus pacificus}}	& \textcolor{RedOrange}{Warm-water}  \\
+			\textcolor{RedOrange}{\textit{Calocalanus spp.}}	& \textcolor{RedOrange}{Warm-water}  \\
+			\textcolor{RedOrange}{\textit{Clausocalanus spp.}} & \textcolor{RedOrange}{Warm-water}  \\
+			\textcolor{RedOrange}{\textit{Clausocalanus parapergens}} & \textcolor{RedOrange}{Warm-water}  \\
+			\textcolor{RedOrange}{\textit{Ctenocalanus vanus}}  & \textcolor{RedOrange}{Warm-water}  \\
+			\textcolor{RedOrange}{\textit{Metridia pacifica}}	& \textcolor{RedOrange}{Warm-water}  \\
+			\textcolor{RedOrange}{\textit{Paracalanus spp.}}	& \textcolor{RedOrange}{Warm-water}  \\
+			\textcolor{RedOrange}{\textit{Paracalanus parvus}} & \textcolor{RedOrange}{Warm-water}  \\
 			\bottomrule 
 		\end{tabular}
 		% square brackets --> Table of Tables. curly braces --> caption over the table.
@@ -380,31 +378,29 @@ Studies of the effects of hypoxia on marine organisms use a variety of lab and f
 				\midrule
 				Species &  Group & 2021-22 & 2021-23 & 2021-22 & 2021-23  \\ 
 				\midrule 
-				\textcolor{blue}{\textit{Acartia longiremis}}	& Cold-water & 61 & 86 & Positive* & Neutral  \\
-				\textit{Pseudocalanus mimus} & Cold-water & 28  & 46 & Positive* & Negative*  \\
-				\textit{Pseudocalanus newmani}	& Cold-water & 20  & 25 & Neutral & Neutral* \\
-				\textit{Centropages abdominales} & Cold-water & 6 & 7 & Positive & Neutral   \\
-				\textit{Pseudocalanus acuspes}  & Cold-water & 3  & 5 & Positive & Neutral  \\
+				\textcolor{RoyalBlue}{\textit{Acartia longiremis}}	& Cold-water & 61 & 86 & \textcolor{ForestGreen}{Positive*} & Neutral  \\
+				\textcolor{RoyalBlue}{\textit{Pseudocalanus mimus}} & Cold-water & 28  & 46 & \textcolor{ForestGreen}{Positive*} & \textcolor{BrickRed}{Negative*}  \\
+				\textcolor{RoyalBlue}{\textit{Pseudocalanus newmani}}	& Cold-water & 20  & 25 & Neutral & Neutral* \\
+				\textcolor{RoyalBlue}{\textit{Centropages abdominales}} & Cold-water & 6 & 7 & \textcolor{ForestGreen}{Positive} & Neutral   \\
+				\textcolor{RoyalBlue}{\textit{Pseudocalanus acuspes}}  & Cold-water & 3  & 5 & \textcolor{ForestGreen}{Positive} & Neutral  \\
 				\textit{Oithona similis} & Year-round & 11  & 11 & Negative* & Neutral \\
-				\textcolor{orange}{\textit{Paracalanus} sp. C. AC-2013} & Warm-water & 33  & 33 & Neutral & Positive*  \\
-				\textit{Calanus pacificus}	& Warm-water & 5  & 5 & Negative & Negative  \\
+				\textcolor{RedOrange}{\textit{Paracalanus} sp. C. AC-2013} & Warm-water & 33  & 33 & Neutral & \textcolor{ForestGreen}{Positive*}  \\
+				\textcolor{RedOrange}{\textit{Calanus pacificus}}	& Warm-water & 5  & 5 & \textcolor{BrickRed}{Negative} & \textcolor{BrickRed}{Negative}  \\
 				\bottomrule 
 			\end{tabular}
 			\label{ZOIBtab}
-			\caption[Zero-inflated beta regression results]{Trends of zero-inflated beta regressions relating dissolved oxygen concentration to eDNA index for different species of copepods. Regressions were computed using the TH042 mooring data from 2021-22, and again using LiveOcean model data from 2021-23, so both are shown. I considered trends to be significant (marked with "*" in this table) if their 95\% confidence interval showed an upward trend and did not include zero for every DO value. See Appendix \ref{chap:appZOIB} for plotted regression results. Cold-water copepods are northern copepods, warm-water copepods are southern.}  
+			\caption[Zero-inflated beta regression results]{Trends of zero-inflated beta regressions relating dissolved oxygen concentration to eDNA index for different species of copepods. Regressions were computed using the TH042 mooring data from 2021-22, and again using LiveOcean model data from 2021-23, so both are shown. I considered trends to be significant (marked with "*" in this table) if their 95\% confidence interval showed an upward trend and did not contain zero at some DO value. See Appendix \ref{chap:appZOIB} for plotted regression results. Cold-water copepods (blue) are northern copepods, warm-water copepods (orange) are southern.}  
 	\end{table}
 	
 	\section{Dissolved Oxygen and Species Prevalence} 
 	
-	The data suggests that northern copepods have a comparatively lower tolerance to hypoxia. Southern copepods and \textit{O. similis}, which is present year-round, were detected proportionally more at dissolved oxygen levels below 0.9 mg/L (see Figure \ref{BarSeason}a). 
-	However, the northern copepod \textit{P. newmani} had fewer detections at high dissolved oxygen levels according to a binomial regression comparing LiveOcean modeled DO to species presence, but the effect was not significant (-0.30, df = 2, 89, 2, p = 0.36). \textit{P. newmani} did have significantly fewer detections at high dissolved oxygen levels when the binomial regresion was calculated using the TH042 mooring data for all three years (-0.64, df = 2, 63, 2, p = 0.03), see Figure \ref{PnewmaniBinomDensity}). 
-	\textit{P. newmani} also had a relatively consistent eDNA index across DO levels according to a zero-inflated beta regression. 
+	The data suggests that northern copepods have a comparatively lower tolerance to hypoxia. Southern copepods and \textit{O. similis}, which is present year-round, were detected proportionally more at dissolved oxygen levels below 0.9 mg/L (see Figure \ref{BarSeason}a). However, the northern copepod \textit{P. newmani} had fewer detections at high dissolved oxygen levels according to a binomial regression comparing LiveOcean modeled DO to species presence, but the effect was not significant (-0.30, df = 2, 89, 2, p = 0.36). \textit{P. newmani} did have significantly fewer detections at high dissolved oxygen levels when the binomial regresion was calculated using the TH042 mooring data for all three years (-0.64, df = 2, 63, 2, p = 0.03), see Figure \ref{PnewmaniBinomDensity}). \textit{P. newmani} also had a relatively consistent eDNA index across DO levels according to a zero-inflated beta regression, so while its prevalence was higher in hypoxic conditions, its abundance was not (See Appendix \ref{chap:appZOIB}). 
 	
 	\begin{figure}[!h]
 		\begin{center}
 			a. \includegraphics[scale=0.3]{Pnewmani_binom_sig_neg}
 			b. \includegraphics[scale=0.3]{Pnewmani_Density} \\
-			\caption[\textit{P. newmani} binomial regression and density plot]{\footnotesize{(a) \textit{P. newmani} binomial regression comparing species presence to dissolved oxygen. \textit{P. newmani} was detected significantly less frequently at higher dissolved oxygen levels. (b) Density plot of \textit{P. newmani} detections. Each pixel represents a range of dissolved oxygen and temperature values, and the shade of each pixel represents the proportion of eDNA samples in that environmental range in which \textit{P. newmani} was detected. Dissolved oxygen data comes from the TH042 mooring in 2021-22.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
+			\caption[\textit{P. newmani} binomial regression and density plot]{\footnotesize{Dissolved oxygen data from the TH042 mooring in 2021-22 compared to \textit{P. newmani} detections. (a) \textit{P. newmani} binomial regression comparing species presence to dissolved oxygen. \textit{P. newmani} was detected significantly less frequently at higher dissolved oxygen levels. (b) Density plot of \textit{P. newmani} detections. Each pixel represents a range of dissolved oxygen and temperature values, and the shade of each pixel represents the proportion of eDNA samples in that environmental range in which \textit{P. newmani} was detected. \textit{P. newmani} was primarily detected below 2.5 mg/L DO.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
 			\label{PnewmaniBinomDensity}
 		\end{center}
 	\end{figure} 
@@ -413,26 +409,48 @@ Studies of the effects of hypoxia on marine organisms use a variety of lab and f
 		\begin{center}
 			a. \includegraphics[scale=0.5]{Bar_Season} \\
 			b. \includegraphics[scale=0.5]{Bar_Size}
-			\caption[Proportion of Detections Below Hypoxic Thresholds]{\footnotesize{A comparison of different copepod groups and their rates of occurence below certain hypoxic thresholds. Red bars indicate the proportion of detections of that species that were in conditions below 0.66 mg/L of oxygen, and orange bars indicate the proportion of detections of that species that were in conditions below 0.9 mg/L of oxygen. Numbers above bars indicate total number of detections. In plot (a) copepods are also labeled by seasonal groupings. In plot (b), copepods are also labeled by approximate size. Species with a maximum size of less than 1.5 mm are Small, maximum size 1.5-2.5 mm is Medium, maximum size 2.5-4 mm is Large, and maximum size ${>}$4 mm is Huge \autocite{WoRMSWorldRegister}}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
+			\caption[Proportion of Detections Below Hypoxic Thresholds]{\footnotesize{A comparison of different copepod groups and their rates of occurence below certain hypoxic thresholds. Red bars indicate the proportion of detections of that species that were in conditions below 0.66 mg/L of oxygen, and orange bars indicate the proportion of detections of that species that were in conditions below 0.9 mg/L of oxygen. Numbers above bars are the total number of detections of that species. In plot (a) copepods are labeled by seasonal groupings. In plot (b), copepods are labeled by size category. Species with a maximum size of less than 1.5 mm are Small, maximum size 1.5-2.5 mm is Medium, maximum size 2.5-4 mm is Large, and maximum size ${>}$4 mm is Huge \autocite{WoRMSWorldRegister}}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
 			\label{BarSeason}
 		\end{center}
 	\end{figure}    
 	
+	% Species, north/south color coded, model results (binomial coefficient and p-value), directionality (color-coded)
+	\begin{table}[!h] 
+		\begin{tabular}{l | l | l l | l}
+			\toprule
+			Species & Group & \multicolumn{2}{|c|}{Binomial Regression} & Beta Regression \tabularnewline
+			\midrule
+			Species &  Group & Coefficient & P-value & (LiveOcean Data)  \\ 
+			\midrule 
+			\textcolor{RoyalBlue}{\textit{Acartia longiremis}}	& Cold-water & -0.03 & 0.9 & Neutral  \\
+			\textcolor{RoyalBlue}{\textit{Pseudocalanus mimus}} & Cold-water & 0.07  & 0.5 & \textcolor{BrickRed}{Negative*}  \\
+			\textcolor{RoyalBlue}{\textit{Pseudocalanus newmani}}	& Cold-water & -0.3  & 0.3 &  Neutral* \\
+			\textcolor{RoyalBlue}{\textit{Centropages abdominales}} & Cold-water & -0.005 & 0.9 & Neutral   \\
+			\textcolor{RoyalBlue}{\textit{Pseudocalanus acuspes}}  & Cold-water & 1.48  & 0.2 & Neutral  \\
+			\textit{Oithona similis} & Year-round & 0.68  & 0.4 & Neutral \\
+			\textcolor{RedOrange}{\textit{Paracalanus} sp. C. AC-2013} & Warm-water & 0.6  & \textcolor{ForestGreen}{0.03} & \textcolor{ForestGreen}{Positive*}  \\
+			\textcolor{RedOrange}{\textit{Calanus pacificus}}	& Warm-water & -0.15  & \textcolor{ForestGreen}{0.044} & \textcolor{BrickRed}{Negative}  \\
+			\bottomrule 
+		\end{tabular}
+		\label{Resultstab}
+		\caption[Regression results]{Trends of binomial regressions relating dissolved oxygen concentration to species detections and zero-inflated beta regressions relating dissolved oxygen concentration to eDNA index for different species of copepods. Regressions were computed using LiveOcean model data from 2021-23. I considered trends to be significant (marked with "*" in this table) if their 95\% confidence interval showed an upward trend and did not contain zero at some DO value. See Appendix \ref{chap:appZOIB} for plotted regression results. Cold-water copepods (blue) are northern copepods, warm-water copepods (orange) are southern.}  
+	\end{table}
+	
 	% Size 
-	Small copepod species showed a higher hypoxia tolerance than large copepod species in this study. Large and huge copepods (\textit{C. pacificus} and \textit{M. pacifica}) were rarely detected below 0.9 mg/L DO, although \textit{C. pacificus}, the only huge (larger than 4 mm) copepod in the dataset, was detected once below 0.6 mg/L DO with a high eDNA index. Medium copepods were rarely detected below 0.9 mg/L DO compared to small copepods (See Figure \ref{BarSeason}b). Small copepods were frequently detected below 0.6 mg/L DO, especially \textit{A. longiremis} and \textit{Paracalanus} sp. (see Figure \ref{BarSeason}b). \textit{O. similis}, a small copepod, was present below 0.6 mg/L DO, but generally had a higher eDNA index at higher values of DO.
+	Small copepod species showed a higher hypoxia tolerance than large copepod species in this study. Large and huge copepods (\textit{C. pacificus} and \textit{M. pacifica}) were rarely detected below 0.9 mg/L DO, although \textit{C. pacificus}, the only huge (larger than 4 mm) copepod in the dataset, was detected once below 0.6 mg/L DO with a high eDNA index (see Appendix \ref{chap:appPlots}). Medium copepods were rarely detected below 0.9 mg/L DO compared to small copepods (See Figure \ref{BarSeason}b). Small copepods were frequently detected below 0.6 mg/L DO, especially \textit{A. longiremis} and \textit{Paracalanus} sp. (see Figure \ref{BarSeason}b). \textit{O. similis}, a small copepod, was present below 0.6 mg/L DO, but generally had a higher eDNA index at higher values of DO (see Appendix \ref{chap:appPlots}).
 	
 	
 	\section{Temperature}
 	%Temperatures
 	
-	During this study, northern copepods were generally detected at lower temperatures than southern copepods. Most of the northern copepods in this study were not detected at temperatures above 8 ºC, except for \textit{P. mimus}, which was detected above 8 ºC but was not detected at the highest temperature in the dataset, 12.2 ºC. The southern copepods were primarily detected above 7.5 ºC, and the southern copepod \textit{Paracalanus} sp. C AC-2013 had higher eDNA index values measured above 8 ºC, despite being detected many times below 8 ºC. 
+	During this study, northern copepods were generally detected at lower temperatures than southern copepods. Most of the northern copepods in this study were not detected at temperatures above 8 ºC, except for \textit{P. mimus}, which was detected above 8 ºC but was not detected at the highest temperature in the dataset, 12.2 ºC. Southern copepods were primarily detected above 7.5 ºC, and the southern copepod \textit{Paracalanus} sp. C AC-2013 had higher eDNA index values measured above 8 ºC, despite being detected many times below 8 ºC (see Figure \ref{ParacalanusScatter}). 
 	
 	
 	\begin{figure}[!h]
 		\begin{center}
 			a. \includegraphics[scale=0.3]{Paracalanus_Scatter_AllYr_mod_noOut} 
 			b. \includegraphics[scale=0.3]{Paracalanus_Density_AllYr_mod} 
-			\caption[\textit{Paracalanus} sp. C AC-2013 scatterplot and density plot]{\footnotesize{(a) Scatterplot of dissolved oxygen (mg/L) and temperature (Celsius) for each environmental DNA sampling time, with \textit{Paracalanus} sp. C AC-2013 scatterplot detections circled in black. Color of dots represents eDNA index, a normalized measure of abundance that can compare abundance within a species. Yellow, uncircled dots represent sampling dates when \textit{Paracalanus} sp. C AC-2013 scatterplot was not detected. (b) Density plot of \textit{Paracalanus} sp. C AC-2013 detections. Each pixel represents a range of dissolved oxygen and temperature values, and the shade of each pixel represents the proportion of eDNA samples in that environmental range in which \textit{Paracalanus} sp. C AC-2013 was detected. These plots use LiveOcean model data from 2021-23.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
+			\caption[\textit{Paracalanus} sp. C AC-2013 scatterplot and density plot]{\footnotesize{\textit{Paracalanus} sp. C AC-2013 abundance and prevalence plots using LiveOcean model data from 2021-23.(a) Scatterplot of dissolved oxygen (mg/L) and temperature (Celsius) for each environmental DNA sampling time, with \textit{Paracalanus} sp. C AC-2013 scatterplot detections circled in black. Color represents eDNA index, a normalized measure of abundance that can compare abundance within a species. Yellow, uncircled dots represent sampling dates when \textit{Paracalanus} sp. C AC-2013 was not detected. (b) Density plot of \textit{Paracalanus} sp. C AC-2013 detections. Each pixel represents a range of dissolved oxygen and temperature values, and the shade of each pixel represents the proportion of eDNA samples in that environmental range in which \textit{Paracalanus} sp. C AC-2013 was detected. }} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
 			\label{ParacalanusScatter}
 		\end{center}
 	\end{figure} 
@@ -440,19 +458,19 @@ Studies of the effects of hypoxia on marine organisms use a variety of lab and f
 	
 	\chapter{Discussion}
 	
-	% eDNA can detect species with relatively high spatial resolution, from as little as 60 meters in a kelp forest \autocite{Port2016} to 800 meters in deep-water habitats in Maizuru Bay, Japan \autocite{Yamamoto2017}, because eDNA levels drop below the detection limit soon after being released via diffusion and decay. However, our understanding of how far eDNA can migrate in the environment is still relatively limited, and eDNA dispersal and decay can be affected by a number of environmental factors \autocite{Cristescu2018}. 
+	Most of the copepods in this dataset with sufficiently large sample sizes were less abundant at lower dissolved oxygen levels, indicating that the levels of hypoxia in OCNMS during this study period were low enough to negatively impact copepod populations, regardless of whether the copepods were northern or southern. My results demonstrate that there was substantial inter-specific variability in whether copepod abundance changed with dissolved oxygen. Northern copepods were generally more abundant at higher dissolved oxygen levels. Only one southern copepod, \textit{Paracalanus} sp. C AC-2013, was detected more than 5 times in the dataset, and so it is difficult to draw overall conclusions about the hypoxia sensitivity of southern copepods. 
 	
-	My results demonstrate that there was substantial inter-specific variability in whether abundance changed with dissolved oxygen. While very few species had statistically significant relationships between dissolved oxygen and abundance, some species exhibited a trend towards being more abundant at low dissolved oxygen, while others were more abundant at high dissolved oxygen. 
+	The only copepod with more than 5 detections to have abundance negatively correlated with dissolved oxygen was \textit{O. similis}, which is generally considered neither northern nor southern and is abundant year-round off the coasts of Oregon and Washington. \textit{O. similis} was detected 11 times in the dataset, so future study is warranted before drawing conclusions, but it is possible that \textit{O. similis} has a higher tolerance to hypoxia than other copepods, and its abundance increases due to decreased competition during hypoxic events. The genus \textit{Oithona} has been used as an indicator of low oxygen conditions \autocite{Richard2001} and is known to have high hypoxia tolerance \autocite{Roman1993}, so this result is unsurprising. 
 	
-	Northern copepods were generally more abundant at higher dissolved oxygen levels, which is expected for most species. Only one southern copepod, \textit{Paracalanus} sp. C AC-2013, was detected more than 5 times in the dataset, and so it is difficult to draw overall conclusions about the hypoxia sensitivity of southern copepods. Overall, most of the copepods in this dataset with sufficiently large sample sizes were less abundant at lower dissolved oxygen levels, indicating that the levels of hypoxia in OCNMS during this study period were low enough to negatively impact copepod populations, regardless of whether the copepods were northern or southern. The only copepod with more than 5 detections to have abundance negatively correlated with dissolved oxygen was \textit{O. similis}, which is generally considered neither northern nor southern and is abundant year-round off the coasts of Oregon and Washington. \textit{O. similis} was detected 11 times in the dataset, so future study is warranted before drawing conclusions, but it is possible that \textit{O. similis} has a higher tolerance to hypoxia than other copepods, and its abundance increases due to decreased competition during hypoxic events. The genus \textit{Oithona} has been used as an indicator of low oxygen conditions \autocite{Richard2001} and is known to have high hypoxia tolerance \autocite{Roman1993}, so this result is unsurprising. 
+	The size patterns found in this study are generally consistent with the existing literature on copepod hypoxia tolerance. Previous studies have found that smaller copepods are more hypoxia tolerant, which is likely due to their larger surface area to volume ratio because copepods take up oxygen all over their bodies \autocite{Portner2010, Roman2019}. This study found that most smaller copepods were detected below 0.6 mg/L of oxygen, while several medium and large copepods were not. This supports the theory that smaller copepods are more hypoxia-tolerant and indicates that eDNA index can be a useful tool for investigating copepod environmental tolerance. However, this result should be interpreted with caution, as smaller copepods were detected many more times in this dataset than medium or large copepods. Copepod size depends on sex and age, which eDNA cannot discern, but we can still consider smaller and larger species in aggregate based on their known size ranges. 
 	
-	The size patterns found in this study are generally consistent with the existing literature on copepod hypoxia tolerance. Previous studies have found that smaller copepods are more hypoxia tolerant, which is likely due to their larger surface area to volume ratio because copepods take up oxygen all over their bodies \autocite{Portner2010, Roman2019}. This study found that most smaller copepods were detected below 0.6 mg/L of oxygen, while several medium and large copepods were not. This supports the theory that smaller copepods are more hypoxia-tolerant and indicates that eDNA index can be a useful tool for investigating copepod environmental tolerance. However, this result should be interpreted with caution, as smaller copepods were overall detected more in this dataset than medium or large copepods. Copepod size depends on sex and age, which eDNA cannot discern, but we can still consider smaller and larger species in aggregate based on their known size ranges. 
+	Observed patterns of detection and abundance at different temperatures aligned with the expected difference between northern and southern copepod ranges. Northern copepods were generally not detected above 8 ºC, and southern copepods were primarily detected above 7.5 ºC. Northern copepods are known to inhabit cold water, and southern copepods are known to inhabit warm water, so this aligns with existing knowledge of these two groups of copepods. 
 	
-	Observed patterns of detection and abundance at different temperatures aligned with the expected difference between northern and southern copepod ranges. Northern copepods were generally not detected above 8 ºC and southern copepods were primarily detected above 7.5 ºC. Northern copepods are known to be cold-water copepods, and southern copepods are known to be warm-water copepods, so this aligns with existing knowledge of these two groups of copepods. 
+	It is worth noting that the entire period of this study, 2021-2023, took place during negative Pacific Decadal Oscillation (PDO) and negative Oceanic Niño Index (ONI) years, meaning that this study took place in relatively cold conditions. The Pacific Decadal Oscillation (PDO) is a climatological index used to describe broad shifts in the Pacific Ocean and the atmosphere above it. Cooler periods are described as negative PDO periods, and warm periods are described as positive PDO years. ONI is an index used to describe the El Niño Southern Oscillation (ENSO), a climate pattern in the tropical Pacific that changes every two to seven years. ONI is the three-month running mean of sea surface temperature anomalies in a specific region of the Pacific Ocean \autocite{ClimatePredictionCenterInternetTeam}. During El Niño events, characterized by a positive ONI, the central and eastern tropical Pacific Ocean warm and the west coast of North America warms \autocite{LHeureux2014}. During positive PDO or positive ONI (El Niño events) periods, copepod species richness on the west coast of North America is high \autocite{NOAAFisheries2024}. Because of this, we expect lower species richness during the period of this study than during positive ENSO years, so some species may be missing from this study. In the future, the automated eDNA sampler in OCNMS will hopefully collect data during a positive ENSO year and acquire more data, improving the generalizability of any studies conducted using this data. 
 	
-	It is worth noting that the entire period of this study, 2021-2023, took place during negative Pacific Decadal Oscillation (PDO) and negative Oceanic Niño Index (ONI) years, meaning that overall our study period took place in relatively cold conditions. The Pacific Decadal Oscillation (PDO) is a climatological index used to describe broad shifts in the Pacific Ocean and the atmosphere above it. Cooler periods are described as negative PDO periods, and warm periods are described as positive PDO years. ONI is an index used to describe the El Niño Southern Oscillation (ENSO), a climate pattern in the tropical Pacific that changes every two to seven years. ENSO divided into El Niño, La Niña, and neutral phases. ONI is the three-month running mean of sea surface temperature anomalies in a specific region of the Pacific Ocean \autocite{ClimatePredictionCenterInternetTeam}. During El Niño events, characterized by a positive ONI, the central and eastern tropical Pacific Ocean warm and the west coast of North America warms \autocite{LHeureux2014}. During positive PDO or positive ONI (El Niño events) periods, copepod species richness on the west coast of North America is high \autocite{NOAAFisheries2024}. Because of this, we expect lower species richness during the period of this study than during positive ENSO years, so some species may be missing from this study. 
+	While eDNA index is not a perfect metric of abundance, it is still useful for broad studies such as this one when it is the only data available. eDNA can detect species with relatively high spatial resolution, from as little as 60 meters in a kelp forest \autocite{Port2016} to 800 meters in deep-water habitats in Maizuru Bay, Japan \autocite{Yamamoto2017}, because eDNA levels drop below the detection limit soon after being released via diffusion and decay. However, our understanding of how far eDNA can migrate in the environment is still relatively limited, and eDNA dispersal and decay can be affected by a number of environmental factors \autocite{Cristescu2018}. 
 	
-	In the future, the automated eDNA sampler in OCNMS will hopefully collect data during a positive ENSO year and acquire more data, improving the generalizability of any studies conducted using this data. While eDNA is not a perfect metric of abundance, it is still useful for broad studies such as this one when it is the only data available. Copepod populations do not exist in isolation, and future studies should also consider the taxonomic effects of hypoxia. For example, if fish that eat copepods are more sensitive to hypoxia than the copepods themselves, decreased predation due to fish kills may lead to increased copepod populations at certain dissolved oxygen levels. If copepods are more sensitive to hypoxia than fish, decreased prey availability may impact fish at levels of hypoxia that would otherwise be tolerable. Crustaceans and fish are both known to be highly sensitive to hypoxia compared to other taxonomic groups, so future studies into copepod hypoxia tolerance and copepod predator hypoxia tolerance will be important and should take individual species tolerances into account.
+	Copepod populations do not exist in isolation, and future studies should also consider the taxonomic effects of hypoxia. For example, if fish that eat copepods are more sensitive to hypoxia than the copepods themselves, decreased predation due to fish kills may lead to increased copepod populations at certain dissolved oxygen levels. If copepods are more sensitive to hypoxia than the fish that eat them, decreased prey availability may impact fish at levels of hypoxia that would otherwise be tolerable. Crustaceans and fish are both known to be highly sensitive to hypoxia compared to other taxonomic groups, so future studies into copepod hypoxia tolerance and copepod predator hypoxia tolerance will be important and should take individual species tolerances into account.
    
    	\appendix
    \chapter{Software and Data Availability}\label{chap:appR}

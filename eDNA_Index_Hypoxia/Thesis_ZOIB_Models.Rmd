@@ -54,7 +54,7 @@ for (i in 1:length(dfsplit)) { # For each species:
     species <- dfsplit[[i]]$Species[1] # Species name 
     sp_coeff <- paste(species, sep = "_", "coeffs") # name of output df
     sp_aic <- paste(species, sep = "_", "AIC")
-    title <- paste(species, sep = " ", "eDNA Index vs DO") # Plot title
+    title <- paste(species) # Plot title
     print(title)
     
     data <- dfsplit[[i]] %>%
@@ -94,12 +94,13 @@ for (i in 1:length(dfsplit)) { # For each species:
       ggplot(aes(x = DO, y = eDNA_index)) +
       geom_point(data = dataF) +
       stat_lineribbon(aes(y = .epred), alpha = 0.5) + # from tidybayes, shows the summary of draws
-      labs(title = title, caption = "Conditional Means?") +
+      labs(title = title, caption = "Conditional Means, TH042 Mooring") +
       theme_bw() +
       theme(axis.text = element_text(size = 35, color = "black"),
         axis.text.x = element_text(size = 25, hjust = 1, color = "black"),
         axis.title = element_text(size = 35, color = "black"),
         plot.title = element_text(size = 25),
+        plot.caption = element_text(size = 20),
         legend.title = element_text(size = 35),
         legend.text = element_text(size = 35))
     

@@ -1,11 +1,11 @@
 # Fdb version 3
-["biber thesis"] 1746082439 "thesis.bcf" "thesis.bbl" "thesis" 1746082850
-  "thesis.bcf" 1746082849 119988 53158b22a9d5d9dc69c1f04a87f582d0 "pdflatex"
+["biber thesis"] 1746084159 "thesis.bcf" "thesis.bbl" "thesis" 1746086473
+  "thesis.bcf" 1746086472 120318 a8faa846e1641728f469c266c360701b "pdflatex"
   "thesis.bib" 1746079288 290791 c3e9d001092dd0d2c68a8806fd5eee71 ""
   (generated)
   "thesis.bbl"
   "thesis.blg"
-["pdflatex"] 1746082798 "thesis.tex" "thesis.pdf" "thesis" 1746082850
+["pdflatex"] 1746086418 "thesis.tex" "thesis.pdf" "thesis" 1746086473
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
@@ -93,6 +93,7 @@
   "/usr/local/texlive/2022/texmf-dist/tex/latex/graphics-cfg/color.cfg" 1459978653 1213 620bba36b25224fa9b7e1ccb4ecb76fd ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/graphics-cfg/graphics.cfg" 1465944070 1224 978390e9c2234eab29404bc21b268d1e ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/graphics-def/pdftex.def" 1601931164 19103 48d29b6e2a64cb717117ef65f107b404 ""
+  "/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/dvipsnam.def" 1622581934 4995 8040f614c8de8318a0b5b2dea8a3fcef ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/graphics.sty" 1622581934 18399 7e40f80366dffb22c0e7b70517db5cb4 ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/graphicx.sty" 1636758526 7996 a8fb260d598dcaf305a7ae7b9c3e3229 ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/keyval.sty" 1622581934 2671 4de6781a30211fe0ea4c672e4a2a8166 ""
@@ -161,13 +162,13 @@
   "Figures//Timeseries_example.png" 1745648098 429028 b3d4e1d14723a6026604ab000cd536d4 ""
   "Figures//Timeseries_example_Mod.png" 1745648083 490021 44fe47c1c23fc3a9519252955ffe30e2 ""
   "reedthesis.cls" 1701998296 8293 480a01b2533a1585368760477c470aa0 ""
-  "thesis.aux" 1746082797 28306 71c81eb99806b67204257e126336fd18 "pdflatex"
-  "thesis.bbl" 1746082446 330273 955e6ffac8f5a0aba4767ec7cc89f5b7 "biber thesis"
-  "thesis.lof" 1746082797 2372 0c1d81a875fc1df73412d9214e3819ba "pdflatex"
-  "thesis.lot" 1746082797 317 bb975893bc95fbf5218d84a6742ce561 "pdflatex"
-  "thesis.run.xml" 1746082849 2321 df3cdedce9f3010e151cd2ba2ab2b4e5 "pdflatex"
-  "thesis.tex" 1746082791 78251 52e552423c333b2574d4454d650c0fd7 ""
-  "thesis.toc" 1746082797 1758 3503d29773b1d107cdfbf2d465e5c279 "pdflatex"
+  "thesis.aux" 1746086472 29042 e2a7ce0e13bc78fe4b494fd6a8b0ae9d "pdflatex"
+  "thesis.bbl" 1746084168 343214 f1969827ac4953fe9e447bcd1f57c441 "biber thesis"
+  "thesis.lof" 1746086472 2372 d5d65e55b682837d37c9eaf3e07f9eb7 "pdflatex"
+  "thesis.lot" 1746086472 399 4e78b6b9582601e160cfd7552559b30f "pdflatex"
+  "thesis.run.xml" 1746086472 2321 458b9b681a7a250e70abb2a9ef71a45b "pdflatex"
+  "thesis.tex" 1746086417 81401 5727d7a6d5af434a621f0e75597f0548 ""
+  "thesis.toc" 1746086472 1758 d7dc1af6347e7be753b9dc88e98d60ff "pdflatex"
   (generated)
   "thesis.aux"
   "thesis.bcf"
