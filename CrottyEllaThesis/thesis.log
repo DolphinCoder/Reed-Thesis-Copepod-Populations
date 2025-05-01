@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.3)  1 MAY 2025 01:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.3)  1 MAY 2025 02:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -670,14 +670,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [4 <./Figures//Fig_OCNMS_Map.jpg>]
 
-Package caption Warning: \label without proper reference on input line 222.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `CopepodGroups' on page 5 undefined on input line 193.
-
-
-
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
 (fancyhdr)                \setlength{\headheight}{14.49998pt}.
@@ -744,12 +736,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./Figures//Fig_OCNMS_buoy_map.jpg Graphic file (type jpg)
 <use ./Figures//Fig_OCNMS_buoy_map.jpg>
 Package pdftex.def Info: ./Figures//Fig_OCNMS_buoy_map.jpg  used on input line 
-269.
+267.
 (pdftex.def)             Requested size: 208.13574pt x 267.97758pt.
-
-Package wrapfig Warning: Stationary wrapfigure forced to float on input line 27
-5.
-
 
 Underfull \hbox (badness 1210) in paragraph at lines 277--278
 \OT1/cmr/m/n/12 tain pe-riod of time, then mea-sur-ing
@@ -833,13 +821,6 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 Package wrapfig Warning: Stationary wrapfigure forced to float on input line 31
 9.
-
-
-Package caption Warning: \label without proper reference on input line 316.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `Timeseries' on page 15 undefined on input line 320.
 
 
 Underfull \hbox (badness 7168) in paragraph at lines 320--321
@@ -936,15 +917,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 ]
 Chapter 2.
 
-Package caption Warning: \label without proper reference on input line 391.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `ZOIBtab' on page 21 undefined on input line 372.
-
-
-Overfull \hbox (27.94395pt too wide) in paragraph at lines 375--392
-[][]
+Overfull \hbox (27.94395pt too wide) in paragraph at lines 375--391
+[][] 
  []
 
 
@@ -980,8 +954,8 @@ Package pdftex.def Info: ./Figures//Bar_Size.png  used on input line 411.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Overfull \hbox (21.04655pt too wide) in paragraph at lines 419--436
-[][]
+Overfull \hbox (21.04655pt too wide) in paragraph at lines 419--435
+[][] 
  []
 
 
@@ -1129,83 +1103,113 @@ Appendix B.
 File: ./Figures//Alongiremis_ZOIB_Means_noOut.png Graphic file (type png)
 <use ./Figures//Alongiremis_ZOIB_Means_noOut.png>
 Package pdftex.def Info: ./Figures//Alongiremis_ZOIB_Means_noOut.png  used on i
-nput line 515.
+nput line 516.
 (pdftex.def)             Requested size: 150.56212pt x 120.44969pt.
-<./Figures//Cabdominalis_ZOIB_Means_noOut.png, id=185, 602.25pt x 481.8pt>
-File: ./Figures//Cabdominalis_ZOIB_Means_noOut.png Graphic file (type png)
-<use ./Figures//Cabdominalis_ZOIB_Means_noOut.png>
-Package pdftex.def Info: ./Figures//Cabdominalis_ZOIB_Means_noOut.png  used on 
-input line 516.
-(pdftex.def)             Requested size: 150.56212pt x 120.44969pt.
-<./Figures//Osimilis_ZOIB_Means_noOut.png, id=186, 602.25pt x 481.8pt>
-File: ./Figures//Osimilis_ZOIB_Means_noOut.png Graphic file (type png)
-<use ./Figures//Osimilis_ZOIB_Means_noOut.png>
-Package pdftex.def Info: ./Figures//Osimilis_ZOIB_Means_noOut.png  used on inpu
-t line 517.
-(pdftex.def)             Requested size: 150.56212pt x 120.44969pt.
-<./Figures//Paracalanus_ZOIB_Means_noOut.png, id=187, 602.25pt x 481.8pt>
-File: ./Figures//Paracalanus_ZOIB_Means_noOut.png Graphic file (type png)
-<use ./Figures//Paracalanus_ZOIB_Means_noOut.png>
-Package pdftex.def Info: ./Figures//Paracalanus_ZOIB_Means_noOut.png  used on i
-nput line 518.
-(pdftex.def)             Requested size: 150.56212pt x 120.44969pt.
-<./Figures//Pmimus_ZOIB_Means_noOut.png, id=188, 602.25pt x 481.8pt>
+<./Figures//Pmimus_ZOIB_Means_noOut.png, id=185, 602.25pt x 481.8pt>
 File: ./Figures//Pmimus_ZOIB_Means_noOut.png Graphic file (type png)
 <use ./Figures//Pmimus_ZOIB_Means_noOut.png>
 Package pdftex.def Info: ./Figures//Pmimus_ZOIB_Means_noOut.png  used on input 
-line 519.
+line 517.
 (pdftex.def)             Requested size: 150.56212pt x 120.44969pt.
-<./Figures//Pnewmani_ZOIB_Means_noOut.png, id=189, 602.25pt x 481.8pt>
+<./Figures//Pnewmani_ZOIB_Means_noOut.png, id=186, 602.25pt x 481.8pt>
 File: ./Figures//Pnewmani_ZOIB_Means_noOut.png Graphic file (type png)
 <use ./Figures//Pnewmani_ZOIB_Means_noOut.png>
 Package pdftex.def Info: ./Figures//Pnewmani_ZOIB_Means_noOut.png  used on inpu
+t line 518.
+(pdftex.def)             Requested size: 150.56212pt x 120.44969pt.
+<./Figures//Cabdominalis_ZOIB_Means_noOut.png, id=187, 602.25pt x 481.8pt>
+File: ./Figures//Cabdominalis_ZOIB_Means_noOut.png Graphic file (type png)
+<use ./Figures//Cabdominalis_ZOIB_Means_noOut.png>
+Package pdftex.def Info: ./Figures//Cabdominalis_ZOIB_Means_noOut.png  used on 
+input line 519.
+(pdftex.def)             Requested size: 150.56212pt x 120.44969pt.
+<./Figures//Pacuspes_ZOIB_Means_noOut.png, id=188, 602.25pt x 481.8pt>
+File: ./Figures//Pacuspes_ZOIB_Means_noOut.png Graphic file (type png)
+<use ./Figures//Pacuspes_ZOIB_Means_noOut.png>
+Package pdftex.def Info: ./Figures//Pacuspes_ZOIB_Means_noOut.png  used on inpu
 t line 520.
 (pdftex.def)             Requested size: 150.56212pt x 120.44969pt.
-<./Figures//Alongiremis_ZOIB_Means_Mod_noOut.png, id=190, 602.25pt x 481.8pt>
+<./Figures//Osimilis_ZOIB_Means_noOut.png, id=189, 602.25pt x 481.8pt>
+File: ./Figures//Osimilis_ZOIB_Means_noOut.png Graphic file (type png)
+<use ./Figures//Osimilis_ZOIB_Means_noOut.png>
+Package pdftex.def Info: ./Figures//Osimilis_ZOIB_Means_noOut.png  used on inpu
+t line 522.
+(pdftex.def)             Requested size: 150.56212pt x 120.44969pt.
+<./Figures//Paracalanus_ZOIB_Means_noOut.png, id=190, 602.25pt x 481.8pt>
+File: ./Figures//Paracalanus_ZOIB_Means_noOut.png Graphic file (type png)
+<use ./Figures//Paracalanus_ZOIB_Means_noOut.png>
+Package pdftex.def Info: ./Figures//Paracalanus_ZOIB_Means_noOut.png  used on i
+nput line 524.
+(pdftex.def)             Requested size: 150.56212pt x 120.44969pt.
+<./Figures//Cpacificus_ZOIB_Means_noOut.png, id=191, 602.25pt x 481.8pt>
+File: ./Figures//Cpacificus_ZOIB_Means_noOut.png Graphic file (type png)
+<use ./Figures//Cpacificus_ZOIB_Means_noOut.png>
+Package pdftex.def Info: ./Figures//Cpacificus_ZOIB_Means_noOut.png  used on in
+put line 525.
+(pdftex.def)             Requested size: 150.56212pt x 120.44969pt.
+
+LaTeX Warning: Float too large for page by 42.90176pt on input line 529.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./Figures//Alongiremis_ZOIB_Means_Mod_noOut.png, id=192, 602.25pt x 481.8pt>
 File: ./Figures//Alongiremis_ZOIB_Means_Mod_noOut.png Graphic file (type png)
 <use ./Figures//Alongiremis_ZOIB_Means_Mod_noOut.png>
 Package pdftex.def Info: ./Figures//Alongiremis_ZOIB_Means_Mod_noOut.png  used 
-on input line 528.
+on input line 534.
 (pdftex.def)             Requested size: 150.56212pt x 120.44969pt.
-<./Figures//Cabdominalis_ZOIB_Means_Mod_noOut.png, id=191, 602.25pt x 481.8pt>
-File: ./Figures//Cabdominalis_ZOIB_Means_Mod_noOut.png Graphic file (type png)
-<use ./Figures//Cabdominalis_ZOIB_Means_Mod_noOut.png>
-Package pdftex.def Info: ./Figures//Cabdominalis_ZOIB_Means_Mod_noOut.png  used
- on input line 529.
-(pdftex.def)             Requested size: 150.56212pt x 120.44969pt.
-<./Figures//Osimilis_ZOIB_Means_Mod_noOut.png, id=192, 602.25pt x 481.8pt>
-File: ./Figures//Osimilis_ZOIB_Means_Mod_noOut.png Graphic file (type png)
-<use ./Figures//Osimilis_ZOIB_Means_Mod_noOut.png>
-Package pdftex.def Info: ./Figures//Osimilis_ZOIB_Means_Mod_noOut.png  used on 
-input line 530.
-(pdftex.def)             Requested size: 150.56212pt x 120.44969pt.
-<./Figures//Paracalanus_ZOIB_Means_Mod_noOut.png, id=193, 602.25pt x 481.8pt>
-File: ./Figures//Paracalanus_ZOIB_Means_Mod_noOut.png Graphic file (type png)
-<use ./Figures//Paracalanus_ZOIB_Means_Mod_noOut.png>
-Package pdftex.def Info: ./Figures//Paracalanus_ZOIB_Means_Mod_noOut.png  used 
-on input line 531.
-(pdftex.def)             Requested size: 150.56212pt x 120.44969pt.
-<./Figures//Pmimus_ZOIB_Means_Mod_noOut.png, id=194, 602.25pt x 481.8pt>
+<./Figures//Pmimus_ZOIB_Means_Mod_noOut.png, id=193, 602.25pt x 481.8pt>
 File: ./Figures//Pmimus_ZOIB_Means_Mod_noOut.png Graphic file (type png)
 <use ./Figures//Pmimus_ZOIB_Means_Mod_noOut.png>
 Package pdftex.def Info: ./Figures//Pmimus_ZOIB_Means_Mod_noOut.png  used on in
-put line 532.
+put line 535.
 (pdftex.def)             Requested size: 150.56212pt x 120.44969pt.
-<./Figures//Pnewmani_ZOIB_Means_Mod_noOut.png, id=195, 602.25pt x 481.8pt>
+<./Figures//Pnewmani_ZOIB_Means_Mod_noOut.png, id=194, 602.25pt x 481.8pt>
 File: ./Figures//Pnewmani_ZOIB_Means_Mod_noOut.png Graphic file (type png)
 <use ./Figures//Pnewmani_ZOIB_Means_Mod_noOut.png>
 Package pdftex.def Info: ./Figures//Pnewmani_ZOIB_Means_Mod_noOut.png  used on 
-input line 533.
+input line 536.
 (pdftex.def)             Requested size: 150.56212pt x 120.44969pt.
+<./Figures//Cabdominalis_ZOIB_Means_Mod_noOut.png, id=195, 602.25pt x 481.8pt>
+File: ./Figures//Cabdominalis_ZOIB_Means_Mod_noOut.png Graphic file (type png)
+<use ./Figures//Cabdominalis_ZOIB_Means_Mod_noOut.png>
+Package pdftex.def Info: ./Figures//Cabdominalis_ZOIB_Means_Mod_noOut.png  used
+ on input line 537.
+(pdftex.def)             Requested size: 150.56212pt x 120.44969pt.
+<./Figures//Pacuspes_ZOIB_Means_Mod_noOut.png, id=196, 602.25pt x 481.8pt>
+File: ./Figures//Pacuspes_ZOIB_Means_Mod_noOut.png Graphic file (type png)
+<use ./Figures//Pacuspes_ZOIB_Means_Mod_noOut.png>
+Package pdftex.def Info: ./Figures//Pacuspes_ZOIB_Means_Mod_noOut.png  used on 
+input line 538.
+(pdftex.def)             Requested size: 150.56212pt x 120.44969pt.
+<./Figures//Osimilis_ZOIB_Means_Mod_noOut.png, id=197, 602.25pt x 481.8pt>
+File: ./Figures//Osimilis_ZOIB_Means_Mod_noOut.png Graphic file (type png)
+<use ./Figures//Osimilis_ZOIB_Means_Mod_noOut.png>
+Package pdftex.def Info: ./Figures//Osimilis_ZOIB_Means_Mod_noOut.png  used on 
+input line 540.
+(pdftex.def)             Requested size: 150.56212pt x 120.44969pt.
+<./Figures//Paracalanus_ZOIB_Means_Mod_noOut.png, id=198, 602.25pt x 481.8pt>
+File: ./Figures//Paracalanus_ZOIB_Means_Mod_noOut.png Graphic file (type png)
+<use ./Figures//Paracalanus_ZOIB_Means_Mod_noOut.png>
+Package pdftex.def Info: ./Figures//Paracalanus_ZOIB_Means_Mod_noOut.png  used 
+on input line 542.
+(pdftex.def)             Requested size: 150.56212pt x 120.44969pt.
+<./Figures//Cpacificus_ZOIB_Means_Mod_noOut.png, id=199, 602.25pt x 481.8pt>
+File: ./Figures//Cpacificus_ZOIB_Means_Mod_noOut.png Graphic file (type png)
+<use ./Figures//Cpacificus_ZOIB_Means_Mod_noOut.png>
+Package pdftex.def Info: ./Figures//Cpacificus_ZOIB_Means_Mod_noOut.png  used o
+n input line 543.
+(pdftex.def)             Requested size: 150.56212pt x 120.44969pt.
+
+LaTeX Warning: Float too large for page by 42.90176pt on input line 547.
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [31
 
- <./Figures//Alongiremis_ZOIB_Means_noOut.png> <./Figures//Cabdominalis_ZOIB_Me
-ans_noOut.png> <./Figures//Osimilis_ZOIB_Means_noOut.png> <./Figures//Paracalan
-us_ZOIB_Means_noOut.png> <./Figures//Pmimus_ZOIB_Means_noOut.png> <./Figures//P
-newmani_ZOIB_Means_noOut.png>]
+]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1214,135 +1218,149 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[32 <./Figures//Alongiremis_ZOIB_Means_Mod_noOut.png> <./Figures//Cabdominalis_
-ZOIB_Means_Mod_noOut.png> <./Figures//Osimilis_ZOIB_Means_Mod_noOut.png> <./Fig
-ures//Paracalanus_ZOIB_Means_Mod_noOut.png> <./Figures//Pmimus_ZOIB_Means_Mod_n
-oOut.png> <./Figures//Pnewmani_ZOIB_Means_Mod_noOut.png>]
+[32 <./Figures//Alongiremis_ZOIB_Means_noOut.png> <./Figures//Pmimus_ZOIB_Means
+_noOut.png> <./Figures//Pnewmani_ZOIB_Means_noOut.png> <./Figures//Cabdominalis
+_ZOIB_Means_noOut.png> <./Figures//Pacuspes_ZOIB_Means_noOut.png> <./Figures//O
+similis_ZOIB_Means_noOut.png> <./Figures//Paracalanus_ZOIB_Means_noOut.png> <./
+Figures//Cpacificus_ZOIB_Means_noOut.png>]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[33 <./Figures//Alongiremis_ZOIB_Means_Mod_noOut.png> <./Figures//Pmimus_ZOIB_M
+eans_Mod_noOut.png> <./Figures//Pnewmani_ZOIB_Means_Mod_noOut.png> <./Figures//
+Cabdominalis_ZOIB_Means_Mod_noOut.png> <./Figures//Pacuspes_ZOIB_Means_Mod_noOu
+t.png> <./Figures//Osimilis_ZOIB_Means_Mod_noOut.png> <./Figures//Paracalanus_Z
+OIB_Means_Mod_noOut.png> <./Figures//Cpacificus_ZOIB_Means_Mod_noOut.png>] [34
+
+]
 Appendix C.
-<./Figures//Osimilis_Scatter_noOut.png, id=202, 602.25pt x 481.8pt>
+<./Figures//Osimilis_Scatter_noOut.png, id=214, 602.25pt x 481.8pt>
 File: ./Figures//Osimilis_Scatter_noOut.png Graphic file (type png)
 <use ./Figures//Osimilis_Scatter_noOut.png>
 Package pdftex.def Info: ./Figures//Osimilis_Scatter_noOut.png  used on input l
-ine 544.
+ine 554.
 (pdftex.def)             Requested size: 180.67639pt x 144.5411pt.
-<./Figures//Osimilis_Scatter_AllYr_mod_noOut.png, id=203, 602.25pt x 481.8pt>
+<./Figures//Osimilis_Scatter_AllYr_mod_noOut.png, id=215, 602.25pt x 481.8pt>
 File: ./Figures//Osimilis_Scatter_AllYr_mod_noOut.png Graphic file (type png)
 <use ./Figures//Osimilis_Scatter_AllYr_mod_noOut.png>
 Package pdftex.def Info: ./Figures//Osimilis_Scatter_AllYr_mod_noOut.png  used 
-on input line 545.
+on input line 555.
 (pdftex.def)             Requested size: 180.67639pt x 144.5411pt.
-<./Figures//Alongiremis_Scatter_noOut.png, id=204, 602.25pt x 481.8pt>
+<./Figures//Alongiremis_Scatter_noOut.png, id=216, 602.25pt x 481.8pt>
 File: ./Figures//Alongiremis_Scatter_noOut.png Graphic file (type png)
 <use ./Figures//Alongiremis_Scatter_noOut.png>
 Package pdftex.def Info: ./Figures//Alongiremis_Scatter_noOut.png  used on inpu
-t line 554.
+t line 564.
 (pdftex.def)             Requested size: 180.67639pt x 144.5411pt.
-<./Figures//Alongiremis_Scatter_AllYr_mod_noOut.png, id=205, 602.25pt x 481.8pt
+<./Figures//Alongiremis_Scatter_AllYr_mod_noOut.png, id=217, 602.25pt x 481.8pt
 >
 File: ./Figures//Alongiremis_Scatter_AllYr_mod_noOut.png Graphic file (type png
 )
 <use ./Figures//Alongiremis_Scatter_AllYr_mod_noOut.png>
 Package pdftex.def Info: ./Figures//Alongiremis_Scatter_AllYr_mod_noOut.png  us
-ed on input line 555.
+ed on input line 565.
 (pdftex.def)             Requested size: 180.67639pt x 144.5411pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./Figures//Pmimus_Scatter_noOut.png, id=206, 602.25pt x 481.8pt>
+<./Figures//Pmimus_Scatter_noOut.png, id=218, 602.25pt x 481.8pt>
 File: ./Figures//Pmimus_Scatter_noOut.png Graphic file (type png)
 <use ./Figures//Pmimus_Scatter_noOut.png>
 Package pdftex.def Info: ./Figures//Pmimus_Scatter_noOut.png  used on input lin
-e 563.
+e 573.
 (pdftex.def)             Requested size: 180.67639pt x 144.5411pt.
-<./Figures//Pmimus_Scatter_AllYr_mod_noOut.png, id=207, 602.25pt x 481.8pt>
+<./Figures//Pmimus_Scatter_AllYr_mod_noOut.png, id=219, 602.25pt x 481.8pt>
 File: ./Figures//Pmimus_Scatter_AllYr_mod_noOut.png Graphic file (type png)
 <use ./Figures//Pmimus_Scatter_AllYr_mod_noOut.png>
 Package pdftex.def Info: ./Figures//Pmimus_Scatter_AllYr_mod_noOut.png  used on
- input line 564.
+ input line 574.
 (pdftex.def)             Requested size: 180.67639pt x 144.5411pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./Figures//Pnewmani_Scatter_AllYr_mod_noOut.png, id=208, 602.25pt x 481.8pt>
+<./Figures//Pnewmani_Scatter_AllYr_mod_noOut.png, id=220, 602.25pt x 481.8pt>
 File: ./Figures//Pnewmani_Scatter_AllYr_mod_noOut.png Graphic file (type png)
 <use ./Figures//Pnewmani_Scatter_AllYr_mod_noOut.png>
 Package pdftex.def Info: ./Figures//Pnewmani_Scatter_AllYr_mod_noOut.png  used 
-on input line 573.
+on input line 583.
 (pdftex.def)             Requested size: 180.67639pt x 144.5411pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./Figures//Cabdominalis_Scatter_noOut.png, id=209, 602.25pt x 481.8pt>
+<./Figures//Cabdominalis_Scatter_noOut.png, id=221, 602.25pt x 481.8pt>
 File: ./Figures//Cabdominalis_Scatter_noOut.png Graphic file (type png)
 <use ./Figures//Cabdominalis_Scatter_noOut.png>
 Package pdftex.def Info: ./Figures//Cabdominalis_Scatter_noOut.png  used on inp
-ut line 581.
+ut line 591.
 (pdftex.def)             Requested size: 180.67639pt x 144.5411pt.
-<./Figures//Cabdominalis_Scatter_AllYr_mod_noOut.png, id=210, 602.25pt x 481.8p
+<./Figures//Cabdominalis_Scatter_AllYr_mod_noOut.png, id=222, 602.25pt x 481.8p
 t>
 File: ./Figures//Cabdominalis_Scatter_AllYr_mod_noOut.png Graphic file (type pn
 g)
 <use ./Figures//Cabdominalis_Scatter_AllYr_mod_noOut.png>
 Package pdftex.def Info: ./Figures//Cabdominalis_Scatter_AllYr_mod_noOut.png  u
-sed on input line 582.
+sed on input line 592.
 (pdftex.def)             Requested size: 180.67639pt x 144.5411pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./Figures//Pacuspes_Scatter_noOut.png, id=211, 602.25pt x 481.8pt>
+<./Figures//Pacuspes_Scatter_noOut.png, id=223, 602.25pt x 481.8pt>
 File: ./Figures//Pacuspes_Scatter_noOut.png Graphic file (type png)
 <use ./Figures//Pacuspes_Scatter_noOut.png>
 Package pdftex.def Info: ./Figures//Pacuspes_Scatter_noOut.png  used on input l
-ine 590.
+ine 600.
 (pdftex.def)             Requested size: 180.67639pt x 144.5411pt.
-<./Figures//Pacuspes_Scatter_AllYr_mod_noOut.png, id=212, 602.25pt x 481.8pt>
+<./Figures//Pacuspes_Scatter_AllYr_mod_noOut.png, id=224, 602.25pt x 481.8pt>
 File: ./Figures//Pacuspes_Scatter_AllYr_mod_noOut.png Graphic file (type png)
 <use ./Figures//Pacuspes_Scatter_AllYr_mod_noOut.png>
 Package pdftex.def Info: ./Figures//Pacuspes_Scatter_AllYr_mod_noOut.png  used 
-on input line 591.
+on input line 601.
 (pdftex.def)             Requested size: 180.67639pt x 144.5411pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./Figures//Cpacificus_Scatter_noOut.png, id=213, 602.25pt x 481.8pt>
+<./Figures//Cpacificus_Scatter_noOut.png, id=225, 602.25pt x 481.8pt>
 File: ./Figures//Cpacificus_Scatter_noOut.png Graphic file (type png)
 <use ./Figures//Cpacificus_Scatter_noOut.png>
 Package pdftex.def Info: ./Figures//Cpacificus_Scatter_noOut.png  used on input
- line 601.
+ line 611.
 (pdftex.def)             Requested size: 180.67639pt x 144.5411pt.
-<./Figures//Cpacificus_Scatter_AllYr_mod_noOut.png, id=214, 602.25pt x 481.8pt>
+<./Figures//Cpacificus_Scatter_AllYr_mod_noOut.png, id=226, 602.25pt x 481.8pt>
 
 File: ./Figures//Cpacificus_Scatter_AllYr_mod_noOut.png Graphic file (type png)
 
 <use ./Figures//Cpacificus_Scatter_AllYr_mod_noOut.png>
 Package pdftex.def Info: ./Figures//Cpacificus_Scatter_AllYr_mod_noOut.png  use
-d on input line 602.
+d on input line 612.
 (pdftex.def)             Requested size: 180.67639pt x 144.5411pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./Figures//Paracalanus_Scatter_noOut.png, id=215, 602.25pt x 481.8pt>
+<./Figures//Paracalanus_Scatter_noOut.png, id=227, 602.25pt x 481.8pt>
 File: ./Figures//Paracalanus_Scatter_noOut.png Graphic file (type png)
 <use ./Figures//Paracalanus_Scatter_noOut.png>
 Package pdftex.def Info: ./Figures//Paracalanus_Scatter_noOut.png  used on inpu
-t line 610.
+t line 620.
 (pdftex.def)             Requested size: 180.67639pt x 144.5411pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./Figures//Paracalanus_Density.png, id=216, 602.25pt x 481.8pt>
+<./Figures//Paracalanus_Density.png, id=228, 602.25pt x 481.8pt>
 File: ./Figures//Paracalanus_Density.png Graphic file (type png)
 <use ./Figures//Paracalanus_Density.png>
 Package pdftex.def Info: ./Figures//Paracalanus_Density.png  used on input line
- 618.
+ 628.
 (pdftex.def)             Requested size: 180.67639pt x 144.5411pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[33
-
- <./Figures//Osimilis_Scatter_noOut.png> <./Figures//Osimilis_Scatter_AllYr_mod
-_noOut.png>]
+[35 <./Figures//Osimilis_Scatter_noOut.png> <./Figures//Osimilis_Scatter_AllYr_
+mod_noOut.png>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 27.18335pt, for example:
@@ -1351,7 +1369,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-15.18335pt}.
 
-[34 <./Figures//Alongiremis_Scatter_noOut.png> <./Figures//Alongiremis_Scatter_
+[36 <./Figures//Alongiremis_Scatter_noOut.png> <./Figures//Alongiremis_Scatter_
 AllYr_mod_noOut.png> <./Figures//Pmimus_Scatter_noOut.png> <./Figures//Pmimus_S
 catter_AllYr_mod_noOut.png>]
 
@@ -1362,7 +1380,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[35 <./Figures//Pnewmani_Scatter_AllYr_mod_noOut.png> <./Figures//Cabdominalis_
+[37 <./Figures//Pnewmani_Scatter_AllYr_mod_noOut.png> <./Figures//Cabdominalis_
 Scatter_noOut.png> <./Figures//Cabdominalis_Scatter_AllYr_mod_noOut.png>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1372,7 +1390,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-15.18335pt}.
 
-[36 <./Figures//Pacuspes_Scatter_noOut.png> <./Figures//Pacuspes_Scatter_AllYr_
+[38 <./Figures//Pacuspes_Scatter_noOut.png> <./Figures//Pacuspes_Scatter_AllYr_
 mod_noOut.png> <./Figures//Cpacificus_Scatter_noOut.png> <./Figures//Cpacificus
 _Scatter_AllYr_mod_noOut.png>]
 
@@ -1383,13 +1401,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[37 <./Figures//Paracalanus_Scatter_noOut.png> <./Figures//Paracalanus_Density.
-png>] [38
+[39 <./Figures//Paracalanus_Scatter_noOut.png> <./Figures//Paracalanus_Density.
+png>] [40
 
-] [39
+] [41
 
 ]
-Overfull \hbox (28.93445pt too wide) in paragraph at lines 636--636
+Overfull \hbox (28.93445pt too wide) in paragraph at lines 646--646
 [][]\OT1/cmr/m/n/12 Gold, Zachary, Han Wein-rich, and Shan-non Brown (May 30, 2
 024). \OT1/cmr/m/it/12 Marinednadude/NOAA-
  []
@@ -1402,8 +1420,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[40]
-Overfull \hbox (17.79362pt too wide) in paragraph at lines 636--636
+[42]
+Overfull \hbox (17.79362pt too wide) in paragraph at lines 646--646
 \OT1/cmr/m/n/12 38.23. \OT1/cmr/m/sc/12 issn\OT1/cmr/m/n/12 : 1944-8007. \OT1/c
 mr/m/sc/12 doi\OT1/cmr/m/n/12 : $\OT1/cmtt/m/n/12 10 . 1029 / 2011GL049513$\OT1
 /cmr/m/n/12 . \OT1/cmr/m/sc/12 url\OT1/cmr/m/n/12 : $\OT1/cmtt/m/n/12 https : /
@@ -1411,19 +1429,19 @@ mr/m/sc/12 doi\OT1/cmr/m/n/12 : $\OT1/cmtt/m/n/12 10 . 1029 / 2011GL049513$\OT1
  []
 
 
-Overfull \hbox (9.07787pt too wide) in paragraph at lines 636--636
+Overfull \hbox (9.07787pt too wide) in paragraph at lines 646--646
 [][]\OT1/cmr/m/it/12 Intergovernmental Pol-icy Coun-cil | Olympic Coast Na-tion
 al Ma-rine Sanc-tu-ary \OT1/cmr/m/n/12 (2025).
  []
 
 
-Overfull \hbox (12.00804pt too wide) in paragraph at lines 636--636
+Overfull \hbox (12.00804pt too wide) in paragraph at lines 646--646
 \OT1/cmr/m/sc/12 url\OT1/cmr/m/n/12 : $\OT1/cmtt/m/n/12 https : / / olympiccoas
 t . noaa . gov / management / intergovernmentalpolicy .
  []
 
 
-Overfull \hbox (10.93378pt too wide) in paragraph at lines 636--636
+Overfull \hbox (10.93378pt too wide) in paragraph at lines 646--646
 \OT1/cmr/m/it/12 Re-search Let-ters \OT1/cmr/m/n/12 44.9, pp. 4214{4223. \OT1/c
 mr/m/sc/12 issn\OT1/cmr/m/n/12 : 1944-8007. \OT1/cmr/m/sc/12 doi\OT1/cmr/m/n/12
  : $\OT1/cmtt/m/n/12 10 . 1002 / 2017GL073613$\OT1/cmr/m/n/12 .
@@ -1437,8 +1455,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[41]
-Overfull \hbox (1.6462pt too wide) in paragraph at lines 636--636
+[43]
+Overfull \hbox (1.6462pt too wide) in paragraph at lines 646--646
 [][]\OT1/cmr/m/n/12 L'Heureux, Michelle (May 5, 2014). \OT1/cmr/m/it/12 What Is
  the El Ni~no{Southern Os-cil-la-tion (ENSO)
  []
@@ -1451,14 +1469,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[42]
-Overfull \hbox (10.08003pt too wide) in paragraph at lines 636--636
+[44]
+Overfull \hbox (10.08003pt too wide) in paragraph at lines 646--646
 \OT1/cmtt/m/n/12 searchText = ocean + hypoxia & searchUri = %2Faction % 2FdoBas
 icSearch % 3FQuery %
  []
 
 
-Overfull \hbox (4.40503pt too wide) in paragraph at lines 636--636
+Overfull \hbox (4.40503pt too wide) in paragraph at lines 646--646
 \OT1/cmtt/m/n/12 2Fcontrol & refreqid = fastly -[] default % 3Afe4bd87fbb5a4d45
 8696e62c77054c6f$
  []
@@ -1471,8 +1489,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[43]
-Overfull \hbox (25.21765pt too wide) in paragraph at lines 636--636
+[45]
+Overfull \hbox (25.21765pt too wide) in paragraph at lines 646--646
 \OT1/cmr/m/n/12 0022-0981. \OT1/cmr/m/sc/12 doi\OT1/cmr/m/n/12 : $\OT1/cmtt/m/n
 /12 10 . 1016 / j . jembe . 2005 . 07 . 004$\OT1/cmr/m/n/12 . \OT1/cmr/m/sc/12 
 url\OT1/cmr/m/n/12 : $\OT1/cmtt/m/n/12 https : / / www . sciencedirect .
@@ -1486,8 +1504,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[44]
-Overfull \hbox (9.9835pt too wide) in paragraph at lines 636--636
+[46]
+Overfull \hbox (9.9835pt too wide) in paragraph at lines 646--646
 \OT1/cmr/m/n/12 Global Oceanic Oxy-gen Con-tent dur-ing the Past Five Decades''
 . In: \OT1/cmr/m/it/12 Na-ture \OT1/cmr/m/n/12 542.7641,
  []
@@ -1500,7 +1518,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[45]
+[47]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1509,22 +1527,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[46] (./thesis.aux)
-
-LaTeX Warning: There were undefined references.
-
+[48] (./thesis.aux)
 Package logreq Info: Writing requests to 'thesis.run.xml'.
 \openout1 = `thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 14391 strings out of 478268
- 278520 string characters out of 5846348
- 1011775 words of memory out of 5000000
- 32429 multiletter control sequences out of 15000+600000
+ 14435 strings out of 478268
+ 280444 string characters out of 5846348
+ 1011558 words of memory out of 5000000
+ 32473 multiletter control sequences out of 15000+600000
  480684 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,11n,80p,3467b,2350s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 60i,11n,80p,3467b,2342s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 }</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
@@ -1538,10 +1553,10 @@ l/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local
 /texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/
 texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/t
 exlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on thesis.pdf (62 pages, 10637857 bytes).
+Output written on thesis.pdf (64 pages, 11396457 bytes).
 PDF statistics:
- 317 PDF objects out of 1000 (max. 8388607)
- 177 compressed objects within 2 object streams
+ 327 PDF objects out of 1000 (max. 8388607)
+ 181 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 226 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 246 words of extra memory for PDF output out of 10000 (max. 10000000)
 

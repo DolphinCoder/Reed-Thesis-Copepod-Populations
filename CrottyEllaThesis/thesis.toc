@@ -21,5 +21,5 @@
 \contentsline {section}{\numberline {A.1}Data Availability Statement}{29}{}%
 \contentsline {section}{\numberline {A.2}R Packages Used}{29}{}%
 \contentsline {chapter}{Appendix B: Zero-Inflated Beta Regression Plots}{31}{}%
-\contentsline {chapter}{Appendix C: Additional Plots of Dissolved Oxygen vs. Temperature vs. eDNA Index}{33}{}%
-\contentsline {chapter}{Works Cited}{39}{}%
+\contentsline {chapter}{Appendix C: Additional Plots of Dissolved Oxygen vs. Temperature vs. eDNA Index}{35}{}%
+\contentsline {chapter}{Works Cited}{41}{}%

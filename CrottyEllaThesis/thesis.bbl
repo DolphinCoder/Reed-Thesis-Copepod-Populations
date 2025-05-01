@@ -1572,12 +1572,12 @@
            given={Zachary},
            giveni={Z\bibinitperiod},
            givenun=0}}%
-        {{un=1,uniquepart=given,hash=2b53b3bfce837a2bf5e9e1f8dc8b4fdf}{%
+        {{un=0,uniquepart=base,hash=2b53b3bfce837a2bf5e9e1f8dc8b4fdf}{%
            family={Weinrich},
            familyi={W\bibinitperiod},
            given={Han},
            giveni={H\bibinitperiod},
-           givenun=1}}%
+           givenun=0}}%
         {{un=0,uniquepart=base,hash=d2d4bd24d684ba07bb97231afaa3edd6}{%
            family={Brown},
            familyi={B\bibinitperiod},
@@ -6067,12 +6067,12 @@
     \endentry
     \entry{Weinrich2025}{software}{}
       \name{author}{2}{}{%
-        {{un=1,uniquepart=given,hash=5ec78ad54acb9ee72b7dceb5a16d7d0c}{%
+        {{un=0,uniquepart=base,hash=2b53b3bfce837a2bf5e9e1f8dc8b4fdf}{%
            family={Weinrich},
            familyi={W\bibinitperiod},
-           given={Johannes\bibnamedelima (Han)},
-           giveni={J\bibinitperiod\bibinitdelim (\bibinitperiod},
-           givenun=1}}%
+           given={Han},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
         {{un=0,uniquepart=base,hash=ea96ff76ddeea57632b4a88701028df0}{%
            family={Gold},
            familyi={G\bibinitperiod},
@@ -6083,12 +6083,12 @@
       \list{organization}{1}{%
         {Zenodo}%
       }
-      \strng{namehash}{0a51be8baad06a9587ed889808361ce2}
-      \strng{fullhash}{0a51be8baad06a9587ed889808361ce2}
-      \strng{bibnamehash}{0a51be8baad06a9587ed889808361ce2}
-      \strng{authorbibnamehash}{0a51be8baad06a9587ed889808361ce2}
-      \strng{authornamehash}{0a51be8baad06a9587ed889808361ce2}
-      \strng{authorfullhash}{0a51be8baad06a9587ed889808361ce2}
+      \strng{namehash}{329dccc79eca5bf871672ce33220fe14}
+      \strng{fullhash}{329dccc79eca5bf871672ce33220fe14}
+      \strng{bibnamehash}{329dccc79eca5bf871672ce33220fe14}
+      \strng{authorbibnamehash}{329dccc79eca5bf871672ce33220fe14}
+      \strng{authornamehash}{329dccc79eca5bf871672ce33220fe14}
+      \strng{authorfullhash}{329dccc79eca5bf871672ce33220fe14}
       \field{sortinit}{W}
       \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
       \field{extradatescope}{labelyear}

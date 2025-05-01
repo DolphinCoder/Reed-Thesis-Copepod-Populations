@@ -95,6 +95,7 @@ for (i in 1:length(dfsplit)) { # For each species:
       geom_point(data = dataF) +
       stat_lineribbon(aes(y = .epred), alpha = 0.5) + # from tidybayes, shows the summary of draws
       labs(title = title, caption = "Conditional Means, TH042 Mooring") +
+      ylab("eDNA Index") +
       theme_bw() +
       theme(axis.text = element_text(size = 35, color = "black"),
         axis.text.x = element_text(size = 25, hjust = 1, color = "black"),

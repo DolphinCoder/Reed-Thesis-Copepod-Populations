@@ -190,7 +190,7 @@ Copepods are crustacean zooplankton of the class Copepoda, formerly combined wit
 
 \subsection{Seasonal Classifications}
 
-The copepod species most commonly found in OCNMS are classified as Northern (cold-water) and Southern (warm-water) based on their seasonal pattern of occurrence (See Table \ref{CopepodGroups},\autocite{NOAAFisheries2024, Peterson2003, Peterson1977}). Northern copepods are more common in the summer, and southern copepods are more common in the winter \autocite{NOAAFisheries2024}.  In studies of the Oregon coast, which is part of the same California Current upwelling system as OCNMS, \textit{Pseudocalanus}, \textit{Acartia}, \textit{Oithona} and \textit{Calanus} were the dominant genera in the summer, while \textit{Paracalanus} and \textit{Ctenocalanus} dominated in the winter \autocite{Peterson1977, Peterson2003}. Northern copepods, especially Calanus marshalls and Pseudocalanus mimus, are known to be more lipid-rich. These fattier copepods serve as important food sources for salmon populations \autocite{NOAAFisheries2024}. Copepod species richness in the coastal Northeast Pacific Ocean is generally lower in the summer, and copepod biomass off the Oregon coast is highest in the summer \autocite{Peterson2003}. 
+The copepod species most commonly found in OCNMS are classified as Northern (cold-water) and Southern (warm-water) based on their seasonal pattern of occurrence (See Table \ref{CopepodGroups}, \autocite{NOAAFisheries2024, Peterson2003, Peterson1977}). Northern copepods are more common in the summer, and southern copepods are more common in the winter \autocite{NOAAFisheries2024}.  In studies of the Oregon coast, which is part of the same California Current upwelling system as OCNMS, \textit{Pseudocalanus}, \textit{Acartia}, \textit{Oithona} and \textit{Calanus} were the dominant genera in the summer, while \textit{Paracalanus} and \textit{Ctenocalanus} dominated in the winter \autocite{Peterson1977, Peterson2003}. Northern copepods, especially Calanus marshalls and Pseudocalanus mimus, are known to be more lipid-rich. These fattier copepods serve as important food sources for salmon populations \autocite{NOAAFisheries2024}. Copepod species richness in the coastal Northeast Pacific Ocean is generally lower in the summer, and copepod biomass off the Oregon coast is highest in the summer \autocite{Peterson2003}. 
 
 \begin{table}	
 	\begin{center} 
@@ -219,8 +219,8 @@ The copepod species most commonly found in OCNMS are classified as Northern (col
 			\bottomrule 
 		\end{tabular}
 		% square brackets --> Table of Tables. curly braces --> caption over the table.
-		\label{CopepodGroups} % to reference this table, write \ref{CopepodGroups}
-		\caption[Seasonal classification of copepods]{Classification of copepods as cold-water ("Northern," primarily occurring in the summer upwelling season) and warm-water ("Southern," primarily occurring in the winter) \autocite{NOAAFisheries2024, Peterson2003, Peterson1977}}  % need to add in proper citations
+		 % to reference this table, write \ref{CopepodGroups}
+		\caption[Seasonal classification of copepods]{Classification of copepods as cold-water ("Northern," primarily occurring in the summer upwelling season) and warm-water ("Southern," primarily occurring in the winter) \autocite{NOAAFisheries2024, Peterson2003, Peterson1977}}\label{CopepodGroups}  % need to add in proper citations
 	\end{center}
 \end{table}
 
@@ -262,8 +262,6 @@ eDNA metabarcoding results provide read abundances, or numbers of DNA fragments,
 
 Since 2021, the National Oceanic and Atmospheric Administration's Pacific Marine Environmental Laboratory (NOAA PMEL) Ocean Molecular Ecology (OME) lab has been collecting eDNA samples in OCNMS using a modified McLane phytoplankton and particulate sampler (PPS).  The PPS was deployed for four, month-long intervals between May 2021 and August 2023, at the Teawhit Head 42 meter depth mooring (see Figure \ref{OCNMSbuoys}). This sampler collected, filtered, and preserved 1 L water samples every 36 hours using 0.4 micron filters. Filters were then taken off the sampler, preserved in 95\% ethanol, frozen, and taken to the lab. Additionally, some samples were taken using Niskin bottles during PPS deployment and recovery. These samples were filtered using Sterivex filters and a peristaltic pump. In total, 84 samples were collected in 2021, 122 in 2022, and 60 in 2023. 24 of these samples had three PCR technical replicates each, and replicates on the same date were combined for this study. eDNA was extracted from the samples according to the DNeasy Blood and Tissue Kit protocols with adaptations from Spens et al. 2017 \autocite{Spens2017}. The full protocol is available on the Ocean Molecular Ecology Zenodo \autocite{Weinrich2025}. This study focuses on copepods, and only uses data from the CO1 (mitochondrially encoded cytochrome c oxidase I, a common barcoding gene for studies on eukaryotes) primer. Amplified regions were sequenced using the  Leray F / mICOlinF forward primer and Folmer R / HCO2198 reverse primer, according to OME protocols \autocite{Gold2024, Spens2017}. The CO1 sequences were then matched to available reference genomes, resulting in species detection data that includes the number of reads (DNA strands) of each species detected.
 
-My summer 2024 research included combining the results of these eDNA detections with oceanographic measurements collected every ten minutes by the Teahwhit Head oceanographic mooring in 42 meter deep water (TH042), where the PPS sampler was deployed. I first matched the species detections to their associated metadata, including the sample date and time, using their unique sample IDs. I then matched each of those detections to the oceanographic mooring measurements that were closest to their sample date and time.  
-
 \begin{wrapfigure}{r}{0.5\textwidth}
 	\begin{center}
 		\includegraphics[width=0.48\textwidth]{Fig_OCNMS_buoy_map}
@@ -271,6 +269,8 @@ My summer 2024 research included combining the results of these eDNA detections 
 		\label{OCNMSbuoys}
 	\end{center}
 \end{wrapfigure} 
+
+My summer 2024 research included combining the results of these eDNA detections with oceanographic measurements collected every ten minutes by the Teahwhit Head oceanographic mooring in 42 meter deep water (TH042), where the PPS sampler was deployed. I first matched the species detections to their associated metadata, including the sample date and time, using their unique sample IDs. I then matched each of those detections to the oceanographic mooring measurements that were closest to their sample date and time.  
 
 \section{Study Plan}
 
@@ -311,9 +311,9 @@ Studies of the effects of hypoxia on marine organisms use a variety of lab and f
 		\begin{center}
 			a. \includegraphics[scale=0.6]{Timeseries_example} \\
 			b. \includegraphics[scale=0.6]{Timeseries_example_Mod}
-			\caption[Time series]{Time series of dissolved oxygen (mg/L) over the study period. Plot (a) displays TH042 mooring data, plot (b) displays LiveOcean model data. Black dots represent eDNA sampling dates. Gray boxes represent automated eDNA sampling periods. Red line represents 0.6 mg/L DO, a level known to kill most copepods in lab experiments, orange line represents 0.9 mg/L DO, a level known to kill approximately 50\% of copepods in lab experiments, and green line represents 2.66 mg/L DO, a level above which copepods have not shown negative effects in lab studies.} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
+			\caption[Time series]{Time series of dissolved oxygen (mg/L) over the study period. Plot (a) displays TH042 mooring data, plot (b) displays LiveOcean model data. Black dots represent eDNA sampling dates. Gray boxes represent automated eDNA sampling periods. Red line represents 0.6 mg/L DO, a level known to kill most copepods in lab experiments, orange line represents 0.9 mg/L DO, a level known to kill approximately 50\% of copepods in lab experiments, and green line represents 2.66 mg/L DO, a level above which copepods have not shown negative effects in lab studies.} \label{Timeseries}%the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
 		\end{center}
-		\label{Timeseries}
+		
 	\end{figure} 
 	
 	\section{Data Visualization}
@@ -328,9 +328,9 @@ Studies of the effects of hypoxia on marine organisms use a variety of lab and f
 		\begin{center}
 			a. \includegraphics[scale=0.35]{Scatter_ex}
 			b. \includegraphics[scale=0.35]{Scatter_ex_Mod}
-			\caption[Mooring vs. Model Scatterplot]{Distribution of samples versus the distribution of temperature and dissolved oxygen during the entire sampling period, of May-October 2021-23. LiveOcean model output from winter months is not shown, since the eDNA sampler and TH042 mooring were not deployed during winter months. Gray dots indicate any environmental data sampling time, from the TH042 mooring (a) or from the LiveOcean model (b). Black dots indicate environmental conditions at which eDNA samples were taken. Note the high outliers, which are during a short heatwave in September 2021 and will not be shown in future scatterplots or considered in statistical analyses due to their small sample size.} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
+			\caption[Mooring vs. Model Scatterplot]{Distribution of samples versus the distribution of temperature and dissolved oxygen during the entire sampling period, of May-October 2021-23. LiveOcean model output from winter months is not shown, since the eDNA sampler and TH042 mooring were not deployed during winter months. Gray dots indicate any environmental data sampling time, from the TH042 mooring (a) or from the LiveOcean model (b). Black dots indicate environmental conditions at which eDNA samples were taken. Note the high outliers, which are during a short heatwave in September 2021 and will not be shown in future scatterplots or considered in statistical analyses due to their small sample size.} \label{EnvironmentalConditions}%the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
 		\end{center}
-		\label{EnvironmentalConditions}
+		
 	\end{figure} 
 	
 	I attempted to generate zero-inflated beta regression models using the zoib R package, but due to difficulties in visualizing the model output I switched to the brms package, a more general modeling package that uses Stan \autocite{Burkner2024}. I chose a zero-inflated beta regression because eDNA index ranges from zero to one, necessitating a beta regression, and the data is zero-inflated because each species was absent from many samples. I used the output of these models to generate and plot mean predicted data. I then compared these models to the binomial regression models, which related the presence and absence of eDNA to dissolved oxygen. Based on the Akaike information criterion (AIC), the binomial regression models performed better (lower AIC) for \textit{A. longiremis, C. pacificus, O. similis, Paracalanus sp. C AC-2013, P. mimus,} and \textit{P. newmani}. Based on AIC again, the zero-inflated beta regression models performed better for \textit{C. parapergens, Lucicutia flavicornis, Metridia lucens, M. pacifica,} and \textit{P. acuspes}. The zero-inflated beta regression for \textit{C. pacificus} performed better with the mooring data, but the binomial regression model for \textit{C. pacificus} performed better with the modeled data. Overall, in species with 5 or fewer detections, the binomial regression models performed better, but in species with more than 5 detections, the zero-inflated beta regression models performed better. I considered there to be a significant response for a species to hypoxia using binomial regression based on alpha = 0.05, and I considered zero-inflated beta regressions to be significant if their 95\% confidence interval showed an upward trend and did not include zero for every DO value (e.g. the 95\% confidence interval left the x-axis at any point, see Appendix \ref{chap:appZOIB} for visualized model confidence intervals). I did not perform significance tests directly comparing size categories or northern and southern copepods in aggregate, because the number of species with more than 5 detections was too low. 
@@ -388,8 +388,8 @@ Studies of the effects of hypoxia on marine organisms use a variety of lab and f
 				\textcolor{RedOrange}{\textit{Calanus pacificus}}	& Warm-water & 5  & 5 & \textcolor{BrickRed}{Negative} & \textcolor{BrickRed}{Negative}  \\
 				\bottomrule 
 			\end{tabular}
-			\label{ZOIBtab}
-			\caption[Zero-inflated beta regression results]{Trends of zero-inflated beta regressions relating dissolved oxygen concentration to eDNA index for different species of copepods. Regressions were computed using the TH042 mooring data from 2021-22, and again using LiveOcean model data from 2021-23, so both are shown. I considered trends to be significant (marked with "*" in this table) if their 95\% confidence interval showed an upward trend and did not contain zero at some DO value. See Appendix \ref{chap:appZOIB} for plotted regression results. Cold-water copepods (blue) are northern copepods, warm-water copepods (orange) are southern.}  
+			
+			\caption[Zero-inflated beta regression results]{Trends of zero-inflated beta regressions relating dissolved oxygen concentration to eDNA index for different species of copepods. Regressions were computed using the TH042 mooring data from 2021-22, and again using LiveOcean model data from 2021-23, so both are shown. I considered trends to be significant (marked with "*" in this table) if their 95\% confidence interval showed an upward trend and did not contain zero at some DO value. See Appendix \ref{chap:appZOIB} for plotted regression results. Cold-water copepods (blue) are northern copepods, warm-water copepods (orange) are southern.}  \label{ZOIBtab}
 	\end{table}
 	
 	\section{Dissolved Oxygen and Species Prevalence} 
@@ -432,8 +432,8 @@ Studies of the effects of hypoxia on marine organisms use a variety of lab and f
 			\textcolor{RedOrange}{\textit{Calanus pacificus}}	& Warm-water & -0.15  & \textcolor{ForestGreen}{0.044} & \textcolor{BrickRed}{Negative}  \\
 			\bottomrule 
 		\end{tabular}
-		\label{Resultstab}
-		\caption[Regression results]{Trends of binomial regressions relating dissolved oxygen concentration to species detections and zero-inflated beta regressions relating dissolved oxygen concentration to eDNA index for different species of copepods. Regressions were computed using LiveOcean model data from 2021-23. I considered trends to be significant (marked with "*" in this table) if their 95\% confidence interval showed an upward trend and did not contain zero at some DO value. See Appendix \ref{chap:appZOIB} for plotted regression results. Cold-water copepods (blue) are northern copepods, warm-water copepods (orange) are southern.}  
+		
+		\caption[Regression results]{Trends of binomial regressions relating dissolved oxygen concentration to species detections and zero-inflated beta regressions relating dissolved oxygen concentration to eDNA index for different species of copepods. Regressions were computed using LiveOcean model data from 2021-23. I considered trends to be significant (marked with "*" in this table) if their 95\% confidence interval showed an upward trend and did not contain zero at some DO value. See Appendix \ref{chap:appZOIB} for plotted regression results. Cold-water copepods (blue) are northern copepods, warm-water copepods (orange) are southern.}  \label{Resultstab}
 	\end{table}
 	
 	% Size 
@@ -512,12 +512,17 @@ Studies of the effects of hypoxia on marine organisms use a variety of lab and f
 
 	\begin{figure}[h]
 		\begin{center}
+			Northern: \\
 			\includegraphics[scale=0.25]{Alongiremis_ZOIB_Means_noOut}
-			\includegraphics[scale=0.25]{Cabdominalis_ZOIB_Means_noOut}
-			\includegraphics[scale=0.25]{Osimilis_ZOIB_Means_noOut}
-			\includegraphics[scale=0.25]{Paracalanus_ZOIB_Means_noOut}
 			\includegraphics[scale=0.25]{Pmimus_ZOIB_Means_noOut}
 			\includegraphics[scale=0.25]{Pnewmani_ZOIB_Means_noOut}
+			\includegraphics[scale=0.25]{Cabdominalis_ZOIB_Means_noOut}
+			\includegraphics[scale=0.25]{Pacuspes_ZOIB_Means_noOut} \\
+			Year-round: \\
+			\includegraphics[scale=0.25]{Osimilis_ZOIB_Means_noOut} \\
+			Southern: \\
+			\includegraphics[scale=0.25]{Paracalanus_ZOIB_Means_noOut}
+			\includegraphics[scale=0.25]{Cpacificus_ZOIB_Means_noOut}
 			\caption[Zero-inflated beta regression means]{\footnotesize{Zero-inflated beta regression model means, with bands showing 0.5, 0.8, and 0.95 confidence levels, using data from 2021-22 from the TH042 mooring.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
 			\label{ZOIB}
 		\end{center}
@@ -525,12 +530,17 @@ Studies of the effects of hypoxia on marine organisms use a variety of lab and f
 	
 	\begin{figure}[h]
 		\begin{center}
+			Northern: \\
 			\includegraphics[scale=0.25]{Alongiremis_ZOIB_Means_Mod_noOut}
-			\includegraphics[scale=0.25]{Cabdominalis_ZOIB_Means_Mod_noOut}
-			\includegraphics[scale=0.25]{Osimilis_ZOIB_Means_Mod_noOut}
-			\includegraphics[scale=0.25]{Paracalanus_ZOIB_Means_Mod_noOut}
 			\includegraphics[scale=0.25]{Pmimus_ZOIB_Means_Mod_noOut}
 			\includegraphics[scale=0.25]{Pnewmani_ZOIB_Means_Mod_noOut}
+			\includegraphics[scale=0.25]{Cabdominalis_ZOIB_Means_Mod_noOut}
+			\includegraphics[scale=0.25]{Pacuspes_ZOIB_Means_Mod_noOut} \\
+			Year-round: \\
+			\includegraphics[scale=0.25]{Osimilis_ZOIB_Means_Mod_noOut} \\
+			Southern: \\
+			\includegraphics[scale=0.25]{Paracalanus_ZOIB_Means_Mod_noOut}
+			\includegraphics[scale=0.25]{Cpacificus_ZOIB_Means_Mod_noOut}
 			\caption[Zero-inflated beta regression means (modeled data)]{\footnotesize{Zero-inflated beta regression model means, with bands showing 0.5, 0.8, and 0.95 confidence levels, using data from 2021-23 from the LiveOcean model.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
 			\label{ModZOIB}
 		\end{center}
@@ -571,7 +581,7 @@ Studies of the effects of hypoxia on marine organisms use a variety of lab and f
 		\begin{center}
 			%\includegraphics[scale=0.35]{Pnewmani_Scatter_noOut}
 			\includegraphics[scale=0.3]{Pnewmani_Scatter_AllYr_mod_noOut}
-			\caption[\textit{P. newmani} scatterplot]{\footnotesize{Scatterplot of dissolved oxygen (mg/L) and temperature (Celsius) for each environmental DNA sampling time, with \textit{P. newmani} detections circled in black. Color of dots represents eDNA index, a normalized measure of abundance that can compare abundance within a species. Yellow, uncircled dots represent sampling dates when \textit{P. newmani} was not detected. Plot (a) uses TH042 mooring data from 2021-22, (b) uses LiveOcean model data from 2021-23.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
+			\caption[\textit{P. newmani} scatterplot]{\footnotesize{Scatterplot of dissolved oxygen (mg/L) and temperature (Celsius) for each environmental DNA sampling time, with \textit{P. newmani} detections circled in black. Color of dots represents eDNA index, a normalized measure of abundance that can compare abundance within a species. Yellow, uncircled dots represent sampling dates when \textit{P. newmani} was not detected. This plot uses LiveOcean model data from 2021-23.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
 			\label{PnewmaniScatter}
 		\end{center}
 	\end{figure} 
