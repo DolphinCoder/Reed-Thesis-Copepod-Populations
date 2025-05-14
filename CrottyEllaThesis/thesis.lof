@@ -2,7 +2,8 @@
 \contentsline {figure}{\numberline {2}{\ignorespaces Upwelling}}{3}{}%
 \contentsline {figure}{\numberline {3}{\ignorespaces Map of OCNMS}}{4}{}%
 \contentsline {figure}{\numberline {4}{\ignorespaces Life cycle of copepods}}{7}{}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Map of oceanographic moorings in OCNMS}}{10}{}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Automated eDNA Sampler}}{11}{}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Map of oceanographic moorings in OCNMS}}{11}{}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Methods}}{14}{}%
 \contentsline {figure}{\numberline {1.2}{\ignorespaces Mooring vs. Model Time Series}}{15}{}%
@@ -15,15 +16,15 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {B.1}{\ignorespaces Zero-inflated beta regression means}}{32}{}%
-\contentsline {figure}{\numberline {B.2}{\ignorespaces Zero-inflated beta regression means (modeled data)}}{33}{}%
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Zero-inflated beta regression means}}{34}{}%
+\contentsline {figure}{\numberline {B.2}{\ignorespaces Zero-inflated beta regression means (modeled data)}}{35}{}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {C.1}{\ignorespaces \textit {O. similis} scatterplot}}{35}{}%
-\contentsline {figure}{\numberline {C.2}{\ignorespaces \textit {A. longiremis} scatterplot}}{36}{}%
-\contentsline {figure}{\numberline {C.3}{\ignorespaces \textit {P. mimus} scatterplot}}{36}{}%
-\contentsline {figure}{\numberline {C.4}{\ignorespaces \textit {P. newmani} scatterplot}}{37}{}%
-\contentsline {figure}{\numberline {C.5}{\ignorespaces \textit {C. abdominalis} scatterplot}}{37}{}%
-\contentsline {figure}{\numberline {C.6}{\ignorespaces \textit {P. acuspes} scatterplot}}{38}{}%
-\contentsline {figure}{\numberline {C.7}{\ignorespaces \textit {C. pacificus} scatterplot}}{38}{}%
-\contentsline {figure}{\numberline {C.8}{\ignorespaces \textit {Paracalanus} sp. C AC-2013 scatterplot}}{39}{}%
-\contentsline {figure}{\numberline {C.9}{\ignorespaces \textit {Paracalanus} sp. C AC-2013 density plot (Mooring data)}}{39}{}%
+\contentsline {figure}{\numberline {C.1}{\ignorespaces \textit {O. similis} scatterplot}}{37}{}%
+\contentsline {figure}{\numberline {C.2}{\ignorespaces \textit {A. longiremis} scatterplot}}{38}{}%
+\contentsline {figure}{\numberline {C.3}{\ignorespaces \textit {P. mimus} scatterplot}}{38}{}%
+\contentsline {figure}{\numberline {C.4}{\ignorespaces \textit {P. newmani} scatterplot}}{39}{}%
+\contentsline {figure}{\numberline {C.5}{\ignorespaces \textit {C. abdominalis} scatterplot}}{39}{}%
+\contentsline {figure}{\numberline {C.6}{\ignorespaces \textit {P. acuspes} scatterplot}}{40}{}%
+\contentsline {figure}{\numberline {C.7}{\ignorespaces \textit {C. pacificus} scatterplot}}{40}{}%
+\contentsline {figure}{\numberline {C.8}{\ignorespaces \textit {Paracalanus} sp. C AC-2013 scatterplot}}{41}{}%
+\contentsline {figure}{\numberline {C.9}{\ignorespaces \textit {Paracalanus} sp. C AC-2013 density plot (Mooring data)}}{41}{}%

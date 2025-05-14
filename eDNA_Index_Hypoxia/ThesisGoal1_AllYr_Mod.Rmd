@@ -52,7 +52,7 @@ eDNAxEnvDataSat <- read_csv(here("PMEL-Data", "eDNAxEnvDataSat_copy.csv"))
 # Rounding
 EnvRd <- envData_pre %>% 
   mutate(DateMatch = round_date(date, unit = "10 minutes"), # Round to the nearest 10 minutes
-         DateMatch_hr = round_date(date, unit = "hour")) # Round to the nearest hour to combine with the model
+         DateMatch_hr = round_date(date, unit = "hour"))   # Round to the nearest hour to combine with the model
 
 envData <- full_join(EnvRd, model_37m, by = join_by(DateMatch_hr)) %>% # need this for the graphing function
   mutate(DO = Oxygen_mg_L,
@@ -554,6 +554,8 @@ for (i in 1:length(dfsplit)) { # For each species:
         geom_hline(yintercept = 2.66, linetype = 2, 
                    color = "forestgreen", linewidth = 1) + # sublethal effects
         theme_bw() +
+        xlim(c(6.75, 9)) +
+        ylim(c(0, 5)) +
         theme(text = element_text(size = 25), 
               axis.text = element_text(size = 30, color = "black"), 
               plot.title = element_text(size = 17),
@@ -609,6 +611,8 @@ for (i in 1:length(dfsplit)) { # For each species:
         geom_hline(yintercept = 2.66, linetype = 2, 
                    color = "forestgreen", linewidth = 1) + # sublethal effects
         theme_bw() +
+        scale_x_continuous(limits = c(6, 13)) +
+        scale_y_continuous(limits = c(0, 9)) +
         theme(text = element_text(size = 25), 
               axis.text = element_text(size = 30, color = "black"), 
               plot.title = element_text(size = 17),

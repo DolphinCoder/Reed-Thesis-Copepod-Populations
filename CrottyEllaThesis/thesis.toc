@@ -17,9 +17,9 @@
 \contentsline {section}{\numberline {2.2}Dissolved Oxygen and Species Prevalence}{21}{}%
 \contentsline {section}{\numberline {2.3}Temperature}{22}{}%
 \contentsline {chapter}{Chapter 3: Discussion}{27}{}%
-\contentsline {chapter}{Appendix A: Software and Data Availability}{29}{}%
-\contentsline {section}{\numberline {A.1}Data Availability Statement}{29}{}%
-\contentsline {section}{\numberline {A.2}R Packages Used}{29}{}%
-\contentsline {chapter}{Appendix B: Zero-Inflated Beta Regression Plots}{31}{}%
-\contentsline {chapter}{Appendix C: Additional Plots of Dissolved Oxygen vs. Temperature vs. eDNA Index}{35}{}%
-\contentsline {chapter}{Works Cited}{41}{}%
+\contentsline {chapter}{Appendix A: Software and Data Availability}{31}{}%
+\contentsline {section}{\numberline {A.1}Data Availability Statement}{31}{}%
+\contentsline {section}{\numberline {A.2}R Packages Used}{31}{}%
+\contentsline {chapter}{Appendix B: Zero-Inflated Beta Regression Plots}{33}{}%
+\contentsline {chapter}{Appendix C: Additional Plots of Dissolved Oxygen vs. Temperature vs. eDNA Index}{37}{}%
+\contentsline {chapter}{Works Cited}{43}{}%
